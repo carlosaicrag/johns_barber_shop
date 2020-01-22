@@ -12,7 +12,7 @@ export const App = () => (
     <HeaderContainer />
     <Switch>
       <AuthRoute exact path="/login" component={LogInFormContainer} />
-      <AuthRoute exact path="/signup" component={SignUpFormContainer} />
+      {/* <AuthRoute exact path="/signup" component={SignUpFormContainer} /> */}
       <AuthRoute exact path="/forgot-password" component={ForgotPasswordFormContainer} />
       <Route exact path="/queue" component={BarberQueue} />
       <Route exact path="/" component={LogInFormContainer} />

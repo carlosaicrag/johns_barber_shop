@@ -122,7 +122,7 @@ export class SessionForm extends React.Component {
 
             <div>
               <br />
-              {this.renderUsernameInput()}
+              {/* {this.renderUsernameInput()} */}
               <br />
 
               <label className="session__input-container">
@@ -153,16 +153,16 @@ export class SessionForm extends React.Component {
             </div>
           </form>
 
-          <div className="session__or-container">
-            <hr className="session__or-hr--left" />
-            OR
-            <hr className="session__or-hr--right" />
-          </div>
+          {/* <div className="session__or-container"> */}
+            {/* <hr className="session__or-hr--left" /> */}
+            {/* OR */}
+            {/* <hr className="session__or-hr--right" /> */}
+          {/* </div> */}
           {/* ^^^ source: https://stackoverflow.com/a/2812819/7974948 */}
           <br />
 
           <div>
-            {this.props.navLink}
+            {/* {this.props.navLink} */}
           </div>
         </div>
       </div>
