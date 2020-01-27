@@ -12,6 +12,12 @@ class User < ApplicationRecord
 
   attr_reader :password
 
+  has_many :chairs,
+    foreign_key: :barber_id,
+    class_name: :Chair
+              
+            
+
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email.downcase)
     return nil unless user && user.valid_password?(password)

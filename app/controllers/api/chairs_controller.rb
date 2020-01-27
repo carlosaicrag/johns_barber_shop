@@ -1,6 +1,6 @@
 class Api::ChairsController < ApplicationController
   def index
-    @chairs = Chair.all
+    @chairs = Chair.all.includes(:barber)
     render :index
   end
 
