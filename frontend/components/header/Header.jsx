@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Header = ({ currentUser, logout }) => {
   const sessionLinks = () => (
     <nav>
-      <Link to="/signup" className="header__btn--register">Register</Link>
+      {/* <Link to="/signup" className="header__btn--register">Register</Link> */}
       <Link to="/login" className="header__btn--login">Login</Link>
     </nav>
   );
@@ -20,9 +20,10 @@ const Header = ({ currentUser, logout }) => {
   );
 
   return (
-    <header>
+    <header id="header-container">
       <Link to="/" className="logo"> John's Barber Shop </Link>
       { currentUser ? personalGreeting() : sessionLinks() }
+      <img className="drop-down"src="/haircut.png" alt="dropDown"/>
     </header>
   )
 };
