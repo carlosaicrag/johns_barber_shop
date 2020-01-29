@@ -10,7 +10,7 @@ const msp = function(store){
         chairs = Object.values(store.entities.chairs)
         barbers = Object.values(store.entities.chairs)
     }
-
+    debugger
     return({
         chairs: chairs,
         barbers: barbers    

@@ -11,12 +11,20 @@ class Queues extends React.Component{
     }
 
     render(){
-        if(!this.props.queue){
+        if(!this.props.chairs){
             return null;
         }
+
+        let chairIcons = []
+
+        for(let i = 0; i < 5; i++){
+            chairIcons.push(<img src="/barber-chair.png" alt="barber-chair" />)
+        }
+
+        debugger
         return(
             <div className="chairs-container">
-                this is the splash page
+                {chairIcons}
             </div>
         )
     }
