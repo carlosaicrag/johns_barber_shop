@@ -1,5 +1,5 @@
 import React from "react"
-
+import Chair from './chair'
 
 class Queues extends React.Component{
     constructor(props){
@@ -11,17 +11,23 @@ class Queues extends React.Component{
     }
 
     render(){
+
         if(!this.props.chairs){
             return null;
         }
-
-        let chairIcons = []
-
-        for(let i = 0; i < 5; i++){
-            chairIcons.push(<img src="/barber-chair.png" alt="barber-chair" />)
-        }
-
+        let that = this
         debugger
+        let chairIcons = this.props.chairs.map((chair,idx) => {
+            let barberId = chair.barber_id
+
+            return(
+                <Chair
+                key={idx}
+                barber = {this.props.barbers[barberId]}
+                />
+            )
+        })
+
         return(
             <div className="chairs-container">
                 {chairIcons}
