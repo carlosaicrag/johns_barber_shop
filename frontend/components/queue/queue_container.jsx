@@ -5,7 +5,7 @@ import {getChairs} from "../../actions/splash_actions"
 const msp = function(store){
     let chairs = ""
     let barbers = ""
-    debugger
+    
     if(store.entities.chairs){
         chairs = Object.values(store.entities.chairs)
         barbers = store.entities.users

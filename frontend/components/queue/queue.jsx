@@ -15,8 +15,6 @@ class Queues extends React.Component{
         if(!this.props.chairs){
             return null;
         }
-        let that = this
-        debugger
         let chairIcons = this.props.chairs.map((chair,idx) => {
             let barberId = chair.barber_id
 
