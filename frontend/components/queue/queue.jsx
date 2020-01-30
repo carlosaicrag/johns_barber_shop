@@ -27,6 +27,7 @@ class Queues extends React.Component{
         })
 
         return(
+            
             <div className="chairs-container">
                 {chairIcons}
             </div>
