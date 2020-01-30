@@ -21,7 +21,7 @@ const Header = ({ currentUser, logout }) => {
 
   return (
     <header id="header-container">
-      <Link to="/" className="logo"> John's Barber Shop </Link>
+      <Link to="/queue" className="logo"> John's Barber Shop </Link>
       { currentUser ? personalGreeting() : sessionLinks() }
       <img className="drop-down"src="/haircut.png" alt="dropDown"/>
     </header>

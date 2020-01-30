@@ -1,4 +1,5 @@
 import { RECEIVE_CURRENT_USER } from "../../actions/session_actions";
+import {RECEIVE_CHAIRS} from "../../actions/splash_actions"
 
 const usersReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
@@ -10,6 +11,8 @@ const usersReducer = (oldState = {}, action) => {
         [action.currentUser.id]: action.currentUser
       });
       return nextState;
+    case RECEIVE_CHAIRS:
+      return action.barbers
     default:
       return oldState;
   }
