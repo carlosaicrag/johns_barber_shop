@@ -6,7 +6,7 @@ class Api::ChairsController < ApplicationController
 
   def show
     @chair = Chair.find_by(id: params[:id])
-    render :index
+    render :show
   end
 
   def edit
