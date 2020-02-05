@@ -6,7 +6,7 @@ class ChooseHaircut extends React.Component{
     }
 
     componentDidMount(){
-        
+        this.props.fetchHaircuts()
     }
 
     render(){

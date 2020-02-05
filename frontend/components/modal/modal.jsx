@@ -1,7 +1,7 @@
 import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
-import ChooseHaircut from "../choose_haircut/choose_haircut"
+import ChooseHaircutContainer from "../choose_haircut/choose_haircut_container"
 
 
 function Modal({ modal, closeModal}) {
@@ -12,7 +12,7 @@ function Modal({ modal, closeModal}) {
     let component;
     switch (modal) {
         case 'OPEN_MODAL':
-            component = <ChooseHaircut />
+            component = <ChooseHaircutContainer />
             break;
         default:
             return null;
