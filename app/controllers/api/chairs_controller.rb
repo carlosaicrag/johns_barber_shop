@@ -6,6 +6,10 @@ class Api::ChairsController < ApplicationController
 
   def show
     @chair = Chair.find_by(id: params[:id])
+<<<<<<< HEAD
+=======
+    render :show
+>>>>>>> master
   end
 
   def edit

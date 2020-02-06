@@ -1,5 +1,9 @@
 current directory: /Users/linakherchi/Desktop/johns_barber_shop/vendor/cache/ruby/2.5.0/gems/nio4r-2.5.2/ext/nio4r
+<<<<<<< HEAD
 /Users/linakherchi/.rbenv/versions/2.5.1/bin/ruby -I /Users/linakherchi/.rbenv/versions/2.5.1/lib/ruby/site_ruby/2.5.0 -r ./siteconf20200129-61458-mht589.rb extconf.rb
+=======
+/Users/linakherchi/.rbenv/versions/2.5.1/bin/ruby -I /Users/linakherchi/.rbenv/versions/2.5.1/lib/ruby/site_ruby/2.5.0 -r ./siteconf20200206-41986-1ocgbjo.rb extconf.rb
+>>>>>>> master
 checking for unistd.h... yes
 checking for linux/aio_abi.h... no
 checking for sys/select.h... yes
@@ -253,4 +257,8 @@ linking shared-object nio4r_ext.bundle
 
 current directory: /Users/linakherchi/Desktop/johns_barber_shop/vendor/cache/ruby/2.5.0/gems/nio4r-2.5.2/ext/nio4r
 make "DESTDIR=" install
+<<<<<<< HEAD
 /usr/bin/install -c -m 0755 nio4r_ext.bundle ./.gem.20200129-61458-1n3ff37
+=======
+/usr/bin/install -c -m 0755 nio4r_ext.bundle ./.gem.20200206-41986-xbkpg1
+>>>>>>> master

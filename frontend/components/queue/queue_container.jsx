@@ -1,6 +1,7 @@
 import {connect} from "react-redux"
 import Queues from "./queue"
 import {getChairs} from "../../actions/splash_actions"
+import {openModal} from "../../actions/modal_actions"
 
 const msp = function(store){
     let chairs = ""
@@ -18,7 +19,8 @@ const msp = function(store){
 
 const mdp = function(dispatch){
     return({
-        getChairs: () => dispatch(getChairs())
+        getChairs: () => dispatch(getChairs()),
+        openModal: () => dispatch(openModal())
     })
 }
 

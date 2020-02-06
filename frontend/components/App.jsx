@@ -1,4 +1,5 @@
 import React from 'react';
+import Modal from "./modal/modal"
 import { AuthRoute } from '../util/route_util';
 import { Switch, Route } from 'react-router-dom';
 import HeaderContainer from './header/header_container';
@@ -11,6 +12,8 @@ import Queue from "./queue/queue_container"
 
 export const App = () => (
   <div>
+    <Modal />
+    
     <HeaderContainer />
     <Switch>
       <AuthRoute exact path="/login" component={LogInFormContainer} />

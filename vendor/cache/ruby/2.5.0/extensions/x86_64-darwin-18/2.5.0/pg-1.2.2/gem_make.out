@@ -1,5 +1,9 @@
 current directory: /Users/linakherchi/Desktop/johns_barber_shop/vendor/cache/ruby/2.5.0/gems/pg-1.2.2/ext
+<<<<<<< HEAD
 /Users/linakherchi/.rbenv/versions/2.5.1/bin/ruby -I /Users/linakherchi/.rbenv/versions/2.5.1/lib/ruby/site_ruby/2.5.0 -r ./siteconf20200129-61458-7pdo8g.rb extconf.rb
+=======
+/Users/linakherchi/.rbenv/versions/2.5.1/bin/ruby -I /Users/linakherchi/.rbenv/versions/2.5.1/lib/ruby/site_ruby/2.5.0 -r ./siteconf20200206-41986-942f6n.rb extconf.rb
+>>>>>>> master
 checking for pg_config... yes
 Using config values from /usr/local/bin/pg_config
 checking for libpq-fe.h... yes
@@ -50,4 +54,8 @@ linking shared-object pg_ext.bundle
 
 current directory: /Users/linakherchi/Desktop/johns_barber_shop/vendor/cache/ruby/2.5.0/gems/pg-1.2.2/ext
 make "DESTDIR=" install
+<<<<<<< HEAD
 /usr/bin/install -c -m 0755 pg_ext.bundle ./.gem.20200129-61458-18edu6z
+=======
+/usr/bin/install -c -m 0755 pg_ext.bundle ./.gem.20200206-41986-1qc4e0q
+>>>>>>> master

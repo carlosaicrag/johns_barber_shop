@@ -1,5 +1,9 @@
 current directory: /Users/linakherchi/Desktop/johns_barber_shop/vendor/cache/ruby/2.5.0/gems/bcrypt-3.1.13/ext/mri
+<<<<<<< HEAD
 /Users/linakherchi/.rbenv/versions/2.5.1/bin/ruby -I /Users/linakherchi/.rbenv/versions/2.5.1/lib/ruby/site_ruby/2.5.0 -r ./siteconf20200129-61458-1xnkw5t.rb extconf.rb
+=======
+/Users/linakherchi/.rbenv/versions/2.5.1/bin/ruby -I /Users/linakherchi/.rbenv/versions/2.5.1/lib/ruby/site_ruby/2.5.0 -r ./siteconf20200206-41986-m325ai.rb extconf.rb
+>>>>>>> master
 creating Makefile
 
 current directory: /Users/linakherchi/Desktop/johns_barber_shop/vendor/cache/ruby/2.5.0/gems/bcrypt-3.1.13/ext/mri
@@ -16,4 +20,8 @@ linking shared-object bcrypt_ext.bundle
 
 current directory: /Users/linakherchi/Desktop/johns_barber_shop/vendor/cache/ruby/2.5.0/gems/bcrypt-3.1.13/ext/mri
 make "DESTDIR=" install
+<<<<<<< HEAD
 /usr/bin/install -c -m 0755 bcrypt_ext.bundle ./.gem.20200129-61458-17y1nb4
+=======
+/usr/bin/install -c -m 0755 bcrypt_ext.bundle ./.gem.20200206-41986-xuajsh
+>>>>>>> master

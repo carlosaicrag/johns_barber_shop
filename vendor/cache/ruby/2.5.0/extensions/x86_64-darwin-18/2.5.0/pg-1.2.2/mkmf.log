@@ -333,7 +333,11 @@ checked program was:
 "clang -o conftest -I/Users/linakherchi/.rbenv/versions/2.5.1/include/ruby-2.5.0/x86_64-darwin18 -I/Users/linakherchi/.rbenv/versions/2.5.1/include/ruby-2.5.0/ruby/backward -I/Users/linakherchi/.rbenv/versions/2.5.1/include/ruby-2.5.0 -I. -I/usr/local/Cellar/postgresql/11.5_1/include -I/Users/linakherchi/.rbenv/versions/2.5.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -fno-common -pipe conftest.c  -L. -L/Users/linakherchi/.rbenv/versions/2.5.1/lib -L/usr/local/lib -L. -L/Users/linakherchi/.rbenv/versions/2.5.1/lib  -fstack-protector -L/usr/local/lib -Wl,-rpath,/usr/local/lib    -lpq  -lruby.2.5.1 -lpq  -lpthread -ldl -lobjc "
 Undefined symbols for architecture x86_64:
   "_PQresultMemorySize", referenced from:
+<<<<<<< HEAD
       _t in conftest-bf3582.o
+=======
+      _t in conftest-32d632.o
+>>>>>>> master
 ld: symbol(s) not found for architecture x86_64
 clang: error: linker command failed with exit code 1 (use -v to see invocation)
 checked program was:

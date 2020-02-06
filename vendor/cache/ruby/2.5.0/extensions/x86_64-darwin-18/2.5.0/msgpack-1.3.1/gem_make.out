@@ -1,5 +1,9 @@
 current directory: /Users/linakherchi/Desktop/johns_barber_shop/vendor/cache/ruby/2.5.0/gems/msgpack-1.3.1/ext/msgpack
+<<<<<<< HEAD
 /Users/linakherchi/.rbenv/versions/2.5.1/bin/ruby -I /Users/linakherchi/.rbenv/versions/2.5.1/lib/ruby/site_ruby/2.5.0 -r ./siteconf20200129-61458-ln9s3s.rb extconf.rb
+=======
+/Users/linakherchi/.rbenv/versions/2.5.1/bin/ruby -I /Users/linakherchi/.rbenv/versions/2.5.1/lib/ruby/site_ruby/2.5.0 -r ./siteconf20200206-41986-272oxe.rb extconf.rb
+>>>>>>> master
 checking for ruby/st.h... yes
 checking for st.h... yes
 checking for rb_str_replace() in ruby.h... yes
@@ -36,4 +40,8 @@ linking shared-object msgpack/msgpack.bundle
 
 current directory: /Users/linakherchi/Desktop/johns_barber_shop/vendor/cache/ruby/2.5.0/gems/msgpack-1.3.1/ext/msgpack
 make "DESTDIR=" install
+<<<<<<< HEAD
 /usr/bin/install -c -m 0755 msgpack.bundle ./.gem.20200129-61458-koh5ow/msgpack
+=======
+/usr/bin/install -c -m 0755 msgpack.bundle ./.gem.20200206-41986-1q5acr/msgpack
+>>>>>>> master
