@@ -19,7 +19,7 @@ class Queues extends React.Component{
             let barberId = chair.barber_id
 
             return(
-                <Chair
+               <Chair
                 key={idx}
                 barber = {this.props.barbers[barberId]}
                 />

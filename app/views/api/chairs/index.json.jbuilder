@@ -1,5 +1,3 @@
-
-
 json.chairs do 
     @chairs.each do |chair|
         json.set! chair.id do 

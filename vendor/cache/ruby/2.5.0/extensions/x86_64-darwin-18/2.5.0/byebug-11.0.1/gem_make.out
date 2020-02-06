@@ -1,0 +1,19 @@
+current directory: /Users/linakherchi/Desktop/johns_barber_shop/vendor/cache/ruby/2.5.0/gems/byebug-11.0.1/ext/byebug
+/Users/linakherchi/.rbenv/versions/2.5.1/bin/ruby -I /Users/linakherchi/.rbenv/versions/2.5.1/lib/ruby/site_ruby/2.5.0 -r ./siteconf20200129-61458-1jwsmt9.rb extconf.rb
+creating Makefile
+
+current directory: /Users/linakherchi/Desktop/johns_barber_shop/vendor/cache/ruby/2.5.0/gems/byebug-11.0.1/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /Users/linakherchi/Desktop/johns_barber_shop/vendor/cache/ruby/2.5.0/gems/byebug-11.0.1/ext/byebug
+make "DESTDIR="
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.bundle
+
+current directory: /Users/linakherchi/Desktop/johns_barber_shop/vendor/cache/ruby/2.5.0/gems/byebug-11.0.1/ext/byebug
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 byebug.bundle ./.gem.20200129-61458-1y3p0yr/byebug

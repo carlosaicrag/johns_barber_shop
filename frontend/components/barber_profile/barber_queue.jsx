@@ -7,7 +7,6 @@ class BarberQueue extends React.Component{
     }
 
     render(){
-        debugger
         return(
             <div>
                 <h1>Queue</h1>

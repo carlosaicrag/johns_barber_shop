@@ -6,9 +6,13 @@ class Api::ChairsController < ApplicationController
 
   def show
     @chair = Chair.find_by(id: params[:id])
-    render :index
   end
 
   def edit
+  end
+
+  private
+  def chair_params
+    params.require(:chair).permit(:barber_id, :chair_name)
   end
 end
