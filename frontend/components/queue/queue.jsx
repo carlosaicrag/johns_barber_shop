@@ -32,11 +32,17 @@ class Queues extends React.Component{
         })
 
         return(
-            
-            <div className="chairs-container">
-                {chairIcons}
-                <button onClick ={this.openChooseHaircutModal}>New haircut</button>
+            <div>
+                <div className="new-haircut-button" onClick ={this.openChooseHaircutModal}>
+                    <div>
+                        New haircut
+                    </div>
+                </div>
+                <div className="chairs-container">
+                    {chairIcons}
+                </div>
             </div>
+
         )
     }
 }

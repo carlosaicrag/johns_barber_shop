@@ -14,7 +14,7 @@ class ChooseHaircut extends React.Component{
 
         let haircutImages = this.props.haircuts.map((haircut) => {
             return(
-                <img src={haircut.path} alt="{haircut.haircut_name}"/>
+                <img className="" src={haircut.path} alt="{haircut.haircut_name}"/>
             )
         })
 

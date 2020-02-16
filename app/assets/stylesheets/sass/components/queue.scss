@@ -5,10 +5,61 @@
     display: flex;
     justify-content: space-around;
     margin-top: 30px;
+    font-size: medium;
+
+    .chair-container{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
 
     img{
         padding:20px;
         height:100px;
         width: 100px;
+    }
+
+    
+}
+
+@media screen and (max-width: 463px){
+
+    .chairs-container{
+        width: 100%;
+        height: 100%;
+        background: white;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 30px;
+        overflow-x: auto;
+        font-size: small;
+
+        .chair-container{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        img{
+            padding:20px;
+            height:65px;
+            width: 65px;
+        }
+    }
+}
+
+.new-haircut-button{
+    border: 1px solid grey;
+    border-radius: 7px;
+    color: white;
+    background-color: red;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    div{    
+
     }
 }
