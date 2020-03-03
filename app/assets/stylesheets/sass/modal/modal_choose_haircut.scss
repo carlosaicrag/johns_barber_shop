@@ -1,0 +1,40 @@
+.modal-background {
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(246, 246, 246, .97);
+    z-index: 10;
+}
+
+.cover{
+    background-color: white;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    overflow-wrap: normal;
+    flex-direction: column;
+    align-items: center;
+
+    .w3-container{
+        display:flex;
+        flex-wrap: wrap;
+        overflow-y: auto;
+        padding: 20px 20px;
+        justify-content: center;
+    }
+}
+
+.w3-card{
+    width:100px;
+    height:110px;
+    padding: 20px;
+
+}
+
+
+

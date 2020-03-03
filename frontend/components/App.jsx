@@ -8,6 +8,7 @@ import LogInFormContainer from './auth/login_form_container';
 import ForgotPasswordFormContainer from './auth/forgot_password_form_container';
 // import BarberQueue from "../components/barber_profile/barber_queue";
 import Queue from "./queue/queue_container"
+import ChooseHaircut from "./choose_haircut/choose_haircut_container"
 
 
 export const App = () => (
@@ -20,7 +21,8 @@ export const App = () => (
       {/* <AuthRoute exact path="/signup" component={SignUpFormContainer} /> */}
       <AuthRoute exact path="/forgot-password" component={ForgotPasswordFormContainer} />
       {/* <Route exact path="/queue" component={BarberQueue} /> */}
-      <Route exact path="/queue" component={Queue}/>
+      <Route exact path="/queue" component={Queue} />
+      <Route exact path="/chooseHaircut" component={ChooseHaircut}/>
       <Route exact path="/" component={LogInFormContainer} />
     </Switch>
   </div>

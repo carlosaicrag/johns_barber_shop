@@ -1,5 +1,6 @@
 import { RECEIVE_CURRENT_USER } from "../../actions/session_actions";
 import {RECEIVE_CHAIRS} from "../../actions/splash_actions"
+import {RECEIVE_HAIRCUTS} from "../../actions/choose_haircut_actions"
 
 const usersReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
@@ -11,6 +12,8 @@ const usersReducer = (oldState = {}, action) => {
         [action.currentUser.id]: action.currentUser
       });
       return nextState;
+    case RECEIVE_HAIRCUTS:
+      return action.barbers
     case RECEIVE_CHAIRS:
       return action.barbers
     default:

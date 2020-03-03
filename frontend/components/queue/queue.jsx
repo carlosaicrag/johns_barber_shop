@@ -12,7 +12,7 @@ class Queues extends React.Component{
     }
 
     openChooseHaircutModal(){
-        this.props.openModal()
+        this.props.history.push("chooseHaircut")
     }
 
     render(){
@@ -41,6 +41,7 @@ class Queues extends React.Component{
                 <div className="chairs-container">
                     {chairIcons}
                 </div>
+                
             </div>
 
         )

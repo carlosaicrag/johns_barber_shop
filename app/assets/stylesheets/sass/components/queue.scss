@@ -15,7 +15,7 @@
     }
 
     img{
-        padding:20px;
+        padding:10px;
         height:100px;
         width: 100px;
     }
@@ -43,7 +43,7 @@
         }
 
         img{
-            padding:20px;
+            padding:10px;
             height:65px;
             width: 65px;
         }
@@ -52,14 +52,10 @@
 
 .new-haircut-button{
     border: 1px solid grey;
-    border-radius: 7px;
     color: white;
     background-color: red;
     height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    div{    
-
-    }
 }

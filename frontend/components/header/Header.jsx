@@ -43,7 +43,7 @@ class Header extends React.Component{
 
 
     return (
-      <header className ="w3-container" id="header-container">
+      <header id="header-container">
         <Link to="/queue" className="logo"> John's Barber Shop </Link>
         <div className="session-button-dropdown-container w3-container">
           <div className="w3-dropdown-hover">
