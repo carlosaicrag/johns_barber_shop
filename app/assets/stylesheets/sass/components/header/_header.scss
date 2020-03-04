@@ -2,8 +2,6 @@ header {
   display: flex;
   justify-content: space-around;
   align-items: center; 
-  height: 10vh;
-  border-bottom: 1px solid grey;
   background-color:white;
 }
 
@@ -16,15 +14,15 @@ header {
   align-items: center;
 }
 
-.dropdown-container{
+.drop-down-container{
   width: 50px;
   height: 50px;
   display: relative;
 }
 
-.drop-down-burger{
-  width: 70px;
-  height: 50px;
+.drop-down-icon{
+  width: 30px;
+  height: auto;
   background-color: white;
 }
 
@@ -43,8 +41,15 @@ header {
 .logo {
   font-size: calc(40px + .5vw);
   text-decoration: none; 
-  color: black;
-  font-family: 'Khula', sans-serif;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.nav-buttons-container{
+  display: flex;
+  font-family: 'Cormorant Garamond', serif;
+  width: 400px;
+  justify-content: space-between;
+  font-size: 20px;
 }
 
 .header__right-container {
@@ -76,10 +81,25 @@ header {
   .logo {
     font-size: calc(28px + 1vw);
   }
+  .nav-buttons-container{
+    font-size: 20px;
+  }
 }
 
 @media screen and (max-width: 463px){
   .logo{
     font-size: large;
   }
+
+  .nav-buttons-container{
+    width: 250px;
+    font-size: 12px;
+  }
+}
+
+#header-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px 0 50px;
+    flex-direction: column;
 }

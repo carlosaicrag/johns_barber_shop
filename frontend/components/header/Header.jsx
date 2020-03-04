@@ -7,7 +7,6 @@ class Header extends React.Component{
     // logout
     super(props)
 
-    this.state = {dropDown: false};
     this.personalGreeting = this.personalGreeting.bind(this);
     this.sessionLinks = this.sessionLinks.bind(this);
     this.dropDown = this.dropDown.bind(this)
@@ -41,24 +40,27 @@ class Header extends React.Component{
 
   render(){
 
+    let headerOptions = <div className="nav-buttons-container">
+      <div>
+        <div>about</div>
+      </div>
+      <div>
+        <div>barber login</div>
+      </div>
+      <div>
+        <div>barber signup</div>
+      </div>
+      <div>
+        <div>testimonials</div>
+      </div>
+    </div>
 
     return (
       <header id="header-container">
         <Link to="/queue" className="logo"> John's Barber Shop </Link>
-        <div className="session-button-dropdown-container w3-container">
-          <div className="w3-dropdown-hover">
-            <img onClick={this.dropDown} className="w3-button drop-down-burger" src="/haircut.png" alt="dropDown"/> 
-            <div className="w3-dropdown-content w3-bar-block w3-card-4">
-              {<Link className="w3-bar-item w3-button" to="/login">Login</Link>}
-              <a href="#" className="w3-bar-item w3-button">Link 1</a>
-              <a href="#" className="w3-bar-item w3-button">Link 2</a>
-              <a href="#" className="w3-bar-item w3-button">Link 3</a>
-            </div>
-          </div>
-
-
+        <div>
+          {headerOptions}
         </div>
-  
       </header>
     )
   }

@@ -4,7 +4,7 @@
     background: white;
     display: flex;
     justify-content: space-around;
-    margin-top: 30px;
+    margin-top: 10px;
     font-size: medium;
 
     .chair-container{
@@ -12,6 +12,13 @@
         justify-content: center;
         flex-direction: column;
         align-items: center;
+
+        .chair-container-barber-name{
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            width: 100px;
+            text-align: center;
+        }
     }
 
     img{
@@ -31,7 +38,7 @@
         background: white;
         display: flex;
         justify-content: space-around;
-        margin-top: 30px;
+        margin-top: 5px;
         overflow-x: auto;
         font-size: small;
 
@@ -40,6 +47,13 @@
             justify-content: center;
             flex-direction: column;
             align-items: center;
+
+            .chair-container-barber-name{
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 12px;
+                width: 60px;
+                text-align: center;
+            }
         }
 
         img{
@@ -50,12 +64,3 @@
     }
 }
 
-.new-haircut-button{
-    border: 1px solid grey;
-    color: white;
-    background-color: red;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
