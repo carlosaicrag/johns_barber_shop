@@ -15,9 +15,14 @@ header {
 }
 
 .drop-down-container{
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   display: relative;
+
+  img{
+    height: 45px;
+    width: auto;
+  }
 }
 
 .drop-down-icon{
@@ -35,7 +40,8 @@ header {
 
 .drop-down-on{
   position: absolute;
-  background-color: yellow;
+  background-color: rgb(201, 201, 201);
+  right: 15px;
 }
 
 .logo {
@@ -88,7 +94,7 @@ header {
 
 @media screen and (max-width: 463px){
   .logo{
-    font-size: large;
+    font-size: 30px;
   }
 
   .nav-buttons-container{
@@ -100,6 +106,6 @@ header {
 #header-container{
     display: flex;
     justify-content: space-between;
-    padding: 0 50px 0 50px;
-    flex-direction: column;
+    padding: 0 20px 0 20px;
+    height: 80px;
 }

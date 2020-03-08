@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-key */
+/* eslint-disable react/prop-types */
 import React from "react"
 
 class ChooseHaircut extends React.Component{
@@ -54,6 +56,22 @@ class ChooseHaircut extends React.Component{
 
         return(
             <div className="w3-container cover">
+
+                <div className="choose-haircut-form-option">
+                    <i class="fas fa-plus"></i>
+                    Choose Haircut
+                </div>
+
+                <div className="choose-haircut-form-option">
+                    <i class="fas fa-plus"></i>
+                    Choose Barber
+                </div>
+
+                <div className="choose-haircut-form-option">
+                    <i class="fas fa-plus"></i>
+                    Information
+                </div>
+
                 <h3>Choose Haircut</h3>
                 <div className="w3-container">
                     {haircutImages}

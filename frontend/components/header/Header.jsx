@@ -6,10 +6,11 @@ class Header extends React.Component{
     // currentUser 
     // logout
     super(props)
-
+    this.state = {dropDown: false,mobile:false};
     this.personalGreeting = this.personalGreeting.bind(this);
     this.sessionLinks = this.sessionLinks.bind(this);
-    this.dropDown = this.dropDown.bind(this)
+    this.dropDown = this.dropDown.bind(this);
+    this.flipDropDownSwitch = this.flipDropDownSwitch.bind(this);
   }
 
   sessionLinks(){
@@ -34,13 +35,44 @@ class Header extends React.Component{
     )
   }
 
+  componentDidMount(){
+    let that = this;
+
+    window.addEventListener("resize",() =>{
+      if(window.screen.width < 700){
+        that.setState({mobile: true})
+      }else{
+        that.setState({mobile: false})
+      }
+    })
+  }
+
   dropDown(e){
     this.state.dropDown ? this.setState({dropDown: false}): this.setState({dropDown:true})
   }
 
-  render(){
+  flipDropDownSwitch(){
+    if(!this.state.dropDown){
+      this.setState({dropDown:true});
+    }else if(this.state.dropDown){
+      this.setState({dropDown:false});
+    }
+  }
 
-    let headerOptions = <div className="nav-buttons-container">
+  render(){
+    let dropDownClassName;
+
+    if(window.screen.width < 700){
+      if(this.state.dropDown){
+        dropDownClassName = "drop-down-on"
+      }else{
+        dropDownClassName = "drop-down-off"
+      }
+    }else{
+      dropDownClassName = "nav-buttons-container"
+    }
+
+    let headerOptions = <div className={dropDownClassName}>
       <div>
         <div>about</div>
       </div>
@@ -55,14 +87,29 @@ class Header extends React.Component{
       </div>
     </div>
 
-    return (
-      <header id="header-container">
-        <Link to="/queue" className="logo"> John's Barber Shop </Link>
-        <div>
-          {headerOptions}
-        </div>
-      </header>
-    )
+    let dropDown = <div className="drop-down-container" onClick={this.flipDropDownSwitch}>
+      <img src="./haircut.png" alt=""/>
+      {headerOptions}
+    </div>
+
+    if(window.screen.width < 700){
+      return(
+        <header id="header-container">
+          <Link to="/queue" className="logo"> John's Barber Shop </Link>
+          {dropDown}
+        </header>
+      )
+    }else{
+      return (
+        <header id="header-container">
+          <Link to="/queue" className="logo"> John's Barber Shop </Link>
+          <div>
+            {headerOptions}
+          </div>
+        </header>
+      )
+    }
+
   }
 }
 
