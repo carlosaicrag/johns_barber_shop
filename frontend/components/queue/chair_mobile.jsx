@@ -1,4 +1,5 @@
 import React from "react"
+import {Link} from "react-router-dom"
 
 const ChairMobile = function (props) {
 
@@ -22,7 +23,7 @@ const ChairMobile = function (props) {
             </div>
             <div className="wait-time-new-haircut-container">
                 <div className="chair-container-barber-name">Wait: 0 mins</div>
-                <div>New Haircut</div>
+                <Link to="/chooseHaircut"> New Haircut</Link>
             </div>
             </div>
         </div>
