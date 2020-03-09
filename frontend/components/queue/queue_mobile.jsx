@@ -66,6 +66,25 @@ const QueueMobile = function ({nextPrevBarber,state,barbers, chairs}){
         <div className="queue-mobile-container">
             {chairIcons[state.barber]}
             {makeTable()}
+
+            <div className="services-container">
+                <h1>Services</h1>
+                <div className="services-options-container">
+                    <div>
+                        <div>service1 $10</div>
+                        <div>service1 $10</div>
+                        <div>service1 $10</div>
+                        <div>service1 $10</div>
+                    </div>
+                        
+                    <div>
+                        <div>service1 $10</div>
+                        <div>service1 $10</div>
+                        <div>service1 $10</div>
+                        <div>service1 $10</div>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

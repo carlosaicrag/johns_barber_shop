@@ -81,3 +81,18 @@
         }
     }
 }
+
+.services-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    
+    .services-options-container{
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+    }
+
+}

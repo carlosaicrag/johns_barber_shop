@@ -4,6 +4,7 @@ const ChairMobile = function (props) {
 
     return (
         <div className="chair-nextarrow-waittime-newhaircut">
+            <div className="chair-nextarrow-waittime-newhaircut-opacity">    
             <div className="chair-nextarrow-waittime-container">
                 <div className="chair-nextarrow-container">
                     <div className="next-button" onClick={props.nextPrevBarber("left")}>
@@ -12,15 +13,16 @@ const ChairMobile = function (props) {
                     <div className="chair-container-mobile">
                         <div className="chair-container-barber-name">{props.barber.fname}</div>
                         <img src={props.barber.image_url} alt="barber_url" />
-                        <img src="/barber-chair.png" alt="barber-chair" />
+                        {/* <img src="/barber-chair.png" alt="barber-chair" /> */}
                     </div>
                     <div className="next-button" onClick={props.nextPrevBarber("right")}>
                         <i className="fas fa-arrow-circle-right"></i>
                     </div>
                 </div>
-                <div className="chair-container-barber-name">Time to Wait: 0 mins</div>
             </div>
+            <div className="chair-container-barber-name">Wait: 0 mins</div>
             <div>New Haircut</div>
+            </div>
         </div>
     )
 }
