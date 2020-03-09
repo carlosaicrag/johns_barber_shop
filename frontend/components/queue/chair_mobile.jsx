@@ -20,8 +20,10 @@ const ChairMobile = function (props) {
                     </div>
                 </div>
             </div>
-            <div className="chair-container-barber-name">Wait: 0 mins</div>
-            <div>New Haircut</div>
+            <div className="wait-time-new-haircut-container">
+                <div className="chair-container-barber-name">Wait: 0 mins</div>
+                <div>New Haircut</div>
+            </div>
             </div>
         </div>
     )

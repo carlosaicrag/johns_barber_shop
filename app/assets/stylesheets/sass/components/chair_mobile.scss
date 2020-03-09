@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    // background: #fff0d2;
     width: 100%;
     height: 500px;
     background-image: url("/empty_seat.jpg");
@@ -67,4 +66,9 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+}
+
+.wait-time-new-haircut-container{
+    display: flex;
+    flex-direction: column;
 }

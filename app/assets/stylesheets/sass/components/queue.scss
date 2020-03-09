@@ -66,28 +66,39 @@
 
 
 .table{
+    font-family: 'Cormorant Garamond', serif;
     display: flex;
     flex-direction: column;
-    margin-top: 30px;
+    width: 100%;
+    background: #faebd7;
+    justify-content: center;
+    padding: 25px 0 25px 0;
 
     .table-row{
         display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
 
         .row-cell{
             width:50px;
-            height:30px;
             text-align: center;
-            font-size: 12px
+            font-size: 17px
         }
     }
 }
 
 .services-container{
+    font-family: 'Cormorant Garamond', serif;
     display: flex;
     flex-direction: column;
     width: 100%;
     justify-content: center;
     text-align: center;
+    background-image: url("/services_barber.jpg");
+    background: contain;
+    background-size: 455px;
+    background-position: -3px -50px;
+    color: white;
     
     .services-options-container{
         display: flex;
@@ -95,4 +106,23 @@
         justify-content: space-around;
     }
 
+}
+
+.services-cell-container{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+
+    div{
+        font-size: 20px;
+    }
+}
+
+.services-title{
+    font-size: 50px;
+}
+
+.wait-times{
+    text-align: center;
+    font-size: 50px;
 }

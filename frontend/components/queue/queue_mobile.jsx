@@ -19,7 +19,7 @@ const QueueMobile = function ({nextPrevBarber,state,barbers, chairs}){
     let nameRow = {}
 
     let makeNameRow = () => {
-        nameRow["Barbers"] = "Barbers"
+        // nameRow["Barbers"] = "Barbers"
 
         rows.forEach((barber) => {
             nameRow[barber.fname] = barber.fname
@@ -30,7 +30,7 @@ const QueueMobile = function ({nextPrevBarber,state,barbers, chairs}){
     let waitTimeRow = {}
 
     let makeWaitTimeRow = () => {
-        waitTimeRow["Wait Time"] = "Wait Time"
+        // waitTimeRow["Wait Time"] = "Wait Time"
 
         rows.forEach((barber) => {
             waitTimeRow[barber.fname] = barber.id
@@ -43,17 +43,14 @@ const QueueMobile = function ({nextPrevBarber,state,barbers, chairs}){
     let makeTable = () =>{
         return(
             <div className="table">
+                <div className="wait-times">Wait Times</div>
                 <div className="table-row">
-                {Object.values(nameRow).map((value) => {
+                {Object.values(nameRow).map((value,idx) => {
                     return(
-                        <div className="row-cell">{value}</div>
-                    )
-                })}
-                </div>
-                <div className="table-row">
-                {Object.values(waitTimeRow).map((value) => {
-                    return (
-                        <div className="row-cell">{value}</div>
+                        <div className="row-cell">
+                            <div>{value}</div>
+                            <div>{Object.values(waitTimeRow)[idx]} mins</div>
+                        </div>
                     )
                 })}
                 </div>
@@ -68,22 +65,26 @@ const QueueMobile = function ({nextPrevBarber,state,barbers, chairs}){
             {makeTable()}
 
             <div className="services-container">
-                <h1>Services</h1>
-                <div className="services-options-container">
-                    <div>
-                        <div>service1 $10</div>
-                        <div>service1 $10</div>
-                        <div>service1 $10</div>
-                        <div>service1 $10</div>
+                {/* <div className="services-options-container"> */}
+                    <div className="chair-nextarrow-waittime-newhaircut-opacity">
+                        <div className="services-title">Services</div>
+                        <div className="services-cell-container">
+                            <div>
+                                <div>service1 $10</div>
+                                <div>service1 $10</div>
+                                <div>service1 $10</div>
+                                <div>service1 $10</div>
+                            </div>
+                                
+                            <div>
+                                <div>service1 $10</div>
+                                <div>service1 $10</div>
+                                <div>service1 $10</div>
+                                <div>service1 $10</div>
+                            </div>
+                        </div>
                     </div>
-                        
-                    <div>
-                        <div>service1 $10</div>
-                        <div>service1 $10</div>
-                        <div>service1 $10</div>
-                        <div>service1 $10</div>
-                    </div>
-                </div>
+                {/* </div> */}
             </div>
         </div>
     )
