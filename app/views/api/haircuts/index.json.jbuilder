@@ -7,3 +7,11 @@ json.haircuts do
         end
     end
 end
+
+json.barbers do 
+    @barbers.each do |barber|
+        json.set! barber.id do 
+            json.extract! barber, :id, :image_url, :fname, :lname
+        end
+    end
+end

@@ -4,7 +4,8 @@ import {getHairCuts} from "../../actions/choose_haircut_actions"
     
 const msp = (state) => {
     return({
-        haircuts: Object.values(state.entities.haircuts)
+        haircuts: Object.values(state.entities.haircuts),
+        barbers: Object.values(state.entities.users)
     })
 }
 

@@ -4,7 +4,8 @@ export const RECEIVE_HAIRCUTS = "RECEIVE_HAIRCUTS"
 const receiveHairCuts = function(payload){
     return({
         type: RECEIVE_HAIRCUTS,
-        haircuts: payload.haircuts
+        haircuts: payload.haircuts,
+        barbers: payload.barbers
     })
 }
 

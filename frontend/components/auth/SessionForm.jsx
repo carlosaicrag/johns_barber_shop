@@ -96,11 +96,17 @@ export class SessionForm extends React.Component {
       <div className="session__form-container">
         <div className="session__form-box">
           <form onSubmit={this.handleSubmit}>
-            Welcome to John's Barber Shop!
+            
+            <div className="session-text">
+              Welcome to John's Barber Shop!
+            </div>
 
             <br />
 
-            Please {this.props.formType} to continue
+            <div className="session-text"> 
+              Please {this.props.formType} to continue
+            </div>
+            
 
             {this.renderErrors()}
             {this.renderSignupConfirmation()}

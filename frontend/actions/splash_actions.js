@@ -15,6 +15,9 @@ export const receiveChairs = function(payload){
 
 export const getChairs = () => (dispatch) => {
     return(
-        retrieveChairs().then((payload) => dispatch(receiveChairs(payload)))
+        retrieveChairs().then((payload) => {
+            dispatch(receiveChairs(payload))
+            return payload.chairs
+        })
     )
 }
