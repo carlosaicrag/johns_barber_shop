@@ -11,6 +11,7 @@ class Header extends React.Component{
     this.sessionLinks = this.sessionLinks.bind(this);
     this.dropDown = this.dropDown.bind(this);
     this.flipDropDownSwitch = this.flipDropDownSwitch.bind(this);
+    this.handleModal = this.handleModal.bind(this)
   }
 
   sessionLinks(){
@@ -59,6 +60,10 @@ class Header extends React.Component{
     }
   }
 
+  handleModal(){
+    this.props.openModal()
+  }
+
   render(){
     let dropDownClassName;
 
@@ -87,9 +92,9 @@ class Header extends React.Component{
       </div>
     </div>
 
-    let dropDown = <div className="drop-down-container" onClick={this.flipDropDownSwitch}>
+    let dropDown = <div className="drop-down-container" onClick={this.handleModal}>
       <img src="./haircut.png" alt=""/>
-      {headerOptions}
+      {/* {headerOptions} */}
     </div>
 
     if(window.screen.width < 700){

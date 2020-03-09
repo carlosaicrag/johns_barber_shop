@@ -1,9 +1,9 @@
-import { OPEN_MODAL, CLOSE_MODAL } from '../../actions/modal_actions'
+import { OPEN_NAV_MODAL, CLOSE_MODAL } from '../../actions/modal_actions'
 
 export default function modalReducer(state = null, action) {
     let nextState = Object.assign({}, state)
     switch (action.type) {
-        case OPEN_MODAL:
+        case OPEN_NAV_MODAL:
             return action.type
         case CLOSE_MODAL:
             return null;
