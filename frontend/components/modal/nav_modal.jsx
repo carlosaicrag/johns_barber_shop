@@ -5,16 +5,16 @@ const navModal = function(props){
     return(
         <div className="modal-nav-container">
             <div className="modal-nav-option">
-                <div>about</div>
+                <div>About</div>
             </div>
             <div>
-                <div>barber login</div>
+                <div>Barber Login</div>
             </div>
             <div>
-                <div>barber signup</div>
+                <div>Barber Signup</div>
             </div>
             <div>
-                <div>testimonials</div>
+                <div>Testimonials</div>
             </div>
         </div>
     )
