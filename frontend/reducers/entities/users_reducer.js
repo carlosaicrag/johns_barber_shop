@@ -6,11 +6,11 @@ const usersReducer = (oldState = {}, action) => {
   let nextState;
 
   switch (action.type) {
-    case RECEIVE_CURRENT_USER:
-      nextState = Object.assign({}, oldState, {
-        [action.currentUser.id]: action.currentUser
-      });
-      return nextState;
+    // case RECEIVE_CURRENT_USER:
+    //   nextState = Object.assign({}, oldState, {
+    //     [action.currentUser.id]: action.currentUser
+    //   });
+    //   return nextState;
     case RECEIVE_CHAIRS:
       return action.barbers
     default:

@@ -3,7 +3,7 @@
 import { RECEIVE_BARBER } from '../../actions/barber_actions';
 
 
-export const barbersReducer = (action, oldState = {}) => {
+const barbersReducer = (action, oldState = {}) => {
     Object.freeze(oldState)
     let nextState = Object.assign({}, oldState)
     switch (action.type) {
@@ -15,3 +15,5 @@ export const barbersReducer = (action, oldState = {}) => {
         }
     }
 }
+
+export default barbersReducer;
