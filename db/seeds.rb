@@ -10,24 +10,24 @@ Chair.destroy_all
 Client.destroy_all
 Haircut.destroy_all
 
-carlos = User.create(username:"dame123", email:"dame@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Damian", lname:"lillard", image_url:"dame_dolla.jpg")
-armando = User.create(username: "james123", email:"james@gmail.com",password:"*mwFMYKvQeLNS7vT",fname:"James", lname:"Harden", image_url:"james_harden.jpg")
-julisa = User.create(username:"kyrie123", email:"kyrie@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Kyrie", lname:"Irving", image_url:"kyrie_irving.jpg")
-sandra = User.create(username:"lebron123", email:"lebron@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Lebron", lname:"James", image_url:"lbj.jpg")
-melina = User.create(username:"steph123", email:"steph@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Steph", lname:"Curry", image_url:"steph_curry_barber.jpg")
+barber1 = User.create(username:"dame123", email:"dame@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Damian", lname:"lillard", image_url:"dame_dolla.jpg")
+barber2 = User.create(username: "james123", email:"james@gmail.com",password:"*mwFMYKvQeLNS7vT",fname:"James", lname:"Harden", image_url:"james_harden.jpg")
+barber3 = User.create(username:"kyrie123", email:"kyrie@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Kyrie", lname:"Irving", image_url:"kyrie_irving.jpg")
+barber4 = User.create(username:"lebron123", email:"lebron@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Lebron", lname:"James", image_url:"lbj.jpg")
+barber5 = User.create(username:"steph123", email:"steph@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Steph", lname:"Curry", image_url:"steph_curry_barber.jpg")
 
 #there will never be more than 5 chairs. specific to johns barber shop
-chair1 = Chair.create(barber_id: carlos.id, chair_name: "chair1")
-chair2 = Chair.create(barber_id: armando.id, chair_name: "chair1")
-chair3 = Chair.create(barber_id: julisa.id, chair_name: "chair1")
-chair4 = Chair.create(barber_id: sandra.id, chair_name: "chair1")
-chair5 = Chair.create(barber_id: melina.id, chair_name: "chair1")
+chair1 = Chair.create(barber_id: barber1.id, chair_name: "chair1")
+chair2 = Chair.create(barber_id: barber2.id, chair_name: "chair2")
+chair3 = Chair.create(barber_id: barber3.id, chair_name: "chair3")
+chair4 = Chair.create(barber_id: barber4.id, chair_name: "chair4")
+chair5 = Chair.create(barber_id: barber5.id, chair_name: "chair5")
 
-client1 = Client.create(fname: 'Bob', lname: 'Pancake', phone_num: '8055650000', chair_id: chair1.id, date: '01/30/20', time: '12:00:00')
-client1 = Client.create(fname: 'Joe', lname: 'TwinkleToes',phone_num: '8055650000', chair_id: chair2.id, date: '01/30/20', time: '12:00:00')
-client1 = Client.create(fname: 'Simon', lname: 'Rainbow', phone_num: '8055650000', chair_id: chair3.id, date: '01/30/20', time: '12:00:00')
-client1 = Client.create(fname: 'Gerald', lname: 'Geraldson', phone_num: '8055650000', chair_id: chair4.id, date: '01/30/20', time: '12:00:00')
-client1 = Client.create(fname: 'Wambam', lname: 'Kazam', phone_num: '8055650000', chair_id: chair2.id, date: '01/30/20', time: '13:00:00')
+client1 = Client.create(fname: 'Bob', lname: 'Pancake', phone_num: '8055650000', email: "boppancake@gmail.com")
+client2 = Client.create(fname: 'Joe', lname: 'TwinkleToes',phone_num: '8055650001', email: "joetwinkletoes@gmail.com")
+client3 = Client.create(fname: 'Simon', lname: 'Rainbow', phone_num: '8055650002', email: "simonrainbow@gmail.com")
+client4 = Client.create(fname: 'Gerald', lname: 'Geraldson', phone_num: '8055650003', email: "geraldgeraldson@gmail.com")
+client5 = Client.create(fname: 'Wambam', lname: 'Kazam', phone_num: '8055650004', email: "wambamkazam@gmail.com")
 
 haircut1 = Haircut.create(haircut_name: "Afro-Fade-Haircut", path:"./Afro-Fade-Haircut.jpg" )
 haircut2 = Haircut.create(haircut_name: "Bald-Fade-Haircut", path:"./Bald-Fade-Haircut.jpg" )
@@ -51,5 +51,14 @@ haircut19 = Haircut.create(haircut_name: "Top-Knot-Haircut", path:"./Top-Knot-Ha
 haircut20 = Haircut.create(haircut_name: "Undercut-CombOver-Haircut", path:"./Undercut-CombOver-Haircut.jpg" )
 haircut21 = Haircut.create(haircut_name: "Undercut-Haircut-Fade", path:"./Undercut-Haircut-Fade.jpg" )
 
+client_haircut_user1 = ClientHaircut.create(client_id: client1.id, haircut_id: haircut1.id, barber_id: barber1.id, chair_id: chair1.id)
+client_haircut_user2 = ClientHaircut.create(client_id: client2.id, haircut_id: haircut2.id, barber_id: barber2.id, chair_id: chair2.id)
+client_haircut_user3 = ClientHaircut.create(client_id: client3.id, haircut_id: haircut3.id, barber_id: barber2.id, chair_id: chair2.id)
+client_haircut_user4 = ClientHaircut.create(client_id: client4.id, haircut_id: haircut3.id, barber_id: barber3.id, chair_id: chair3.id)
+client_haircut_user5 = ClientHaircut.create(client_id: client5.id, haircut_id: haircut6.id, barber_id: barber4.id, chair_id: chair4.id)
 
-avg_time_user1 = ClientHaircut
+client_haircut_avg_times_user1 = ClientHaircutAvgTime.create(client_id: client1.id, haircut_id: haircut1.id, avg_time: 45)
+client_haircut_avg_times_user2 = ClientHaircutAvgTime.create(client_id: client2.id, haircut_id: haircut2.id, avg_time: 45)
+client_haircut_avg_times_user3 = ClientHaircutAvgTime.create(client_id: client3.id, haircut_id: haircut3.id, avg_time: 45)
+client_haircut_avg_times_user4 = ClientHaircutAvgTime.create(client_id: client4.id, haircut_id: haircut3.id, avg_time: 45)
+client_haircut_avg_times_user5 = ClientHaircutAvgTime.create(client_id: client5.id, haircut_id: haircut6.id, avg_time: 45)

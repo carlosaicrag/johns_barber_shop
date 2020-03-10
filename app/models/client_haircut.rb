@@ -23,7 +23,7 @@ class ClientHaircut < ApplicationRecord
 
     belongs_to :barber,
         foreign_key: :barber_id,
-        class_name: :barber
+        class_name: :User
 
     belongs_to :chair,
         foreign_key: :chair_id,
