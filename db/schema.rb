@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_03_022324) do
+ActiveRecord::Schema.define(version: 2020_03_10_163701) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,16 +22,34 @@ ActiveRecord::Schema.define(version: 2020_03_03_022324) do
     t.string "chair_name", null: false
   end
 
-  create_table "clients", force: :cascade do |t|
-    t.string "fname"
-    t.string "lname"
-    t.string "phone_num", null: false
-    t.integer "chair_id", null: false
-    t.string "date", null: false
-    t.string "time", null: false
+  create_table "client_haircut_avg_times", force: :cascade do |t|
+    t.integer "client_id", null: false
+    t.integer "haircut_id", null: false
+    t.integer "avg_time", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["chair_id"], name: "index_clients_on_chair_id"
+    t.index ["client_id", "haircut_id"], name: "index_client_haircut_avg_times_on_client_id_and_haircut_id", unique: true
+    t.index ["client_id"], name: "index_client_haircut_avg_times_on_client_id"
+    t.index ["haircut_id"], name: "index_client_haircut_avg_times_on_haircut_id"
+  end
+
+  create_table "client_haircuts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "client_id", null: false
+    t.integer "haircut_id", null: false
+    t.integer "barber_id", null: false
+    t.datetime "closed_at"
+    t.integer "chair_id", null: false
+  end
+
+  create_table "clients", force: :cascade do |t|
+    t.string "phone_num", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "email", null: false
+    t.string "fname", null: false
+    t.string "lname", null: false
     t.index ["phone_num"], name: "index_clients_on_phone_num", unique: true
   end
 

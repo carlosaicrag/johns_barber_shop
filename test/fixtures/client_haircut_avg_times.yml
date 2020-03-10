@@ -1,14 +1,13 @@
 # == Schema Information
 #
-# Table name: clients
+# Table name: client_haircut_avg_times
 #
 #  id         :bigint           not null, primary key
-#  phone_num  :string           not null
+#  client_id  :integer          not null
+#  haircut_id :integer          not null
+#  avg_time   :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  email      :string           not null
-#  fname      :string           not null
-#  lname      :string           not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

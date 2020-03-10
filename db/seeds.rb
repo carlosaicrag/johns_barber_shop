@@ -52,22 +52,4 @@ haircut20 = Haircut.create(haircut_name: "Undercut-CombOver-Haircut", path:"./Un
 haircut21 = Haircut.create(haircut_name: "Undercut-Haircut-Fade", path:"./Undercut-Haircut-Fade.jpg" )
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+avg_time_user1 = ClientHaircut

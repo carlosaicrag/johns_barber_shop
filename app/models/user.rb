@@ -1,3 +1,23 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                     :bigint           not null, primary key
+#  username               :string           not null
+#  password_digest        :string           not null
+#  session_token          :string           not null
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  email                  :string           not null
+#  email_confirmed        :boolean          default(FALSE)
+#  confirm_token          :string
+#  reset_password_token   :string
+#  reset_password_sent_at :datetime
+#  fname                  :string           not null
+#  lname                  :string           not null
+#  image_url              :string           not null
+#
+
 class User < ApplicationRecord
   validates :username, :session_token, presence: true, uniqueness: {case_sensitive: false}
   validates :email, presence: true,
@@ -15,9 +35,16 @@ class User < ApplicationRecord
   has_many :chairs,
     foreign_key: :barber_id,
     class_name: :Chair
-              
-            
 
+  has_many :client_haircuts,
+    foreign_key: :barber_id,
+    class_name: :ClientHaircut
+              
+  has_many :clients, 
+    through: :client_haircuts,
+    source: :haircut
+
+  
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email.downcase)
     return nil unless user && user.valid_password?(password)
