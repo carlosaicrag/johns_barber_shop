@@ -1,7 +1,7 @@
 import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
-import ChooseHaircutContainer from "../choose_haircut/choose_haircut_container"
+import NavModal from "./nav_modal"
 
 
 function Modal({ modal, closeModal}) {
@@ -11,8 +11,8 @@ function Modal({ modal, closeModal}) {
 
     let component;
     switch (modal) {
-        case 'OPEN_MODAL':
-            component = <ChooseHaircutContainer />
+        case 'OPEN_NAV_MODAL':
+            component = <NavModal />
             break;
         default:
             return null;
@@ -20,7 +20,7 @@ function Modal({ modal, closeModal}) {
 
     return (
         <div className="modal-background" onClick={closeModal}>
-            <div className="cover">
+            <div className="modal-cover">
                 {component}
             </div>
         </div>

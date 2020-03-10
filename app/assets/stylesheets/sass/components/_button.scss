@@ -5,15 +5,10 @@
   &--login {
     @extend .header__btn;
     border: 1px solid grey;
-    padding-top: 1.3vh;
-    padding-bottom: 1.3vh;
     border-radius: 7px;
-    color: white;
-    background-color: red;
-    &:hover {
-      // background-color: black;
-      // color: white;
-    }
+    color: black;
+    height: 20px;
+    // background-color: red;
   }
 
   &--register {
@@ -22,6 +17,12 @@
     &:hover {
       text-decoration: underline;    
     }
+  }
+}
+
+@media screen and (max-width: 463px){
+  .header__btn--login{
+    display: none;
   }
 }
 
@@ -58,5 +59,25 @@
     &:hover {
       background-color: rgb(55, 55, 55);
     }
+  }
+}
+
+.new-haircut-button-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+
+  .new-haircut-button{
+    font-family: 'Cormorant Garamond', serif;
+    border: 1px solid grey;
+    color: white;
+    background-color: rgb(84, 84, 85);
+    height: 40px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-size: 25px;
   }
 }

@@ -7,8 +7,9 @@
     bottom: 0;
     right: 0;
     left: 0;
-    background: rgba(246, 246, 246, .97);
+    background: #4c4a4af7;
     z-index: 10;
+    opacity: .95;
 }
 
 .modal-child {
@@ -21,5 +22,5 @@
 }
 
 .cover{
-    background-color: white;
+    // background-color: white;
 }

@@ -85,3 +85,25 @@
     padding: 6vh 7vh;
   }
 }
+
+@media screen and (max-width: 450px){
+  .session-text{
+    font-size: 12px;
+  }
+
+  .session__form-box{
+    padding: 10px
+  }
+
+  .session__input-container{
+    font-size: 12px;
+  }
+
+  .session__link{
+    font-size:12px;
+  }
+
+  .session__textbox{
+    height: 30px;
+  }
+}

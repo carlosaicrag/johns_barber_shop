@@ -5,12 +5,14 @@
     "@babel/core": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
     "@babel/preset-react": "^7.0.0",
+    "@material-ui/core": "^4.9.5",
     "babel-loader": "^8.0.6",
     "circletype": "^2.3.0",
     "html-to-react": "^1.4.2",
     "jquery": "^3.4.1",
     "react": "^16.9.0",
     "react-arc-text": "^1.0.5",
+    "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.9.0",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.0.1",
@@ -28,7 +30,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "webpack",
     "start": "webpack --watch --mode=development"
   },
   "repository": {
@@ -45,5 +47,9 @@
   "devDependencies": {
     "eslint": "^6.7.2",
     "eslint-plugin-react": "^7.17.0"
+  },
+  "engines": {
+    "node": "12.5.0",
+    "npm": "6.9.0"
   }
 }

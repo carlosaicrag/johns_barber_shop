@@ -1,4 +1,4 @@
-export const OPEN_MODAL = 'OPEN_MODAL';
+export const OPEN_NAV_MODAL = 'OPEN_NAV_MODAL';
 export const CLOSE_MODAL = 'CLOSE_MODAL';
 export const CHANGE_MODAL = 'CHANGE_MODAL'
 
@@ -7,7 +7,7 @@ export const openModal = (modal, url) => {
         url = ""
     }
     return ({
-        type: OPEN_MODAL,
+        type: OPEN_NAV_MODAL,
     })
 }
 
