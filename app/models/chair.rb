@@ -20,4 +20,15 @@ class Chair < ApplicationRecord
     has_many :client_haircuts,
         foreign_key: :chair_id,
         class_name: :ClientHaircut
+
+    def getWaitTime()
+        client_ids = self.client_haircuts.where(closed_at: nil).pluck(:client_id)
+        if client_ids.length == 0 
+            return 0;
+        else
+            sumWaitTime = ClientHaircutAvgTime.select(:avg_time).where(client_id: client_ids)
+            .pluck(:avg_time)
+            .sum
+        end
+    end
 end
