@@ -26,6 +26,19 @@
       </script>
     <% end %>
 
+    <% if current_client_user %>
+      <script>
+        window.currentClientUser = { 
+          "id": <%= current_client_user.id %>,
+          "username": "<%= current_client_user.username %>"
+          };
+      </script>
+    <% else %>
+      <script>
+        window.currentClientUser = null;
+      </script>
+    <% end %>
+
   </head>
   
   <body>

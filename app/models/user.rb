@@ -19,7 +19,7 @@
 #
 
 class User < ApplicationRecord
-  validates :username, :session_token, presence: true, uniqueness: {case_sensitive: false}
+  validates :session_token, presence: true, uniqueness: {case_sensitive: false}
   validates :email, presence: true,
             format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i,
                     message: "Please enter proper email format" },

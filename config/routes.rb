@@ -10,6 +10,9 @@ Rails.application.routes.draw do
         get :new_pass_form
       end
     end
+    
+    resources :clients, only: [:create, :show]
+
     post 'passwords/forgot', to: 'passwords#forgot'
     post 'passwords/:token/reset', to: 'passwords#reset'
     

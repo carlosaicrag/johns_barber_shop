@@ -3,7 +3,7 @@ class Api::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      SendEmailJob.set(wait: 0.5.seconds).perform_later(@user.id)
+      # SendEmailJob.set(wait: 0.5.seconds).perform_later(@user.id)
       render json: ["Please check your email (#{@user.email})"]
     else
       render json: @user.errors.full_messages, status: 422
@@ -33,7 +33,7 @@ class Api::UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:password, :email, :username)
+    params.require(:user).permit(:password, :email, :username,:fname,:lname, :image_url)
   end
 
 end
