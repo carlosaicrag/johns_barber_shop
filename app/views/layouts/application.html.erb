@@ -17,7 +17,7 @@
       <script>
         window.currentUser = { 
           "id": <%= current_user.id %>,
-          "username": "<%= current_user.username %>"
+          "username": "<%= current_user.fname %>"
           };
       </script>
     <% else %>
@@ -30,7 +30,7 @@
       <script>
         window.currentClientUser = { 
           "id": <%= current_client_user.id %>,
-          "username": "<%= current_client_user.username %>"
+          "username": "<%= current_client_user.fname %>"
           };
       </script>
     <% else %>

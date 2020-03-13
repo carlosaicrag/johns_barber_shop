@@ -5,16 +5,20 @@ export class SessionForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
       email: '',
-      password: ''
+      password: '',
+      fname: "",
+      lname: ""
     };
+
     this.displayErrors = false;
     this.displaySignupConfirmation = false;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
     this.renderSignupConfirmation = this.renderSignupConfirmation.bind(this);
     this.handleSubmitWithDefaultUsername = this.handleSubmitWithDefaultUsername.bind(this);
+    this.renderFnameField= this.renderFnameField.bind(this);
+    this.renderLnameField= this.renderLnameField.bind(this);
   }
 
   update(field) {
@@ -26,14 +30,14 @@ export class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     // Set the username to first part of email if there is no username
-    if (this.state.username.replace(/ /g, '') === '') {
-      this.setState({
-        username: this.state.email.split('@')[0]
-      }, this.handleSubmitWithDefaultUsername)
-    } else {
+    // if (this.state.username.replace(/ /g, '') === '') {
+    //   this.setState({
+    //     username: this.state.email.split('@')[0]
+    //   }, this.handleSubmitWithDefaultUsername)
+    // } else {
       const user = Object.assign({}, this.state);
-      this.props.processForm(user);
-    }
+      this.props.processForm(user).then(() => this.props.history.push("/queue"))
+    // }
   }
 
   handleSubmitWithDefaultUsername() {
@@ -91,7 +95,44 @@ export class SessionForm extends React.Component {
     return null
   }
 
+  renderFnameField(){
+    if(this.props.location.pathname === "/signup"){
+      return(
+        <label className="session__input-container">
+          Fname
+                <br />
+          <input type="text"
+            value={this.state.fname}
+            onChange={this.update('fname')}
+            className="session__textbox"
+          />
+        </label>
+      )
+    }else{
+      return []
+    }
+  }
+
+  renderLnameField(){
+    if (this.props.location.pathname === "/signup"){
+      return(
+        <label className="session__input-container">
+          Lname
+                <br />
+          <input type="text"
+            value={this.state.lname}
+            onChange={this.update('lname')}
+            className="session__textbox"
+          />
+        </label>
+      )
+    }else{
+      return []
+    }
+  }
+
   render() {
+
     return (
       <div className="session__form-container">
         <div className="session__form-box">
@@ -114,6 +155,8 @@ export class SessionForm extends React.Component {
             <br/>
             <br/>
 
+            {this.renderFnameField()}
+            {this.renderLnameField()}
 
             <label className="session__input-container">
               Email
@@ -125,12 +168,8 @@ export class SessionForm extends React.Component {
               />
             </label>
 
-
             <div>
-              <br />
               {/* {this.renderUsernameInput()} */}
-              <br />
-
               <label className="session__input-container">
                 Password
                   <br />
@@ -158,17 +197,10 @@ export class SessionForm extends React.Component {
               <br />
             </div>
           </form>
-
-          {/* <div className="session__or-container"> */}
-            {/* <hr className="session__or-hr--left" /> */}
-            {/* OR */}
-            {/* <hr className="session__or-hr--right" /> */}
-          {/* </div> */}
-          {/* ^^^ source: https://stackoverflow.com/a/2812819/7974948 */}
           <br />
 
           <div>
-            {/* {this.props.navLink} */}
+            {this.props.navLink}
           </div>
         </div>
       </div>

@@ -66,7 +66,11 @@ class Header extends React.Component{
 
   render(){
     let dropDownClassName;
+    let logoutButton;
 
+    if(this.props.currentUser){
+      logoutButton = <div onClick={() => this.props.logout()}>logout</div>
+    }
     if(window.screen.width < 700){
       if(this.state.dropDown){
         dropDownClassName = "drop-down-on"
@@ -111,6 +115,7 @@ class Header extends React.Component{
           <div>
             {headerOptions}
           </div>
+          {logoutButton}
         </header>
       )
     }
