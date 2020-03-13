@@ -10,11 +10,11 @@ Chair.destroy_all
 Client.destroy_all
 Haircut.destroy_all
 
-barber1 = User.create(username:"dame123", email:"dame@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Damian", lname:"lillard", image_url:"dame_dolla.jpg")
-barber2 = User.create(username: "james123", email:"james@gmail.com",password:"*mwFMYKvQeLNS7vT",fname:"James", lname:"Harden", image_url:"james_harden.jpg")
-barber3 = User.create(username:"kyrie123", email:"kyrie@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Kyrie", lname:"Irving", image_url:"kyrie_irving.jpg")
-barber4 = User.create(username:"lebron123", email:"lebron@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Lebron", lname:"James", image_url:"lbj.jpg")
-barber5 = User.create(username:"steph123", email:"steph@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Steph", lname:"Curry", image_url:"steph_curry_barber.jpg")
+barber1 = User.create(email:"dame@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Damian", lname:"lillard", image_url:"dame_dolla.jpg")
+barber2 = User.create(email:"james@gmail.com",password:"*mwFMYKvQeLNS7vT",fname:"James", lname:"Harden", image_url:"james_harden.jpg")
+barber3 = User.create(email:"kyrie@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Kyrie", lname:"Irving", image_url:"kyrie_irving.jpg")
+barber4 = User.create(email:"lebron@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Lebron", lname:"James", image_url:"lbj.jpg")
+barber5 = User.create(email:"steph@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Steph", lname:"Curry", image_url:"steph_curry_barber.jpg")
 
 #there will never be more than 5 chairs. specific to johns barber shop
 chair1 = Chair.create(barber_id: barber1.id, chair_name: "chair1")
@@ -23,11 +23,11 @@ chair3 = Chair.create(barber_id: barber3.id, chair_name: "chair3")
 chair4 = Chair.create(barber_id: barber4.id, chair_name: "chair4")
 chair5 = Chair.create(barber_id: barber5.id, chair_name: "chair5")
 
-client1 = Client.create(fname: 'Bob', lname: 'Pancake', phone_num: '8055650000', email: "boppancake@gmail.com")
-client2 = Client.create(fname: 'Joe', lname: 'TwinkleToes',phone_num: '8055650001', email: "joetwinkletoes@gmail.com")
-client3 = Client.create(fname: 'Simon', lname: 'Rainbow', phone_num: '8055650002', email: "simonrainbow@gmail.com")
-client4 = Client.create(fname: 'Gerald', lname: 'Geraldson', phone_num: '8055650003', email: "geraldgeraldson@gmail.com")
-client5 = Client.create(fname: 'Wambam', lname: 'Kazam', phone_num: '8055650004', email: "wambamkazam@gmail.com")
+client1 = Client.create(fname: 'Bob', lname: 'Pancake', email: "boppancake@gmail.com",password:"password")
+client2 = Client.create(fname: 'Joe', lname: 'TwinkleToes',email: "joetwinkletoes@gmail.com",password:"password")
+client3 = Client.create(fname: 'Simon', lname: 'Rainbow', email: "simonrainbow@gmail.com",password:"password")
+client4 = Client.create(fname: 'Gerald', lname: 'Geraldson', email: "geraldgeraldson@gmail.com",password:"password")
+client5 = Client.create(fname: 'Wambam', lname: 'Kazam', email: "wambamkazam@gmail.com",password:"password")
 
 haircut1 = Haircut.create(haircut_name: "Afro-Fade-Haircut", path:"./Afro-Fade-Haircut.jpg" )
 haircut2 = Haircut.create(haircut_name: "Bald-Fade-Haircut", path:"./Bald-Fade-Haircut.jpg" )

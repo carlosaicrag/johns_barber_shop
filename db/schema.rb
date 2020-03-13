@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_12_035543) do
+ActiveRecord::Schema.define(version: 2020_03_13_042733) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 2020_03_12_035543) do
   end
 
   create_table "clients", force: :cascade do |t|
-    t.string "phone_num", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", null: false
@@ -52,7 +51,6 @@ ActiveRecord::Schema.define(version: 2020_03_12_035543) do
     t.string "lname", null: false
     t.string "password_digest", null: false
     t.string "session_token", null: false
-    t.index ["phone_num"], name: "index_clients_on_phone_num", unique: true
   end
 
   create_table "delayed_jobs", force: :cascade do |t|

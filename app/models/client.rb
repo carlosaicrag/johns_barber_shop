@@ -18,7 +18,6 @@ class Client < ApplicationRecord
                     message: "Please enter proper email format" },
             uniqueness: { case_sensitive: false }
   validates :password_digest, presence: { message: 'Password can\'t be blank' }
-  validates :phone_num, presence: true, uniqueness: true
   validates :fname, :lname, :email, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
 
