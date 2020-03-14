@@ -11,7 +11,7 @@ export class SessionForm extends React.Component {
       lname: ""
     };
 
-    this.displayErrors = false;
+    this.displayErrors = true;
     this.displaySignupConfirmation = false;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
@@ -42,7 +42,7 @@ export class SessionForm extends React.Component {
 
   handleSubmitWithDefaultUsername() {
     const user = Object.assign({}, this.state);
-    this.props.processForm(user).then(()=> this.props.history.push("/queue"));
+    // this.props.processForm(user).then(()=> this.props.history.push("/queue"));
     this.displayErrors = true;
     this.displaySignupConfirmation = true;
   }
@@ -64,17 +64,17 @@ export class SessionForm extends React.Component {
   renderErrors() {
     if (this.displayErrors) {
       return (
-        <ul>
+        <div>
           {this.props.errors.map((error, i) => (
-            <li key={`error-${i}`} className="session__msg--error">
+            <div key={`error-${i}`} className="session__msg--error">
               {error}
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       )
     } else {
       return null
-    };
+    }
   }
 
   renderUsernameInput() {
@@ -131,79 +131,85 @@ export class SessionForm extends React.Component {
     }
   }
 
-  render() {
+  componentWillUnmount(){
+    this.props.clearErrors()
+  }
 
+  render() {
     return (
       <div className="session__form-container">
-        <div className="session__form-box">
-          <form onSubmit={this.handleSubmit}>
-            
-            <div className="session-text">
-              Welcome to John's Barber Shop!
-            </div>
+        <div className="session__form-container-opacity">
+          <div className="session__form-box">
+            <form onSubmit={this.handleSubmit}>
+              
+              <div className="session-text">
+                Welcome to John's Barber Shop!
+              </div>
 
-            <br />
+              <br />
 
-            <div className="session-text"> 
-              Please {this.props.formType} to continue
-            </div>
-            
+              <div className="session-text"> 
+                Please {this.props.formType} to continue
+              </div>
 
-            {this.renderErrors()}
-            {this.renderSignupConfirmation()}
+              <br/>
 
-            <br/>
-            <br/>
+              {this.renderErrors()}
+              {this.renderSignupConfirmation()}
 
-            {this.renderFnameField()}
-            {this.renderLnameField()}
+              <br/>
 
-            <label className="session__input-container">
-              Email
-                <br />
-              <input type="text"
-                value={this.state.email}
-                onChange={this.update('email')}
-                className="session__textbox"
-              />
-            </label>
+              {this.renderFnameField()}
+              {this.renderLnameField()}
 
-            <div>
-              {/* {this.renderUsernameInput()} */}
               <label className="session__input-container">
-                Password
+                Email
                   <br />
-                <input type="password"
-                  value={this.state.password}
-                  onChange={this.update('password')}
+                <input type="text"
+                  value={this.state.email}
+                  onChange={this.update('email')}
                   className="session__textbox"
                 />
               </label>
 
-              <br/>
+              <div>
+                <label className="session__input-container">
+                  Password
+                    <br />
+                  <input type="password"
+                    value={this.state.password}
+                    onChange={this.update('password')}
+                    className="session__textbox"
+                  />
+                </label>
 
-              <Link
-                to="/forgot-password"
-                className="session__link">
-                forgot password?
-              </Link>
-              <br/>
-              <br/>
+                <br/>
 
-              <div className="session__btn--submit" onClick={this.handleSubmit}>
-                <input type="submit" value={this.props.formType} />
+                <Link
+                  to="/forgot-password"
+                  className="session__link">
+                  forgot password?
+                </Link>
+                <br/>
+                <br/>
+
+                <div className="session__btn--submit" onClick={this.handleSubmit}>
+                  <input type="submit" value={this.props.formType} />
+                </div>
+
+                <br />
               </div>
+            </form>
+            <br />
 
-              <br />
+            <div>
+              {this.props.navLink}
             </div>
-          </form>
-          <br />
-
-          <div>
-            {this.props.navLink}
           </div>
         </div>
       </div>
+
+      // <div>hi</div>
     );
   }
 }

@@ -60,7 +60,7 @@ class Header extends React.Component{
     }
   }
 
-  handleModal(){
+  handleModal(e){
     this.props.openModal()
   }
 
@@ -84,6 +84,12 @@ class Header extends React.Component{
     let headerOptions = <div className={dropDownClassName}>
       <div>
         <div>about</div>
+      </div>
+      <div>
+        <div>client signup</div>
+      </div>
+      <div>
+        <div>client login</div>
       </div>
       <div>
         <div>barber login</div>

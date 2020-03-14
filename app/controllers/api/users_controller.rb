@@ -4,7 +4,9 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       # SendEmailJob.set(wait: 0.5.seconds).perform_later(@user.id)
-      render json: ["Please check your email (#{@user.email})"]
+      sign_in(@user)
+      # render json: ["Please check your email (#{@user.email})"]
+      render 'api/users/show'
     else
       render json: @user.errors.full_messages, status: 422
     end

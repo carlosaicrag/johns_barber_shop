@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
         users: { [window.currentUser.id]: window.currentUser }
       }
     };
-    debugger
     store = configureStore(preloadedState);
     // delete window.currentUser;
   } else {
