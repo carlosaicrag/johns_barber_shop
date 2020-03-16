@@ -20,7 +20,7 @@ export const App = () => (
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
       <AuthRoute exact path="/forgot-password" component={ForgotPasswordFormContainer} />
-      <Route exact path="/queue" component={Queue} />
+      <Route exact path="/" component={Queue} />
       <Route exact path="/chooseHaircut" component={ChooseHaircut}/>
     </Switch>
   </div>

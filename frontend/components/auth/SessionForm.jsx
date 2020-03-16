@@ -36,7 +36,7 @@ export class SessionForm extends React.Component {
     //   }, this.handleSubmitWithDefaultUsername)
     // } else {
       const user = Object.assign({}, this.state);
-      this.props.processForm(user).then(() => this.props.history.push("/queue"))
+      this.props.processForm(user).then(() => this.props.history.push("/"))
     // }
   }
 
@@ -99,7 +99,7 @@ export class SessionForm extends React.Component {
     if(this.props.location.pathname === "/signup"){
       return(
         <label className="session__input-container">
-          Fname
+          First Name
                 <br />
           <input type="text"
             value={this.state.fname}
@@ -117,7 +117,7 @@ export class SessionForm extends React.Component {
     if (this.props.location.pathname === "/signup"){
       return(
         <label className="session__input-container">
-          Lname
+          Last Name
                 <br />
           <input type="text"
             value={this.state.lname}

@@ -110,7 +110,7 @@ class Header extends React.Component{
     if(window.screen.width < 700){
       return(
         <header id="header-container">
-          <Link to="/queue" className="logo"> John's Barber Shop </Link>
+          <Link to="/" className="logo"> John's Barber Shop </Link>
           {dropDown}
         </header>
       )
