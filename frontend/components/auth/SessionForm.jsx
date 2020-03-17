@@ -5,16 +5,20 @@ export class SessionForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
       email: '',
-      password: ''
+      password: '',
+      fname: "",
+      lname: ""
     };
-    this.displayErrors = false;
+
+    this.displayErrors = true;
     this.displaySignupConfirmation = false;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
     this.renderSignupConfirmation = this.renderSignupConfirmation.bind(this);
     this.handleSubmitWithDefaultUsername = this.handleSubmitWithDefaultUsername.bind(this);
+    this.renderFnameField= this.renderFnameField.bind(this);
+    this.renderLnameField= this.renderLnameField.bind(this);
   }
 
   update(field) {
@@ -26,19 +30,19 @@ export class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     // Set the username to first part of email if there is no username
-    if (this.state.username.replace(/ /g, '') === '') {
-      this.setState({
-        username: this.state.email.split('@')[0]
-      }, this.handleSubmitWithDefaultUsername)
-    } else {
+    // if (this.state.username.replace(/ /g, '') === '') {
+    //   this.setState({
+    //     username: this.state.email.split('@')[0]
+    //   }, this.handleSubmitWithDefaultUsername)
+    // } else {
       const user = Object.assign({}, this.state);
-      this.props.processForm(user);
-    }
+      this.props.processForm(user).then(() => this.props.history.push("/"))
+    // }
   }
 
   handleSubmitWithDefaultUsername() {
     const user = Object.assign({}, this.state);
-    this.props.processForm(user).then(()=> this.props.history.push("/queue"));
+    // this.props.processForm(user).then(()=> this.props.history.push("/queue"));
     this.displayErrors = true;
     this.displaySignupConfirmation = true;
   }
@@ -60,17 +64,17 @@ export class SessionForm extends React.Component {
   renderErrors() {
     if (this.displayErrors) {
       return (
-        <ul>
+        <div>
           {this.props.errors.map((error, i) => (
-            <li key={`error-${i}`} className="session__msg--error">
+            <div key={`error-${i}`} className="session__msg--error">
               {error}
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       )
     } else {
       return null
-    };
+    }
   }
 
   renderUsernameInput() {
@@ -91,87 +95,121 @@ export class SessionForm extends React.Component {
     return null
   }
 
+  renderFnameField(){
+    if(this.props.location.pathname === "/signup"){
+      return(
+        <label className="session__input-container">
+          First Name
+                <br />
+          <input type="text"
+            value={this.state.fname}
+            onChange={this.update('fname')}
+            className="session__textbox"
+          />
+        </label>
+      )
+    }else{
+      return []
+    }
+  }
+
+  renderLnameField(){
+    if (this.props.location.pathname === "/signup"){
+      return(
+        <label className="session__input-container">
+          Last Name
+                <br />
+          <input type="text"
+            value={this.state.lname}
+            onChange={this.update('lname')}
+            className="session__textbox"
+          />
+        </label>
+      )
+    }else{
+      return []
+    }
+  }
+
+  componentWillUnmount(){
+    this.props.clearErrors()
+  }
+
   render() {
     return (
       <div className="session__form-container">
-        <div className="session__form-box">
-          <form onSubmit={this.handleSubmit}>
-            
-            <div className="session-text">
-              Welcome to John's Barber Shop!
-            </div>
+        <div className="session__form-container-opacity">
+          <div className="session__form-box">
+            <form onSubmit={this.handleSubmit}>
+              
+              <div className="session-text">
+                Welcome to John's Barber Shop!
+              </div>
 
-            <br />
-
-            <div className="session-text"> 
-              Please {this.props.formType} to continue
-            </div>
-            
-
-            {this.renderErrors()}
-            {this.renderSignupConfirmation()}
-
-            <br/>
-            <br/>
-
-
-            <label className="session__input-container">
-              Email
-                <br />
-              <input type="text"
-                value={this.state.email}
-                onChange={this.update('email')}
-                className="session__textbox"
-              />
-            </label>
-
-
-            <div>
               <br />
-              {/* {this.renderUsernameInput()} */}
-              <br />
+
+              <div className="session-text"> 
+                Please {this.props.formType} to continue
+              </div>
+
+              <br/>
+
+              {this.renderErrors()}
+              {this.renderSignupConfirmation()}
+
+              <br/>
+
+              {this.renderFnameField()}
+              {this.renderLnameField()}
 
               <label className="session__input-container">
-                Password
+                Email
                   <br />
-                <input type="password"
-                  value={this.state.password}
-                  onChange={this.update('password')}
+                <input type="text"
+                  value={this.state.email}
+                  onChange={this.update('email')}
                   className="session__textbox"
                 />
               </label>
 
-              <br/>
+              <div>
+                <label className="session__input-container">
+                  Password
+                    <br />
+                  <input type="password"
+                    value={this.state.password}
+                    onChange={this.update('password')}
+                    className="session__textbox"
+                  />
+                </label>
 
-              <Link
-                to="/forgot-password"
-                className="session__link">
-                forgot password?
-              </Link>
-              <br/>
-              <br/>
+                <br/>
 
-              <div className="session__btn--submit" onClick={this.handleSubmit}>
-                <input type="submit" value={this.props.formType} />
+                <Link
+                  to="/forgot-password"
+                  className="session__link">
+                  forgot password?
+                </Link>
+                <br/>
+                <br/>
+
+                <div className="session__btn--submit" onClick={this.handleSubmit}>
+                  <input type="submit" value={this.props.formType} />
+                </div>
+
+                <br />
               </div>
+            </form>
+            <br />
 
-              <br />
+            <div>
+              {this.props.navLink}
             </div>
-          </form>
-
-          {/* <div className="session__or-container"> */}
-            {/* <hr className="session__or-hr--left" /> */}
-            {/* OR */}
-            {/* <hr className="session__or-hr--right" /> */}
-          {/* </div> */}
-          {/* ^^^ source: https://stackoverflow.com/a/2812819/7974948 */}
-          <br />
-
-          <div>
-            {/* {this.props.navLink} */}
           </div>
         </div>
       </div>
+
+      // <div>hi</div>
     );
   }
 }

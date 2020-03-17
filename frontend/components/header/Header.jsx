@@ -60,13 +60,17 @@ class Header extends React.Component{
     }
   }
 
-  handleModal(){
+  handleModal(e){
     this.props.openModal()
   }
 
   render(){
     let dropDownClassName;
+    let logoutButton;
 
+    if(this.props.currentUser){
+      logoutButton = <div onClick={() => this.props.logout()}>logout</div>
+    }
     if(window.screen.width < 700){
       if(this.state.dropDown){
         dropDownClassName = "drop-down-on"
@@ -80,6 +84,12 @@ class Header extends React.Component{
     let headerOptions = <div className={dropDownClassName}>
       <div>
         <div>about</div>
+      </div>
+      <div>
+        <div>client signup</div>
+      </div>
+      <div>
+        <div>client login</div>
       </div>
       <div>
         <div>barber login</div>
@@ -100,7 +110,7 @@ class Header extends React.Component{
     if(window.screen.width < 700){
       return(
         <header id="header-container">
-          <Link to="/queue" className="logo"> John's Barber Shop </Link>
+          <Link to="/" className="logo"> John's Barber Shop </Link>
           {dropDown}
         </header>
       )
@@ -111,6 +121,7 @@ class Header extends React.Component{
           <div>
             {headerOptions}
           </div>
+          {logoutButton}
         </header>
       )
     }

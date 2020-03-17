@@ -12,6 +12,7 @@ const QueueMobile = function ({nextPrevBarber,state,barbers, chairs}){
                 key={idx}
                 barber={barbers[barberId]}
                 nextPrevBarber={nextPrevBarber}
+                waitTime={chair.waitTime}
             />
         )
     })

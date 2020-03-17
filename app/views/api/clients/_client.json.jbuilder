@@ -1,0 +1,1 @@
+json.extract! client, :id, :fname, :wlname

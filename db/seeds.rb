@@ -8,73 +8,57 @@
 User.destroy_all
 Chair.destroy_all
 Client.destroy_all
+Haircut.destroy_all
 
-carlos = User.create(username:"dame123", email:"dame@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Damian", lname:"lillard", image_url:"dame_dolla.jpg")
-armando = User.create(username: "james123", email:"james@gmail.com",password:"*mwFMYKvQeLNS7vT",fname:"James", lname:"Harden", image_url:"james_harden.jpg")
-julisa = User.create(username:"kyrie123", email:"kyrie@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Kyrie", lname:"Irving", image_url:"kyrie_irving.jpg")
-sandra = User.create(username:"lebron123", email:"lebron@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Lebron", lname:"James", image_url:"lbj.jpg")
-melina = User.create(username:"steph123", email:"steph@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Steph", lname:"Curry", image_url:"steph_curry_barber.jpg")
+barber1 = User.create(email:"dame@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Damian", lname:"lillard", image_url:"./dame_dolla.jpg")
+barber2 = User.create(email:"james@gmail.com",password:"*mwFMYKvQeLNS7vT",fname:"James", lname:"Harden", image_url:"./james_harden.jpg")
+barber3 = User.create(email:"kyrie@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Kyrie", lname:"Irving", image_url:"./kyrie_irving.jpg")
+barber4 = User.create(email:"lebron@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Lebron", lname:"James", image_url:"./lbj.jpg")
+barber5 = User.create(email:"steph@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Steph", lname:"Curry", image_url:"./steph_curry_barber.jpg")
 
 #there will never be more than 5 chairs. specific to johns barber shop
-chair1 = Chair.create(barber_id: carlos.id, chair_name: "chair1")
-chair2 = Chair.create(barber_id: armando.id, chair_name: "chair1")
-chair3 = Chair.create(barber_id: julisa.id, chair_name: "chair1")
-chair4 = Chair.create(barber_id: sandra.id, chair_name: "chair1")
-chair5 = Chair.create(barber_id: melina.id, chair_name: "chair1")
+chair1 = Chair.create(barber_id: barber1.id, chair_name: "chair1")
+chair2 = Chair.create(barber_id: barber2.id, chair_name: "chair2")
+chair3 = Chair.create(barber_id: barber3.id, chair_name: "chair3")
+chair4 = Chair.create(barber_id: barber4.id, chair_name: "chair4")
+chair5 = Chair.create(barber_id: barber5.id, chair_name: "chair5")
 
-client1 = Client.create(fname: 'Bob', lname: 'Pancake', phone_num: '8055650000', chair_id: chair1.id, date: '01/30/20', time: '12:00:00')
-client1 = Client.create(fname: 'Joe', lname: 'TwinkleToes',phone_num: '8055650000', chair_id: chair2.id, date: '01/30/20', time: '12:00:00')
-client1 = Client.create(fname: 'Simon', lname: 'Rainbow', phone_num: '8055650000', chair_id: chair3.id, date: '01/30/20', time: '12:00:00')
-client1 = Client.create(fname: 'Gerald', lname: 'Geraldson', phone_num: '8055650000', chair_id: chair4.id, date: '01/30/20', time: '12:00:00')
-client1 = Client.create(fname: 'Wambam', lname: 'Kazam', phone_num: '8055650000', chair_id: chair2.id, date: '01/30/20', time: '13:00:00')
+client1 = Client.create(fname: 'Bob', lname: 'Pancake', email: "boppancake@gmail.com",password:"password")
+client2 = Client.create(fname: 'Joe', lname: 'TwinkleToes',email: "joetwinkletoes@gmail.com",password:"password")
+client3 = Client.create(fname: 'Simon', lname: 'Rainbow', email: "simonrainbow@gmail.com",password:"password")
+client4 = Client.create(fname: 'Gerald', lname: 'Geraldson', email: "geraldgeraldson@gmail.com",password:"password")
+client5 = Client.create(fname: 'Wambam', lname: 'Kazam', email: "wambamkazam@gmail.com",password:"password")
 
-haircut1 = Haircut.create(haircut_name: "Burst-Fade-Mohawk", path:"./Burst-Fade-Mohawk.jpg" )
-haircut2 = Haircut.create(haircut_name: "Buzz-Cut-Fade", path:"./Buzz-Cut-Fade.jpg" )
-haircut3 = Haircut.create(haircut_name: "Calculated_Pompadour", path:"./Calculated_Pompadour.jpg" )
-haircut4 = Haircut.create(haircut_name: "Chaotic_Pompadour", path:"./Chaotic_Pompadour.jpg" )
-haircut5 = Haircut.create(haircut_name: "Clean-cut-low-fade", path:"./Clean-cut-low-fade.jpg" )
-haircut6 = Haircut.create(haircut_name: "Exemplary_Pompadour_Haircut", path:"./Exemplary_Pompadour_Haircut.jpg" )
-haircut7 = Haircut.create(haircut_name: "Faux-Hawk-Fade", path:"./Faux-Hawk-Fade.jpg" )
-haircut8 = Haircut.create(haircut_name: "High_Pompadour_Fade", path:"./High_Pompadour_Fade.jpg" )
-haircut9 = Haircut.create(haircut_name: "High-and-Tight-Fade", path:"./High-and-Tight-Fade.jpg" )
-haircut10 = Haircut.create(haircut_name: "High-Top-Fade", path:"./High-Top-Fade.jpg" )
-haircut11 = Haircut.create(haircut_name: "Long_Hair_Brushed_Back_Mens_Hairstyle", path:"./Long_Hair_Brushed_Back_Mens_Hairstyle.jpg" )
-haircut12 = Haircut.create(haircut_name: "Long-Crew-Cut-Tapered-Sides", path:"./Long-Crew-Cut-Tapered-Sides.jpg" )
-haircut13 = Haircut.create(haircut_name: "Low_Pompadour_Haircut_Fade", path:"./Low_Pompadour_Haircut_Fade.jpg" )
-haircut14 = Haircut.create(haircut_name: "Low-Fade-Haircut-Thick-Wavy-Hair", path:"./Low-Fade-Haircut-Thick-Wavy-Hair.jpg" )
-haircut15 = Haircut.create(haircut_name: "Medium_Pompadour_Haircut_Fade", path:"./Medium_Pompadour_Haircut_Fade.jpg" )
-haircut16 = Haircut.create(haircut_name: "Natural-fauxhawks-with-line-up", path:"./Natural-fauxhawks-with-line-up.jpg" )
-haircut17 = Haircut.create(haircut_name: "Pompadour_Haircut_with_Side_Part_Undercut", path:"./Pompadour_Haircut_with_Side_Part_Undercut.jpg" )
-haircut18 = Haircut.create(haircut_name: "Pompadour_Undercut", path:"./Pompadour_Undercut.jpg" )
-haircut19 = Haircut.create(haircut_name: "Pompadour_with_Long_Hair", path:"./Pompadour_with_Long_Hair.jpg" )
-haircut20 = Haircut.create(haircut_name: "Present_day_Pompadour_Haircut", path:"./Present_day_Pompadour_Haircut.jpg" )
-haircut21 = Haircut.create(haircut_name: "Shaved_Down_Pompadour_Haircut", path:"./Shaved_Down_Pompadour_Haircut.jpg" )
-haircut22 = Haircut.create(haircut_name: "Short_Pompadour", path:"./Short_Pompadour.jpg" )
-haircut23 = Haircut.create(haircut_name: "Short-Combed-Back-Undercut-Hairstyle", path:"./Short-Combed-Back-Undercut-Hairstyle.jpg" )
-haircut24 = Haircut.create(haircut_name: "Short-high-fade", path:"./Short-high-fade.jpg" )
-haircut25 = Haircut.create(haircut_name: "Short-Textured-Crop-Top-Fade", path:"./Short-Textured-Crop-Top-Fade.jpg" )
-haircut26 = Haircut.create(haircut_name: "Side-Part-Fade", path:"./Side-Part-Fade.jpg" )
-haircut27 = Haircut.create(haircut_name: "Side-Part-Fade", path:"./Side-Part-Fade.jpg" )
-haircut28 = Haircut.create(haircut_name: "Side-Part-Hairstyle-High-Bald-Fade", path:"./Side-Part-Hairstyle-High-Bald-Fade.jpg" )
-haircut29 = Haircut.create(haircut_name: "Twirled_Pompadour", path:"./Twirled_Pompadour.jpg" )
-haircut30 = Haircut.create(haircut_name: "Wavy_Pompadour", path:"./Wavy_Pompadour.jpg" )
+haircut1 = Haircut.create(haircut_name: "Afro-Fade-Haircut", path:"./Afro-Fade-Haircut.jpg" )
+haircut2 = Haircut.create(haircut_name: "Bald-Fade-Haircut", path:"./Bald-Fade-Haircut.jpg" )
+haircut3 = Haircut.create(haircut_name: "Buzz-Haircut", path:"./Buzz-Haircut.jpg" )
+haircut4 = Haircut.create(haircut_name: "Comb-Over-2-Haircut", path:"./Comb-Over-2-Haircut.jpg" )
+haircut5 = Haircut.create(haircut_name: "Comb-Over-Haircut", path:"./Comb-Over-Haircut.jpg" )
+haircut6 = Haircut.create(haircut_name: "High-Fade-Haircut", path:"./High-Fade-Haircut.jpg" )
+haircut7 = Haircut.create(haircut_name: "Low-Fade-Haircut", path:"./Low-Fade-Haircut.jpg" )
+haircut8 = Haircut.create(haircut_name: "Mens-Disconnected-Pompadour-Haircut", path:"./Mens-Disconnected-Pompadour-Haircut.jpg" )
+haircut9 = Haircut.create(haircut_name: "Mid-Fade-Haircut", path:"./Mid-Fade-Haircut.jpg" )
+haircut10 = Haircut.create(haircut_name: "Natural-fauxhawks-with-line-up", path:"./Natural-fauxhawks-with-line-up.jpg" )
+haircut11 = Haircut.create(haircut_name: "Pompadour-Fade-Haircut", path:"./Pompadour-Fade-Haircut.jpg" )
+haircut12 = Haircut.create(haircut_name: "Quiff-Haircut", path:"./Quiff-Haircut.jpg" )
+haircut13 = Haircut.create(haircut_name: "Short-high-fade-haircut", path:"./Short-high-fade-haircut.jpg" )
+haircut14 = Haircut.create(haircut_name: "Side-Part-Haircut", path:"./Side-Part-Haircut.jpg" )
+haircut15 = Haircut.create(haircut_name: "Slicked-Back-Haircut", path:"./Slicked-Back-Haircut.jpg" )
+haircut16 = Haircut.create(haircut_name: "Spiky-Haircut", path:"./Spiky-Haircut.jpg" )
+haircut17 = Haircut.create(haircut_name: "Taper-Fade-Haircut", path:"./Taper-Fade-Haircut.jpg" )
+haircut18 = Haircut.create(haircut_name: "Temple-Fade-Haircut", path:"./Temple-Fade-Haircut.jpg" )
+haircut19 = Haircut.create(haircut_name: "Top-Knot-Haircut", path:"./Top-Knot-Haircut.jpg" )
+haircut20 = Haircut.create(haircut_name: "Undercut-CombOver-Haircut", path:"./Undercut-CombOver-Haircut.jpg" )
+haircut21 = Haircut.create(haircut_name: "Undercut-Haircut-Fade", path:"./Undercut-Haircut-Fade.jpg" )
 
+client_haircut_user1 = ClientHaircut.create(client_id: client1.id, haircut_id: haircut1.id, barber_id: barber1.id, chair_id: chair1.id)
+client_haircut_user2 = ClientHaircut.create(client_id: client2.id, haircut_id: haircut2.id, barber_id: barber2.id, chair_id: chair2.id)
+client_haircut_user3 = ClientHaircut.create(client_id: client3.id, haircut_id: haircut3.id, barber_id: barber2.id, chair_id: chair2.id)
+client_haircut_user4 = ClientHaircut.create(client_id: client4.id, haircut_id: haircut3.id, barber_id: barber3.id, chair_id: chair3.id)
+client_haircut_user5 = ClientHaircut.create(client_id: client5.id, haircut_id: haircut6.id, barber_id: barber4.id, chair_id: chair4.id)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+client_haircut_avg_times_user1 = ClientHaircutAvgTime.create(client_id: client1.id, haircut_id: haircut1.id, avg_time: 45)
+client_haircut_avg_times_user2 = ClientHaircutAvgTime.create(client_id: client2.id, haircut_id: haircut2.id, avg_time: 45)
+client_haircut_avg_times_user3 = ClientHaircutAvgTime.create(client_id: client3.id, haircut_id: haircut3.id, avg_time: 45)
+client_haircut_avg_times_user4 = ClientHaircutAvgTime.create(client_id: client4.id, haircut_id: haircut3.id, avg_time: 45)
+client_haircut_avg_times_user5 = ClientHaircutAvgTime.create(client_id: client5.id, haircut_id: haircut6.id, avg_time: 45)
