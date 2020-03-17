@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from "./modal/modal"
-import { AuthRoute } from '../util/route_util';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import { Switch, Route } from 'react-router-dom';
 import HeaderContainer from './header/header_container';
 import SignUpFormContainer from './auth/signup_form_container';
@@ -19,7 +19,7 @@ export const App = () => (
     <Switch>
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       {/* <AuthRoute exact path="/signup" component={SignUpFormContainer} /> */}
-      <Route exact path={`/queue/:barberId`} component={BarberQueueContainer} />
+      <ProtectedRoute exact path={`/queue/:barberId`} component={BarberQueueContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
       <AuthRoute exact path="/forgot-password" component={ForgotPasswordFormContainer} />
       <Route exact path="/" component={Queue} />
