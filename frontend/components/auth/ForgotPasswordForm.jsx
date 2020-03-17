@@ -29,11 +29,11 @@ export class ForgotPasswordForm extends React.Component {
     renderforgotPasswordConfirmation() {
         if (this.displayforgotPasswordConfirmation && this.props.forgotPasswordConfirmation) {
             return (
-                <ul>
-                    <li key="forgotPasswordConfirmation" className="session__msg--confirmation">
+                <div>
+                    <div key="forgotPasswordConfirmation" className="session__msg--confirmation">
                         {this.props.forgotPasswordConfirmation}
-                    </li>
-                </ul>
+                    </div>
+                </div>
             )
         } else {
             return null
@@ -43,13 +43,13 @@ export class ForgotPasswordForm extends React.Component {
     renderErrors() {
         if (this.displayErrors) {
             return (
-                <ul>
+                <div>
                     {this.props.errors.map((error, i) => (
-                        <li key={`error-${i}`} className="session__msg--error">
+                        <div key={`error-${i}`} className="session__msg--error">
                             {error}
-                        </li>
+                        </div>
                     ))}
-                </ul>
+                </div>
             )
         } else {
             return null

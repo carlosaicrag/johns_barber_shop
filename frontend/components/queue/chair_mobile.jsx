@@ -22,7 +22,7 @@ const ChairMobile = function (props) {
                 </div>
             </div>
             <div className="wait-time-new-haircut-container">
-                <div className="chair-container-barber-name">Wait: 0 mins</div>
+                <div className="chair-container-barber-name">Wait: {props.waitTime} mins</div>
                 <Link to="/chooseHaircut"> New Haircut</Link>
             </div>
             </div>
