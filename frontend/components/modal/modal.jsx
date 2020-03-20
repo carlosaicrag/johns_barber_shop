@@ -2,10 +2,10 @@ import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import NavModal from "./nav_modal"
-import {logout} from "../../actions/session_actions"
+import {logout, clientLogout} from "../../actions/session_actions"
 
 
-function Modal({ modal, closeModal, session, logout}) {
+function Modal({ modal, closeModal, session, logout, clientSession, clientLogout}) {
     if (!modal) {
         return null;
     }
@@ -13,7 +13,7 @@ function Modal({ modal, closeModal, session, logout}) {
     let component;
     switch (modal) {
         case 'OPEN_NAV_MODAL':
-            component = <NavModal session={session} logout={logout}/>
+            component = <NavModal session={session} clientSession={clientSession} logout={logout} clientLogout={clientLogout}/>
             break;
         default:
             return null;
@@ -32,14 +32,16 @@ const mapStateToProps = (state) => {
 
     return {
         modal: state.ui.modal,
-        session: state.session.id
+        session: state.session.id,
+        clientSession: state.session.clientId
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         closeModal: () => dispatch(closeModal()),
-        logout: () => dispatch(logout())
+        logout: () => dispatch(logout()),
+        clientLogout: () => dispatch(clientLogout())
     };
 };
 

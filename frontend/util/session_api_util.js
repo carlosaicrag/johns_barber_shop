@@ -28,3 +28,27 @@ export const forgotPassword = (email) => {
     data: { email }
   });
 };
+
+export const clientSignup = (client) => {
+  return $.ajax({
+    url: "/api/clients",
+    method: "POST",
+    data: {client}
+  })
+}
+
+export const clientLogout = (client) => {
+  return $.ajax({
+    url: "/api/client_session",
+    method: "DELETE",
+    data: {client}
+  })
+}
+
+export const clientLogin = (client) => {
+  return $.ajax({
+    url: "/api/client_session",
+    method: "POST",
+    data: {client}
+  })
+}
