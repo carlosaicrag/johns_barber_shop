@@ -15,7 +15,7 @@ class Chair < ApplicationRecord
 
     belongs_to :barber,
         foreign_key: :barber_id,
-        class_name: :User
+        class_name: :User, optional: true
 
     has_many :client_haircuts,
         foreign_key: :chair_id,
@@ -26,7 +26,10 @@ class Chair < ApplicationRecord
         if client_ids.length == 0 
             return 0;
         else
-            sumWaitTime = ClientHaircutAvgTime.select(:avg_time).where(client_id: client_ids)
+            # sumWaitTime = ClientHaircutAvgTime.select(:avg_time).where(client_id: client_ids)
+            # .pluck(:avg_time)
+            # .sum
+            sumWaitTime = ClientHaircut.select(:avg_time).where(client_id: client_ids)
             .pluck(:avg_time)
             .sum
         end
