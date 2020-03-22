@@ -6,33 +6,48 @@ class ChooseHaircut extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            chooseHaircut: true,
-            chooseBarber: true,
-            inputPhoneNumber:true
+            chooseHaircut: false,
+            chooseBarber: false,
         }
-
+        this.handleOptionsAppearance = this.handleOptionsAppearance.bind(this)
     }
 
     componentDidMount(){
         this.props.fetchHaircuts()
     }
 
-    render(){
-        if(!this.props.haircuts) return null;
+    handleOptionsAppearance(field){
+        return(() => {
+            if (this.state[field]){
+                this.setState({[field]: false})
+            }else{
+                this.setState({[field]: true})
+            }
+        })
+    }
 
-        let haircutImages = this.props.haircuts.map((haircut) => {
+    displayHaircuts(){
+        if(this.state.chooseHaircut){
+            let haircutImages = this.props.haircuts.map((haircut) => {
+                return (
+                    <div className="w3-card">
+                        <img className="w3-image" src={haircut.path} alt="{haircut.haircut_name}" />
+                    </div>
+                )
+            })
+
             return(
-                <div className="w3-card">
-                    <img className="w3-image" src={haircut.path} alt="{haircut.haircut_name}"/>
+                <div className="w3-container">
+                    {haircutImages}
                 </div>
             )
-        })
+        }else{
+            return []
+        }
+    }
 
-
-        let chooseBarber = []
-        let inputPhoneNumber=[]
-
-        if (this.state.chooseBarber) {
+    displayBarber(){
+        if(this.state.chooseBarber){
             let barbers = this.props.barbers.map((barber) => {
                 return (
                     <div className="w3-card">
@@ -40,47 +55,46 @@ class ChooseHaircut extends React.Component{
                     </div>
                 )
             })
-            chooseBarber =<div className="cover">
-                <h3>Choose Barber</h3>
-                <div className="w3-container">
+            let chooseBarber = <div className="w3-container">
                     {barbers}
                 </div>
-                </div>
-        }
 
-        if(this.state.inputPhoneNumber){
-            inputPhoneNumber = <label> Enter Phone Number
-                    <input type="text" name="" />
-            </label>
+            return chooseBarber
+        }else{
+            return []
         }
+    }
+
+    render(){
+        if(!this.props.haircuts) return null;
+
+        let chooseBarber = []
 
         return(
             <div className="w3-container cover">
 
                 <div className="choose-haircut-form-option">
-                    <i class="fas fa-plus"></i>
-                    Choose Haircut
+                    <div>
+                        <i className="fas fa-plus" onClick={this.handleOptionsAppearance("chooseHaircut")}></i>
+                        <div>
+                            Choose Haircut
+                        </div>
+                    </div>
+                    {this.displayHaircuts()}
                 </div>
 
                 <div className="choose-haircut-form-option">
-                    <i class="fas fa-plus"></i>
-                    Choose Barber
-                </div>
-
-                <div className="choose-haircut-form-option">
-                    <i class="fas fa-plus"></i>
-                    Information
-                </div>
-
-                <h3>Choose Haircut</h3>
-                <div className="w3-container">
-                    {haircutImages}
+                    <div>
+                        <i className="fas fa-plus" onClick={this.handleOptionsAppearance("chooseBarber")}></i>
+                        <div>
+                            Choose Barber
+                        </div>
+                    </div>
+                    {this.displayBarber()}
                 </div>
 
                 <br/>
 
-                {chooseBarber}
-                {inputPhoneNumber}
             </div>
         )
     }
