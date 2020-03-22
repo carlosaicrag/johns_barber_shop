@@ -1,1 +1,1 @@
-json.extract! client, :id, :fname, :wlname
+json.extract! client, :id, :fname, :lname
