@@ -2,12 +2,17 @@ import React from "react"
 import {Link, withRouter} from "react-router-dom"
 
 const navModal = function(props){
-    function handleLogOut(e){
+    function handleBarberLogOut(e){
         e.preventDefault()
         props.logout()
     }
 
-    if(!props.session){    
+    function handleClientLogOut(e){
+        e.preventDefault
+        props.clientLogout()
+    }
+
+    if(!props.session && !props.clientSession){    
         return(
             <div className="modal-nav-container">
                 <div className="modal-nav-option">
@@ -31,14 +36,24 @@ const navModal = function(props){
             </div>
         )   
     }else{
+        let logout;
+
+        if(props.session){
+            logout = <div>
+                <a onClick={handleBarberLogOut}>Log Out</a>
+            </div>
+        }else{
+            logout = <div>
+                <a onClick={handleClientLogOut}>Log Out</a>
+            </div>
+        }
+
         return (
             <div className="modal-nav-container">
                 <div className="modal-nav-option">
                     <Link to="/login">About</Link>
                 </div>
-                <div>
-                    <a onClick={handleLogOut}>Log Out</a>
-                </div>
+                {logout}
                 <div>
                     <Link to="/login">Testimonials</Link>
                 </div>

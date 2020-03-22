@@ -8,7 +8,9 @@ export class SessionForm extends React.Component {
       email: '',
       password: '',
       fname: "",
-      lname: ""
+      lname: "",
+      barber: "false",
+      barber_shop_password: ""
     };
 
     this.displayErrors = true;
@@ -19,6 +21,8 @@ export class SessionForm extends React.Component {
     this.handleSubmitWithDefaultUsername = this.handleSubmitWithDefaultUsername.bind(this);
     this.renderFnameField= this.renderFnameField.bind(this);
     this.renderLnameField= this.renderLnameField.bind(this);
+    this.handleCheck = this.handleCheck.bind(this)
+
   }
 
   update(field) {
@@ -35,8 +39,13 @@ export class SessionForm extends React.Component {
     //     username: this.state.email.split('@')[0]
     //   }, this.handleSubmitWithDefaultUsername)
     // } else {
-      const user = Object.assign({}, this.state);
-      this.props.processForm(user).then(() => this.props.history.push("/"))
+      if(this.state.barber === "true"){
+        const user = Object.assign({}, this.state);
+        this.props.processBarberForm(user).then(() => this.props.history.push("/"))
+      }else{
+        const client = Object.assign({}, this.state);
+        this.props.processClientForm(client).then(() => this.props.history.push("/"));
+      }
     // }
   }
 
@@ -131,6 +140,40 @@ export class SessionForm extends React.Component {
     }
   }
 
+  handleCheck(e){
+    if (e.currentTarget.value === "false"){
+      e.value = "true"
+      this.setState({barber: "true"})
+    }else{
+      e.value = "false"
+      this.setState({barber: "false"})
+    }
+  }
+
+  renderAreYouBarber(){
+      return (
+        <label> Are you a Barber?
+          <input type="checkbox" name="" id="is-barber" value={this.state.barber} onChange={this.handleCheck}/>
+        </label>
+      )
+  }
+
+  renderBarberPassword(){
+    if(this.state.barber === "true"){
+      return(
+        <label className="session__input-container">
+          Barber Shop Password
+          <br />
+          <input type="password"
+            value={this.state.barber_shop_password}
+            onChange={this.update('barber_shop_password')}
+            className="session__textbox"
+          />
+        </label>
+      )
+    }
+  }
+
   componentWillUnmount(){
     this.props.clearErrors()
   }
@@ -183,6 +226,9 @@ export class SessionForm extends React.Component {
                   />
                 </label>
 
+                {this.renderAreYouBarber()}
+                <br/>
+                {this.renderBarberPassword()}
                 <br/>
 
                 <Link
@@ -191,7 +237,8 @@ export class SessionForm extends React.Component {
                   forgot password?
                 </Link>
                 <br/>
-                <br/>
+
+                
 
                 <div className="session__btn--submit" onClick={this.handleSubmit}>
                   <input type="submit" value={this.props.formType} />
@@ -202,6 +249,7 @@ export class SessionForm extends React.Component {
             </form>
             <br />
 
+            
             <div>
               {this.props.navLink}
             </div>

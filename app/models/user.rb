@@ -26,12 +26,13 @@ class User < ApplicationRecord
             uniqueness: { case_sensitive: false }
   validates :password_digest, presence: { message: 'Password can\'t be blank' }
   validates :password, length: { minimum: 6, allow_nil: true }
+  validates :barber_shop_password, length: { minimum: 6, allow_nil: true }
   validates :fname, :lname, presence: true
 
   after_initialize :ensure_session_token
   # before_create :ensure_confirmation_token, :downcase_fields
 
-  attr_reader :password
+  attr_reader :password, :barber_shop_password
 
   has_many :chairs,
     foreign_key: :barber_id,
@@ -60,6 +61,10 @@ class User < ApplicationRecord
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
+  end
+
+  def self.valid_barber_shop_password?(password)
+    return true if password == "*mwFMYKvQeLNS7vT"
   end
 
   def valid_password?(password)
