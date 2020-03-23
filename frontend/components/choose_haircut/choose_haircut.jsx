@@ -8,6 +8,8 @@ class ChooseHaircut extends React.Component{
         this.state = {
             chooseHaircut: false,
             chooseBarber: false,
+            haircut: "",
+            barber: ""
         }
         this.handleOptionsAppearance = this.handleOptionsAppearance.bind(this)
     }
@@ -26,11 +28,18 @@ class ChooseHaircut extends React.Component{
         })
     }
 
+    handleBarberHaircut(field,value){
+        return () => {
+            debugger
+            this.setState({[field]: value})
+        }
+    }
+
     displayHaircuts(){
         if(this.state.chooseHaircut){
             let haircutImages = this.props.haircuts.map((haircut) => {
                 return (
-                    <div className="w3-card">
+                    <div className="w3-card" onClick={this.handleBarberHaircut("barber",haircut.haircut_name)}>
                         <img className="w3-image" src={haircut.path} alt="{haircut.haircut_name}" />
                     </div>
                 )
