@@ -11,4 +11,9 @@ class Api::ChairsController < ApplicationController
 
   def edit
   end
+
+  private
+  def chair_params
+    params.require(:chair).permit(:barber_id, :chair_name)
+  end
 end

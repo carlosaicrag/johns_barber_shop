@@ -3,7 +3,8 @@ import Queues from "./queue"
 import {getChairs} from "../../actions/splash_actions"
 import {openModal} from "../../actions/modal_actions"
 
-const msp = function(store){
+
+const msp = function(store, ownProps){
     let chairs = ""
     let barbers = ""
     

@@ -1,0 +1,20 @@
+current directory: /Users/linakherchi/Desktop/johns_barber_shop/vendor/cache/ruby/2.5.0/gems/binding_of_caller-0.8.0/ext/binding_of_caller
+<<<<<<< HEAD
+/Users/linakherchi/.rbenv/versions/2.5.1/bin/ruby -I /Users/linakherchi/.rbenv/versions/2.5.1/lib/ruby/site_ruby/2.5.0 -r ./siteconf20200129-61458-1ns2la1.rb extconf.rb
+=======
+/Users/linakherchi/.rbenv/versions/2.5.1/bin/ruby -I /Users/linakherchi/.rbenv/versions/2.5.1/lib/ruby/site_ruby/2.5.0 -r ./siteconf20200206-41986-4mcht9.rb extconf.rb
+>>>>>>> master
+
+current directory: /Users/linakherchi/Desktop/johns_barber_shop/vendor/cache/ruby/2.5.0/gems/binding_of_caller-0.8.0/ext/binding_of_caller
+make "DESTDIR=" clean
+make: *** No rule to make target `clean'.  Stop.
+
+current directory: /Users/linakherchi/Desktop/johns_barber_shop/vendor/cache/ruby/2.5.0/gems/binding_of_caller-0.8.0/ext/binding_of_caller
+make "DESTDIR="
+echo "Nada."
+Nada.
+
+current directory: /Users/linakherchi/Desktop/johns_barber_shop/vendor/cache/ruby/2.5.0/gems/binding_of_caller-0.8.0/ext/binding_of_caller
+make "DESTDIR=" install
+echo "Nada."
+Nada.

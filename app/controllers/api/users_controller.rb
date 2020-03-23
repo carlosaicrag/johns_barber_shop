@@ -2,7 +2,9 @@ class Api::UsersController < ApplicationController
   
   def create
     @user = User.new(user_params)
+    debugger
     if User.valid_barber_shop_password?(params[:user][:barber_shop_password])
+      debugger
       if @user.save
         # SendEmailJob.set(wait: 0.5.seconds).perform_later(@user.id)
         sign_in(@user)
@@ -17,7 +19,8 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find(params[:id]).includes(:chairs)
+    render :show
   end
 
   def confirm_email
