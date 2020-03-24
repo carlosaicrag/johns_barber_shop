@@ -34,6 +34,10 @@ ActiveRecord::Schema.define(version: 2020_03_24_044758) do
     t.integer "barber_id", null: false
     t.datetime "closed_at"
     t.integer "chair_id", null: false
+    t.integer "avg_time"
+    t.index ["client_id", "haircut_id"], name: "index_client_haircuts_on_client_id_and_haircut_id", unique: true
+    t.index ["client_id"], name: "index_client_haircuts_on_client_id"
+    t.index ["haircut_id"], name: "index_client_haircuts_on_haircut_id"
   end
 
   create_table "clients", force: :cascade do |t|
@@ -76,8 +80,6 @@ ActiveRecord::Schema.define(version: 2020_03_24_044758) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", null: false
-    t.boolean "email_confirmed", default: false
-    t.string "confirm_token"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.string "fname", null: false

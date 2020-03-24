@@ -10,6 +10,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
+/vendor/*
 !/log/.keep
 !/tmp/.keep
 
@@ -32,3 +33,4 @@ bundle.js
 bundle.js.map
 # Ignore application configuration
 /config/application.yml
+/gems

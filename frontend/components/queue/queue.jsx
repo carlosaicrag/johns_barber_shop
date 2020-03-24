@@ -2,6 +2,7 @@ import React from "react"
 import Chair from './chair'
 import ChairMobile from "./chair_mobile"
 import QueueMobile from "./queue_mobile"
+import { Link } from 'react-router-dom'
 
 // import { makeStyles } from '@material-ui/core/styles';
 // import Table from '@material-ui/core/Table';
