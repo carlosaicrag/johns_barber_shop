@@ -1,5 +1,8 @@
 class Api::UsersController < ApplicationController
-  
+  def index
+    
+  end
+
   def create
     @user = User.new(user_params)
     if User.valid_barber_shop_password?(params[:user][:barber_shop_password])
