@@ -1,18 +1,16 @@
 import React from "react"
-import ChairMobile from "./chair_mobile"
+import BarberMobile from "./chair_mobile"
 
 const QueueMobile = function ({nextPrevBarber,state,barbers, chairs}){
     const rows = Object.values(barbers);
-
-    let chairIcons = chairs.map((chair, idx) => {
-        let barberId = chair.barber_id
+    let barberIcons = Object.values(barbers).map((barber, idx) => {
 
         return (
-            <ChairMobile
+            <BarberMobile
                 key={idx}
-                barber={barbers[barberId]}
+                barber={barber}
                 nextPrevBarber={nextPrevBarber}
-                waitTime={chair.waitTime}
+                waitTime={barber.waitTime}
             />
         )
     })
@@ -62,7 +60,7 @@ const QueueMobile = function ({nextPrevBarber,state,barbers, chairs}){
 
     return (
         <div className="queue-mobile-container">
-            {chairIcons[state.barber]}
+            {barberIcons[state.barber]}
             {makeTable()}
 
             <div className="services-container">
