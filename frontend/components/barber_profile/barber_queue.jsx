@@ -10,7 +10,6 @@ class BarberQueue extends React.Component{
     }
     
    tick(){
-    // debugger
     if (Number(this.state.seconds) < 59){
         if (Number(this.state.seconds) < 9){
             this.setState({seconds: `0${Number(this.state.seconds)+1}`})
@@ -29,7 +28,6 @@ class BarberQueue extends React.Component{
 
 
     inProgressCSS(inProgressHTMLCollection){
-        // debugger
         if (inProgressHTMLCollection.style.opacity === "0.7" || inProgressHTMLCollection.style.opacity === ""){
             inProgressHTMLCollection.style.opacity = "1"
         }else{
@@ -93,7 +91,6 @@ class BarberQueue extends React.Component{
             return null
         } else { 
             // if (window.screen.width < 700){
-                // debugger
                 let that = this
                 const barberName = this.props.barbers[Number(this.props.match.params.barberId - 1)].fname
                 const splittedBarberName = (("Chez ").split("").concat(barberName.split("")).reverse());
@@ -135,11 +132,9 @@ class BarberQueue extends React.Component{
                
                     
 
-                // debugger
             }  
             
 
-            // debugger
 
         }
             

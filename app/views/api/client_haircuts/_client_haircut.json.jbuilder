@@ -1,0 +1,1 @@
+json.extract! client_haircut, :barber_id, :haircut_id
