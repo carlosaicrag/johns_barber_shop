@@ -34,10 +34,6 @@ class User < ApplicationRecord
 
   attr_reader :password, :barber_shop_password
 
-  has_many :chairs,
-    foreign_key: :barber_id,
-    class_name: :Chair
-
   has_many :client_haircuts,
     foreign_key: :barber_id,
     class_name: :ClientHaircut
