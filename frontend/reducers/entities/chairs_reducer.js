@@ -5,13 +5,7 @@ const chairsReducer = function(oldState = {}, action){
 
     let nextState; 
 
-    switch (action.type) {
-        case RECEIVE_CHAIRS:
-            nextState = Object.assign({},oldState,action.chairs)
-            return nextState
-        default:
-            return oldState
-    }
+    return oldState
 }
 
 export default chairsReducer;

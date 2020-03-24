@@ -28,6 +28,7 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :barber_shop_password, length: { minimum: 6, allow_nil: true }
   validates :fname, :lname, presence: true
+  validates :working, inclusion: { in: [true, false]} 
 
   after_initialize :ensure_session_token
   # before_create :ensure_confirmation_token, :downcase_fields

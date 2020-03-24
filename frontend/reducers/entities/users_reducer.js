@@ -1,5 +1,5 @@
 import { RECEIVE_CURRENT_USER } from "../../actions/session_actions";
-import {RECEIVE_CHAIRS} from "../../actions/splash_actions"
+import {RECEIVE_BARBERS} from "../../actions/splash_actions"
 import {RECEIVE_HAIRCUTS} from "../../actions/choose_haircut_actions"
 
 const usersReducer = (oldState = {}, action) => {
@@ -14,7 +14,7 @@ const usersReducer = (oldState = {}, action) => {
       return nextState;
     case RECEIVE_HAIRCUTS:
       return action.barbers
-    case RECEIVE_CHAIRS:
+    case RECEIVE_BARBERS:
       return action.barbers
     default:
       return oldState;
