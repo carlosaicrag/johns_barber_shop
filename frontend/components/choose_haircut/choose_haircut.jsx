@@ -74,6 +74,10 @@ class ChooseHaircut extends React.Component{
         }
     }
 
+    handleSubmit(){
+        this.props.createClienthaircut({haircut:this.state.haircut, barber: this.state.barber})
+    }
+
     render(){
         if(!this.props.haircuts) return null;
 
@@ -103,7 +107,7 @@ class ChooseHaircut extends React.Component{
                 </div>
 
                 <br/>
-
+                <button onClick={this.handleSubmit}>Submit</button>
             </div>
         )
     }
