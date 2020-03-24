@@ -14,7 +14,9 @@ barber2 = User.create(email:"james@gmail.com",password:"*mwFMYKvQeLNS7vT",fname:
 barber3 = User.create(email:"kyrie@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Kyrie", lname:"Irving", image_url:"./kyrie_irving.jpg", working: true)
 barber4 = User.create(email:"lebron@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Lebron", lname:"James", image_url:"./lbj.jpg", working: true)
 barber5 = User.create(email:"steph@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Steph", lname:"Curry", image_url:"./steph_curry_barber.jpg", working: true)
-barber6 = User.create(email:"steph@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Steph", lname:"Curry", image_url:"./steph_curry_barber.jpg")
+barber6 = User.create(email:"carlos@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Carlos", lname:"Garcia", image_url:"f")
+barber6 = User.create(email:"sandra@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Sandra", lname:"Garcia", image_url:"f")
+barber6 = User.create(email:"melina@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Melina", lname:"Garcia", image_url:"f")
 
 client1 = Client.create!(fname: 'Bob', lname: 'Pancake', email: "boppancake@gmail.com",password:"password")
 client2 = Client.create!(fname: 'Joe', lname: 'TwinkleToes',email: "joetwinkletoes@gmail.com",password:"password")
