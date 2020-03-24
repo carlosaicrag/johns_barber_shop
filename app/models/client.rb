@@ -39,10 +39,6 @@ class Client < ApplicationRecord
     through: :client_haircuts,
     source: :barber
 
-  has_many :chairs,
-    through: :client_haircuts,
-    source: :chair
-
   after_initialize :ensure_session_token
 
   def self.find_by_credentials(email, password)

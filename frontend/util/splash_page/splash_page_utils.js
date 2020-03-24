@@ -1,8 +1,8 @@
-export const retrieveChairs = function(){
+export const retrieveBarbers = function(){
     return(
         $.ajax({
             method: "GET",
-            url: "api/chairs",
+            url: "api/users",
         })
     ) 
 }

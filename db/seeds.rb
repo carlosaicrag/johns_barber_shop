@@ -6,25 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 User.destroy_all
-Chair.destroy_all
 Client.destroy_all
 Haircut.destroy_all
 ClientHaircut.destroy_all
 
-barber1 = User.create!(email:"dame@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Damian", lname:"lillard", image_url:"./dame_dolla.jpg")
-barber2 = User.create!(email:"james@gmail.com",password:"*mwFMYKvQeLNS7vT",fname:"James", lname:"Harden", image_url:"./james_harden.jpg")
-barber3 = User.create!(email:"kyrie@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Kyrie", lname:"Irving", image_url:"./kyrie_irving.jpg")
-barber4 = User.create!(email:"lebron@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Lebron", lname:"James", image_url:"./lbj.jpg")
-barber5 = User.create!(email:"steph@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Steph", lname:"Curry", image_url:"./steph_curry_barber.jpg")
-
-#there will never be more than 5 chairs. specific to johns barber shop
-chair1 = Chair.create!(chair_name: "chair1")
-chair2 = Chair.create!(chair_name: "chair2")
-chair3 = Chair.create!(chair_name: "chair3")
-chair4 = Chair.create!(barber_id: barber4.id, chair_name: "chair4")
-chair5 = Chair.create!(barber_id: barber5.id, chair_name: "chair5")
-chair5 = Chair.create!(barber_id: barber5.id, chair_name: "chair5")
-
+barber1 = User.create(email:"dame@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Damian", lname:"lillard", image_url:"./dame_dolla.jpg", working: true)
+barber2 = User.create(email:"james@gmail.com",password:"*mwFMYKvQeLNS7vT",fname:"James", lname:"Harden", image_url:"./james_harden.jpg", working: true)
+barber3 = User.create(email:"kyrie@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Kyrie", lname:"Irving", image_url:"./kyrie_irving.jpg", working: true)
+barber4 = User.create(email:"lebron@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Lebron", lname:"James", image_url:"./lbj.jpg", working: true)
+barber5 = User.create(email:"steph@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Steph", lname:"Curry", image_url:"./steph_curry_barber.jpg", working: true)
+barber6 = User.create(email:"steph@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Steph", lname:"Curry", image_url:"./steph_curry_barber.jpg")
 
 client1 = Client.create!(fname: 'Bob', lname: 'Pancake', email: "boppancake@gmail.com",password:"password")
 client2 = Client.create!(fname: 'Joe', lname: 'TwinkleToes',email: "joetwinkletoes@gmail.com",password:"password")
