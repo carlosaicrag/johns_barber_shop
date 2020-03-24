@@ -1,4 +1,4 @@
-import {createClientHaircuts} from "../util/client_haircuts/client_haircuts_util"
+import {createClientHaircut} from "../util/client_haircuts/client_haircuts_util"
 
 export const RECEIVE_CLIENT_HAIRCUT = "RECEIVE_CLIENT_HAIRCUT"
 
@@ -11,7 +11,7 @@ const recieveClientHaircut = function(payload) {
 
 export const fetchClientHaircut = function(clientHaircut){
     return function(dispatch){
-        createClientHaircuts(clientHaircut)
+        createClientHaircut(clientHaircut)
         .then((payload) => {
             dispatch(recieveClientHaircut(payload))
             return payload.client_haircut

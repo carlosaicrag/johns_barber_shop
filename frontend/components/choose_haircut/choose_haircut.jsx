@@ -12,6 +12,7 @@ class ChooseHaircut extends React.Component{
             barber: ""
         }
         this.handleOptionsAppearance = this.handleOptionsAppearance.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     componentDidMount(){
@@ -30,7 +31,6 @@ class ChooseHaircut extends React.Component{
 
     handleBarberHaircut(field,value){
         return () => {
-            debugger
             this.setState({[field]: value})
         }
     }
@@ -75,7 +75,7 @@ class ChooseHaircut extends React.Component{
     }
 
     handleSubmit(){
-        this.props.createClienthaircut({haircut:this.state.haircut, barber: this.state.barber})
+        this.props.fetchClientHaircut({haircut:this.state.haircut, barber: this.state.barber})
     }
 
     render(){
