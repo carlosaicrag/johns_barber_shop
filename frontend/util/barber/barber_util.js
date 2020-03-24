@@ -6,3 +6,10 @@ export const fetchBarber = (barberId) => {
         url: `api/users/${barberId}`
     })
 }
+
+export const fetchQueue = () => {
+    return $.ajax({
+        method: "GET",
+        url: `api/queue`
+    })
+}

@@ -39,6 +39,7 @@ class BarberQueue extends React.Component{
 
     componentDidMount(){
         this.props.getChairs();
+        this.props.fetchQueue()
         const inProgress = document.getElementsByClassName("in-progress-one")
         this.intervalProgressId = setInterval(() => this.inProgressCSS(inProgress[0]), 500 )
         this.intervalStopWatchId = setInterval(this.tick.bind(this), 1000)
@@ -94,15 +95,15 @@ class BarberQueue extends React.Component{
         } else { 
             // if (window.screen.width < 700){
                 // debugger
-                let that = this
-                const barberName = this.props.barbers[Number(this.props.match.params.barberId - 1)].fname
-                const splittedBarberName = (("Chez ").split("").concat(barberName.split("")).reverse());
+                // debugger
+                // const barberName = this.props.barbers[Number(this.props.match.params.barberId - 1)].fname
+                // const splittedBarberName = (("Chez ").split("").concat(barberName.split("")).reverse());
                 // this.rotate(splittedBarberName)
                 return(
                     <div>
                         {/* <div className="estrellas inverso"> */}
                         <div className="chez-barber-name">
-                            {splittedBarberName.reverse().join('')}
+                            {/* {splittedBarberName.reverse().join('')} */}
                         </div>
                         <div className="in-progress">
                             <div className="in-progress-one">

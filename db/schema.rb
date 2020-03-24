@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_22_030209) do
+ActiveRecord::Schema.define(version: 2020_03_24_002558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_03_22_030209) do
   create_table "chairs", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "barber_id", null: false
+    t.integer "barber_id"
     t.string "chair_name", null: false
   end
 
@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 2020_03_22_030209) do
     t.integer "haircut_id", null: false
     t.integer "barber_id", null: false
     t.datetime "closed_at"
-    t.integer "chair_id", null: false
     t.integer "avg_time"
     t.index ["client_id", "haircut_id"], name: "index_client_haircuts_on_client_id_and_haircut_id", unique: true
     t.index ["client_id"], name: "index_client_haircuts_on_client_id"

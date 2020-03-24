@@ -1,6 +1,6 @@
 class Api::ChairsController < ApplicationController
   def index
-    @chairs = Chair.all.includes(:barber)
+    @chairs = Chair.where.not(barber_id: nil).includes(:barber)
     render :index
   end
 

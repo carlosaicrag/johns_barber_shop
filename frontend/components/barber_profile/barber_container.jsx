@@ -1,7 +1,7 @@
 import {connect} from "react-redux"
 import BarberQueue from "./barber_queue"
 import {getChairs} from "../../actions/splash_actions"
-
+import {fetchQueue} from './../../actions/barber_actions'
 
 const msp = function(state, ownProps){
     // debugger
@@ -12,7 +12,8 @@ const msp = function(state, ownProps){
 
 const mdp = function(dispatch){
     return({
-        getChairs: () => dispatch(getChairs())
+        getChairs: () => dispatch(getChairs()),
+        fetchQueue: () => dispatch(fetchQueue())
     })
 }
 

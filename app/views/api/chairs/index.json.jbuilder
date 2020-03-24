@@ -1,8 +1,9 @@
 json.chairs do 
     @chairs.each do |chair|
-        json.set! chair.id do 
+        json.set! chair.id do
             json.extract! chair, :id, :chair_name, :barber_id
-            json.waitTime chair.getWaitTime
+            # json.waitTime chair.getWaitTime
+            json.waitTime 45  #for testing 
         end
     end
 end

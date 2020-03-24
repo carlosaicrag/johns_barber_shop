@@ -10,28 +10,28 @@
 #
 
 class Chair < ApplicationRecord
-    validates :barber_id, presence: true
     validates :chair_name, presence: true
 
     belongs_to :barber,
         foreign_key: :barber_id,
-        class_name: :User, optional: true
+        class_name: :User, 
+        optional: true
 
-    has_many :client_haircuts,
-        foreign_key: :chair_id,
-        class_name: :ClientHaircut
+    # has_many :client_haircuts,
+    #     foreign_key: :chair_id,
+    #     class_name: :ClientHaircut
 
-    def getWaitTime()
-        client_ids = self.client_haircuts.where(closed_at: nil).pluck(:client_id)
-        if client_ids.length == 0 
-            return 0;
-        else
-            # sumWaitTime = ClientHaircutAvgTime.select(:avg_time).where(client_id: client_ids)
-            # .pluck(:avg_time)
-            # .sum
-            sumWaitTime = ClientHaircut.select(:avg_time).where(client_id: client_ids)
-            .pluck(:avg_time)
-            .sum
-        end
-    end
+    # def getWaitTime()
+    #     client_ids = self.client_haircuts.where(closed_at: nil).pluck(:client_id)
+    #     if client_ids.length == 0 
+    #         return 0;
+    #     else
+    #         # sumWaitTime = ClientHaircutAvgTime.select(:avg_time).where(client_id: client_ids)
+    #         # .pluck(:avg_time)
+    #         # .sum
+    #         sumWaitTime = ClientHaircut.select(:avg_time).where(client_id: client_ids)
+    #         .pluck(:avg_time)
+    #         .sum
+    #     end
+    # end
 end
