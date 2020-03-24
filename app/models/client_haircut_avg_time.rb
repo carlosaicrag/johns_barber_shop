@@ -11,11 +11,11 @@
 #
 
 class ClientHaircutAvgTime < ApplicationRecord
-    belongs_to :client,
-        foreign_key: :client_id,
-        class_name: :Client
+    # belongs_to :client,
+    #     foreign_key: :client_id,
+    #     class_name: :Client
 
-    belongs_to :haircut,
-        foreign_key: :haircut_id,
-        class_name: :Haircut
+    # belongs_to :haircut,
+    #     foreign_key: :haircut_id,
+    #     class_name: :Haircut
 end

@@ -2,6 +2,7 @@ import React from "react"
 import Chair from './chair'
 import ChairMobile from "./chair_mobile"
 import QueueMobile from "./queue_mobile"
+import { Link } from 'react-router-dom'
 
 // import { makeStyles } from '@material-ui/core/styles';
 // import Table from '@material-ui/core/Table';
@@ -21,8 +22,8 @@ class Queues extends React.Component{
     }
 
     componentDidMount(){
-        this.props.getChairs().then((chairs)=>{
-            this.chairCount = Object.keys(chairs).length
+        this.props.getBarbers().then((barbers)=>{
+            this.chairCount = Object.keys(barbers).length
         })
         let that = this;
 
@@ -59,7 +60,7 @@ class Queues extends React.Component{
     }
 
     render(){
-        if(!this.props.chairs){
+        if(!Object.values(this.props.barbers)){
             return null;
         }
 
@@ -93,11 +94,9 @@ class Queues extends React.Component{
             )
         }else{
             //mobile version 
-            
             return(
                 <QueueMobile
                     barbers={this.props.barbers}
-                    chairs={this.props.chairs}
                     state={this.state}
                     nextPrevBarber={this.nextPrevBarber}
                 />

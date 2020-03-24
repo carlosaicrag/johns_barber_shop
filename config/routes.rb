@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :api, default: { format: :json } do
-    resources :chairs, only: [:index, :show, :edit]
     resources :haircuts, only: [:index]
     
-    resources :users, only: [:create, :show] do
+    resources :users, only: [:index, :create, :show] do
       member do
         get :confirm_email
         get :new_pass_form
