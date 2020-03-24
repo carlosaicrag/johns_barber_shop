@@ -8,8 +8,8 @@ class ChooseHaircut extends React.Component{
         this.state = {
             chooseHaircut: false,
             chooseBarber: false,
-            haircut: "",
-            barber: ""
+            haircut_id: "",
+            barber_id: ""
         }
         this.handleOptionsAppearance = this.handleOptionsAppearance.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -39,7 +39,7 @@ class ChooseHaircut extends React.Component{
         if(this.state.chooseHaircut){
             let haircutImages = this.props.haircuts.map((haircut) => {
                 return (
-                    <div className="w3-card" onClick={this.handleBarberHaircut("barber",haircut.haircut_name)}>
+                    <div className="w3-card" onClick={this.handleBarberHaircut("haircut_id",haircut.id)}>
                         <img className="w3-image" src={haircut.path} alt="{haircut.haircut_name}" />
                     </div>
                 )
@@ -60,7 +60,7 @@ class ChooseHaircut extends React.Component{
             let barbers = this.props.barbers.map((barber) => {
                 return (
                     <div className="w3-card">
-                        <img className="w3-image" src={barber.image_url} alt="{barber}" />
+                        <img className="w3-image" src={barber.image_url} alt="{barber}" onClick={this.handleBarberHaircut("barber_id", barber.id)}/>
                     </div>
                 )
             })
@@ -75,7 +75,8 @@ class ChooseHaircut extends React.Component{
     }
 
     handleSubmit(){
-        this.props.fetchClientHaircut({haircut:this.state.haircut, barber: this.state.barber})
+        this.props.fetchClientHaircut({haircut_id:this.state.haircut_id, barber_id: this.state.barber_id})
+        .then(() => this.props.history.push("/"))
     }
 
     render(){
