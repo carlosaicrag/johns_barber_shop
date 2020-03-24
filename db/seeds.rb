@@ -16,13 +16,6 @@ barber4 = User.create(email:"lebron@gmail.com", password:"*mwFMYKvQeLNS7vT", fna
 barber5 = User.create(email:"steph@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Steph", lname:"Curry", image_url:"./steph_curry_barber.jpg", working: true)
 barber6 = User.create(email:"steph@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Steph", lname:"Curry", image_url:"./steph_curry_barber.jpg")
 
-#there will never be more than 5 chairs. specific to johns barber shop
-chair1 = Chair.create!(barber_id: barber1.id, chair_name: "chair1")
-chair2 = Chair.create!(barber_id: barber2.id, chair_name: "chair2")
-chair3 = Chair.create!(barber_id: barber3.id, chair_name: "chair3")
-chair4 = Chair.create!(barber_id: barber4.id, chair_name: "chair4")
-chair5 = Chair.create!(barber_id: barber5.id, chair_name: "chair5")
-
 client1 = Client.create!(fname: 'Bob', lname: 'Pancake', email: "boppancake@gmail.com",password:"password")
 client2 = Client.create!(fname: 'Joe', lname: 'TwinkleToes',email: "joetwinkletoes@gmail.com",password:"password")
 client3 = Client.create!(fname: 'Simon', lname: 'Rainbow', email: "simonrainbow@gmail.com",password:"password")
