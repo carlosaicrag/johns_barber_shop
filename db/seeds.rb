@@ -10,11 +10,12 @@ Chair.destroy_all
 Client.destroy_all
 Haircut.destroy_all
 
-barber1 = User.create(email:"dame@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Damian", lname:"lillard", image_url:"./dame_dolla.jpg")
-barber2 = User.create(email:"james@gmail.com",password:"*mwFMYKvQeLNS7vT",fname:"James", lname:"Harden", image_url:"./james_harden.jpg")
-barber3 = User.create(email:"kyrie@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Kyrie", lname:"Irving", image_url:"./kyrie_irving.jpg")
-barber4 = User.create(email:"lebron@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Lebron", lname:"James", image_url:"./lbj.jpg")
-barber5 = User.create(email:"steph@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Steph", lname:"Curry", image_url:"./steph_curry_barber.jpg")
+barber1 = User.create(email:"dame@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Damian", lname:"lillard", image_url:"./dame_dolla.jpg", working: true)
+barber2 = User.create(email:"james@gmail.com",password:"*mwFMYKvQeLNS7vT",fname:"James", lname:"Harden", image_url:"./james_harden.jpg", working: true)
+barber3 = User.create(email:"kyrie@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Kyrie", lname:"Irving", image_url:"./kyrie_irving.jpg", working: true)
+barber4 = User.create(email:"lebron@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Lebron", lname:"James", image_url:"./lbj.jpg", working: true)
+barber5 = User.create(email:"steph@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Steph", lname:"Curry", image_url:"./steph_curry_barber.jpg", working: true)
+barber6 = User.create(email:"steph@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Steph", lname:"Curry", image_url:"./steph_curry_barber.jpg")
 
 #there will never be more than 5 chairs. specific to johns barber shop
 chair1 = Chair.create(barber_id: barber1.id, chair_name: "chair1")

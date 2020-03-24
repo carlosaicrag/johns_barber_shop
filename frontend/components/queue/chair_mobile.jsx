@@ -1,7 +1,7 @@
 import React from "react"
 import {Link} from "react-router-dom"
 
-const ChairMobile = function (props) {
+const BarberMobile = function (props) {
 
     return (
         <div className="chair-nextarrow-waittime-newhaircut">
@@ -30,4 +30,4 @@ const ChairMobile = function (props) {
     )
 }
 
-export default ChairMobile
+export default BarberMobile

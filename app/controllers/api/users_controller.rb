@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController
   def index
-    
+    @barbers = User.where(working: true)
   end
 
   def create
