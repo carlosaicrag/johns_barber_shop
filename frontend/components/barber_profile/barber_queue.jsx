@@ -66,7 +66,6 @@ class BarberQueue extends React.Component{
    }
 
     inProgressCSS(inProgressHTMLCollection){
-        
         if (inProgressHTMLCollection.style.opacity === "0.7" || inProgressHTMLCollection.style.opacity === ""){
             inProgressHTMLCollection.style.opacity = "1"
         }else{

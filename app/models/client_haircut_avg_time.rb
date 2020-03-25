@@ -1,0 +1,2 @@
+class ClientHaircutAvgTime < ApplicationRecord
+end
