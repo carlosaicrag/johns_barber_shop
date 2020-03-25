@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_24_234650) do
+ActiveRecord::Schema.define(version: 2020_03_24_235334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_03_24_234650) do
   create_table "client_haircut_avg_times", force: :cascade do |t|
     t.integer "client_id", null: false
     t.integer "haircut_id", null: false
-    t.integer "avg_time", null: false
+    t.integer "avg_time", default: 45, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "barber_id", null: false
