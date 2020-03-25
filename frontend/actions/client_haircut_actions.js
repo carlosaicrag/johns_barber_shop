@@ -4,7 +4,8 @@ export const RECEIVE_CLIENT_HAIRCUT = "RECEIVE_CLIENT_HAIRCUT"
 
 const recieveClientHaircut = function(payload) {
     return{
-        clienthaircut: payload.client_haircut,
+        clientHaircut: payload.clientHaircut,
+        clientHaircutAvgTime: payload.clientHaircutAvgTime,
         type: RECEIVE_CLIENT_HAIRCUT
     }
 }
