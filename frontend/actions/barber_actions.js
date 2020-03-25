@@ -9,7 +9,7 @@ const receiveBarber = barber => {
             }
 }
 
-const receiveClientsQueue = queue => ({
+export const receiveClientsQueue = queue => ({
     type: RECEIVE_QUEUE,
     queue
 })

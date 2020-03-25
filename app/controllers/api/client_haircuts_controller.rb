@@ -1,6 +1,5 @@
 class Api::ClientHaircutsController < ApplicationController
     def queue
-        # debugger
         @client_haircuts = ClientHaircut.where(barber_id: current_user.id).where(closed_at: [nil]).order('created_at DESC')
         render :queue
     end
@@ -16,8 +15,15 @@ class Api::ClientHaircutsController < ApplicationController
         end
     end
 
+    def update 
+        @client_haircut = ClientHaircut.find_by(id: params[:id])
+        @client_haircut.release_client(params[:client_haircut][:closed_at])
+        @client_haircuts = ClientHaircut.where(barber_id: current_user.id).where(closed_at: [nil]).order('created_at DESC')
+        render :queue
+    end
+
     private 
     def client_haircut_params
-        params.require(:client_haircut).permit(:barber_id,:haircut_id)
+        params.require(:client_haircut).permit(:barber_id,:haircut_id, :closed_at, :client_id)
     end
 end

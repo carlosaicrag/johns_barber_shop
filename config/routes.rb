@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     end
     
     resources :clients, only: [:create, :show, :delete]
-    resources :client_haircuts, only: [:create]
+    resources :client_haircuts, only: [:create, :update]
     
     post 'passwords/forgot', to: 'passwords#forgot'
     post 'passwords/:token/reset', to: 'passwords#reset'

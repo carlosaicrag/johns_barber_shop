@@ -53,7 +53,7 @@ class BarberQueue extends React.Component{
                () => {
                    if (!this.props.booleanWorking){
                        //update client info
-                    //    this.props.updateClientInfo(new Date().toJSON()) 
+                       this.props.updateClientHaircutClosedAt(this.props.clientHaircutId, new Date().toJSON()) 
                         clearInterval(this.intervalProgressId)
                         document.getElementsByClassName("in-progress-one")[0].style.opacity = "1"
                         this.setState({minutes: '00', seconds: '00', clientFirstName: 'N/A', clientLastName: '', clientHaircut: 'N/A'})
@@ -118,7 +118,8 @@ class BarberQueue extends React.Component{
                             </div>
                         </div>
                         <div className="barber-chair">
-                            <img src="/barber-chair.png" alt="barber-chair" className="barber-image" height={window.screen.height * 0.35} />
+                            {/* <img src="/barber-chair.png" alt="barber-chair" className="barber-image" height={window.screen.height * 0.35} /> */}
+                            <img src={window.chair} alt="barber-chair" className="barber-image" height={window.screen.height * 0.35} />
                         </div>
 
                         <div className="in-progress-two">
