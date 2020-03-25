@@ -76,7 +76,7 @@ class ChooseHaircut extends React.Component{
 
     handleSubmit(){
         this.props.fetchClientHaircut({haircut_id:this.state.haircut_id, barber_id: this.state.barber_id})
-        // .then(() => this.props.history.push("/"))
+        .then(() => this.props.history.push("/"))
     }
 
     render(){

@@ -12,10 +12,9 @@ const recieveClientHaircut = function(payload) {
 
 export const fetchClientHaircut = function(clientHaircut){
     return function(dispatch){
-        createClientHaircut(clientHaircut)
+        return createClientHaircut(clientHaircut)
         .then((payload) => {
             dispatch(recieveClientHaircut(payload))
-            return payload.client_haircut
         })
     }
 }
