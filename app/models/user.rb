@@ -100,6 +100,11 @@ class User < ApplicationRecord
     end
   end
 
+  def change_working_status 
+    self.working = !self.working
+    self.save!
+  end
+
   private
 
   def password_reset_token

@@ -16,7 +16,5 @@ class Haircut < ApplicationRecord
         foreign_key: :haircut_id,
         class_name: :ClientHaircut
 
-    # has_many :client_haircut_avg_times,
-    #     foreign_key: :haircut_id,
-    #     class_name: :ClientHaircutAvgTime
+
 end

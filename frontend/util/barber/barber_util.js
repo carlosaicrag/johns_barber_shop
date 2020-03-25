@@ -13,3 +13,10 @@ export const fetchQueue = () => {
         url: `api/queue`
     })
 }
+
+export const updateBarberWorkingStatus = (barber) => {
+    return $.ajax({
+        method: 'PATCH',
+        url: `api/users/${barber.id}`
+    })
+}

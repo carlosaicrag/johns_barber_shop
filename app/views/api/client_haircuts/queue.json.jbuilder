@@ -5,5 +5,6 @@
         json.clientFirstName client_haircut.client.fname
         json.clientLastName client_haircut.client.lname
         json.clientHaircut client_haircut.haircut.haircut_name
+        json.created_at client_haircut.created_at
     end
 end

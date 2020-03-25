@@ -67,25 +67,28 @@
     // margin: 0 auto;
     display: flex;
     justify-content: center;
-    text-decoration: underline
+    text-decoration: underline;
+    font-size: 20px;
   }
 
   .barber-chair{
     display: flex;
     justify-content: center;
+    padding-bottom: 36px;
   }
 
   .in-progress{
     display: flex;
     justify-content: center;
     font-family: 'Cormorant Garamond', serif;
-    padding-top: 6px;
-    padding-bottom: 6px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    font-size: 16px;
       .in-progress-one{
         padding: 2px;
         font-style: oblique;
         transition: opacity 0.5s;
-        
+        width: 90px;
       }
       
       .release-button{
@@ -98,7 +101,7 @@
  .in-progress-two{
    display: flex;
    justify-content: center;
-   margin-top: 50px;
+  //  margin-top: 50px;
 
     .in-progress-two-left{
       padding-right: 5px;
@@ -114,9 +117,48 @@
 
  .info-list{
    display: flex;
-   justify-content: center;
-   margin-top: 70px;
-   
+   justify-content: flex-start;
+   margin-top: 40px;
+      .number-of-people-waiting{
+        padding-left: 40px;
+        font-size: 52px;
+        font-family: 'Cormorant Garamond', serif;
+        display: flex;
+        align-items: center;
+      }
+      .client-information{
+        .client-information-1{
+          display: flex;
+          padding-bottom: 30px;
+          .client-img{
+            border-radius: 40px;
+            border: solid 3px black;
+            margin-right: 16px;
+          }
+          .client-name{
+            font-family: 'Cormorant Garamond', serif;
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            width: 100%;
+          }
+        }
+        .client-information-2{
+          display:flex;
+          .scissors-img{
+            border-radius: 40px;
+            border: solid 3px black;
+            margin-right: 16px;
+          }
+          .haircut-name{
+            font-family: 'Cormorant Garamond', serif;
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            width: 100%;
+          }
+        }
+      }
  }
     
     

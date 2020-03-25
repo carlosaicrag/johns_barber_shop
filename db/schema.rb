@@ -10,27 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2020_03_24_002558) do
-=======
-ActiveRecord::Schema.define(version: 2020_03_24_053644) do
->>>>>>> origin
+ActiveRecord::Schema.define(version: 2020_03_24_044758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "client_haircut_avg_times", force: :cascade do |t|
-    t.integer "client_id", null: false
-    t.integer "haircut_id", null: false
-    t.integer "avg_time", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "barber_id"
-    t.string "chair_name", null: false
-    t.index ["client_id", "haircut_id"], name: "index_client_haircut_avg_times_on_client_id_and_haircut_id", unique: true
-    t.index ["client_id"], name: "index_client_haircut_avg_times_on_client_id"
-    t.index ["haircut_id"], name: "index_client_haircut_avg_times_on_haircut_id"
-  end
 
   create_table "client_haircuts", force: :cascade do |t|
     t.datetime "created_at", null: false

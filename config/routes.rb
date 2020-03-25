@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :api, default: { format: :json } do
     resources :haircuts, only: [:index]
-    
-    resources :users, only: [:index, :create, :show] do
+    get 'queue' => "client_haircuts#queue"
+    resources :users, only: [:index, :create, :show, :update] do
       member do
         get :confirm_email
         get :new_pass_form
