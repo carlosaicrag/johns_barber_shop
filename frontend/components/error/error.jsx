@@ -27,6 +27,7 @@ function Error(){
     ];
 
     let joke = jokes[Math.floor(Math.random() * jokes.length)];
+    
     return(
         <div className="errors">
             <h2 className="error_text">
