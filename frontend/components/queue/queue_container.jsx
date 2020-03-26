@@ -5,15 +5,12 @@ import {openModal} from "../../actions/modal_actions"
 
 
 const msp = function(store, ownProps){
-    let chairs = ""
     let barbers = ""
     
     if(store.entities.users){
-        chairs = Object.values(store.entities.chairs)
         barbers = store.entities.users
     }
     return({
-        chairs: chairs,
         barbers: barbers    
     })
 }

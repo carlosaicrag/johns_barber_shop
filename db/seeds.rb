@@ -8,15 +8,15 @@
 User.destroy_all
 Client.destroy_all
 Haircut.destroy_all
+ClientHaircutTime.destroy_all
+ClientHaircut.destroy_all
 
-barber1 = User.create(email:"dame@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Damian", lname:"lillard", image_url:"./dame_dolla.jpg", working: true)
-barber2 = User.create(email:"james@gmail.com",password:"*mwFMYKvQeLNS7vT",fname:"James", lname:"Harden", image_url:"./james_harden.jpg", working: true)
-barber3 = User.create(email:"kyrie@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Kyrie", lname:"Irving", image_url:"./kyrie_irving.jpg", working: true)
-barber4 = User.create(email:"lebron@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Lebron", lname:"James", image_url:"./lbj.jpg", working: true)
-barber5 = User.create(email:"steph@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Steph", lname:"Curry", image_url:"./steph_curry_barber.jpg", working: true)
-barber6 = User.create(email:"carlos@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Carlos", lname:"Garcia", image_url:"f")
-barber6 = User.create(email:"sandra@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Sandra", lname:"Garcia", image_url:"f")
-barber6 = User.create(email:"melina@gmail.com", password:"*mwFMYKvQeLNS7vT", fname:"Melina", lname:"Garcia", image_url:"f")
+barber1 = User.create(email:"dame@gmail.com", password:"starwars", fname:"Damian", lname:"lillard", image_url:"./dame_dolla.jpg", working: true)
+barber2 = User.create(email:"james@gmail.com",password:"starwars",fname:"James", lname:"Harden", image_url:"./james_harden.jpg", working: true)
+barber3 = User.create(email:"kyrie@gmail.com", password:"starwars", fname:"Kyrie", lname:"Irving", image_url:"./kyrie_irving.jpg", working: true)
+barber4 = User.create(email:"lebron@gmail.com", password:"starwars", fname:"Lebron", lname:"James", image_url:"./lbj.jpg", working: true)
+barber5 = User.create(email:"steph@gmail.com", password:"starwars", fname:"Steph", lname:"Curry", image_url:"./steph_curry_barber.jpg", working: true)
+barber6 = User.create(email:"steph@gmail.com", password:"starwars", fname:"Steph", lname:"Curry", image_url:"./steph_curry_barber.jpg")
 
 client1 = Client.create!(fname: 'Bob', lname: 'Pancake', email: "boppancake@gmail.com",password:"password")
 client2 = Client.create!(fname: 'Joe', lname: 'TwinkleToes',email: "joetwinkletoes@gmail.com",password:"password")
@@ -46,11 +46,18 @@ haircut19 = Haircut.create!(haircut_name: "Top-Knot-Haircut", path:"./Top-Knot-H
 haircut20 = Haircut.create!(haircut_name: "Undercut-CombOver-Haircut", path:"./Undercut-CombOver-Haircut.jpg" )
 haircut21 = Haircut.create!(haircut_name: "Undercut-Haircut-Fade", path:"./Undercut-Haircut-Fade.jpg" )
 
+client_haircut_avg_time1 = ClientHaircutTime.create!(client_id: client1.id, haircut_id: haircut1.id, barber_id: barber1.id, avg_time: 30)
+client_haircut_avg_time2 = ClientHaircutTime.create!(client_id: client2.id, haircut_id: haircut1.id, barber_id: barber2.id)
+client_haircut_avg_time3 = ClientHaircutTime.create!(client_id: client3.id, haircut_id: haircut1.id, barber_id: barber1.id)
+client_haircut_avg_time4 = ClientHaircutTime.create!(client_id: client1.id, haircut_id: haircut2.id, barber_id: barber3.id, avg_time: 25)
+client_haircut_avg_time5 = ClientHaircutTime.create!(client_id: client1.id, haircut_id: haircut3.id, barber_id: barber1.id, avg_time: 40)
+
 client_haircut_user1 = ClientHaircut.create!(client_id: client1.id, haircut_id: haircut1.id, barber_id: barber1.id, avg_time: 45)
 client_haircut_user2 = ClientHaircut.create!(client_id: client2.id, haircut_id: haircut2.id, barber_id: barber1.id, avg_time: 45)
-client_haircut_user3 = ClientHaircut.create!(client_id: client3.id, haircut_id: haircut3.id, barber_id: barber1.id, avg_time: 45)
-client_haircut_user4 = ClientHaircut.create!(client_id: client4.id, haircut_id: haircut3.id, barber_id: barber1.id, avg_time: 45)
+client_haircut_user3 = ClientHaircut.create!(client_id: client3.id, haircut_id: haircut3.id, barber_id: barber2.id, avg_time: 45)
+client_haircut_user4 = ClientHaircut.create!(client_id: client4.id, haircut_id: haircut3.id, barber_id: barber3.id, avg_time: 45)
 client_haircut_user5 = ClientHaircut.create!(client_id: client5.id, haircut_id: haircut6.id, barber_id: barber1.id, avg_time: 45)
+
 
 # client_haircut_avg_times_user1 = ClientHaircutAvgTime.create(client_id: client1.id, haircut_id: haircut1.id, avg_time: 45, barber_id: barber1.id)
 # client_haircut_avg_times_user2 = ClientHaircutAvgTime.create(client_id: client2.id, haircut_id: haircut2.id, avg_time: 45, barber_id: barber2.id)
