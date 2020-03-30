@@ -7,9 +7,11 @@ import SignUpFormContainer from './auth/signup_form_container';
 import LogInFormContainer from './auth/login_form_container';
 import ForgotPasswordFormContainer from './auth/forgot_password_form_container';
 import BarberQueueContainer from "../components/barber_profile/barber_container";
-import Queue from "./queue/queue_container"
-import ChooseHaircut from "./choose_haircut/choose_haircut_container"
-import Error from "./error/error"
+import Queue from "./queue/queue_container";
+import ChooseHaircut from "./choose_haircut/choose_haircut_container";
+import Error from "./error_pages/error";
+import Unauthorized from "./error_pages/unauthorized";
+
 
 export const App = () => (
   <div>
@@ -25,6 +27,7 @@ export const App = () => (
       <Route exact path="/" component={Queue} />
       <Route exact path="/chooseHaircut" component={ChooseHaircut}/>
       <Route path="/error" component={Error}></Route>
+      <Route path="/unauthorized" component={Unauthorized} />
       <Redirect to="/error"></Redirect>
     </Switch>
   </div>

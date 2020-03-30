@@ -4,6 +4,7 @@ import {getChairs} from "../../actions/splash_actions"
 
 
 const msp = function(state, ownProps){
+    
     return({
         barbers: Object.values(state.entities.users)
     })

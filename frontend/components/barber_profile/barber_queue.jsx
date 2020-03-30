@@ -1,7 +1,5 @@
 import React from "react";
 
-
-
 class BarberQueue extends React.Component{
     constructor(props){
         super(props)
@@ -84,13 +82,13 @@ class BarberQueue extends React.Component{
         }
     }
 
-
-
     render(){
+        
         if (this.props.barbers.length === 1 ){
             return null
         } else { 
             // if (window.screen.width < 700){
+               
                 let that = this
                 const barberName = this.props.barbers[Number(this.props.match.params.barberId - 1)].fname
                 const splittedBarberName = (("Chez ").split("").concat(barberName.split("")).reverse());
