@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_30_032615) do
+ActiveRecord::Schema.define(version: 2020_03_30_182256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(version: 2020_03_30_032615) do
     t.string "lname", null: false
     t.string "password_digest", null: false
     t.string "session_token", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
   end
 
   create_table "delayed_jobs", force: :cascade do |t|
