@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_25_054342) do
+ActiveRecord::Schema.define(version: 2020_03_30_032615) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 2020_03_25_054342) do
   create_table "client_haircut_times", force: :cascade do |t|
     t.integer "client_id", null: false
     t.integer "haircut_id", null: false
-    t.integer "avg_time", default: 45, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "barber_id", null: false
+    t.integer "avg_time", default: 45
     t.index ["barber_id"], name: "index_client_haircut_times_on_barber_id"
     t.index ["client_id", "haircut_id", "barber_id"], name: "index_on_combo_barber_client_haircut_id", unique: true
     t.index ["client_id"], name: "index_client_haircut_times_on_client_id"
