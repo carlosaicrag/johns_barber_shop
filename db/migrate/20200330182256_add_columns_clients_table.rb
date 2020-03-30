@@ -4,3 +4,4 @@ class AddColumnsClientsTable < ActiveRecord::Migration[5.2]
     add_column :clients, :reset_password_sent_at, :datetime
   end
 end
+
