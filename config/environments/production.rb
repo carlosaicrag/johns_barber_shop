@@ -101,6 +101,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     :address              => "smtp.gmail.com",
     :port                 => 587,
+    :domain               => 'https://johns-barber-shop.herokuapp.com/'
     :user_name            => ENV['gmail_username'],
     :password             => ENV['gmail_password'],
     :authentication       => "plain",
