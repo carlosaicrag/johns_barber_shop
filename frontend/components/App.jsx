@@ -19,7 +19,6 @@ export const App = () => (
     
     <Switch>
       <AuthRoute exact path="/login" component={LogInFormContainer} />
-      <ProtectedRoute exact path="/dashboard" component={DashboardContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
       <ProtectedRoute exact path={`/queue/:barberId`} component={BarberQueueContainer} />
       <AuthRoute exact path="/forgot-password" component={ForgotPasswordFormContainer} />
