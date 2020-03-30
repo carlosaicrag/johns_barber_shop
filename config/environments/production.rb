@@ -4,7 +4,7 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
 
-  config.action_mailer.default_url_options = { :host => 'https://johns-barber-shop.herokuapp.com/' }
+  # config.action_mailer.default_url_options = { :host => 'https://johns-barber-shop.herokuapp.com/' }
 
   routes.default_url_options[:host] = 'https://johns-barber-shop.herokuapp.com/'
 
