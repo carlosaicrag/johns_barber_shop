@@ -23,6 +23,7 @@ client2 = Client.create!(fname: 'Joe', lname: 'TwinkleToes',email: "joetwinkleto
 client3 = Client.create!(fname: 'Simon', lname: 'Rainbow', email: "simonrainbow@gmail.com",password:"password")
 client4 = Client.create!(fname: 'Gerald', lname: 'Geraldson', email: "geraldgeraldson@gmail.com",password:"password")
 client5 = Client.create!(fname: 'Wambam', lname: 'Kazam', email: "wambamkazam@gmail.com",password:"password")
+client5 = Client.create!(fname: 'Carlos', lname: 'Garcia', email: "carlosaicrag@gmail.com",password:"password")
 
 haircut1 = Haircut.create!(haircut_name: "Afro-Fade-Haircut", path:"./Afro-Fade-Haircut.jpg" )
 haircut2 = Haircut.create!(haircut_name: "Bald-Fade-Haircut", path:"./Bald-Fade-Haircut.jpg" )
