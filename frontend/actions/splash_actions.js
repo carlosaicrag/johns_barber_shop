@@ -1,23 +1,21 @@
-import {retrieveChairs} from "../util/splash_page/splash_page_utils"
-export const RECEIVE_CHAIRS = "RECEIVE_CHAIRS"
+import {retrieveBarbers} from "../util/splash_page/splash_page_utils"
+export const RECEIVE_BARBERS = "RECEIVE_BARBERS"
 
 
-export const receiveChairs = function(payload){
-    const chairs = payload.chairs
+export const receiveBarbers = function(payload){
     const barbers = payload.barbers
     
     return({
-        type: RECEIVE_CHAIRS,
-        chairs: chairs,
+        type: RECEIVE_BARBERS,
         barbers: barbers    
     })
 }
 
-export const getChairs = () => (dispatch) => {
+export const getBarbers = () => (dispatch) => {
     return(
-        retrieveChairs().then((payload) => {
-            dispatch(receiveChairs(payload))
-            return payload.chairs
+        retrieveBarbers().then((payload) => {
+            dispatch(receiveBarbers(payload))
+            return payload.barbers
         })
     )
 }

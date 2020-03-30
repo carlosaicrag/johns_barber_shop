@@ -10,27 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_13_050934) do
+ActiveRecord::Schema.define(version: 2020_03_30_032615) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "chairs", force: :cascade do |t|
+  create_table "client_haircut_times", force: :cascade do |t|
+    t.integer "client_id", null: false
+    t.integer "haircut_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "barber_id", null: false
-    t.string "chair_name", null: false
-  end
-
-  create_table "client_haircut_avg_times", force: :cascade do |t|
-    t.integer "client_id", null: false
-    t.integer "haircut_id", null: false
-    t.integer "avg_time", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["client_id", "haircut_id"], name: "index_client_haircut_avg_times_on_client_id_and_haircut_id", unique: true
-    t.index ["client_id"], name: "index_client_haircut_avg_times_on_client_id"
-    t.index ["haircut_id"], name: "index_client_haircut_avg_times_on_haircut_id"
+    t.integer "avg_time", default: 45
+    t.index ["barber_id"], name: "index_client_haircut_times_on_barber_id"
+    t.index ["client_id", "haircut_id", "barber_id"], name: "index_on_combo_barber_client_haircut_id", unique: true
+    t.index ["client_id"], name: "index_client_haircut_times_on_client_id"
+    t.index ["haircut_id"], name: "index_client_haircut_times_on_haircut_id"
   end
 
   create_table "client_haircuts", force: :cascade do |t|
@@ -40,7 +35,9 @@ ActiveRecord::Schema.define(version: 2020_03_13_050934) do
     t.integer "haircut_id", null: false
     t.integer "barber_id", null: false
     t.datetime "closed_at"
-    t.integer "chair_id", null: false
+    t.integer "avg_time"
+    t.index ["client_id"], name: "index_client_haircuts_on_client_id"
+    t.index ["haircut_id"], name: "index_client_haircuts_on_haircut_id"
   end
 
   create_table "clients", force: :cascade do |t|
@@ -83,13 +80,12 @@ ActiveRecord::Schema.define(version: 2020_03_13_050934) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", null: false
-    t.boolean "email_confirmed", default: false
-    t.string "confirm_token"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.string "fname", null: false
     t.string "lname", null: false
     t.string "image_url"
+    t.boolean "working", default: false
     t.index "lower((email)::text)", name: "user_lower_email_idx", unique: true
     t.index ["session_token"], name: "index_users_on_session_token"
   end

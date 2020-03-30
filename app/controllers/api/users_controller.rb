@@ -1,5 +1,8 @@
 class Api::UsersController < ApplicationController
-  
+  def index
+    @barbers = User.where(working: true)
+  end
+
   def create
     @user = User.new(user_params)
     if User.valid_barber_shop_password?(params[:user][:barber_shop_password])
@@ -12,12 +15,13 @@ class Api::UsersController < ApplicationController
         render json: @user.errors.full_messages, status: 422
       end
     else
-      render json: ["wrong barber shop password"], status: 422
+      render json: ["Incorrect Barber Shop Password"], status: 422
     end
   end
 
   def show
     @user = User.find(params[:id])
+    render :show
   end
 
   def confirm_email

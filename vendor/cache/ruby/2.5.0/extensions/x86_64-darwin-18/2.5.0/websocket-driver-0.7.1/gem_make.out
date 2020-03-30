@@ -1,0 +1,23 @@
+current directory: /Users/linakherchi/Desktop/johns_barber_shop/vendor/cache/ruby/2.5.0/gems/websocket-driver-0.7.1/ext/websocket-driver
+<<<<<<< HEAD
+/Users/linakherchi/.rbenv/versions/2.5.1/bin/ruby -I /Users/linakherchi/.rbenv/versions/2.5.1/lib/ruby/site_ruby/2.5.0 -r ./siteconf20200129-61458-1b59tgq.rb extconf.rb
+=======
+/Users/linakherchi/.rbenv/versions/2.5.1/bin/ruby -I /Users/linakherchi/.rbenv/versions/2.5.1/lib/ruby/site_ruby/2.5.0 -r ./siteconf20200206-41986-154meb1.rb extconf.rb
+>>>>>>> master
+creating Makefile
+
+current directory: /Users/linakherchi/Desktop/johns_barber_shop/vendor/cache/ruby/2.5.0/gems/websocket-driver-0.7.1/ext/websocket-driver
+make "DESTDIR=" clean
+
+current directory: /Users/linakherchi/Desktop/johns_barber_shop/vendor/cache/ruby/2.5.0/gems/websocket-driver-0.7.1/ext/websocket-driver
+make "DESTDIR="
+compiling websocket_mask.c
+linking shared-object websocket_mask.bundle
+
+current directory: /Users/linakherchi/Desktop/johns_barber_shop/vendor/cache/ruby/2.5.0/gems/websocket-driver-0.7.1/ext/websocket-driver
+make "DESTDIR=" install
+<<<<<<< HEAD
+/usr/bin/install -c -m 0755 websocket_mask.bundle ./.gem.20200129-61458-th8kgm
+=======
+/usr/bin/install -c -m 0755 websocket_mask.bundle ./.gem.20200206-41986-m14qws
+>>>>>>> master

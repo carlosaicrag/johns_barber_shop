@@ -10,14 +10,14 @@
     align-items: center;
 
     .choose-haircut-form-option{
-        width: 700px;
-        height: 80px;
+        width: 90%;
         border-radius: 17px;
         border-style: solid;
         border-color: #cccbcb;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         margin-top: 20px;
+        flex-direction: column;
 
         .fas{
             font-size: 25px;
@@ -42,5 +42,9 @@
 
 }
 
+.choose-haircut-form-option div:first-child {
+    display: flex;
+    justify-content: flex-start;
+}
 
 

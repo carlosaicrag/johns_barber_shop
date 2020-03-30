@@ -28,15 +28,12 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :barber_shop_password, length: { minimum: 6, allow_nil: true }
   validates :fname, :lname, presence: true
+  validates :working, inclusion: { in: [true, false]} 
 
   after_initialize :ensure_session_token
   # before_create :ensure_confirmation_token, :downcase_fields
 
   attr_reader :password, :barber_shop_password
-
-  has_many :chairs,
-    foreign_key: :barber_id,
-    class_name: :Chair
 
   has_many :client_haircuts,
     foreign_key: :barber_id,
@@ -61,6 +58,11 @@ class User < ApplicationRecord
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
+  end
+
+  def wait_time
+    open_haircuts = ClientHaircut.where(closed_at: nil, barber_id: self.id).pluck(:client_id)
+    ClientHaircutTime.where(client_id: open_haircuts).where(barber_id: self.id).pluck(:avg_time).sum
   end
 
   def self.valid_barber_shop_password?(password)

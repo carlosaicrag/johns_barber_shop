@@ -1,0 +1,23 @@
+current directory: /Users/linakherchi/Desktop/johns_barber_shop/vendor/cache/ruby/2.5.0/gems/bootsnap-1.4.5/ext/bootsnap
+<<<<<<< HEAD
+/Users/linakherchi/.rbenv/versions/2.5.1/bin/ruby -I /Users/linakherchi/.rbenv/versions/2.5.1/lib/ruby/site_ruby/2.5.0 -r ./siteconf20200129-61458-1nrbbha.rb extconf.rb
+=======
+/Users/linakherchi/.rbenv/versions/2.5.1/bin/ruby -I /Users/linakherchi/.rbenv/versions/2.5.1/lib/ruby/site_ruby/2.5.0 -r ./siteconf20200206-41986-1j6hph0.rb extconf.rb
+>>>>>>> master
+creating Makefile
+
+current directory: /Users/linakherchi/Desktop/johns_barber_shop/vendor/cache/ruby/2.5.0/gems/bootsnap-1.4.5/ext/bootsnap
+make "DESTDIR=" clean
+
+current directory: /Users/linakherchi/Desktop/johns_barber_shop/vendor/cache/ruby/2.5.0/gems/bootsnap-1.4.5/ext/bootsnap
+make "DESTDIR="
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/linakherchi/Desktop/johns_barber_shop/vendor/cache/ruby/2.5.0/gems/bootsnap-1.4.5/ext/bootsnap
+make "DESTDIR=" install
+<<<<<<< HEAD
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20200129-61458-tvrner/bootsnap
+=======
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20200206-41986-1xmhiqd/bootsnap
+>>>>>>> master

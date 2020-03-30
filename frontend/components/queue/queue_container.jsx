@@ -1,25 +1,23 @@
 import {connect} from "react-redux"
 import Queues from "./queue"
-import {getChairs} from "../../actions/splash_actions"
+import {getBarbers} from "../../actions/splash_actions"
 import {openModal} from "../../actions/modal_actions"
 
-const msp = function(store){
-    let chairs = ""
+
+const msp = function(store, ownProps){
     let barbers = ""
     
-    if(store.entities.chairs){
-        chairs = Object.values(store.entities.chairs)
+    if(store.entities.users){
         barbers = store.entities.users
     }
     return({
-        chairs: chairs,
         barbers: barbers    
     })
 }
 
 const mdp = function(dispatch){
     return({
-        getChairs: () => dispatch(getChairs()),
+        getBarbers: () => dispatch(getBarbers()),
         openModal: () => dispatch(openModal())
     })
 }
