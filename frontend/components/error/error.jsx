@@ -18,7 +18,7 @@ function Error(){
         },
         {
             'question': 'How does a barber give the Sun a haircut?',
-            'answer': 'Eclipse it.'
+            'answer': 'Eclipse it'
         },
         {
             'question': 'Haircuts are great...',
