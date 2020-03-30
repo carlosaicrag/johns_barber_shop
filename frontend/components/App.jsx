@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from "./modal/modal"
-import { AuthRoute } from '../util/route_util';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import HeaderContainer from './header/header_container';
 import SignUpFormContainer from './auth/signup_form_container';
