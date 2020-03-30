@@ -102,8 +102,8 @@ Rails.application.configure do
     :address              => "smtp.gmail.com",
     :port                 => 587,
     :domain               => 'heroku.com',
-    :user_name            => ENV['gmail_username'],
-    :password             => ENV['gmail_password'],
+    :user_name            => ENV['gmail_username'], #environment variables live in the application.yml file
+    :password             => ENV['gmail_password'], # if you want access to these varaibles in production then you need to add them on heroku
     :authentication       => "plain",
     :enable_starttls_auto => true
   }

@@ -11,7 +11,7 @@ Haircut.destroy_all
 ClientHaircutTime.destroy_all
 ClientHaircut.destroy_all
 
-barber1 = User.create(email:"dame@gmail.com", password:"starwars", fname:"Damian", lname:"lillard", image_url:"./dame_dolla.jpg", working: true)
+barber1 = User.create(email:"carlosaicrag@gmail.com", password:"starwars", fname:"Damian", lname:"lillard", image_url:"./dame_dolla.jpg", working: true)
 barber2 = User.create(email:"james@gmail.com",password:"starwars",fname:"James", lname:"Harden", image_url:"./james_harden.jpg", working: true)
 barber3 = User.create(email:"kyrie@gmail.com", password:"starwars", fname:"Kyrie", lname:"Irving", image_url:"./kyrie_irving.jpg", working: true)
 barber4 = User.create(email:"lebron@gmail.com", password:"starwars", fname:"Lebron", lname:"James", image_url:"./lbj.jpg", working: true)
