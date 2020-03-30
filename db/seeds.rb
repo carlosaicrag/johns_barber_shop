@@ -48,15 +48,14 @@ haircut21 = Haircut.create!(haircut_name: "Undercut-Haircut-Fade", path:"./Under
 
 client_haircut_avg_time1 = ClientHaircutTime.create!(client_id: client1.id, haircut_id: haircut1.id, barber_id: barber1.id, avg_time: 30)
 client_haircut_avg_time2 = ClientHaircutTime.create!(client_id: client2.id, haircut_id: haircut1.id, barber_id: barber2.id)
-client_haircut_avg_time3 = ClientHaircutTime.create!(client_id: client3.id, haircut_id: haircut1.id, barber_id: barber1.id)
-client_haircut_avg_time4 = ClientHaircutTime.create!(client_id: client1.id, haircut_id: haircut2.id, barber_id: barber3.id, avg_time: 25)
+client_haircut_avg_time3 = ClientHaircutTime.create!(client_id: client3.id, haircut_id: haircut1.id, barber_id: barber2.id)
+client_haircut_avg_time4 = ClientHaircutTime.create!(client_id: client4.id, haircut_id: haircut2.id, barber_id: barber3.id, avg_time: 25)
 client_haircut_avg_time5 = ClientHaircutTime.create!(client_id: client1.id, haircut_id: haircut3.id, barber_id: barber1.id, avg_time: 40)
 
-client_haircut_user1 = ClientHaircut.create!(client_id: client1.id, haircut_id: haircut1.id, barber_id: barber1.id, avg_time: 45)
-client_haircut_user2 = ClientHaircut.create!(client_id: client2.id, haircut_id: haircut2.id, barber_id: barber1.id, avg_time: 45)
-client_haircut_user3 = ClientHaircut.create!(client_id: client3.id, haircut_id: haircut3.id, barber_id: barber2.id, avg_time: 45)
-client_haircut_user4 = ClientHaircut.create!(client_id: client4.id, haircut_id: haircut3.id, barber_id: barber3.id, avg_time: 45)
-client_haircut_user5 = ClientHaircut.create!(client_id: client5.id, haircut_id: haircut6.id, barber_id: barber1.id, avg_time: 45)
+client_haircut_user1 = ClientHaircut.create!(client_id: client1.id, haircut_id: haircut1.id, barber_id: barber1.id)
+client_haircut_user2 = ClientHaircut.create!(client_id: client2.id, haircut_id: haircut2.id, barber_id: barber1.id)
+client_haircut_user3 = ClientHaircut.create!(client_id: client3.id, haircut_id: haircut3.id, barber_id: barber2.id)
+client_haircut_user4 = ClientHaircut.create!(client_id: client4.id, haircut_id: haircut3.id, barber_id: barber3.id) 
 
 
 # client_haircut_avg_times_user1 = ClientHaircutAvgTime.create(client_id: client1.id, haircut_id: haircut1.id, avg_time: 45, barber_id: barber1.id)

@@ -15,7 +15,7 @@ class Api::UsersController < ApplicationController
         render json: @user.errors.full_messages, status: 422
       end
     else
-      render json: ["wrong barber shop password"], status: 422
+      render json: ["Incorrect Barber Shop Password"], status: 422
     end
   end
 

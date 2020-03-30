@@ -60,6 +60,11 @@ class User < ApplicationRecord
     self.password_digest = BCrypt::Password.create(password)
   end
 
+  def wait_time
+    open_haircuts = ClientHaircut.where(closed_at: nil, barber_id: self.id).pluck(:client_id)
+    ClientHaircutTime.where(client_id: open_haircuts).where(barber_id: self.id).pluck(:avg_time).sum
+  end
+
   def self.valid_barber_shop_password?(password)
     return true if password == "*mwFMYKvQeLNS7vT"
   end
