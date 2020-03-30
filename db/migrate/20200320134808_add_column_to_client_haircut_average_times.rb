@@ -7,3 +7,4 @@ class AddColumnToClientHaircutAverageTimes < ActiveRecord::Migration[5.2]
       t.integer :avg_time, default: 45
       t.timestamps
     end
+  end
