@@ -46,16 +46,19 @@ class BarberQueue extends React.Component{
    }
 
    takeOrReleaseClient(){
+       debugger
            this.props.updateBarberWorkingStatus(this.props.barberInfo)
            .then(
                () => {
                    if (!this.props.booleanWorking){
+                    //    console.log(res)
                        //update client info
                        this.props.updateClientHaircutClosedAt(this.props.clientHaircutId, new Date().toJSON()) 
                         clearInterval(this.intervalProgressId)
                         document.getElementsByClassName("in-progress-one")[0].style.opacity = "1"
                         this.setState({minutes: '00', seconds: '00', clientFirstName: 'N/A', clientLastName: '', clientHaircut: 'N/A'})
                    } else {
+                        // console.log(res)
                         this.startTiltingProgress()
                         this.startTicking()
                    }

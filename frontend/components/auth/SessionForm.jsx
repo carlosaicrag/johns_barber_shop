@@ -41,7 +41,11 @@ export class SessionForm extends React.Component {
     // } else {
       if(this.state.barber === "true"){
         const user = Object.assign({}, this.state);
-        this.props.processBarberForm(user).then(() => this.props.history.push("/"))
+        this.props.processBarberForm(user).then((res) => 
+        {
+        this.props.history.push(`/queue/${res.currentUser.id}`);
+        this.props.updateBarberWorkingStatus({id: res.currentUser.id, fname: res.currentUser.fname, lname: res.currentUser.lname, image_url: res.currentUser.image_url, working: false})
+      })
       }else{
         const client = Object.assign({}, this.state);
         this.props.processClientForm(client).then(() => this.props.history.push("/"));
