@@ -48,7 +48,10 @@ Home page where users see how long it will take to get a haircut for each barber
 # How To Use
 * git pull the repository 
 * bundle install
-* npm install 
+* npm install
+* rails db:setup
+* rails db:migrate
+* rails db:seed 
 * rails s on a new tap 
 * npm start on another new tab
 
