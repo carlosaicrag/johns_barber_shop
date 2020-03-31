@@ -2,7 +2,10 @@ import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import NavModal from "./nav_modal"
-import {logout, clientLogout} from "../../actions/session_actions"
+import {logout, clientLogout} from "../../actions/session_actions";
+import ReminderModal from "./reminder_modal";
+
+
 import {updateBarberWorkingStatus} from './../../actions/barber_actions';
 
 function Modal({ modal, closeModal, session, logout, clientSession, clientLogout, barberInfo, updateBarberWorkingStatus}) {
@@ -15,6 +18,11 @@ function Modal({ modal, closeModal, session, logout, clientSession, clientLogout
         case 'OPEN_NAV_MODAL':
             component = <NavModal session={session} clientSession={clientSession} logout={logout} clientLogout={clientLogout} barberInfo={barberInfo} updateBarberWorkingStatus={updateBarberWorkingStatus}/>
             break;
+        
+        case 'REMINDER_MODAL': 
+            component = <ReminderModal />;
+            break; 
+
         default:
             return null;
     }
@@ -29,7 +37,7 @@ function Modal({ modal, closeModal, session, logout, clientSession, clientLogout
 }
 
 const mapStateToProps = (state) => {
-
+    // debugger 
     return {
         modal: state.ui.modal,
         session: state.session.id,

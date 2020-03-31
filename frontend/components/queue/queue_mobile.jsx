@@ -1,14 +1,17 @@
 import React from "react"
-import BarberMobile from "./chair_mobile"
+import BarberMobile from "./chair_mobile";
 
-const QueueMobile = function ({nextPrevBarber,state,barbers, chairs}){
+
+const QueueMobile = function ({nextPrevBarber,state,barbers, chairs, client, remindToLogin}){
     const rows = Object.values(barbers);
     let barberIcons = Object.values(barbers).map((barber, idx) => {
 
         return (
             <BarberMobile
                 key={idx}
+                client={client}
                 barber={barber}
+                remindToLogin={remindToLogin}
                 nextPrevBarber={nextPrevBarber}
                 waitTime={barber.queueTime}
             />

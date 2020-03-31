@@ -5,6 +5,8 @@ import {fetchClientHaircut} from "../../actions/client_haircut_actions"
     
 const msp = (state) => {
     return({
+        client: state.session.clientId,
+        barber: state.session.id,
         haircuts: Object.values(state.entities.haircuts),
         barbers: Object.values(state.entities.users)
     })

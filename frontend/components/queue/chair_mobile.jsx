@@ -2,7 +2,14 @@ import React from "react"
 import {Link} from "react-router-dom"
 
 const BarberMobile = function (props) {
-
+    
+    let newHaircut;
+    if(!props.client){
+        newHaircut = <div onClick={() => props.remindToLogin()}> New Haircut </div>
+    } else {
+        newHaircut = <Link to="/chooseHaircut"> New Haircut</Link>
+    }
+    // debugger
     return (
         <div className="chair-nextarrow-waittime-newhaircut">
             <div className="chair-nextarrow-waittime-newhaircut-opacity">    
@@ -23,7 +30,7 @@ const BarberMobile = function (props) {
             </div>
             <div className="wait-time-new-haircut-container">
                 <div className="chair-container-barber-name">Wait: {props.waitTime} mins</div>
-                <Link to="/chooseHaircut"> New Haircut</Link>
+                {newHaircut}
             </div>
             </div>
         </div>

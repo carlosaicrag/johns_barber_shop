@@ -1,0 +1,27 @@
+.reminder{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+};
+
+.hey{
+  font-size: 24pt;
+  font-family: 'Cormorant Garamond', serif;
+  text-align: center;
+  margin-bottom: 64px;
+};
+
+.reminder-options{
+  font-size: 20pt;
+  font-family: 'Cormorant Garamond', serif;
+  text-align: center;
+};
+
+.option-link{
+  text-decoration: underline;
+};
+
+

@@ -17,8 +17,10 @@ class Queues extends React.Component{
     constructor(props){
         super(props)
         this.state = {mobile:false, barber:0}
-        this.openChooseHaircutModal = this.openChooseHaircutModal.bind(this)
-        this.nextPrevBarber = this.nextPrevBarber.bind(this)
+        this.openChooseHaircutModal = this.openChooseHaircutModal.bind(this);
+        this.nextPrevBarber = this.nextPrevBarber.bind(this);
+        this.remindToLogin = this.remindToLogin.bind(this);
+        
     }
 
     componentDidMount(){
@@ -53,13 +55,26 @@ class Queues extends React.Component{
                 }
             }
         }
-    }
+    };
+
+    remindToLogin(){
+        this.props.reminderModal();
+    };
 
     openChooseHaircutModal(){
+        
         this.props.history.push("chooseHaircut")
-    }
+    };
 
     render(){
+
+        let modal; 
+        if(!this.props.client){
+            modal = this.remindToLogin;
+        } else {
+            modal = this.openChooseHaircutModal;
+        };
+
         if(!Object.values(this.props.barbers)){
             return null;
         }
@@ -79,11 +94,11 @@ class Queues extends React.Component{
             return(
                 <div>
                     <div className="chairs-container">
-                        {chairIcons}
+                        {/* {chairIcons} */}
                     </div>
                     
                     <div className="new-haircut-button-container">
-                        <div className="new-haircut-button" onClick={this.openChooseHaircutModal}>
+                        <div className="new-haircut-button" onClick={modal}>
                             <div>
                                 New Haircut
                             </div>
@@ -98,6 +113,8 @@ class Queues extends React.Component{
                 <QueueMobile
                     barbers={this.props.barbers}
                     state={this.state}
+                    client={this.props.client}
+                    remindToLogin = {this.remindToLogin}
                     nextPrevBarber={this.nextPrevBarber}
                 />
             )

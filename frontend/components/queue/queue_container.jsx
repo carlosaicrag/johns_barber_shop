@@ -1,7 +1,7 @@
 import {connect} from "react-redux"
 import Queues from "./queue"
 import {getBarbers} from "../../actions/splash_actions"
-import {openModal} from "../../actions/modal_actions"
+import {openModal, reminderModal} from "../../actions/modal_actions"
 
 
 const msp = function(store, ownProps){
@@ -10,7 +10,11 @@ const msp = function(store, ownProps){
     if(store.entities.users){
         barbers = store.entities.users
     }
+
+    // debugger
     return({
+        modal: store.ui.modal,
+        client: store.session.clientId,
         barbers: barbers    
     })
 }
@@ -18,7 +22,8 @@ const msp = function(store, ownProps){
 const mdp = function(dispatch){
     return({
         getBarbers: () => dispatch(getBarbers()),
-        openModal: () => dispatch(openModal())
+        openModal: () => dispatch(openModal()),
+        reminderModal: () => dispatch(reminderModal())
     })
 }
 
