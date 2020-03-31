@@ -4,29 +4,54 @@
 
 # Project Description
 
-```
-Application that shows users how long it will take them to get a haircut with a certain barber.  If they don’t have a barber preference then they get the barber with the shortest queue.
+<p>
+Application that shows users how long it will take them to get a haircut with a certain barber.
 
-Let’s think of a scenario. Someone comes into the shop and wants a haircut.  First of all, the user will have to pick what kind of haircut that they want.  This will be done via some ipad that is logged into the website. There can be a page on the website that allows the user to pick a combination of things that they want.  Then they will get to pick which barber that they get to go to. If they don’t have a preference then they will get automatically placed with the barber with the shortest queue. 
+Let’s think of a scenario. Someone comes into the shop and wants a haircut.  First of all, the user will have to pick what kind of haircut that they want.  This will be done on the users phone where they will have to login so they can choose what kind of haircut they want. Then they will get to pick which barber that they get to go to. 
 
-There will be two sides to this app, the barber side and the user client side. The barber gets to see who is in their queue.  Barbers will also be able to remove clients once they are done giving them a hair cut.  Users will see approximately how long it will take each barber to be done with their haircut. Barbers will also be able to pick what kind of haircut that they are receiving.  
+There will be two sides to this app, the barber side and the user client side. The barber gets to see who is in their queue.  Barbers will also be able to remove clients once they are done giving them a hair cut.  Users will see approximately how long it will take each barber to be done with their haircut. 
+</p>
 
-MVP List 
-Barber User Auth 
+# MVP List
+<ol>  
+<li>
+Barber User Auth
+</li> 
+<li>
 Page where users are able to pick their type of haircut and the barber they want to give them a haircut.
-Page where barbers are able to see who is in their queue and are also able to take people off of their queue once they are done with a haircut. 
-Home page where users see how long it will take to get a haircut for each barber
-
-```
+</li>
+<li>
+Page where barbers are able to see who is in their queue and are also able to take people off of their queue once they are done with a haircut.
+</li> 
+<li>
+Home page where users see how long it will take to get a haircut for each barber.
+</li>
 
 # Workflow
-* all features will be done on branches that branch from the master branch
-* there will need to be at least one review before it gets pulled into the master branch
-
+1. git pull master 
+2. git checkout -b `<name of branch>`
+3. work on feature 
+4. once you are done 
+    * checkout the master branch
+    * git pull on the master branch
+    * checkout YOUR feature branch
+    * git merge master 
+    * fix merge conflicts 
+    * git push
+    * do the command that the terminal says to do
+    * your branch should now be in the remote repository
+5. create a pull request on github 
+    ![pull_request1]( ./images/pull_request1.png )
+    ![pull_request2]( ./images/pull_request2.png )
+    ![pull_request3]( ./images/pull_request3.png )
+    * what we're doing here is requesting to pull in our branch into the master branch.  The base in third picture will always be master, and what we're comparing is the branch we're requesting to be pulled in
 # How To Use
 * git pull the repository 
 * bundle install
-* npm install 
+* npm install
+* rails db:setup
+* rails db:migrate
+* rails db:seed 
 * rails s on a new tap 
 * npm start on another new tab
 
