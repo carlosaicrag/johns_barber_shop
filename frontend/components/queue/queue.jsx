@@ -55,16 +55,16 @@ class Queues extends React.Component{
                 }
             }
         }
-    }
+    };
 
     remindToLogin(){
         this.props.reminderModal();
-    }
+    };
 
     openChooseHaircutModal(){
         
         this.props.history.push("chooseHaircut")
-    }
+    };
 
     render(){
 
@@ -114,6 +114,7 @@ class Queues extends React.Component{
                     barbers={this.props.barbers}
                     state={this.state}
                     client={this.props.client}
+                    remindToLogin = {this.remindToLogin}
                     nextPrevBarber={this.nextPrevBarber}
                 />
             )
