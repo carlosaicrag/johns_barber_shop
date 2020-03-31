@@ -1,9 +1,14 @@
 import React from 'react';
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function ReminderModal(){
   return(
-    <div>Sign Up or Login</div>
+    <div className="reminder">
+      <div className="hey">Oh, hey there!</div> 
+      <div className="reminder-options">
+        Please   <Link className="option-link" to="/signup">sign up</Link> or <Link className="option-link" to="/login">login</Link> before scheduling a new look!
+      </div>
+    </div>
   )
 };
 
