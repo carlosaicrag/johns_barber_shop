@@ -50,6 +50,10 @@ class User < ApplicationRecord
     user
   end
 
+  def gravitar 
+    "https://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(self.email)}"
+  end
+
   def downcase_fields
     self.username.downcase!
     self.email.downcase!
@@ -58,6 +62,11 @@ class User < ApplicationRecord
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
+  end
+
+  def wait_time
+    open_haircuts = ClientHaircut.where(closed_at: nil, barber_id: self.id).pluck(:client_id)
+    ClientHaircutTime.where(client_id: open_haircuts).where(barber_id: self.id).pluck(:avg_time).sum
   end
 
   def self.valid_barber_shop_password?(password)

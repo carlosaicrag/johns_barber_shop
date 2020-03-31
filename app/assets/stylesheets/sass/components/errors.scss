@@ -1,0 +1,56 @@
+.errors {
+  // border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: black;
+  height:100vh;
+  text-align: center;
+}
+.gif{
+    // border: 1px solid white;
+    min-height: 300px;
+    min-width: 300px;
+}
+.error_text{
+  font-family: 'Cormorant Garamond', serif;
+  color: white;
+  // border: 1px solid white;
+  margin: 40px 15px 40px 15px;
+  text-align: center;
+}
+
+.error_question{
+  font-family: 'Cormorant Garamond', serif;
+  color: white;
+  // border: 1px solid white;
+  font-size: 20pt;
+  margin: 0px 15px 20px 15px;
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+.error_answer{
+  font-family: 'Cormorant Garamond', serif;
+  color: white;
+  // border: 1px solid white;
+  margin: 0px 15px 20px 15px;
+  font-size: 20pt;
+  
+  animation-name: fadeIn;
+  animation-duration: 7s;
+}

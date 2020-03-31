@@ -10,7 +10,7 @@ const QueueMobile = function ({nextPrevBarber,state,barbers, chairs}){
                 key={idx}
                 barber={barber}
                 nextPrevBarber={nextPrevBarber}
-                waitTime={barber.waitTime}
+                waitTime={barber.queueTime}
             />
         )
     })
@@ -32,7 +32,7 @@ const QueueMobile = function ({nextPrevBarber,state,barbers, chairs}){
         // waitTimeRow["Wait Time"] = "Wait Time"
 
         rows.forEach((barber) => {
-            waitTimeRow[barber.fname] = barber.id
+            waitTimeRow[barber.fname] = barber.queueTime
         })
     }
     makeWaitTimeRow()
@@ -48,7 +48,8 @@ const QueueMobile = function ({nextPrevBarber,state,barbers, chairs}){
                     return(
                         <div className="row-cell">
                             <div>{value}</div>
-                            <div>{Object.values(waitTimeRow)[idx]} mins</div>
+                            <div>{Object.values(waitTimeRow)[idx]}</div>
+                            <div>mins</div>
                         </div>
                     )
                 })}

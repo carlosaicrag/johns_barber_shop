@@ -19,16 +19,10 @@ const navModal = function(props){
                     <Link to="/login">About</Link>
                 </div>
                 <div>
-                    <Link to="/login">Client Login</Link>
+                    <Link to="/login">Login</Link>
                 </div>
                 <div>
-                    <Link to="/login">Client Signup</Link>
-                </div>
-                <div>
-                    <Link to="/login">Barber Login</Link>
-                </div>
-                <div>
-                    <Link to="/signup">Barber Signup</Link>
+                    <Link to="/signup">Signup</Link>
                 </div>
                 <div>
                     <Link to="/login">Testimonials</Link>

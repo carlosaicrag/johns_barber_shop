@@ -35,7 +35,7 @@ class Client < ApplicationRecord
 
   has_many :barbers,
     through: :client_haircuts,
-    source: :barber
+    source: :barber 
 
   after_initialize :ensure_session_token
 

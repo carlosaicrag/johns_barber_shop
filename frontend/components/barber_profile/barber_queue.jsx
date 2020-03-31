@@ -1,7 +1,5 @@
 import React from "react";
 
-
-
 class BarberQueue extends React.Component{
     constructor(props){
         super(props)
