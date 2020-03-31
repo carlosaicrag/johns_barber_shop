@@ -2,7 +2,7 @@ import React from "react"
 import {Link} from "react-router-dom"
 
 const BarberMobile = function (props) {
-
+    // debugger
     return (
         <div className="chair-nextarrow-waittime-newhaircut">
             <div className="chair-nextarrow-waittime-newhaircut-opacity">    
