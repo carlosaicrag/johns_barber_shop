@@ -4,6 +4,7 @@ import {Link, withRouter} from "react-router-dom"
 const navModal = function(props){
     function handleBarberLogOut(e){
         e.preventDefault()
+        
         props.logout()
     }
 
