@@ -10,8 +10,10 @@ Application that shows users how long it will take them to get a haircut with a 
 Let’s think of a scenario. Someone comes into the shop and wants a haircut.  First of all, the user will have to pick what kind of haircut that they want.  This will be done on the users phone where they will have to login so they can choose what kind of haircut they want. Then they will get to pick which barber that they get to go to. 
 
 There will be two sides to this app, the barber side and the user client side. The barber gets to see who is in their queue.  Barbers will also be able to remove clients once they are done giving them a hair cut.  Users will see approximately how long it will take each barber to be done with their haircut. 
+</p>
 
-<ol> MVP List 
+# MVP List
+<ol>  
 <li>
 Barber User Auth
 </li> 
@@ -25,8 +27,6 @@ Page where barbers are able to see who is in their queue and are also able to ta
 Home page where users see how long it will take to get a haircut for each barber.
 </li>
 
-</p>
-
 # Workflow
 1. git pull master 
 2. git checkout -b `<name of branch>`
@@ -36,13 +36,14 @@ Home page where users see how long it will take to get a haircut for each barber
     * git pull on the master branch
     * checkout YOUR feature branch
     * git merge master 
+    * fix merge conflicts 
     * git push
     * do the command that the terminal says to do
     * your branch should now be in the remote repository
 5. create a pull request on github 
-    * ![pull_request1]( ./images/pull_request1.png )
-    * ![pull_request2]( ./images/pull_request2.png )
-    * ![pull_request3]( ./images/pull_request3.png )
+    ![pull_request1]( ./images/pull_request1.png )
+    ![pull_request2]( ./images/pull_request2.png )
+    ![pull_request3]( ./images/pull_request3.png )
     * what we're doing here is requesting to pull in our branch into the master branch.  The base in third picture will always be master, and what we're comparing is the branch we're requesting to be pulled in
 # How To Use
 * git pull the repository 
