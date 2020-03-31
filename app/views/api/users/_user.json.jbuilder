@@ -1,2 +1,1 @@
-json.extract! user, :id, :fname, :lname
-json.image_url user.gravitar
+json.extract! user, :id, :fname, :lname,:image_url, :working

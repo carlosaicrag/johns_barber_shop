@@ -19,6 +19,12 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def update 
+    current_user.change_working_status
+    @user = current_user
+    render 'api/users/show'
+  end
+
   def show
     @user = User.find(params[:id])
     render :show
@@ -43,7 +49,7 @@ class Api::UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:password, :email, :fname,:lname)
+    params.require(:user).permit(:password, :email, :fname,:lname, :working)
   end
 
 end

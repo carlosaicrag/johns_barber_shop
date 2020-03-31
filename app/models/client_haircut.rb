@@ -24,4 +24,9 @@ class ClientHaircut < ApplicationRecord
     belongs_to :barber,
         foreign_key: :barber_id,
         class_name: :User
+
+    def release_client(release_date)
+        self.closed_at = release_date
+        self.save!
+    end
 end
