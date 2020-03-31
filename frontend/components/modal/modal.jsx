@@ -19,7 +19,6 @@ function Modal({ modal, closeModal, session, logout, clientSession, clientLogout
             break;
         
         case 'REMINDER_MODAL': 
-        debugger
             component = <ReminderModal />;
             break; 
 
@@ -37,7 +36,7 @@ function Modal({ modal, closeModal, session, logout, clientSession, clientLogout
 }
 
 const mapStateToProps = (state) => {
-    debugger 
+    // debugger 
     return {
         modal: state.ui.modal,
         session: state.session.id,

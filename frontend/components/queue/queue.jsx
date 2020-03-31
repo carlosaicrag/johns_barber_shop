@@ -79,17 +79,17 @@ class Queues extends React.Component{
             return null;
         }
 
-        // if(window.screen.width > 700){
-        //     let chairIcons = this.props.chairs.map((chair,idx) => {
-        //         let barberId = chair.barber_id
+        if(window.screen.width > 700){
+            let chairIcons = this.props.chairs.map((chair,idx) => {
+                let barberId = chair.barber_id
     
-        //         return(
-        //             <Chair
-        //             key={idx}
-        //             barber = {this.props.barbers[barberId]}
-        //             />
-        //         )
-        //     })
+                return(
+                    <Chair
+                    key={idx}
+                    barber = {this.props.barbers[barberId]}
+                    />
+                )
+            })
     
             return(
                 <div>
@@ -107,16 +107,17 @@ class Queues extends React.Component{
                 </div>
     
             )
-        // }else{
-        //     //mobile version 
-        //     return(
-        //         <QueueMobile
-        //             barbers={this.props.barbers}
-        //             state={this.state}
-        //             nextPrevBarber={this.nextPrevBarber}
-        //         />
-        //     )
-        // }
+        }else{
+            //mobile version 
+            return(
+                <QueueMobile
+                    barbers={this.props.barbers}
+                    state={this.state}
+                    client={this.props.client}
+                    nextPrevBarber={this.nextPrevBarber}
+                />
+            )
+        }
     }
 }
 
