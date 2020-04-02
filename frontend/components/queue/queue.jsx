@@ -116,6 +116,7 @@ class Queues extends React.Component{
                     client={this.props.client}
                     remindToLogin = {this.remindToLogin}
                     nextPrevBarber={this.nextPrevBarber}
+                    loggedInBarber={this.props.loggedInBarber}
                 />
             )
         }

@@ -2,7 +2,7 @@ import React from "react"
 import BarberMobile from "./chair_mobile";
 
 
-const QueueMobile = function ({nextPrevBarber,state,barbers, chairs, client, remindToLogin}){
+const QueueMobile = function ({nextPrevBarber,state,barbers, chairs, client, remindToLogin, loggedInBarber}){
     const rows = Object.values(barbers);
     let barberIcons = Object.values(barbers).map((barber, idx) => {
 
@@ -14,6 +14,7 @@ const QueueMobile = function ({nextPrevBarber,state,barbers, chairs, client, rem
                 remindToLogin={remindToLogin}
                 nextPrevBarber={nextPrevBarber}
                 waitTime={barber.queueTime}
+                loggedInBarber={loggedInBarber}
             />
         )
     })

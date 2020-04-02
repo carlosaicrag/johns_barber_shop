@@ -15,7 +15,8 @@ const msp = function(store, ownProps){
     return({
         modal: store.ui.modal,
         client: store.session.clientId,
-        barbers: barbers    
+        barbers: barbers,
+        loggedInBarber: store.session.id    
     })
 }
 
