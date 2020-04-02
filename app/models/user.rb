@@ -69,6 +69,11 @@ class User < ApplicationRecord
     ClientHaircutTime.where(client_id: open_haircuts).where(barber_id: self.id).pluck(:avg_time).sum
   end
 
+  def current_client_cutting_hair
+    current_client = ClientHaircut.where(barber_id: self.id).where.not(started_haircut_time: nil)
+    current_client[0] ? current_client[0].started_haircut_time : nil
+  end
+
   def self.valid_barber_shop_password?(password)
     return true if password == "*mwFMYKvQeLNS7vT"
   end
