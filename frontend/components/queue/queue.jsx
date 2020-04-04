@@ -23,11 +23,39 @@ class Queues extends React.Component{
         
     }
 
+    secToMin(sec){
+        return sec/60
+    }
+
+    hourToMin(hour){
+        return hour * 60
+    }
+
+    initialWaitForBarber(queueTime,startTimeHour,startTimeMin,startTimeSec){
+        let date = new Date()
+        let pageVisitTime = this.hourToMin(date.getHours()) + this.secToMin(date.getSeconds()) + date.getMinutes()
+        let haircutStartTime = this.hourToMin(startTimeHour) + this.secToMin(startTimeSec) + startTimeMin
+        debugger
+        return queueTime - (pageVisitTime - haircutStartTime)
+    }
+
     componentDidMount(){
+        let that = this
         this.props.getBarbers().then((barbers)=>{
+            let barberIds = Object.keys(barbers)
             this.chairCount = Object.keys(barbers).length
+
+            barberIds.forEach((barberId) => {
+                let barber = barbers[barberId]
+                let currentClientStarttime = barber.currentClientStarttime
+                this.state[barberId] = this.initialWaitForBarber(barber.queueTime, 
+                currentClientStarttime.hour,
+                currentClientStarttime.minute,
+                currentClientStarttime.second)
+            })
+            debugger
+            let s = "s"
         })
-        let that = this;
 
         window.addEventListener("resize", () => {
             if (window.screen.width < 700) {
