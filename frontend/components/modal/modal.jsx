@@ -37,7 +37,6 @@ function Modal({ modal, closeModal, session, logout, clientSession, clientLogout
 }
 
 const mapStateToProps = (state) => {
-    // debugger 
     return {
         modal: state.ui.modal,
         session: state.session.id,

@@ -11,7 +11,6 @@ const msp = function(store, ownProps){
         barbers = store.entities.users
     }
 
-    // debugger
     return({
         modal: store.ui.modal,
         client: store.session.clientId,

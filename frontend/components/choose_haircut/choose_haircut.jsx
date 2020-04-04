@@ -80,7 +80,6 @@ class ChooseHaircut extends React.Component{
     }
 
     render(){
-        // debugger
         
         if(!this.props.haircuts) return null;
 
