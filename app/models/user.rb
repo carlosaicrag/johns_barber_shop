@@ -69,9 +69,23 @@ class User < ApplicationRecord
     ClientHaircutTime.where(client_id: open_haircuts).where(barber_id: self.id).pluck(:avg_time).sum
   end
 
-  def current_client_cutting_hair
-    current_client = ClientHaircut.where(barber_id: self.id).where.not(started_haircut_time: nil)
-    current_client[0] ? current_client[0].started_haircut_time : nil
+  def current_client #current client that the barber is cutting hair for
+    ClientHaircut.where(barber_id: self.id).where.not(started_haircut_time: nil)
+  end
+
+  def current_client_cutting_hair_starting_time #the starting time of the current client the barber is cutting hair for
+    current_client_cutting_hair = current_client
+    current_client_cutting_hair[0] ? current_client_cutting_hair[0].started_haircut_time : nil
+  end
+
+  def current_client_cutting_hair_avg_time #the avg time that it takes for the barber to cut his/hers current clients hair 
+    current_client_cutting_hair = current_client
+    avg_time = ClientHaircutTime.where(client_id: current_client_cutting_hair[0].client_id) 
+    .where(barber_id: current_client_cutting_hair[0].barber_id)
+    .where(haircut_id: current_client_cutting_hair[0].haircut_id)
+    .select(:avg_time)[0].avg_time
+    
+    avg_time ? avg_time : 45
   end
 
   def self.valid_barber_shop_password?(password)
