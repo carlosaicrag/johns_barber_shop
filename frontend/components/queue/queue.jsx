@@ -35,7 +35,6 @@ class Queues extends React.Component{
         let date = new Date()
         let pageVisitTime = this.hourToMin(date.getHours()) + this.secToMin(date.getSeconds()) + date.getMinutes()
         let haircutStartTime = this.hourToMin(startTimeHour) + this.secToMin(startTimeSec) + startTimeMin
-        debugger
         return queueTime - (pageVisitTime - haircutStartTime)
     }
 
@@ -48,6 +47,7 @@ class Queues extends React.Component{
             barberIds.forEach((barberId) => {
                 let barber = barbers[barberId]
                 let currentClientStarttime = barber.currentClientStarttime
+
                 this.state[barberId] = this.initialWaitForBarber(barber.queueTime, 
                 currentClientStarttime.hour,
                 currentClientStarttime.minute,
