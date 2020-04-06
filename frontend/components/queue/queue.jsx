@@ -78,13 +78,13 @@ class Queues extends React.Component{
                 currentClientStarttime.avgTime)
 
                 let queueTimeMinusAvgTimeOfCurrentClient = barber.queueTime - currentClientStarttime.avgTime
-
+                
                 let interval = setInterval(() => {
-                    if (this.state[barberId][0] != 0){
+                    if (this.state[barberId] != 0 && this.state[barberId] > queueTimeMinusAvgTimeOfCurrentClient){
                         this.setState({ [barberId]: this.state[barberId] - 1 })
                     }
 
-                }, 1000)
+                }, 60000)
 
                 this.barberIntervals.push(interval)
             })
