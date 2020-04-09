@@ -1,6 +1,5 @@
 import React from "react"
-import Chair from './chair'
-import QueueMobile from "./queue_mobile"
+import BarbersAndServices from "./barbers_and_services"
 
 // import { makeStyles } from '@material-ui/core/styles';
 // import Table from '@material-ui/core/Table';
@@ -17,8 +16,7 @@ class Queues extends React.Component{
         this.state = {mobile:false, barber:0}
         this.openChooseHaircutModal = this.openChooseHaircutModal.bind(this);
         this.nextPrevBarber = this.nextPrevBarber.bind(this);
-        this.remindToLogin = this.remindToLogin.bind(this);
-        
+        this.remindToLogin = this.remindToLogin.bind(this); 
     }
 
     secToMin(sec){
@@ -78,24 +76,17 @@ class Queues extends React.Component{
                 currentClientStarttime.avgTime)
 
                 let queueTimeMinusAvgTimeOfCurrentClient = barber.queueTime - currentClientStarttime.avgTime
+
                 this.setState({ [barberId]: this.state[barberId] })
+
                 let interval = setInterval(() => {
                     if (this.state[barberId] != 0 && this.state[barberId] > queueTimeMinusAvgTimeOfCurrentClient){
                         this.setState({ [barberId]: this.state[barberId] - 1 })
                     }
-
                 }, 60000)
 
                 this.barberIntervals.push(interval)
             })
-        })
-
-        window.addEventListener("resize", () => {
-            if (window.screen.width < 700) {
-                that.setState({ mobile: true })
-            }else if (window.screen.width > 700){
-                that.setState({mobile:false})
-            }
         })
     }
 
@@ -137,38 +128,8 @@ class Queues extends React.Component{
         if(!Object.values(this.props.barbers)){
             return null;
         }
-
-        if(window.screen.width > 700){
-            let chairIcons = this.props.chairs.map((chair,idx) => {
-                let barberId = chair.barber_id
-    
-                return(
-                    <Chair
-                    key={idx}
-                    barber = {this.props.barbers[barberId]}
-                    />
-                )
-            })
-    
             return(
-                <div>
-                    <div className="chairs-container">
-                        {/* {chairIcons} */}
-                    </div>
-                    
-                    <div className="new-haircut-button-container">
-                        <div className="new-haircut-button" onClick={modal}>
-                            <div>
-                                New Haircut
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )
-        }else{
-            //mobile version 
-            return(
-                <QueueMobile
+                <BarbersAndServices
                     barbers={this.props.barbers}
                     state={this.state}
                     client={this.props.client}
@@ -176,7 +137,6 @@ class Queues extends React.Component{
                     nextPrevBarber={this.nextPrevBarber}
                 />
             )
-        }
     }
 }
 

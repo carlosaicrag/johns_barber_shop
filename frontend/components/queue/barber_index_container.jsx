@@ -1,5 +1,5 @@
 import {connect} from "react-redux"
-import Queues from "./queue"
+import Queues from "./barber_index"
 import {getBarbers} from "../../actions/splash_actions"
 import {openModal, reminderModal} from "../../actions/modal_actions"
 

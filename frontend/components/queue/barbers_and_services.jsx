@@ -1,13 +1,12 @@
 import React from "react"
-import BarberMobile from "./barber_mobile";
+import BarberIndexItem from "./barber_index_item";
 
 
-const QueueMobile = function ({nextPrevBarber,state,barbers, chairs, client, remindToLogin}){
+const BarbersAndServices = function ({nextPrevBarber,state,barbers, chairs, client, remindToLogin}){
     const rows = Object.values(barbers);
     let barberIcons = Object.values(barbers).map((barber, idx) => {
-
         return (
-            <BarberMobile
+            <BarberIndexItem
                 key={idx}
                 client={client}
                 barber={barber}
@@ -43,6 +42,7 @@ const QueueMobile = function ({nextPrevBarber,state,barbers, chairs, client, rem
                 <div className="table-row">
                 {Object.values(nameRow).map((value,idx) => {
                     return(
+                        // eslint-disable-next-line react/jsx-key
                         <div className="row-cell">
                             <div>{value}</div>
                             <div>{Object.values(waitTimeRow)[idx]}</div>
@@ -87,4 +87,4 @@ const QueueMobile = function ({nextPrevBarber,state,barbers, chairs, client, rem
     )
 }
 
-export default QueueMobile;
+export default BarbersAndServices;
