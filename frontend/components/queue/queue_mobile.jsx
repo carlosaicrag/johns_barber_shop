@@ -31,7 +31,7 @@ const QueueMobile = function ({nextPrevBarber,state,barbers, chairs, client, rem
 
     let makeWaitTimeRow = () => {
         rows.forEach((barber) => {
-            waitTimeRow[barber.fname] = barber.queueTime
+            waitTimeRow[barber.fname] = state[barber.id]
         })
     }
     makeWaitTimeRow()
