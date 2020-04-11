@@ -29,14 +29,14 @@ const navModal = function(props){
                 </div>
             </div>
         )   
-    }else{
+    } else { 
         let logout;
 
         if(props.session){
             logout = <div>
                 <a onClick={handleBarberLogOut}>Log Out</a>
             </div>
-        }else{
+        } else {
             logout = <div>
                 <a onClick={handleClientLogOut}>Log Out</a>
             </div>

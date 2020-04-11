@@ -88,7 +88,7 @@ class ChooseHaircut extends React.Component{
                 </div>  
             )
         }; 
-        
+
         if(!this.props.haircuts) return null;
 
         let chooseBarber = []

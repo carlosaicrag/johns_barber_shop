@@ -3,15 +3,13 @@ import Queues from "./queue"
 import {getBarbers} from "../../actions/splash_actions"
 import {openModal, reminderModal} from "../../actions/modal_actions"
 
-
 const msp = function(store, ownProps){
     let barbers = ""
     
     if(store.entities.users){
-        barbers = store.entities.users
+        barbers = store.entities.users;
     }
 
-    // debugger
     return({
         modal: store.ui.modal,
         client: store.session.clientId,
