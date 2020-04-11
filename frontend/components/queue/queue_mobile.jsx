@@ -1,5 +1,5 @@
-import React from "react";
-import BarberMobile from "./chair_mobile";
+import React from "react"
+import BarberMobile from "./barber_mobile";
 
 const QueueMobile = function ({nextPrevBarber,state,barbers, chairs, client, remindToLogin, loggedInBarber}){
     const rows = Object.values(barbers);
@@ -14,6 +14,7 @@ const QueueMobile = function ({nextPrevBarber,state,barbers, chairs, client, rem
                 nextPrevBarber={nextPrevBarber}
                 waitTime={barber.queueTime}
                 loggedInBarber={loggedInBarber}
+                waitTime={state[barber.id]}
             />
         )
     })
@@ -31,15 +32,11 @@ const QueueMobile = function ({nextPrevBarber,state,barbers, chairs, client, rem
     let waitTimeRow = {}
 
     let makeWaitTimeRow = () => {
-        // waitTimeRow["Wait Time"] = "Wait Time"
-
         rows.forEach((barber) => {
-            waitTimeRow[barber.fname] = barber.queueTime
+            waitTimeRow[barber.fname] = state[barber.id]
         })
     }
     makeWaitTimeRow()
-
-    let table = <div></div>
 
     let makeTable = () =>{
         return(

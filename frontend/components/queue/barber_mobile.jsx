@@ -10,7 +10,6 @@ const BarberMobile = function (props) {
     } else {
         newHaircut = <Link to="/chooseHaircut"> New Haircut</Link>
     }
-    
     return (
         <div className="chair-nextarrow-waittime-newhaircut">
             <div className="chair-nextarrow-waittime-newhaircut-opacity">    

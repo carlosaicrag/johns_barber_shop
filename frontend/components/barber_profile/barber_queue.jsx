@@ -46,7 +46,6 @@ class BarberQueue extends React.Component{
    }
 
    takeOrReleaseClient(){
-       debugger
            this.props.updateBarberWorkingStatus(this.props.barberInfo)
            .then(
                () => {
@@ -90,7 +89,6 @@ class BarberQueue extends React.Component{
 
     startTicking(){
         if (this.props.booleanWorking){
-            // debugger
             this.intervalStopWatchId = setInterval(this.tick.bind(this), 1000)
             this.setState({clientFirstName: this.props.clientFirstName, clientLastName: this.props.clientLastName, clientHaircut: this.props.clientHaircut})
         }else{
