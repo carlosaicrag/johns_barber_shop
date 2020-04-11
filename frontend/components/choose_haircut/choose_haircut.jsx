@@ -85,8 +85,7 @@ class ChooseHaircut extends React.Component{
             return (
                 <div className='no-new-hair-cut'>
                     <ReminderModal />
-                </div>
-                
+                </div>  
             )
         }; 
         

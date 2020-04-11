@@ -2,11 +2,8 @@ import React from "react"
 import {Link} from "react-router-dom"
 
 const BarberMobile = function (props) {
-    // debugger;
-    
     let newHaircut;
     if (props.loggedInBarber ){
-        
         newHaircut = null;
     } else if(!props.client){
         newHaircut = <div onClick={() => props.remindToLogin()}> New Haircut </div>

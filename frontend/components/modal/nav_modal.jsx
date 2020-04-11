@@ -3,10 +3,7 @@ import {Link, withRouter} from "react-router-dom"
 
 const navModal = function(props){
     function handleBarberLogOut(e){
-        // debugger
         e.preventDefault()
-        // props.updateBarberWorkingStatus({id: props.barberInfo.id, fname: props.barberInfo.fname, lname: props.barberInfo.lname, image_url: props.barberInfo.image_url, working: true})
-        // .then(() => props.logout()).then(() => props.history.push('/login'))
         props.logout()
     }
 
