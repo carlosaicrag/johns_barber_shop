@@ -7,7 +7,7 @@ import SignUpFormContainer from './auth/signup_form_container';
 import LogInFormContainer from './auth/login_form_container';
 import ForgotPasswordFormContainer from './auth/forgot_password_form_container';
 import BarberQueueContainer from "../components/barber_profile/barber_container";
-import Queue from "./queue/queue_container";
+import BarberIndexContainer from "./queue/barber_index_container";
 import ChooseHaircut from "./choose_haircut/choose_haircut_container";
 import Error from "./error_pages/error";
 import Unauthorized from "./error_pages/unauthorized";
@@ -24,7 +24,7 @@ export const App = () => (
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
       <ProtectedRoute exact path={`/queue/:barberId`} component={BarberQueueContainer} />
       <AuthRoute exact path="/forgot-password" component={ForgotPasswordFormContainer} />
-      <Route exact path="/" component={Queue} />
+      <Route exact path="/" component={BarberIndexContainer} />
       <Route exact path="/chooseHaircut" component={ChooseHaircut}/>
       <Route path="/error" component={Error}></Route>
       <Route path="/unauthorized" component={Unauthorized} />
