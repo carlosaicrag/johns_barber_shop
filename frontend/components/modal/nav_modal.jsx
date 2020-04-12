@@ -4,8 +4,7 @@ import {Link, withRouter} from "react-router-dom"
 const navModal = function(props){
     function handleBarberLogOut(e){
         e.preventDefault()
-        props.updateBarberWorkingStatus({id: props.barberInfo.id, fname: props.barberInfo.fname, lname: props.barberInfo.lname, image_url: props.barberInfo.image_url, working: true})
-        .then(() => props.logout()).then(() => props.history.push('/login'))
+        props.logout()
     }
 
     function handleClientLogOut(e){
@@ -30,14 +29,14 @@ const navModal = function(props){
                 </div>
             </div>
         )   
-    }else{
+    } else { 
         let logout;
 
         if(props.session){
             logout = <div>
                 <a onClick={handleBarberLogOut}>Log Out</a>
             </div>
-        }else{
+        } else {
             logout = <div>
                 <a onClick={handleClientLogOut}>Log Out</a>
             </div>

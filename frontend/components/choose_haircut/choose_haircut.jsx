@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable react/prop-types */
-import React from "react"
+import React from "react";
+import ReminderModal from '../modal/reminder_modal';
 
 class ChooseHaircut extends React.Component{
     constructor(props){
@@ -80,7 +81,14 @@ class ChooseHaircut extends React.Component{
     }
 
     render(){
-        
+        if(!this.props.client){
+            return (
+                <div className='no-new-hair-cut'>
+                    <ReminderModal />
+                </div>  
+            )
+        }; 
+
         if(!this.props.haircuts) return null;
 
         let chooseBarber = []
