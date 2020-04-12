@@ -2,7 +2,6 @@ import React from "react"
 import BarberIndexItem from "./barber_index_item";
 import TimeTable from "./time_table";
 
-
 const BarbersAndServices = function ({nextPrevBarber,state,barbers,client,remindToLogin}){
   let barberIcons = Object.values(barbers).map((barber, idx) => {
     return (

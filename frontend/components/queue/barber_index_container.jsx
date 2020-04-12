@@ -3,7 +3,6 @@ import Queues from "./barber_index"
 import {getBarbers} from "../../actions/splash_actions"
 import {openModal, reminderModal} from "../../actions/modal_actions"
 
-
 const msp = function(store, ownProps){
   let barbers = ""
   
