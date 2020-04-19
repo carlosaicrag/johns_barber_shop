@@ -117,7 +117,7 @@ class Header extends React.Component{
     }else{
       return (
         <header id="header-container">
-          <Link to="/queue" className="logo"> John's Barber Shop </Link>
+          <Link to="/" className="logo"> John's Barber Shop </Link>
           <div>
             {headerOptions}
           </div>
