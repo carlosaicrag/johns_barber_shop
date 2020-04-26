@@ -38,7 +38,7 @@ const ProtectedNewHaircut = ({ component: Component, loggedIn, path, inQueue, ex
   if (alreadyInQueue){
     reminderModal("inQueue")
     return(
-      <BarberIndexContainer />
+      <Redirect to="/" />
       )
   }else{
     return(
