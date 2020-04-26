@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-function ReminderModal(wording){
+function ReminderModal({wording}){
   const displayRemindToSignUpOrLogin = function (){
     return(
     <div className="reminder">
@@ -22,7 +22,6 @@ function ReminderModal(wording){
     </div>
     )
   }
-
   return(
     wording === "notSignedIn" ? displayRemindToSignUpOrLogin() : displayRemindAlreadyInQueue()
   )
