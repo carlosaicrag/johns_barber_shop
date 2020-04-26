@@ -5,15 +5,23 @@ import {openModal, reminderModal} from "../../actions/modal_actions"
 
 const msp = function(store, ownProps){
   let barbers = ""
+  let alreadyInQueue = false
   
   if(store.entities.users){
     barbers = store.entities.users
   }
 
+  Object.keys(store.entities.clientHaircuts).forEach((clientHaircutKey) => {
+    if (store.entities.clientHaircuts[clientHaircutKey].client_id == store.session.clientId) {
+      alreadyInQueue = true
+    }
+  })
+
   return({
     modal: store.ui.modal,
     client: store.session.clientId,
-    barbers: barbers    
+    barbers: barbers,
+    alreadyInQueue: alreadyInQueue    
   })
 }
 
@@ -21,7 +29,7 @@ const mdp = function(dispatch){
   return({
     getBarbers: () => dispatch(getBarbers()),
     openModal: () => dispatch(openModal()),
-    reminderModal: () => dispatch(reminderModal())
+    reminderModal: (modalWording) => dispatch(reminderModal(modalWording))
   })
 }
 

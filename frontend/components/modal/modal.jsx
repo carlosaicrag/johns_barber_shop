@@ -8,7 +8,7 @@ import ReminderModal from "./reminder_modal";
 
 import {updateBarberWorkingStatus} from './../../actions/barber_actions';
 
-function Modal({ modal, closeModal, session, logout, clientSession, clientLogout, barberInfo, updateBarberWorkingStatus}) {
+function Modal({ modal, wording, closeModal, session, logout, clientSession, clientLogout, barberInfo, updateBarberWorkingStatus}) {
     if (!modal) {
         return null;
     }
@@ -18,9 +18,8 @@ function Modal({ modal, closeModal, session, logout, clientSession, clientLogout
         case 'OPEN_NAV_MODAL':
             component = <NavModal session={session} clientSession={clientSession} logout={logout} clientLogout={clientLogout} barberInfo={barberInfo} updateBarberWorkingStatus={updateBarberWorkingStatus}/>
             break;
-        
         case 'REMINDER_MODAL': 
-            component = <ReminderModal />;
+            component = <ReminderModal wording={wording}/>;
             break; 
 
         default:
@@ -37,8 +36,16 @@ function Modal({ modal, closeModal, session, logout, clientSession, clientLogout
 }
 
 const mapStateToProps = (state) => {
+    let modal = "null"
+    let wording = "null"
+
+    if (state.ui.modal){
+        modal = state.ui.modal.type
+        wording = state.ui.modal.modalWording
+    }
     return {
-        modal: state.ui.modal,
+        modal: modal,
+        wording: wording,
         session: state.session.id,
         clientSession: state.session.clientId,
         barberInfo: state.entities.users[state.session.id]

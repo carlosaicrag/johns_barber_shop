@@ -3,8 +3,12 @@ import {Link} from "react-router-dom"
 
 const BarberMobile = function (props) {
   let newHaircut;
-  if(!props.client){
-    newHaircut = <div onClick={() => props.remindToLogin()}> New Haircut </div>
+  if(!props.client || props.alreadyInQueue){
+    if (!props.client){
+      newHaircut = <div onClick={() => props.remindToLogin("notSignedIn")}> New Haircut </div>
+    }else{
+      newHaircut = <div onClick={() => props.remindToLogin("inQueue")}> New Haircut </div>
+    }
   } else {
     newHaircut = <Link to="/chooseHaircut"> New Haircut</Link>
   }

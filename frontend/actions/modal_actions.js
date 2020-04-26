@@ -18,8 +18,9 @@ export const closeModal = () => {
     }
 };
 
-export const reminderModal = () => {
+export const reminderModal = (modalWording) => {
     return {
-        type: REMINDER_MODAL
+        type: REMINDER_MODAL,
+        modalWording:modalWording
     }
 };

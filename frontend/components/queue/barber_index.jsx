@@ -106,8 +106,8 @@ class BarberIndex extends React.Component{
     }
   }
 
-  remindToLogin(){
-    this.props.reminderModal();
+  remindToLogin(modalWording){
+    this.props.reminderModal(modalWording);
   }
 
   openChooseHaircutModal(){
@@ -133,6 +133,7 @@ class BarberIndex extends React.Component{
           client={this.props.client}
           remindToLogin = {this.remindToLogin}
           nextPrevBarber={this.nextPrevBarber}
+          alreadyInQueue={this.props.alreadyInQueue}
         />
       )
   }
