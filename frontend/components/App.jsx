@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from "./modal/modal"
-import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import { AuthRoute, ProtectedRoute, ProtectedNewHaircutRoute } from '../util/route_util';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import HeaderContainer from './header/header_container';
 import SignUpFormContainer from './auth/signup_form_container';
@@ -25,7 +25,7 @@ export const App = () => (
       <ProtectedRoute exact path={`/queue/:barberId`} component={BarberQueueContainer} />
       <AuthRoute exact path="/forgot-password" component={ForgotPasswordFormContainer} />
       <Route exact path="/" component={BarberIndexContainer} />
-      <Route exact path="/chooseHaircut" component={ChooseHaircut}/>
+      <ProtectedNewHaircutRoute exact path="/chooseHaircut" component={ChooseHaircut}/>
       <Route path="/error" component={Error}></Route>
       <Route path="/unauthorized" component={Unauthorized} />
       <Redirect to="/error"></Redirect>
