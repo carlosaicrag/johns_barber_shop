@@ -29,4 +29,13 @@ class ClientHaircut < ApplicationRecord
         self.closed_at = release_date
         self.save!
     end
+
+    def self.close_all_queues
+        open_clients = ClientHaircut.where(closed_at: nil)
+        
+        open_clients.each do |user|
+            user.closed_at = Time.now
+            user.save
+        end
+    end
 end

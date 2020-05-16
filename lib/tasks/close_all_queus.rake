@@ -1,0 +1,8 @@
+namespace :close_all_queues do
+  desc "close all queues for barbers"
+  task :start do
+    puts "Close all queues                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           "
+
+    ClientHaircut.close_all_queues
+  end
+end
