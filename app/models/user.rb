@@ -70,7 +70,7 @@ class User < ApplicationRecord
   end
 
   def current_client #current client that the barber is cutting hair for
-    ClientHaircut.where(barber_id: self.id).where.not(started_haircut_time: nil)
+    ClientHaircut.where(barber_id: self.id, closed_at: nil).where.not(started_haircut_time: nil)
   end
 
   def current_client_cutting_hair_starting_time #the starting time of the current client the barber is cutting hair for
