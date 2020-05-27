@@ -35,11 +35,9 @@ class BarberIndex extends React.Component{
     if(haircutStartTime == 0){
       return queueTime
     }else{
-      let time = Math.floor(queueTime - (pageVisitTime - haircutStartTime))
+      let time = Math.abs(Math.floor(queueTime - (pageVisitTime - haircutStartTime)))
 
-      if(time <= 0){
-        return 0
-      } else if ((pageVisitTime - haircutStartTime) >= avgTime){
+      if ((pageVisitTime - haircutStartTime) >= avgTime){
         return queueTime - avgTime
       }else{
         return time
