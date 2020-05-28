@@ -15,8 +15,10 @@ class Api::ClientHaircutsController < ApplicationController
             @client_haircut_avg_time = client_haircut_avg_time[0]
         end
         @client_haircut_avg_time.client_id = current_client_user.id
-        
-        if @client_haircut.save and @client_haircut_avg_time.save
+
+        if ClientHaircut.client_already_in_a_queue?(current_client_user)
+            render json: ["You are already in a barbers queue"], status: 402
+        elsif @client_haircut.save and @client_haircut_avg_time.save
             render :show
         else
             render json: @client_haircut.errors.full_messages, status: 402
