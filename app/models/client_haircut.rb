@@ -38,4 +38,13 @@ class ClientHaircut < ApplicationRecord
             user.save
         end
     end
+    
+    def self.client_already_in_a_queue?(current_client_user)
+        client_haircut = ClientHaircut.where(client_id: current_client_user.id).where(closed_at:nil)
+        if client_haircut.length == 0 
+            return false
+        else
+            return true
+        end
+    end
 end

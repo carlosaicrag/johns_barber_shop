@@ -2,7 +2,7 @@ import React from "react"
 import BarberIndexItem from "./barber_index_item";
 import TimeTable from "./time_table";
 
-const BarbersAndServices = function ({nextPrevBarber,state,barbers,client,remindToLogin}){
+const BarbersAndServices = function ({nextPrevBarber,state,barbers,client,remindToLogin,alreadyInQueue}){
   let barberIcons = Object.values(barbers).map((barber, idx) => {
     return (
       <BarberIndexItem
@@ -12,6 +12,7 @@ const BarbersAndServices = function ({nextPrevBarber,state,barbers,client,remind
         remindToLogin={remindToLogin}
         nextPrevBarber={nextPrevBarber}
         waitTime={state[barber.id]}
+        alreadyInQueue={alreadyInQueue}
       />
     )
   })

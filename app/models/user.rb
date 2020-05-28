@@ -54,6 +54,11 @@ class User < ApplicationRecord
     "https://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(self.email)}"
   end
 
+  def clients_in_queue
+    clients = ClientHaircut.where(closed_at: nil, barber_id: self.id)
+    clients
+  end
+
   def downcase_fields
     self.username.downcase!
     self.email.downcase!

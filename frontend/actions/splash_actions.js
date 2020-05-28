@@ -4,10 +4,11 @@ export const RECEIVE_BARBERS = "RECEIVE_BARBERS"
 
 export const receiveBarbers = function(payload){
     const barbers = payload.barbers
-    
+    const clientHaircuts = payload.clientHaircuts
     return({
         type: RECEIVE_BARBERS,
-        barbers: barbers    
+        barbers: barbers,
+        clientHaircuts: clientHaircuts   
     })
 }
 
