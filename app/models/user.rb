@@ -31,7 +31,7 @@ class User < ApplicationRecord
   validates :working, inclusion: { in: [true, false]} 
 
   after_initialize :ensure_session_token
-  # before_create :ensure_confirmation_token, :downcase_fields
+  before_create :downcase_fields
 
   attr_reader :password, :barber_shop_password
 
@@ -60,7 +60,6 @@ class User < ApplicationRecord
   end
 
   def downcase_fields
-    self.username.downcase!
     self.email.downcase!
   end
 
