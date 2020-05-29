@@ -5,7 +5,6 @@ import {updateBarberWorkingStatus} from './../../actions/barber_actions';
 import {updateClientHaircutClosedAt} from './../../actions/client_haircut_actions';
 
 const msp = function(state, ownProps){
-  debugger
     if (Object.values(state.entities.queue).length !== 0){
         return({
             clientHaircutId: Object.values(state.entities.queue)[0].id,
@@ -13,14 +12,14 @@ const msp = function(state, ownProps){
             clientLastName: Object.values(state.entities.queue)[0].clientLastName,
             clientHaircut: Object.values(state.entities.queue)[0].clientHaircut,
             barberName: state.entities.users[state.session.id].fname,
-            booleanWorking: state.entities.users[state.session.id].working,
+            booleanCuttingHair: state.entities.users[state.session.id].cutting_hair,
             barberInfo: state.entities.users[state.session.id],
             numberOfPeopleWaiting: Object.values(state.entities.queue).length
         })
     } else {
         return({
             barberName: state.entities.users[state.session.id].fname,
-            booleanWorking: state.entities.users[state.session.id].working,
+            booleanCuttingHair: state.entities.users[state.session.id].working,
             barberInfo: state.entities.users[state.session.id],
             numberOfPeopleWaiting: Object.values(state.entities.queue).length
         })

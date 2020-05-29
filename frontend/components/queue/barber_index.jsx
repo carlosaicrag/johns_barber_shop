@@ -56,7 +56,6 @@ class BarberIndex extends React.Component{
   }
 
   componentDidMount(){
-    let that = this
     this.barberIntervals = []
 
     this.props.getBarbers().then((barbers)=>{

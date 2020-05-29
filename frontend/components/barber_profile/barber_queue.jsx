@@ -5,7 +5,7 @@ class BarberQueue extends React.Component{
     super(props)
     
     this.takeOrReleaseClient = this.takeOrReleaseClient.bind(this)
-    if (this.props.booleanWorking){
+    if (this.props.booleanCuttingHair){
       this.startTiltingProgress()
       this.state = ({minutes: localStorage.getItem('minutes'), seconds: localStorage.getItem('seconds'), clientFirstName: localStorage.getItem('clientFirstName'), clientLastName: localStorage.getItem('clientLastName'), clientHaircut: localStorage.getItem('clientHaircut')})
       this.intervalStopWatchId = setInterval(this.tick.bind(this), 1000)
@@ -16,7 +16,7 @@ class BarberQueue extends React.Component{
   }
   
   tick(){
-    if (this.props.booleanWorking){
+    if (this.props.booleanCuttingHair){
       if (Number(this.state.seconds) < 59){
         if (Number(this.state.seconds) < 9){
           this.setState({seconds: `0${Number(this.state.seconds)+1}`})
@@ -48,10 +48,10 @@ class BarberQueue extends React.Component{
     this.props.updateBarberWorkingStatus(this.props.barberInfo)
     .then(
       () => {
-        if (!this.props.booleanWorking){
+        if (!this.props.booleanCuttingHair){
       //    console.log(res)
           //update client info
-          this.props.updateClientHaircutClosedAt(this.props.clientHaircutId, new Date().toJSON()) 
+          // this.props.updateClientHaircutClosedAt(this.props.clientHaircutId, new Date().toJSON()) 
         clearInterval(this.intervalProgressId)
         document.getElementsByClassName("in-progress-one")[0].style.opacity = "1"
         this.setState({minutes: '00', seconds: '00', clientFirstName: 'N/A', clientLastName: '', clientHaircut: 'N/A'})
@@ -87,7 +87,7 @@ class BarberQueue extends React.Component{
   }
 
   startTicking(){
-    if (this.props.booleanWorking){
+    if (this.props.booleanCuttingHair){
       this.intervalStopWatchId = setInterval(this.tick.bind(this), 1000)
       this.setState({clientFirstName: this.props.clientFirstName, clientLastName: this.props.clientLastName, clientHaircut: this.props.clientHaircut})
     }else{
@@ -108,7 +108,7 @@ class BarberQueue extends React.Component{
         </div>
         <div className="in-progress">
           <div className="in-progress-one">
-            {this.props.booleanWorking? 'In progress..': 'Take client'}
+            {this.props.booleanCuttingHair? 'In progress..': 'Take client'}
           </div>
   
           <div className="release-button">

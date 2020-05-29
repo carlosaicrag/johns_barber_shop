@@ -14,12 +14,16 @@ class ApplicationController < ActionController::Base
 
   def sign_in(user)
     user.reset_token!
+    user.clock_in
+    user.save!
     session[:session_token] = user.session_token
     @current_user = user
   end
 
   def sign_out
     current_user.try(:reset_token!)
+    current_user.clock_out
+    current_user.save!
     session[:session_token] = nil
   end
 
