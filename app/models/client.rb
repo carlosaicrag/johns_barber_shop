@@ -27,7 +27,7 @@ class Client < ApplicationRecord
   foreign_key: :client_id,
   class_name: :ClientHaircut
 
-
+  before_create :downcase_fields
 
   has_many :haircuts,
     through: :haircut_avg_times,
@@ -46,7 +46,6 @@ class Client < ApplicationRecord
   end
 
   def downcase_fields
-    self.username.downcase!
     self.email.downcase!
   end
 
