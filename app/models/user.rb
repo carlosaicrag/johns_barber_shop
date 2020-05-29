@@ -101,9 +101,16 @@ class User < ApplicationRecord
     BCrypt::Password.new(self.password_digest).is_password?(password)
   end
 
+  def clock_in
+    self.working = true
+  end
+
+  def clock_out
+    self.working = false
+  end
+
   def reset_token!
     self.session_token = SecureRandom.urlsafe_base64(16)
-    self.save!
     self.session_token
   end
 
@@ -134,7 +141,7 @@ class User < ApplicationRecord
   end
 
   def change_working_status 
-    self.working = !self.working
+    self.cutting_hair = !self.cutting_hair
     self.save!
   end
 
