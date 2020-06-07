@@ -5,62 +5,32 @@ class BarberQueue extends React.Component{
     super(props)
     
     this.takeOrReleaseClient = this.takeOrReleaseClient.bind(this)
-    if (this.props.booleanCuttingHair){
-      this.startTiltingProgress()
-      this.state = ({minutes: localStorage.getItem('minutes'), seconds: localStorage.getItem('seconds'), clientFirstName: localStorage.getItem('clientFirstName'), clientLastName: localStorage.getItem('clientLastName'), clientHaircut: localStorage.getItem('clientHaircut')})
-      this.intervalStopWatchId = setInterval(this.tick.bind(this), 1000)
-       
-    }else{
-      this.state = {seconds: '00', minutes: '00', clientFirstName: 'N/A', clientLastName: '', clientHaircut: 'N/A'}
-    }
+    this.state = { minutes: 0, seconds: 0, cuttinghair:false }
   }
   
   tick(){
-    if (this.props.booleanCuttingHair){
-      if (Number(this.state.seconds) < 59){
-        if (Number(this.state.seconds) < 9){
-          this.setState({seconds: `0${Number(this.state.seconds)+1}`})
-        }else {
-          this.setState({seconds: Number(this.state.seconds)+1})
-        }
-      } else {
-        if (Number(this.state.minutes) < 9){
-          this.setState({seconds: '00', minutes: `0${Number(this.state.minutes) + 1}`})
-        }else {
-          this.setState({seconds: '00', minutes: Number(this.state.minutes) + 1})
-        }
-        
-      }
-      localStorage.setItem('minutes', this.state.minutes)
-      localStorage.setItem('seconds', this.state.seconds)
-      localStorage.setItem('clientFirstName', this.props.clientFirstName)
-      localStorage.setItem('clientLastName', this.props.clientLastName)
-      localStorage.setItem('clientHaircut', this.props.clientHaircut)
-      
-    } else {
-      clearInterval(this.intervalStopWatchId)
-      
-      this.setState({minutes: '00', seconds: '00'})
-    }
+    let that = this
+    this.stopWatch = setInterval(() => {
+      this.setState({minutes: that.state.minutes, seconds: that.state.seconds + 1,cuttingHair:true})
+    },1000)
   }
+  
 
   takeOrReleaseClient(){
-    this.props.updateBarberWorkingStatus(this.props.barberInfo)
-    .then(
-      () => {
-        if (!this.props.booleanCuttingHair){
-          //update client info
-          this.props.updateClientHaircutClosedAt(this.props.clientHaircutId, new Date().toJSON()) 
-          clearInterval(this.intervalProgressId)
-          document.getElementsByClassName("in-progress-one")[0].style.opacity = "1"
-          this.setState({minutes: '00', seconds: '00', clientFirstName: 'N/A', clientLastName: '', clientHaircut: 'N/A'})
-        } else {
-        // console.log(res)
-        this.startTiltingProgress()
-        this.startTicking()
-        }
-      }
-    )
+    if(this.cuttingHair()){
+      this.props.updateClientHaircutClosedAt(this.props.clientHaircutId)
+      .then(() => {
+        this.setState({cuttingHair:false})
+        clearInterval(this.stopWatch)
+      })
+      return null
+    }
+
+    if(this.props.numberOfPeopleWaiting > 0 ){
+      this.props.updateBarberWorkingStatus(this.props.barberInfo)
+    }else{
+      return null
+    }
   }
 
   inProgressCSS(inProgressHTMLCollection){
@@ -76,8 +46,7 @@ class BarberQueue extends React.Component{
   }
 
   componentWillUnmount(){
-    clearInterval(this.intervalProgressId)
-    clearInterval(this.intervalStopWatchId)
+    clearInterval(this.stopWatch)
   }
 
   startTiltingProgress(){
@@ -85,21 +54,25 @@ class BarberQueue extends React.Component{
     this.intervalProgressId = setInterval(() => this.inProgressCSS(inProgress[0]), 500 )
   }
 
-  startTicking(){
-    if (this.props.booleanCuttingHair){
-      this.intervalStopWatchId = setInterval(this.tick.bind(this), 1000)
-      this.setState({clientFirstName: this.props.clientFirstName, clientLastName: this.props.clientLastName, clientHaircut: this.props.clientHaircut})
-    }else{
-      clearInterval(this.intervalStopWatchId)
-      this.setState({hours: '00', minutes: '00', seconds: '00'})
+  cuttingHair(){
+    if (this.props.booleanCuttingHair) {
+      if(!this.state.cuttingHair){
+        this.tick()
+      }
+      return true
+    } else {
+      this.state = {seconds: 0, minutes: 0}
+      return false
     }
   }
-
-  
 
   render(){
     const barberName = this.props.barberName
     const splittedBarberName = (("Chez ").split("").concat(barberName.split("")));
+    if(!this.props.timeElapsed){
+      return null
+    }
+    this.cuttingHair()
     return(
       <div>
         <div className="chez-barber-name">
@@ -131,11 +104,11 @@ class BarberQueue extends React.Component{
           <div className="client-information">
             <div className="client-information-1">
               <img src={window.barber} width="50" height="50" className="client-img"/>
-              <div className="client-name">{(this.state.clientFirstName + ' ' + this.state.clientLastName)}</div>
+              <div className="client-name">{(this.props.clientFirstName + ' ' + this.props.clientLastName)}</div>
             </div>
             <div className="client-information-2">
               <img src={window.scissors} width="50" height="50" className="scissors-img"/>
-              <div className="haircut-name">{this.state.clientHaircut}</div>
+              <div className="haircut-name">{this.props.clientHaircut}</div>
             </div>
           </div>
         </div>
@@ -143,10 +116,5 @@ class BarberQueue extends React.Component{
     )
   }  
 }
-      
-     
-  
-
-
 export default BarberQueue
 

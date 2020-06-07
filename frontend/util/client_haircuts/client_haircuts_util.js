@@ -6,10 +6,9 @@ export const createClientHaircut = function(client_haircut){
     })
 }
 
-export const updateClientHaircutClosedAt = (clientHaircutId, closedAt) => {
+export const updateClientHaircutClosedAt = (clientHaircutId) => {
     return $.ajax({
         method: 'PATCH',
-        url: `api/client_haircuts/${clientHaircutId}`,
-        data: {client_haircut: {closed_at: closedAt}}
+        url: `api/client_haircuts/${clientHaircutId}`
     })
 }

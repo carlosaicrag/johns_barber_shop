@@ -20,9 +20,9 @@ class Api::UsersController < ApplicationController
   end
 
   def update 
-    current_user.change_working_status
+    User.change_working_status(current_user)
     @user = current_user
-    render 'api/users/show'
+    render "api/client_haircuts/queue"
   end
 
   def show

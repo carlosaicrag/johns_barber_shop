@@ -74,7 +74,7 @@ class User < ApplicationRecord
   end
 
   def current_client #current client that the barber is cutting hair for
-    ClientHaircut.where(barber_id: self.id, closed_at: nil).where.not(started_haircut_time: nil)
+    ClientHaircut.where(barber_id: self.id, closed_at: nil).where(started_haircut_time: nil)
   end
 
   def current_client_cutting_hair_starting_time #the starting time of the current client the barber is cutting hair for
@@ -139,9 +139,9 @@ class User < ApplicationRecord
     end
   end
 
-  def change_working_status 
-    self.cutting_hair = !self.cutting_hair
-    self.save!
+  def self.change_working_status(barber) 
+    barber.cutting_hair = !barber.cutting_hair
+    barber.save!
   end
 
   private

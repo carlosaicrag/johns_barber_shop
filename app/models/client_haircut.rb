@@ -13,38 +13,62 @@
 #
 
 class ClientHaircut < ApplicationRecord
-    belongs_to :client,
-        foreign_key: :client_id,
-        class_name: :Client
+  belongs_to :client,
+    foreign_key: :client_id,
+    class_name: :Client
 
-    belongs_to :haircut,
-        foreign_key: :haircut_id,
-        class_name: :Haircut
+  belongs_to :haircut,
+    foreign_key: :haircut_id,
+    class_name: :Haircut
 
-    belongs_to :barber,
-        foreign_key: :barber_id,
-        class_name: :User
+  belongs_to :barber,
+    foreign_key: :barber_id,
+    class_name: :User
 
-    def release_client(release_date)
-        self.closed_at = release_date
-        self.save!
-    end
+  def release_client
+    self.closed_at = DateTime.now
+    self.save!
+  end
 
-    def self.close_all_queues
-        open_clients = ClientHaircut.where(closed_at: nil)
-        
-        open_clients.each do |user|
-            user.closed_at = Time.now
-            user.save
-        end
-    end
+  def self.close_all_queues
+    open_clients = ClientHaircut.where(closed_at: nil)
     
-    def self.client_already_in_a_queue?(current_client_user)
-        client_haircut = ClientHaircut.where(client_id: current_client_user.id).where(closed_at:nil)
-        if client_haircut.length == 0 
-            return false
-        else
-            return true
-        end
+    open_clients.each do |user|
+      user.closed_at = Time.now
+      user.save
     end
+  end
+  
+  def self.client_already_in_a_queue?(current_client_user)
+    client_haircut = ClientHaircut.where(client_id: current_client_user.id).where(closed_at:nil)
+    if client_haircut.length == 0 
+      return false
+    else
+      return true
+    end
+  end
+
+  def self.next_in_line(barber_id)
+    barber = User.find(barber_id)
+    if barber.cutting_hair
+        return barber.current_client[0]
+    else
+        queue = queue(barber_id).where(started_haircut_time: nil).first
+        return queue
+    end
+  end
+
+  def self.queue(barber_id)
+    barbers_queue = ClientHaircut.where(barber_id: barber_id).where(closed_at: nil).order('created_at DESC').includes(:client).includes(:haircut)
+    barbers_queue
+  end
+
+  def time_elapsed
+    elapsed_time = {}
+    self_hour_to_mins = self.created_at.hour * 60
+    date_time_hours_to_mins = DateTime.now.hour*60
+    elapsed_time["mins"] = (date_time_hours_to_mins - self_hour_to_mins).abs
+    elapsed_time["seconds"] = (DateTime.now.sec - self.created_at.sec).abs
+    elapsed_time
+  end
 end
