@@ -23,7 +23,7 @@ const BarberMobile = function (props) {
           </div>
           <div className="chair-container-mobile">
             <div className="chair-container-barber-name">{props.barber.fname}</div>
-            <img src={props.barber.image_url} alt="barber_url" />
+            <img src={props.barber.gravitar} alt="barber_url" />
           </div>
           <div className="next-button" onClick={props.nextPrevBarber("right")}>
             <i className="fas fa-arrow-circle-right"></i>
