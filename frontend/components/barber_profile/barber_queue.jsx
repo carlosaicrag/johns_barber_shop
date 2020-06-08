@@ -5,19 +5,31 @@ class BarberQueue extends React.Component{
     super(props)
     
     this.takeOrReleaseClient = this.takeOrReleaseClient.bind(this)
-    this.state = { minutes: 0, seconds: 0, cuttingHair: false }
+    if (localStorage.getItem("minutes")){
+      this.state = { minutes: parseInt(localStorage.getItem("minutes")), seconds: parseInt(localStorage.getItem("seconds")),cuttingHair:false}
+    }else{
+      this.state = { minutes: 0, seconds: 0, cuttingHair: false }
+    }
   }
   
   tick(){
     let that = this
+    localStorage.setItem("minutes", this.props.timeElapsed.mins)
+    localStorage.setItem("seconds", this.props.timeElapsed.seconds)
     this.stopWatch = setInterval(() => {
-      this.setState({minutes: that.state.minutes, seconds: that.state.seconds + 1,cuttingHair:true})
+      localStorage.setItem("seconds", parseInt(that.state.seconds)+1)
+      if (parseInt(localStorage.getItem("seconds")) === 60){
+        localStorage.setItem("seconds", 0)
+        localStorage.setItem("minutes", parseInt(that.state.minutes) + 1)
+      }
+      this.setState({minutes: localStorage.getItem("minutes"), seconds: localStorage.getItem("seconds"),cuttingHair:true})
     },1000)
   }
   
   takeOrReleaseClient(){
     if(this.cuttingHair()){
       clearInterval(this.stopWatch)
+      localStorage.clear()
       this.setState({minutes:0, seconds:0, cuttingHair:true},
         () =>{
           this.props.updateClientHaircutClosedAt(this.props.clientHaircutId)
@@ -59,9 +71,7 @@ class BarberQueue extends React.Component{
   cuttingHair(){
     if (this.props.booleanCuttingHair) {
       if(!this.state.cuttingHair){
-        // if(!this.stopWatch){
-          this.tick()
-        // }
+        this.tick()
       }
       return true
     } else {
@@ -72,7 +82,7 @@ class BarberQueue extends React.Component{
   render(){
     const barberName = this.props.barberName
     const splittedBarberName = (("Chez ").split("").concat(barberName.split("")));
-    if(!this.props.timeElapsed){
+    if(!this.props.clientHaircutId){
       return null
     }
     this.cuttingHair()
