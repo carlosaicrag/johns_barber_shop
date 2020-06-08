@@ -17,7 +17,7 @@ class BarberQueue extends React.Component{
     localStorage.setItem("minutes", this.props.timeElapsed.mins)
     localStorage.setItem("seconds", this.props.timeElapsed.seconds)
     this.stopWatch = setInterval(() => {
-      localStorage.setItem("seconds", parseInt(that.state.seconds)+1)
+      localStorage.setItem("seconds", parseInt(localStorage.getItem("seconds"))+1)
       if (parseInt(localStorage.getItem("seconds")) === 60){
         localStorage.setItem("seconds", 0)
         localStorage.setItem("minutes", parseInt(that.state.minutes) + 1)

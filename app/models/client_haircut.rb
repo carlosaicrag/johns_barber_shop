@@ -72,8 +72,9 @@ class ClientHaircut < ApplicationRecord
       self_hour_to_mins = self.started_haircut_time.hour * 60
       date_time_hours_to_mins = DateTime.now.hour * 60
       date_time_mins = DateTime.now.min
-      elapsed_time["mins"] = ((date_time_hours_to_mins + date_time_mins) - (self_hour_to_mins + self.started_haircut_time.min)).abs
-      elapsed_time["seconds"] = (DateTime.now.sec - self.created_at.sec).abs
+      date_time_seconds_to_mins = DateTime.now.sec/60
+      elapsed_time["mins"] = ((date_time_hours_to_mins + date_time_mins + date_time_seconds_to_mins) - (self_hour_to_mins + self.started_haircut_time.min + self.started_haircut_time.sec/60)).abs
+      elapsed_time["seconds"] = (DateTime.now.sec - self.started_haircut_time.sec).abs
       return elapsed_time
     end
   end
