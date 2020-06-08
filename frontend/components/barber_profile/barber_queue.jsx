@@ -5,7 +5,7 @@ class BarberQueue extends React.Component{
     super(props)
     
     this.takeOrReleaseClient = this.takeOrReleaseClient.bind(this)
-    this.state = { minutes: 0, seconds: 0, cuttinghair:false }
+    this.state = { minutes: 0, seconds: 0, cuttingHair: false }
   }
   
   tick(){
@@ -15,19 +15,21 @@ class BarberQueue extends React.Component{
     },1000)
   }
   
-
   takeOrReleaseClient(){
     if(this.cuttingHair()){
-      this.props.updateClientHaircutClosedAt(this.props.clientHaircutId)
-      .then(() => {
-        this.setState({cuttingHair:false})
-        clearInterval(this.stopWatch)
-      })
+      clearInterval(this.stopWatch)
+      this.setState({minutes:0, seconds:0, cuttingHair:true},
+        () =>{
+          this.props.updateClientHaircutClosedAt(this.props.clientHaircutId)
+        })
       return null
     }
 
     if(this.props.numberOfPeopleWaiting > 0 ){
-      this.props.updateBarberWorkingStatus(this.props.barberInfo)
+      this.setState({cuttingHair:false},
+        () =>{
+          this.props.updateBarberWorkingStatus(this.props.barberInfo)
+        })
     }else{
       return null
     }
@@ -57,11 +59,12 @@ class BarberQueue extends React.Component{
   cuttingHair(){
     if (this.props.booleanCuttingHair) {
       if(!this.state.cuttingHair){
-        this.tick()
+        // if(!this.stopWatch){
+          this.tick()
+        // }
       }
       return true
     } else {
-      this.state = {seconds: 0, minutes: 0}
       return false
     }
   }

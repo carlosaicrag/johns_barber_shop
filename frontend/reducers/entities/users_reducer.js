@@ -1,7 +1,7 @@
 import { RECEIVE_CURRENT_USER } from "../../actions/session_actions";
 import {RECEIVE_BARBERS} from "../../actions/splash_actions"
 import {RECEIVE_HAIRCUTS} from "../../actions/choose_haircut_actions"
-import { RECEIVE_BARBER } from '../../actions/barber_actions';
+import { RECEIVE_BARBER, RECEIVE_QUEUE } from '../../actions/barber_actions';
  
 const usersReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
@@ -20,6 +20,8 @@ const usersReducer = (oldState = {}, action) => {
       return action.barbers
     case RECEIVE_BARBERS:
       return action.barbers
+    case RECEIVE_QUEUE:
+        return action.barber
     default:
       return oldState;
   }

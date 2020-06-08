@@ -12,7 +12,8 @@ const receiveBarber = barber => {
 export const receiveClientsQueue = payload => {
     return {
     type: RECEIVE_QUEUE,
-    clientHaircut: payload.clientHaircut
+    clientHaircut: payload.clientHaircut,
+    barber: payload.barber
     }
 }
 
@@ -28,5 +29,5 @@ export const fetchQueue = () => dispatch => (
 
 export const updateBarberWorkingStatus = (barber) => dispatch => (
     APIUtil.updateBarberWorkingStatus(barber)
-    .then((barber) => dispatch(receiveBarber(barber)))
+    .then((barber) => dispatch(receiveClientsQueue(barber)))
 )

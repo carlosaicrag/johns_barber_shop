@@ -59,7 +59,7 @@ class ClientHaircut < ApplicationRecord
   end
 
   def self.queue(barber_id)
-    barbers_queue = ClientHaircut.where(barber_id: barber_id).where(closed_at: nil).order('created_at DESC').includes(:client).includes(:haircut)
+    barbers_queue = ClientHaircut.where(barber_id: barber_id).where(closed_at: nil).order('created_at ASC').includes(:client).includes(:haircut)
     barbers_queue
   end
 
