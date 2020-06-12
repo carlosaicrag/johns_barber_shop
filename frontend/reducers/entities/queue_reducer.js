@@ -6,8 +6,7 @@ const queueReducer = (oldState = {}, action) => {
     let nextState = Object.assign({}, oldState)
     switch (action.type) {
         case RECEIVE_QUEUE: 
-        nextState = action.queue;
-        return nextState
+          return action.clientHaircut
         default: {
             return oldState
         }

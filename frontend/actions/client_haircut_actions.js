@@ -7,7 +7,6 @@ const recieveClientHaircut = function(payload) {
     //receiveClientHaircut
     return{
         clientHaircut: payload.clientHaircut,
-        clientHaircutAvgTime: payload.clientHaircutAvgTime,
         type: RECEIVE_CLIENT_HAIRCUT
     }
 }
@@ -21,11 +20,16 @@ export const fetchClientHaircut = function(clientHaircut){
     }
 }
 
-
-export const updateClientHaircutClosedAt = (clientHaircutId, closedAt) => dispatch => (
-    ClientHaircutAPIUtil.updateClientHaircutClosedAt(clientHaircutId, closedAt)
-    .then((newQueue => dispatch(receiveClientsQueue(newQueue))))
-)
-
+export const updateClientHaircutClosedAt = (clientHaircutId) => {
+    return (dispatch) => {
+        return(
+            ClientHaircutAPIUtil.updateClientHaircutClosedAt(clientHaircutId)
+            .then((newQueue) => {
+                dispatch(receiveClientsQueue(newQueue))
+            })
+        )
+        
+    }
+}
 
 

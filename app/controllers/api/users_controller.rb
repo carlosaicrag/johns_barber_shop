@@ -20,9 +20,12 @@ class Api::UsersController < ApplicationController
   end
 
   def update 
-    current_user.change_working_status
+    User.change_working_status(current_user)
+    client_haircut = ClientHaircut.where(barber_id: current_user.id).where(closed_at: [nil]).order('created_at asc')[0]
+    client_haircut.started_haircut_time = DateTime.now
+    client_haircut.save!
     @user = current_user
-    render 'api/users/show'
+    render "api/client_haircuts/queue"
   end
 
   def show

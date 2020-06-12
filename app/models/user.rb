@@ -69,8 +69,15 @@ class User < ApplicationRecord
   end
 
   def wait_time
-    open_haircuts = ClientHaircut.where(closed_at: nil, barber_id: self.id).pluck(:client_id)
-    ClientHaircutTime.where(client_id: open_haircuts).where(barber_id: self.id).pluck(:avg_time).sum
+    client_ids = ClientHaircut.where(closed_at: nil, barber_id: self.id).pluck(:client_id)
+    haircut_ids = ClientHaircut.where(closed_at: nil, barber_id: self.id).pluck(:haircut_id)
+
+    ClientHaircutTime.where(client_id: client_ids)
+    .where(barber_id: self.id)
+    .where(haircut_id: haircut_ids)
+    .pluck(:avg_time).sum
+
+    # ClientHaircutTime.where(client_id: client_ids).where(barber_id: self.id).where(haircut_id: haircut_ids).pluck(:avg_time).sum
   end
 
   def current_client #current client that the barber is cutting hair for
@@ -84,16 +91,16 @@ class User < ApplicationRecord
 
   def current_client_cutting_hair_avg_time #the avg time that it takes for the barber to cut his/hers current clients hair 
     current_client_cutting_hair = current_client
-    avg_time = ClientHaircutTime.where(client_id: current_client_cutting_hair[0].client_id) 
+    client_haircut_time = ClientHaircutTime.where(client_id: current_client_cutting_hair[0].client_id) 
     .where(barber_id: current_client_cutting_hair[0].barber_id)
     .where(haircut_id: current_client_cutting_hair[0].haircut_id)
-    .select(:avg_time)[0].avg_time
+    .select(:avg_time)[0]
     
-    avg_time ? avg_time : 45
+    client_haircut_time ? client_haircut_time.avg_time : 45
   end
 
   def self.valid_barber_shop_password?(password)
-    return true if password == "*mwFMYKvQeLNS7vT"
+    return true if password == "a"
   end
 
   def valid_password?(password)
@@ -139,9 +146,9 @@ class User < ApplicationRecord
     end
   end
 
-  def change_working_status 
-    self.cutting_hair = !self.cutting_hair
-    self.save!
+  def self.change_working_status(barber) 
+    barber.cutting_hair = !barber.cutting_hair
+    barber.save!
   end
 
   private

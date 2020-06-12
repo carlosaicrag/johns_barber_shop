@@ -7,7 +7,7 @@ const clientHaircutAvgTimesReducer = function (oldState = {}, action) {
 
     switch (action.type) {
         case RECEIVE_CLIENT_HAIRCUT:
-            return action.clientHaircutAvgTime
+            // return action.clientHaircutAvgTime
         default:
             return oldState
     }
