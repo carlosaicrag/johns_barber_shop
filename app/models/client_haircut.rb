@@ -59,7 +59,7 @@ class ClientHaircut < ApplicationRecord
   end
 
   def self.queue(barber_id)
-    barbers_queue = ClientHaircut.where(barber_id: barber_id).where(closed_at: nil).order('created_at ASC').includes(:client).includes(:haircut)
+    barbers_queue = ClientHaircut.where(barber_id: barber_id).where(closed_at: nil).order('created_at asc').includes(:client).includes(:haircut)
     barbers_queue
   end
 
@@ -70,11 +70,12 @@ class ClientHaircut < ApplicationRecord
       elapsed_time["seconds"] = 0
     else
       self_hour_to_mins = self.started_haircut_time.hour * 60
-      date_time_hours_to_mins = DateTime.now.hour * 60
-      date_time_mins = DateTime.now.min
-      date_time_seconds_to_mins = DateTime.now.sec/60
+      date_time_now = DateTime.now
+      date_time_hours_to_mins = date_time_now.hour * 60
+      date_time_mins = date_time_now.min
+      date_time_seconds_to_mins = date_time_now.sec/60
       elapsed_time["mins"] = ((date_time_hours_to_mins + date_time_mins + date_time_seconds_to_mins) - (self_hour_to_mins + self.started_haircut_time.min + self.started_haircut_time.sec/60)).abs
-      elapsed_time["seconds"] = (DateTime.now.sec - self.started_haircut_time.sec).abs
+      elapsed_time["seconds"] = (date_time_now.sec - self.started_haircut_time.sec).abs
       return elapsed_time
     end
   end

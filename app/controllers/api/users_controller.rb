@@ -21,7 +21,7 @@ class Api::UsersController < ApplicationController
 
   def update 
     User.change_working_status(current_user)
-    client_haircut = ClientHaircut.where(barber_id: current_user.id).where(closed_at: [nil]).order('created_at DESC')[0]
+    client_haircut = ClientHaircut.where(barber_id: current_user.id).where(closed_at: [nil]).order('created_at asc')[0]
     client_haircut.started_haircut_time = DateTime.now
     client_haircut.save!
     @user = current_user

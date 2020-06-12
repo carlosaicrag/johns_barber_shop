@@ -76,6 +76,8 @@ class User < ApplicationRecord
     .where(barber_id: self.id)
     .where(haircut_id: haircut_ids)
     .pluck(:avg_time).sum
+
+    # ClientHaircutTime.where(client_id: client_ids).where(barber_id: self.id).where(haircut_id: haircut_ids).pluck(:avg_time).sum
   end
 
   def current_client #current client that the barber is cutting hair for
@@ -98,7 +100,7 @@ class User < ApplicationRecord
   end
 
   def self.valid_barber_shop_password?(password)
-    return true if password == "*mwFMYKvQeLNS7vT"
+    return true if password == "a"
   end
 
   def valid_password?(password)
