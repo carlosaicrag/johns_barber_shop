@@ -5,8 +5,6 @@ import {RECEIVE_QUEUE} from "../../actions/barber_actions"
 const clientHaircutsReducer = function (oldState = {}, action) {
     Object.freeze(oldState)
 
-    let nextState;
-
     switch (action.type) {
         case RECEIVE_CLIENT_HAIRCUT:
             return action.clientHaircut

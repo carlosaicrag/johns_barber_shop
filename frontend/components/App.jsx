@@ -22,9 +22,9 @@ export const App = () => (
     <Switch>
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
-      <ProtectedRoute exact path={`/queue/`} component={BarberQueueContainer} />
+      <ProtectedRoute exact path={`/queue`} component={BarberQueueContainer} />
       <AuthRoute exact path="/forgot-password" component={ForgotPasswordFormContainer} />
-      <Route exact path="/" component={BarberIndexContainer} />
+      <Route exact path="/main" component={BarberIndexContainer} />
       <ProtectedNewHaircutRoute exact path="/chooseHaircut" component={ChooseHaircut}/>
       <Route path="/error" component={Error}></Route>
       <Route path="/unauthorized" component={Unauthorized} />
