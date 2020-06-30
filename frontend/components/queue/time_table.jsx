@@ -27,7 +27,7 @@ const TimeTable = function({state,barbers}){
         <div className="table-row">
           {Object.values(nameRow).map((value, idx) => {
             return (
-              <div className="row-cell">
+              <div className="row-cell" key={idx}>
                 <div>{value}</div>
                 <div>{Object.values(waitTimeRow)[idx]}</div>
                 <div>mins</div>

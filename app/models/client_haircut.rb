@@ -38,6 +38,16 @@ class ClientHaircut < ApplicationRecord
       user.save
     end
   end
+
+  def haircut_time 
+    hour_to_mins_created_at = self.created_at.hour * 60
+    total_minutes_created_at = hour_to_mins_created_at + self.created_at.min
+
+    hour_to_mins_closed_at = self.closed_at.hour * 60
+    total_minutes_started_at = hour_to_mins_closed_at + self.closed_at.min
+
+    (total_minutes_created_at - total_minutes_started_at).abs
+  end
   
   def self.client_already_in_a_queue?(current_client_user)
     client_haircut = ClientHaircut.where(client_id: current_client_user.id).where(closed_at:nil)

@@ -124,6 +124,7 @@ class BarberIndex extends React.Component{
           remindToLogin = {this.remindToLogin}
           nextPrevBarber={this.nextPrevBarber}
           alreadyInQueue={this.props.alreadyInQueue}
+          barberSession={this.props.barberSession}
         />
       )
   }

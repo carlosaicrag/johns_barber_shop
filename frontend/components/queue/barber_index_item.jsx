@@ -3,7 +3,10 @@ import {Link} from "react-router-dom"
 
 const BarberMobile = function (props) {
   let newHaircut;
-  if(!props.client || props.alreadyInQueue){
+
+  if(props.barberSession){
+    newHaircut = <div></div>
+  }else if(!props.client || props.alreadyInQueue){
     if (!props.client){
       newHaircut = <div onClick={() => props.remindToLogin("notSignedIn")}> New Haircut </div>
     }else{

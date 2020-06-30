@@ -24,6 +24,7 @@ class Api::ClientHaircutsController < ApplicationController
     def update 
         @client_haircut = ClientHaircut.find_by(id: params[:id])
         @client_haircut.release_client
+        ClientHaircutTime.update_avg(@client_haircut)
         User.change_working_status(current_user)
         @client_haircuts = ClientHaircut.where(barber_id: current_user.id).where(closed_at: [nil]).order('created_at ASC')
         render :queue

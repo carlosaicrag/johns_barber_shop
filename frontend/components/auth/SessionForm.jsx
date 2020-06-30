@@ -22,6 +22,8 @@ export class SessionForm extends React.Component {
     this.renderFnameField= this.renderFnameField.bind(this);
     this.renderLnameField= this.renderLnameField.bind(this);
     this.handleCheck = this.handleCheck.bind(this)
+    this.handleBarberDemoLogin = this.handleBarberDemoLogin.bind(this)
+    this.handleClientDemoLogin = this.handleClientDemoLogin.bind(this)
 
   }
 
@@ -32,15 +34,14 @@ export class SessionForm extends React.Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault();
+    e ? e.preventDefault(): null;
     // Set the username to first part of email if there is no username
       if(this.state.barber === "true"){
         const user = Object.assign({}, this.state);
         this.props.processBarberForm(user)
         .then((res) => 
         {
-        this.props.history.push(`/`);
-        // this.props.updateBarberWorkingStatus({id: res.currentUser.id, fname: res.currentUser.fname, lname: res.currentUser.lname, image_url: res.currentUser.image_url, working: false})
+        this.props.history.push(`/queue`);
       })
       }else{
         const client = Object.assign({}, this.state);
@@ -157,6 +158,38 @@ export class SessionForm extends React.Component {
       )
   }
 
+  handleBarberDemoLogin(){
+    this.setState({email: "carlosaicrag@gmail.com", password: "starwars", barber:"true", barber_shop_password: "a"}, this.handleSubmit)
+  }
+
+  handleClientDemoLogin(){
+    this.setState({ email: "carlosaicrag@gmail.com", password: "password", barber: "false"}, this.handleSubmit)
+  }
+
+  renderBarberDemoLogin(){
+    if (this.props.location.pathname === "/login") {
+      return(
+      <div className="session__btn--submit" onClick={this.handleBarberDemoLogin}>
+        <input type="submit" value="Barber Demo Login" />
+      </div>
+      )
+    }else{
+      return null
+    }
+  }
+
+  renderClientDemoLogin(){
+    if(this.props.location.pathname === "/login"){
+      return(
+      <div className="session__btn--submit" onClick={this.handleClientDemoLogin}>
+        <input type="submit" value="Client Demo Login" />
+      </div>
+      )
+    }else {
+      return null
+    }
+  }
+
   renderBarberPassword(){
     if(this.state.barber === "true"){
       return(
@@ -241,6 +274,9 @@ export class SessionForm extends React.Component {
                   <input type="submit" value={this.props.formType} />
                 </div>
 
+                {this.renderBarberDemoLogin()}
+                {this.renderClientDemoLogin()}
+
                 <br />
               </div>
             </form>
@@ -253,8 +289,6 @@ export class SessionForm extends React.Component {
           </div>
         </div>
       </div>
-
-      // <div>hi</div>
     );
   }
 }

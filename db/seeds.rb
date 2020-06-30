@@ -11,19 +11,19 @@ Haircut.destroy_all
 ClientHaircutTime.destroy_all
 ClientHaircut.destroy_all
 
-barber1 = User.create(email:"carlosaicrag@gmail.com", password:"starwars", fname:"Carlos", lname:"Garcia", image_url:"./dame_dolla.jpg", working: true)
+barber1 = User.create(email:"carlosaicrag@gmail.com", password:"starwars", fname:"Carlos", lname:"Garcia", image_url:"./dame_dolla.jpg")
 barber2 = User.create(email:"james@gmail.com",password:"starwars",fname:"James", lname:"Harden", image_url:"./james_harden.jpg", working: true)
 barber3 = User.create(email:"kyrie@gmail.com", password:"starwars", fname:"Kyrie", lname:"Irving", image_url:"./kyrie_irving.jpg", working: true)
 barber4 = User.create(email:"lebron@gmail.com", password:"starwars", fname:"Lebron", lname:"James", image_url:"./lbj.jpg", working: true)
 barber5 = User.create(email:"steph@gmail.com", password:"starwars", fname:"Steph", lname:"Curry", image_url:"./steph_curry_barber.jpg", working: true)
 barber6 = User.create(email:"love@gmail.com", password:"starwars", fname:"Kevin", lname:"Love", image_url:"./steph_curry_barber.jpg")
 
-client1 = Client.create!(fname: 'Bob', lname: 'Pancake', email: "boppancake@gmail.com",password:"password")
+client1 = Client.create!(fname: 'Carlos', lname: 'Garcia', email: "carlosaicrag@gmail.com",password:"password")
 client2 = Client.create!(fname: 'Joe', lname: 'TwinkleToes',email: "joetwinkletoes@gmail.com",password:"password")
 client3 = Client.create!(fname: 'Simon', lname: 'Rainbow', email: "simonrainbow@gmail.com",password:"password")
 client4 = Client.create!(fname: 'Gerald', lname: 'Geraldson', email: "geraldgeraldson@gmail.com",password:"password")
 client5 = Client.create!(fname: 'Wambam', lname: 'Kazam', email: "wambamkazam@gmail.com",password:"password")
-client6 = Client.create!(fname: 'Carlos', lname: 'Garcia', email: "carlosaicrag@gmail.com",password:"password")
+client6 = Client.create!(fname: 'Bob', lname: 'Pancake', email: "boppancake@gmail.com",password:"password")
 
 haircut1 = Haircut.create!(haircut_name: "Afro-Fade", path:"./Afro-Fade-Haircut.jpg" )
 haircut2 = Haircut.create!(haircut_name: "Bald-Fade", path:"./Bald-Fade-Haircut.jpg" )
@@ -47,11 +47,11 @@ haircut19 = Haircut.create!(haircut_name: "Top-Knot", path:"./Top-Knot-Haircut.j
 haircut20 = Haircut.create!(haircut_name: "Undercut-CombOver", path:"./Undercut-CombOver-Haircut.jpg" )
 haircut21 = Haircut.create!(haircut_name: "Undercut-Haircut-Fade", path:"./Undercut-Haircut-Fade.jpg" )
 
-client_haircut_avg_time1 = ClientHaircutTime.create!(client_id: client1.id, haircut_id: haircut1.id, barber_id: barber1.id, avg_time: 30)
+client_haircut_avg_time1 = ClientHaircutTime.create!(client_id: client1.id, haircut_id: haircut1.id, barber_id: barber1.id, avg_time: 60)
 client_haircut_avg_time2 = ClientHaircutTime.create!(client_id: client2.id, haircut_id: haircut3.id, barber_id: barber1.id, avg_time: 40)
 client_haircut_avg_time3 = ClientHaircutTime.create!(client_id: client3.id, haircut_id: haircut1.id, barber_id: barber2.id)
 client_haircut_avg_time4 = ClientHaircutTime.create!(client_id: client4.id, haircut_id: haircut1.id, barber_id: barber2.id)
-client_haircut_avg_time5 = ClientHaircutTime.create!(client_id: client5.id, haircut_id: haircut2.id, barber_id: barber3.id, avg_time: 25)
+client_haircut_avg_time5 = ClientHaircutTime.create!(client_id: client5.id, haircut_id: haircut2.id, barber_id: barber3.id, avg_time: 45)
 
 client_haircut_user1 = ClientHaircut.create!(client_id: client1.id, haircut_id: haircut1.id, barber_id: barber1.id)
 sleep 1.5

@@ -20,6 +20,7 @@ const msp = function(store, ownProps){
   return({
     modal: store.ui.modal,
     client: store.session.clientId,
+    barberSession: store.session.id,
     barbers: barbers,
     alreadyInQueue: alreadyInQueue    
   })

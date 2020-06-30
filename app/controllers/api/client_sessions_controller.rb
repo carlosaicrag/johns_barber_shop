@@ -14,7 +14,7 @@ class Api::ClientSessionsController < ApplicationController
     end
 
     def destroy
-        if current_client_user
+        if client_signed_in?
             client_sign_out
             render json: {}
         else
