@@ -19,6 +19,7 @@ const usersReducer = (oldState = {}, action) => {
     case RECEIVE_HAIRCUTS:
       return action.barbers
     case RECEIVE_BARBERS:
+      if (!action.barbers) return {}
       return action.barbers
     case RECEIVE_QUEUE:
         return action.barber

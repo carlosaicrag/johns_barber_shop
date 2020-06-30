@@ -39,8 +39,10 @@ class ChooseHaircut extends React.Component{
     displayHaircuts(){
         if(this.state.chooseHaircut){
             let haircutImages = this.props.haircuts.map((haircut) => {
+                let haircutChosen = ""
+                if (this.state.haircut_id === haircut.id) haircutChosen = "haircut-chosen"; 
                 return (
-                    <div className="w3-card" onClick={this.handleBarberHaircut("haircut_id",haircut.id)}>
+                    <div className={`w3-card ${haircutChosen}`} onClick={this.handleBarberHaircut("haircut_id",haircut.id)} key={haircut.id}>
                         <img className="w3-image" src={haircut.path} alt="{haircut.haircut_name}" />
                     </div>
                 )
@@ -59,9 +61,11 @@ class ChooseHaircut extends React.Component{
     displayBarber(){
         if(this.state.chooseBarber){
             let barbers = this.props.barbers.map((barber) => {
+                let barberChosen = ""
+                if (this.state.barber_id === barber.id) barberChosen = "barber-chosen";
                 return (
-                    <div className="w3-card">
-                        <img className="w3-image" src={barber.image_url} alt="{barber}" onClick={this.handleBarberHaircut("barber_id", barber.id)}/>
+                    <div className={`w3-card ${barberChosen}`} key={barber.id} onClick={this.handleBarberHaircut("barber_id", barber.id)}>
+                        <img className="w3-image" src={barber.gravitar} alt="{barber}"/>
                     </div>
                 )
             })

@@ -9,6 +9,7 @@ const clientHaircutsReducer = function (oldState = {}, action) {
         case RECEIVE_CLIENT_HAIRCUT:
             return action.clientHaircut
         case RECEIVE_BARBERS:
+            if (!action.clientHaircuts) return {}
             return action.clientHaircuts
         default:
             return oldState

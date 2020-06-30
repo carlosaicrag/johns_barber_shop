@@ -12,6 +12,7 @@ json.barbers do
     @barbers.each do |barber|
         json.set! barber.id do 
             json.extract! barber, :id, :image_url, :fname, :lname
+            json.gravitar barber.gravitar
         end
     end
 end

@@ -4,11 +4,14 @@ import {Link, withRouter} from "react-router-dom"
 const navModal = function(props){
     function handleBarberLogOut(e){
         e.preventDefault()
-        props.logout()
+        props.barberLogout().then(() => {
+            props.history.push("/errors")
+            props.history.push("/main")
+        })
     }
 
     function handleClientLogOut(e){
-        e.preventDefault
+        e.preventDefault()
         props.clientLogout()
     }
 

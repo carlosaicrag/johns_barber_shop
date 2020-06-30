@@ -107,25 +107,12 @@ class Header extends React.Component{
       {/* {headerOptions} */}
     </div>
 
-    if(window.screen.width < 700){
-      return(
-        <header id="header-container">
-          <Link to="/main" className="logo"> John's Barber Shop </Link>
-          {dropDown}
-        </header>
-      )
-    }else{
-      return (
-        <header id="header-container">
-          <Link to="/main" className="logo"> John's Barber Shop </Link>
-          <div>
-            {headerOptions}
-          </div>
-          {logoutButton}
-        </header>
-      )
-    }
-
+    return(
+      <header id="header-container">
+        <Link to="/main" className="logo"> John's Barber Shop </Link>
+        {dropDown}
+      </header>
+    )
   }
 }
 

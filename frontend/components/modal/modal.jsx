@@ -16,7 +16,7 @@ function Modal({ modal, wording, closeModal, session, logout, clientSession, cli
     let component;
     switch (modal) {
         case 'OPEN_NAV_MODAL':
-            component = <NavModal session={session} clientSession={clientSession} logout={logout} clientLogout={clientLogout} barberInfo={barberInfo} updateBarberWorkingStatus={updateBarberWorkingStatus}/>
+            component = <NavModal session={session} clientSession={clientSession} barberLogout={logout} clientLogout={clientLogout} barberInfo={barberInfo} updateBarberWorkingStatus={updateBarberWorkingStatus}/>
             break;
         case 'REMINDER_MODAL': 
             component = <ReminderModal wording={wording}/>;
