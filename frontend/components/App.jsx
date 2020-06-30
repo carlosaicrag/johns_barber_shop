@@ -24,7 +24,7 @@ export const App = () => (
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
       <ProtectedRoute exact path={`/queue`} component={BarberQueueContainer} />
       <AuthRoute exact path="/forgot-password" component={ForgotPasswordFormContainer} />
-      <Route exact path="/main" component={BarberIndexContainer} />
+      <Route exact path="/" component={BarberIndexContainer} />
       <ProtectedNewHaircutRoute exact path="/chooseHaircut" component={ChooseHaircut}/>
       <Route path="/error" component={Error}></Route>
       <Route path="/unauthorized" component={Unauthorized} />

@@ -6,7 +6,7 @@ const navModal = function(props){
         e.preventDefault()
         props.barberLogout().then(() => {
             props.history.push("/errors")
-            props.history.push("/main")
+            props.history.push("/")
         })
     }
 

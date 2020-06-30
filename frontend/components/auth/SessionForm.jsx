@@ -39,19 +39,18 @@ export class SessionForm extends React.Component {
         this.props.processBarberForm(user)
         .then((res) => 
         {
-        this.props.history.push(`/queue`);
+        this.props.history.push(`/`);
         // this.props.updateBarberWorkingStatus({id: res.currentUser.id, fname: res.currentUser.fname, lname: res.currentUser.lname, image_url: res.currentUser.image_url, working: false})
       })
       }else{
         const client = Object.assign({}, this.state);
-        this.props.processClientForm(client).then(() => this.props.history.push("/main"));
+        this.props.processClientForm(client).then(() => this.props.history.push("/"));
       }
     // }
   }
 
   handleSubmitWithDefaultUsername() {
     const user = Object.assign({}, this.state);
-    // this.props.processForm(user).then(()=> this.props.history.push("/queue"));
     this.displayErrors = true;
     this.displaySignupConfirmation = true;
   }
