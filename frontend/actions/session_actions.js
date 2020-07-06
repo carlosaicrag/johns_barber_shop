@@ -1,7 +1,7 @@
-export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
+export const RECEIVE_CURRENT_BARBER = 'RECEIVE_CURRENT_BARBER';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
-export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
-export const SIGNUP_CURRENT_USER = 'SIGNUP_CURRENT_USER';
+export const LOGOUT_CURRENT_BARBER = 'LOGOUT_CURRENT_BARBER';
+export const SIGNUP_CURRENT_BARBER = 'SIGNUP_CURRENT_BARBER';
 export const RECEIVE_FORGOT_PASSWORD = 'RECEIVE_FORGOT_PASSWORD';
 export const RECEIVE_CLIENT = 'RECEIVE_CLIENT';
 export const CLEAR_ERRORS = "CLEAR_ERRORS"
@@ -9,7 +9,7 @@ export const LOGOUT_CLIENT = "LOGOUT_CLIENT"
 import * as APIUtil from '../util/session_api_util';
 
 export const receiveCurrentBarber = (currentBarber) => ({
-  type: RECEIVE_CURRENT_USER,
+  type: RECEIVE_CURRENT_BARBER,
   currentBarber
 });
 
@@ -19,12 +19,12 @@ export const receiveCurrentClient = (currentClient) => ({
 });
 
 export const signupCurrentBarber = (confirmationMsg) => ({
-  type: SIGNUP_CURRENT_USER,
+  type: SIGNUP_CURRENT_BARBER,
   confirmationMsg
 })
 
 export const logoutCurrentBarber = () => ({
-  type: LOGOUT_CURRENT_USER
+  type: LOGOUT_CURRENT_BARBER
 });
 
 export const logoutCurrentClient = () => ({
@@ -39,12 +39,12 @@ export const receiveForgotPassword = (confirmationMsg) => ({
 export const receiveErrors = errors => {
   return {
     type: RECEIVE_ERRORS,
-  errors
+    errors
   }
 };
 
 export const clearErrors = () => {
-  return{
+  return {
     type: CLEAR_ERRORS,
   }
 }
@@ -75,7 +75,7 @@ export const login = barber => dispatch => (
 );
 
 export const clientLogin = barber => dispatch => {
-  return(
+  return (
     APIUtil.clientLogin(barber).then(barber => (
       dispatch(receiveCurrentClient(barber))
     ), err => {

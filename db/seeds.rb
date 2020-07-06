@@ -47,13 +47,13 @@ haircut19 = Haircut.create!(haircut_name: "Top-Knot", path:"./Top-Knot-Haircut.j
 haircut20 = Haircut.create!(haircut_name: "Undercut-CombOver", path:"./Undercut-CombOver-Haircut.jpg" )
 haircut21 = Haircut.create!(haircut_name: "Undercut-Haircut-Fade", path:"./Undercut-Haircut-Fade.jpg" )
 
-client_haircut_avg_time1 = ClientHaircutTime.create!(client_id: client1.id, haircut_id: haircut1.id, barber_id: barber1.id, avg_time: 60)
+client_haircut_avg_time1 = ClientHaircutTime.create!(client_id: client6.id, haircut_id: haircut1.id, barber_id: barber1.id, avg_time: 60)
 client_haircut_avg_time2 = ClientHaircutTime.create!(client_id: client2.id, haircut_id: haircut3.id, barber_id: barber1.id, avg_time: 40)
 client_haircut_avg_time3 = ClientHaircutTime.create!(client_id: client3.id, haircut_id: haircut1.id, barber_id: barber2.id)
 client_haircut_avg_time4 = ClientHaircutTime.create!(client_id: client4.id, haircut_id: haircut1.id, barber_id: barber2.id)
 client_haircut_avg_time5 = ClientHaircutTime.create!(client_id: client5.id, haircut_id: haircut2.id, barber_id: barber3.id, avg_time: 45)
 
-client_haircut_user1 = ClientHaircut.create!(client_id: client1.id, haircut_id: haircut1.id, barber_id: barber1.id)
+client_haircut_user1 = ClientHaircut.create!(client_id: client6.id, haircut_id: haircut1.id, barber_id: barber1.id)
 sleep 1.5
 client_haircut_user2 = ClientHaircut.create!(client_id: client2.id, haircut_id: haircut3.id, barber_id: barber1.id)
 sleep 1.5

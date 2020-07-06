@@ -1,5 +1,5 @@
 import {
-    SIGNUP_CURRENT_USER,
+    SIGNUP_CURRENT_BARBER,
     RECEIVE_FORGOT_PASSWORD
 } from '../../actions/session_actions';
 
@@ -9,7 +9,7 @@ const confirmationReducer = (state = {}, action) => {
     const noConf = {};
 
     switch (action.type) {
-        case SIGNUP_CURRENT_USER:
+        case SIGNUP_CURRENT_BARBER:
             return { signupConfirmation: action.confirmationMsg[0] }
         case RECEIVE_FORGOT_PASSWORD:
             return { forgotPasswordConfirmation: action.confirmationMsg[0] }

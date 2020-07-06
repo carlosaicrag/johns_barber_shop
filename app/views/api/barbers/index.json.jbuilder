@@ -24,11 +24,9 @@ json.barbers do
 end
 
 json.clientHaircuts do
-    @barbers.each do |barber|
-        barber.clients_in_queue.each do |client|
-            json.set! client.id do 
-                json.extract! client, :id, :barber_id, :client_id, :haircut_id
-            end
+    ClientHaircut.where(closed_at: nil).each do |client_haircut|
+        json.set! client_haircut.id do 
+            json.extract! client_haircut, :id, :barber_id, :client_id, :haircut_id
         end
     end
 end

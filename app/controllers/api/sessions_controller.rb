@@ -29,7 +29,7 @@ class Api::SessionsController < ApplicationController
     if current_barber
       sign_out
       render json: {}
-    elsif current_client_barber
+    elsif current_client_user
       self.client_sign_out
       render json: {}
     else

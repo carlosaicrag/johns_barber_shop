@@ -11,7 +11,7 @@ class Api::ClientHaircutsController < ApplicationController
         @client_haircut_avg_time = ClientHaircutTime.avg_time(current_client_user.id,haircut_id,barber_id,client_haircut_params)
 
         @client_haircut_avg_time.client_id = current_client_user.id
-
+        # debugger
         if ClientHaircut.client_already_in_a_queue?(current_client_user)
             render json: ["You are already in a barbers queue"], status: 402
         elsif @client_haircut.save and @client_haircut_avg_time.save
