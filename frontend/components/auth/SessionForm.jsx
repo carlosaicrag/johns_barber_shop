@@ -263,11 +263,11 @@ export class SessionForm extends React.Component {
                 {this.renderBarberPassword()}
                 <br/>
 
-                <Link
+                {/* <Link
                   to="/forgot-password"
                   className="session__link">
                   forgot password?
-                </Link>
+                </Link> */}
                 <br/>
 
                 <div className="session__btn--submit" onClick={this.handleSubmit}>
