@@ -32,7 +32,7 @@ class BarberQueue extends React.Component{
       localStorage.clear()
       this.setState({minutes:0, seconds:0, cuttingHair:true},
         () =>{
-          this.props.updateClientHaircutClosedAt(this.props.clientHaircutId)
+          this.props.closeClientHaircut(this.props.clientHaircutId)
         })
       return null
     }

@@ -20,10 +20,10 @@ export const fetchClientHaircut = function(clientHaircut){
     }
 }
 
-export const updateClientHaircutClosedAt = (clientHaircutId) => {
+export const closeClientHaircut = (clientHaircutId) => {
     return (dispatch) => {
         return(
-            ClientHaircutAPIUtil.updateClientHaircutClosedAt(clientHaircutId)
+            ClientHaircutAPIUtil.closeClientHaircut(clientHaircutId)
             .then((newQueue) => {
                 dispatch(receiveClientsQueue(newQueue))
             })

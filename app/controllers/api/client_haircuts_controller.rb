@@ -22,6 +22,10 @@ class Api::ClientHaircutsController < ApplicationController
     end
 
     def update 
+    
+    end
+
+    def close_client_haircut
         @client_haircut = ClientHaircut.find_by(id: params[:id])
         @client_haircut.release_client
         ClientHaircutTime.update_avg(@client_haircut)

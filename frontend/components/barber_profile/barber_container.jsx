@@ -2,7 +2,7 @@ import {connect} from "react-redux"
 import BarberQueue from "./barber_queue"
 import {fetchQueue} from './../../actions/barber_actions'
 import {updateBarberWorkingStatus} from './../../actions/barber_actions';
-import {updateClientHaircutClosedAt} from './../../actions/client_haircut_actions';
+import { closeClientHaircut} from './../../actions/client_haircut_actions';
 
 const msp = function(state, ownProps){
   let timeElapsed = {}
@@ -27,7 +27,7 @@ const msp = function(state, ownProps){
 const mdp = function(dispatch){
     return({
         fetchQueue: () => dispatch(fetchQueue()),
-        updateClientHaircutClosedAt: (clientHaircutId) => dispatch(updateClientHaircutClosedAt(clientHaircutId)),
+        closeClientHaircut: (clientHaircutId) => dispatch(closeClientHaircut(clientHaircutId)),
         updateBarberWorkingStatus: (barber) => dispatch(updateBarberWorkingStatus(barber))
     })
 }
