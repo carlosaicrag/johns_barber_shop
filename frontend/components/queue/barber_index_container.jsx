@@ -7,8 +7,8 @@ const msp = function(store, ownProps){
   let barbers = ""
   let alreadyInQueue = false
   
-  if(store.entities.users){
-    barbers = store.entities.users
+  if (store.entities.barbers){
+    barbers = store.entities.barbers
   }
 
   Object.keys(store.entities.clientHaircuts).forEach((clientHaircutKey) => {

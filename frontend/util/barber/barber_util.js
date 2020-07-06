@@ -1,7 +1,7 @@
 export const fetchBarber = (barberId) => {
     return $.ajax({
         method: "GET",
-        url: `api/users/${barberId}`
+        url: `api/barbers/${barberId}`
     })
 }
 
@@ -15,6 +15,6 @@ export const fetchQueue = () => {
 export const updateBarberWorkingStatus = (barber) => {
     return $.ajax({
         method: 'PATCH',
-        url: `api/users/${barber.id}`
+        url: `api/barbers/${barber.id}`
     })
 }

@@ -1,22 +1,22 @@
 class Api::SessionsController < ApplicationController
   
   def create
-    @user = User.find_by_credentials(
-      params[:user][:email],
-      params[:user][:password]
+    @barber = Barber.find_by_credentials(
+      params[:barber][:email],
+      params[:barber][:password]
     )
-    if User.valid_barber_shop_password?(params[:user][:barber_shop_password])
-      if @user
+    if Barber.valid_barber_shop_password?(params[:barber][:barber_shop_password])
+      if @barber
         #this is used for email confirmation but I have no idea how it works so ima go ahead and just comment it out
-        # if @user.email_confirmed
-        #   sign_in(@user)
-        #   render 'api/users/show'
+        # if @barber.email_confirmed
+        #   sign_in(@barber)
+        #   render 'api/barbers/show'
         # else
         #   render json: ['Please confirm your email before signing in'], status: 422  
         # end
 
-        sign_in(@user)
-        render 'api/users/show'
+        sign_in(@barber)
+        render 'api/barbers/show'
       else
         render json: ['Invalid credentials'], status: 422
       end
@@ -26,10 +26,10 @@ class Api::SessionsController < ApplicationController
   end
 
   def destroy
-    if current_user
+    if current_barber
       sign_out
       render json: {}
-    elsif current_client_user
+    elsif current_client_barber
       self.client_sign_out
       render json: {}
     else

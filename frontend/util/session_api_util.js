@@ -1,16 +1,16 @@
-export const signup = (user) => {
+export const signup = (barber) => {
   return $.ajax({
-    url: '/api/users',
+    url: '/api/barbers',
     method: 'POST',
-    data: { user }
+    data: { barber }
   });
 };
 
-export const login = (user) => {
+export const login = (barber) => {
   return $.ajax({
     url: '/api/session',
     method: 'POST',
-    data: { user }
+    data: { barber }
   });
 };
 

@@ -4,7 +4,7 @@ class Api::PasswordsController < ApplicationController
       return render json: ['Email not present'], status: :not_found
     end
 
-    barber = User.find_by(email: params[:email].downcase)
+    barber = Barber.find_by(email: params[:email].downcase)
     client = Client.find_by(email: params[:email].downcase)
 
     if barber
@@ -14,7 +14,7 @@ class Api::PasswordsController < ApplicationController
     end
     if user.present?
       user.generate_password_token!
-      UserMailer.forgot_password_email(user).deliver_now
+      BarberMailer.forgot_password_email(user).deliver_now
       render json: ['Please check your email'], status: :ok
     else
       render json: ['Email address not found. Please try again.'], status: :not_found
@@ -29,7 +29,7 @@ class Api::PasswordsController < ApplicationController
       return
     end
 
-    user = User.find_by(reset_password_token: token)
+    user = Barber.find_by(reset_password_token: token)
     
     if user.present? && user.password_token_valid?
       if user.reset_password!(params[:password])

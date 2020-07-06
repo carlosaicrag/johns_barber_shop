@@ -8,9 +8,9 @@ export const CLEAR_ERRORS = "CLEAR_ERRORS"
 export const LOGOUT_CLIENT = "LOGOUT_CLIENT"
 import * as APIUtil from '../util/session_api_util';
 
-export const receiveCurrentUser = (currentUser) => ({
+export const receiveCurrentBarber = (currentBarber) => ({
   type: RECEIVE_CURRENT_USER,
-  currentUser
+  currentBarber
 });
 
 export const receiveCurrentClient = (currentClient) => ({
@@ -18,12 +18,12 @@ export const receiveCurrentClient = (currentClient) => ({
   currentClient
 });
 
-export const signupCurrentUser = (confirmationMsg) => ({
+export const signupCurrentBarber = (confirmationMsg) => ({
   type: SIGNUP_CURRENT_USER,
   confirmationMsg
 })
 
-export const logoutCurrentUser = () => ({
+export const logoutCurrentBarber = () => ({
   type: LOGOUT_CURRENT_USER
 });
 
@@ -49,35 +49,35 @@ export const clearErrors = () => {
   }
 }
 
-export const clientSignup = user => dispatch => (
-  APIUtil.clientSignup(user).then(currentClient => {
+export const clientSignup = barber => dispatch => (
+  APIUtil.clientSignup(barber).then(currentClient => {
     dispatch(receiveCurrentClient(currentClient))
   }).fail(err => {
     dispatch(receiveErrors(err.responseJSON))
   })
 )
 
-export const signup = user => dispatch => (
-  APIUtil.signup(user).then(currentUser => (
-    // dispatch(signupCurrentUser(confirmationMsg))
-    dispatch(receiveCurrentUser(currentUser))
+export const signup = barber => dispatch => (
+  APIUtil.signup(barber).then(currentBarber => (
+    // dispatch(signupCurrentBarber(confirmationMsg))
+    dispatch(receiveCurrentBarber(currentBarber))
   ), err => {
     dispatch(receiveErrors(err.responseJSON))
   })
 );
 
-export const login = user => dispatch => (
-  APIUtil.login(user).then(user => (
-    dispatch(receiveCurrentUser(user))
+export const login = barber => dispatch => (
+  APIUtil.login(barber).then(barber => (
+    dispatch(receiveCurrentBarber(barber))
   ), err => {
     dispatch(receiveErrors(err.responseJSON))
   })
 );
 
-export const clientLogin = user => dispatch => {
+export const clientLogin = barber => dispatch => {
   return(
-    APIUtil.clientLogin(user).then(user => (
-      dispatch(receiveCurrentClient(user))
+    APIUtil.clientLogin(barber).then(barber => (
+      dispatch(receiveCurrentClient(barber))
     ), err => {
       dispatch(receiveErrors(err.responseJSON))
     })
@@ -86,7 +86,7 @@ export const clientLogin = user => dispatch => {
 
 export const logout = () => dispatch => (
   APIUtil.logout().then(() => (
-    dispatch(logoutCurrentUser())
+    dispatch(logoutCurrentBarber())
   ))
 );
 

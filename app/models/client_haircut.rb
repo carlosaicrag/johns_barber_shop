@@ -23,7 +23,7 @@ class ClientHaircut < ApplicationRecord
 
   belongs_to :barber,
     foreign_key: :barber_id,
-    class_name: :User
+    class_name: :Barber
 
   def release_client
     self.closed_at = DateTime.now
@@ -33,9 +33,9 @@ class ClientHaircut < ApplicationRecord
   def self.close_all_queues
     open_clients = ClientHaircut.where(closed_at: nil)
     
-    open_clients.each do |user|
-      user.closed_at = Time.now
-      user.save
+    open_clients.each do |barber|
+      barber.closed_at = Time.now
+      barber.save
     end
   end
 
@@ -59,7 +59,7 @@ class ClientHaircut < ApplicationRecord
   end
 
   def self.next_in_line(barber_id)
-    barber = User.find(barber_id)
+    barber = Barber.find(barber_id)
     if barber.cutting_hair
         return barber.current_client[0]
     else

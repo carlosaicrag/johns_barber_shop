@@ -16,7 +16,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    processBarberForm: (user) => dispatch(signup(user)),
+    processBarberForm: (barber) => dispatch(signup(barber)),
     processClientForm: (client) => dispatch(clientSignup(client)),
     forgotPassword: (email) => dispatch(forgotPassword(email)),
     clearErrors: () => dispatch(clearErrors()),

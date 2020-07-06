@@ -48,7 +48,7 @@ const mapStateToProps = (state) => {
         wording: wording,
         session: state.session.id,
         clientSession: state.session.clientId,
-        barberInfo: state.entities.users[state.session.id]
+        barberInfo: state.entities.barbers[state.session.id]
     };
 };
 

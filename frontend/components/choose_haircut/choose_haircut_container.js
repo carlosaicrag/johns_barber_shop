@@ -8,7 +8,7 @@ const msp = (state) => {
         client: state.session.clientId,
         barber: state.session.id,
         haircuts: Object.values(state.entities.haircuts),
-        barbers: Object.values(state.entities.users)
+        barbers: Object.values(state.entities.barbers)
     })
 }
 

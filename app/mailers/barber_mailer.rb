@@ -1,8 +1,8 @@
-class UserMailer < ApplicationMailer
+class BarberMailer < ApplicationMailer
     default from: "carlosaicrag@gmail.com"
 
     def confirmation_email(userId)
-        @user = User.find(userId)
+        @user = Barber.find(userId)
         return if @user.nil?
         
         mail(to: @user.email, subject: 'AppName Email Confirmation 🍊')

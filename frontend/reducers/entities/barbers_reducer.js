@@ -3,14 +3,14 @@ import {RECEIVE_BARBERS} from "../../actions/splash_actions"
 import {RECEIVE_HAIRCUTS} from "../../actions/choose_haircut_actions"
 import { RECEIVE_BARBER, RECEIVE_QUEUE } from '../../actions/barber_actions';
  
-const usersReducer = (oldState = {}, action) => {
+const barbersReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
   let nextState = Object.assign({}, oldState);
 
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
       nextState = Object.assign({}, oldState, {
-        [action.currentUser.id]: action.currentUser
+        [action.currentBarber.id]: action.currentBarber
       });
       return nextState;
     case RECEIVE_BARBER: 
@@ -28,4 +28,4 @@ const usersReducer = (oldState = {}, action) => {
   }
 };
 
-export default usersReducer;
+export default barbersReducer;

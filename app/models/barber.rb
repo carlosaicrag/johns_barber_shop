@@ -18,7 +18,7 @@
 #  image_url              :string           not null
 #
 
-class User < ApplicationRecord
+class Barber < ApplicationRecord
   validates :session_token, presence: true, uniqueness: {case_sensitive: false}
   validates :email, presence: true,
             format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i,
@@ -45,9 +45,9 @@ class User < ApplicationRecord
 
   
   def self.find_by_credentials(email, password)
-    user = User.find_by(email: email.downcase)
-    return nil unless user && user.valid_password?(password)
-    user
+    barber = Barber.find_by(email: email.downcase)
+    return nil unless barber && barber.valid_password?(password)
+    barber
   end
 
   def gravitar 

@@ -1,0 +1,2 @@
+module Api::BarbersHelper
+end

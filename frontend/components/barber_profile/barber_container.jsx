@@ -16,9 +16,9 @@ const msp = function(state, ownProps){
         clientFirstName: state.entities.queue.clientFirstName,
         clientLastName: state.entities.queue.clientLastName,
         clientHaircut: state.entities.queue.clientHaircut,
-        barberName: state.entities.users[state.session.id].fname,
-        booleanCuttingHair: state.entities.users[state.session.id].cutting_hair,
-        barberInfo: state.entities.users[state.session.id],
+      barberName: state.entities.barbers[state.session.id].fname,
+      booleanCuttingHair: state.entities.barbers[state.session.id].cutting_hair,
+      barberInfo: state.entities.barbers[state.session.id],
         numberOfPeopleWaiting: state.entities.queue.queueLength,
         timeElapsed: state.entities.queue.timeElapsed
     })

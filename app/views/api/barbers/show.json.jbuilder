@@ -1,0 +1,1 @@
+json.partial! 'api/barbers/barber', barber: @barber

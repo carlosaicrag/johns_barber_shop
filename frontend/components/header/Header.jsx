@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 class Header extends React.Component{
   constructor(props){
-    // currentUser 
+    // currentBarber
     // logout
     super(props)
     this.state = {dropDown: false,mobile:false};
@@ -27,7 +27,7 @@ class Header extends React.Component{
     return(
       <nav className="header__right-container">
         <div className="header__right-container--username">
-          Hi, {this.props.currentUser.username}
+          Hi, {this.props.currentBarber.username}
         </div>
         <button className="header__right-container--logout-btn" onClick={this.props.logout}>
           Log Out
@@ -68,7 +68,7 @@ class Header extends React.Component{
     let dropDownClassName;
     let logoutButton;
 
-    if(this.props.currentUser){
+    if (this.props.currentBarber){
       logoutButton = <div onClick={() => this.props.logout()}>logout</div>
     }
     if(window.screen.width < 700){

@@ -5,18 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.destroy_all
+Barber.destroy_all
 Client.destroy_all
 Haircut.destroy_all
 ClientHaircutTime.destroy_all
 ClientHaircut.destroy_all
 
-barber1 = User.create(email:"carlosaicrag@gmail.com", password:"starwars", fname:"Carlos", lname:"Garcia", image_url:"./dame_dolla.jpg")
-barber2 = User.create(email:"james@gmail.com",password:"starwars",fname:"James", lname:"Harden", image_url:"./james_harden.jpg", working: true)
-barber3 = User.create(email:"kyrie@gmail.com", password:"starwars", fname:"Kyrie", lname:"Irving", image_url:"./kyrie_irving.jpg", working: true)
-barber4 = User.create(email:"lebron@gmail.com", password:"starwars", fname:"Lebron", lname:"James", image_url:"./lbj.jpg", working: true)
-barber5 = User.create(email:"steph@gmail.com", password:"starwars", fname:"Steph", lname:"Curry", image_url:"./steph_curry_barber.jpg", working: true)
-barber6 = User.create(email:"love@gmail.com", password:"starwars", fname:"Kevin", lname:"Love", image_url:"./steph_curry_barber.jpg")
+barber1 = Barber.create(email:"carlosaicrag@gmail.com", password:"starwars", fname:"Carlos", lname:"Garcia", image_url:"./dame_dolla.jpg")
+barber2 = Barber.create(email:"james@gmail.com",password:"starwars",fname:"James", lname:"Harden", image_url:"./james_harden.jpg", working: true)
+barber3 = Barber.create(email:"kyrie@gmail.com", password:"starwars", fname:"Kyrie", lname:"Irving", image_url:"./kyrie_irving.jpg", working: true)
+barber4 = Barber.create(email:"lebron@gmail.com", password:"starwars", fname:"Lebron", lname:"James", image_url:"./lbj.jpg", working: true)
+barber5 = Barber.create(email:"steph@gmail.com", password:"starwars", fname:"Steph", lname:"Curry", image_url:"./steph_curry_barber.jpg", working: true)
+barber6 = Barber.create(email:"love@gmail.com", password:"starwars", fname:"Kevin", lname:"Love", image_url:"./steph_curry_barber.jpg")
 
 client1 = Client.create!(fname: 'Carlos', lname: 'Garcia', email: "carlosaicrag@gmail.com",password:"password")
 client2 = Client.create!(fname: 'Joe', lname: 'TwinkleToes',email: "joetwinkletoes@gmail.com",password:"password")

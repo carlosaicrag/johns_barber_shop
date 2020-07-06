@@ -1,4 +1,4 @@
-barber_queue = ClientHaircut.queue(current_user.id)
+barber_queue = ClientHaircut.queue(current_barber.id)
 if barber_queue.length == 0
   duck = {"min"=>0,"sec"=>0}
   json.clientHaircut do 
@@ -10,7 +10,7 @@ if barber_queue.length == 0
       json.timeElapsed duck
   end
 else
-  next_in_line = ClientHaircut.next_in_line(current_user.id)
+  next_in_line = ClientHaircut.next_in_line(current_barber.id)
   if next_in_line
     json.clientHaircut do 
           json.id next_in_line.id
@@ -33,7 +33,7 @@ else
 end
 
 json.barber do
-  json.set! current_user.id do
-    json.partial! "api/users/user", user:current_user
+  json.set! current_barber.id do
+    json.partial! "api/barbers/barber", barber:current_barber
   end
 end

@@ -8,24 +8,24 @@ document.addEventListener("DOMContentLoaded", () => {
   let store;
   let preloadedState;
 
-  if (window.currentUser || window.currentClientUser) {
-    if (window.currentUser) {
+  if (window.currentBarber || window.currentClientBarber) {
+    if (window.currentBarber) {
       preloadedState = {
-        session: { id: window.currentUser.id, clientId: null },
+        session: { id: window.currentBarber.id, clientId: null },
         entities: {
-          users: { [window.currentUser.id]: window.currentUser }
+          barbers: { [window.currentBarber.id]: window.currentBarber }
         }
       }
     } else {
       preloadedState = {
-        session: { clientId: window.currentClientUser.id },
+        session: { clientId: window.currentClientBarber.id },
         entities: {
-          users: { [window.currentClientUser.id]: window.currentClientUser }
+          barbers: { [window.currentClientBarber.id]: window.currentClientBarber }
         }
       }
     }
     store = configureStore(preloadedState);
-    // delete window.currentUser;
+    // delete window.currentBarber;
   } else {
     store = configureStore();
   }

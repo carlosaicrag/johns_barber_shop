@@ -37,8 +37,8 @@ export class SessionForm extends React.Component {
     e ? e.preventDefault(): null;
     // Set the username to first part of email if there is no username
       if(this.state.barber === "true"){
-        const user = Object.assign({}, this.state);
-        this.props.processBarberForm(user)
+        const barber = Object.assign({}, this.state);
+        this.props.processBarberForm(barber)
         .then((res) => 
         {
         this.props.history.push(`/queue`);
@@ -51,7 +51,7 @@ export class SessionForm extends React.Component {
   }
 
   handleSubmitWithDefaultUsername() {
-    const user = Object.assign({}, this.state);
+    const barber = Object.assign({}, this.state);
     this.displayErrors = true;
     this.displaySignupConfirmation = true;
   }

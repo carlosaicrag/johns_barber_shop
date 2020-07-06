@@ -1,10 +1,10 @@
 # Preview all emails at http://localhost:3000/rails/mailers/user_mailer
-class UserMailerPreview < ActionMailer::Preview
+class BarberMailerPreview < ActionMailer::Preview
     def confirmation_email_preview
-        UserMailer.confirmation_email(User.first.id)
+        BarberMailer.confirmation_email(Barber.first.id)
     end
 
     def forgot_password_email_preview
-        UserMailer.forgot_password_email(User.first.id)
+        BarberMailer.forgot_password_email(Barber.first.id)
     end
 end

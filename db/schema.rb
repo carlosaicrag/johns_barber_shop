@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_29_030435) do
+ActiveRecord::Schema.define(version: 2020_07_06_033609) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "barbers", force: :cascade do |t|
+    t.string "password_digest", null: false
+    t.string "session_token", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "email", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.string "fname", null: false
+    t.string "lname", null: false
+    t.string "image_url"
+    t.boolean "working", default: false
+    t.boolean "cutting_hair", default: false
+    t.index "lower((email)::text)", name: "user_lower_email_idx", unique: true
+    t.index ["session_token"], name: "index_barbers_on_session_token"
+  end
 
   create_table "client_haircut_times", force: :cascade do |t|
     t.integer "client_id", null: false
@@ -75,23 +92,6 @@ ActiveRecord::Schema.define(version: 2020_05_29_030435) do
     t.datetime "updated_at", null: false
     t.index ["haircut_name"], name: "index_haircuts_on_haircut_name", unique: true
     t.index ["path"], name: "index_haircuts_on_path", unique: true
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "password_digest", null: false
-    t.string "session_token", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "email", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.string "fname", null: false
-    t.string "lname", null: false
-    t.string "image_url"
-    t.boolean "working", default: false
-    t.boolean "cutting_hair", default: false
-    t.index "lower((email)::text)", name: "user_lower_email_idx", unique: true
-    t.index ["session_token"], name: "index_users_on_session_token"
   end
 
 end
