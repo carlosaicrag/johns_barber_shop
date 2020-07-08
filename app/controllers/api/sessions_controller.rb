@@ -30,7 +30,7 @@ class Api::SessionsController < ApplicationController
       sign_out
       render json: {}
     elsif current_client_user
-      self.client_sign_out
+      client_sign_out
       render json: {}
     else
       render json: ['Nobody signed in'], status: 404
