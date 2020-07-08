@@ -5,15 +5,14 @@ import { reminderModal } from "../actions/modal_actions"
 import BarberIndexContainer from "../components/queue/barber_index_container"
 
 const Auth = ({ component: Component, path, loggedIn, exact, clientLoggedIn }) => {
-
   return(
-    <Route path={path} exact={exact} render={(props) => (
-      !loggedIn && !clientLoggedIn ? (
-        <Component {...props} />
-      ) : (
-        null
-      )
-    )} />
+    <Route path={path} exact={exact} render={(props) => {
+      if(!loggedIn && !clientLoggedIn){
+        return <Component {...props} />
+       }else{  
+        return <Redirect to="/unauthorized"/>  
+       }
+    }} />
   )
     };
 
@@ -23,7 +22,7 @@ const Protected = ({ component: Component, path, loggedIn, exact }) => (
     loggedIn ? (
       <Component {...props} />
     ) : (
-        null
+      <Redirect to="/unauthorized" />
     )
   )} />
 );
