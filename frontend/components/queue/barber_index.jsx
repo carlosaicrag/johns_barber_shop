@@ -4,10 +4,12 @@ import BarbersAndServices from "./barbers_and_services"
 class BarberIndex extends React.Component{
   constructor(props){
     super(props)
-    this.state = {mobile:false, barber:0}
+    this.state = {mobile:false, barber:0, cancelFailSafe: false}
     this.openChooseHaircutModal = this.openChooseHaircutModal.bind(this);
     this.nextPrevBarber = this.nextPrevBarber.bind(this);
     this.remindToLogin = this.remindToLogin.bind(this); 
+    this.handleCancelFailSafe = this.handleCancelFailSafe.bind(this)
+    this.handleCancelClientHaircut = this.handleCancelClientHaircut.bind(this)
   }
 
   secToMin(sec){
@@ -16,6 +18,18 @@ class BarberIndex extends React.Component{
 
   hourToMin(hour){
     return hour * 60
+  }
+
+  handleCancelClientHaircut(barberCancelingFrom){
+    let that = this
+    this.props.cancelClientHaircut(this.props.clientHaircutId)
+    .then((payload) => {
+      this.setState({[barberCancelingFrom.id]:payload.barbers[barberCancelingFrom.id].queueTime})
+    })
+  }
+
+  handleCancelFailSafe(){
+    this.setState({cancelFailSafe: !this.state.cancelFailSafe})
   }
 
   initialWaitForBarber(queueTime,startTimeHour,startTimeMin,startTimeSec,avgTime){
@@ -125,6 +139,11 @@ class BarberIndex extends React.Component{
           nextPrevBarber={this.nextPrevBarber}
           alreadyInQueue={this.props.alreadyInQueue}
           barberSession={this.props.barberSession}
+          handleCancelFailSafe={this.handleCancelFailSafe}
+          cancelFailSafe={this.state.cancelFailSafe}
+          clientHaircutId={this.props.clientHaircutId}
+          handleCancelClientHaircut={this.handleCancelClientHaircut}
+          barberCancelingFrom={this.props.barberCancelingFrom}
         />
       )
   }

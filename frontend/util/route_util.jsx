@@ -36,7 +36,6 @@ const ProtectedNewHaircut = ({ component: Component, loggedIn, path, inQueue, ex
   }
 
   if (alreadyInQueue){
-    reminderModal("inQueue")
     return(
       <Redirect to="/" />
       )

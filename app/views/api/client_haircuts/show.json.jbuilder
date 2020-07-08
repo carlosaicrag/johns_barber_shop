@@ -4,8 +4,10 @@ json.clientHaircut do
     end
 end
 
-json.clientHaircutAvgTime do 
-    json.set! @client_haircut_avg_time.id do
-        json.extract! @client_haircut_avg_time, :client_id, :barber_id, :haircut_id, :avg_time
+if @client_haircut_avg_time
+    json.clientHaircutAvgTime do 
+        json.set! @client_haircut_avg_time.id do
+            json.extract! @client_haircut_avg_time, :client_id, :barber_id, :haircut_id, :avg_time
+        end
     end
 end

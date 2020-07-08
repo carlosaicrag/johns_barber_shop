@@ -4,13 +4,23 @@ import {Link} from "react-router-dom"
 const BarberMobile = function (props) {
   let newHaircut;
 
+  const handleCancelHaircut = function(){
+    if (props.cancelFailSafe){
+      props.handleCancelClientHaircut(props.barberCancelingFrom);
+    }else{
+      props.handleCancelFailSafe()
+    }
+  }
+
   if(props.barberSession){
     newHaircut = <div></div>
   }else if(!props.client || props.alreadyInQueue){
     if (!props.client){
       newHaircut = <div onClick={() => props.remindToLogin("notSignedIn")}> New Haircut </div>
     }else{
-      newHaircut = <div onClick={() => props.remindToLogin("inQueue")}> New Haircut </div>
+      let cancelHaircutWording = ""
+      props.cancelFailSafe ? cancelHaircutWording = "Are You Sure?" : cancelHaircutWording = "Cancel Haircut"
+      newHaircut = <div onClick={() => handleCancelHaircut()}> {cancelHaircutWording} </div>
     }
   } else {
     newHaircut = <Link to="/chooseHaircut"> New Haircut</Link>

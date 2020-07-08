@@ -1,10 +1,10 @@
 import {createClientHaircut} from "../util/client_haircuts/client_haircuts_util"
 import * as ClientHaircutAPIUtil from '../util/client_haircuts/client_haircuts_util'
-import {receiveClientsQueue} from './../actions/barber_actions'
+import * as SplashPageAPIUtil from '../util/splash_page/splash_page_utils'
+import {receiveBarbers} from './../actions/splash_actions'
 export const RECEIVE_CLIENT_HAIRCUT = "RECEIVE_CLIENT_HAIRCUT"
 
 const recieveClientHaircut = function(payload) {
-    //receiveClientHaircut
     return{
         clientHaircut: payload.clientHaircut,
         type: RECEIVE_CLIENT_HAIRCUT
@@ -29,6 +29,18 @@ export const closeClientHaircut = (clientHaircutId) => {
             })
         )
         
+    }
+}
+
+export const cancelClientHaircut = (clientHaircutId) => {
+    return (dispatch) => {
+        return(
+            SplashPageAPIUtil.cancelClientHaircut(clientHaircutId)
+            .then((newQueue) => {
+                dispatch(receiveBarbers(newQueue))
+                return newQueue
+            })
+        )
     }
 }
 

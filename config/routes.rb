@@ -10,8 +10,8 @@ Rails.application.routes.draw do
       end
     end
     
-    resources :clients, only: [:create, :show, :delete]
-    resources :client_haircuts, only: [:create, :update] do 
+    resources :clients, only: [:create, :show]
+    resources :client_haircuts, only: [:create, :update, :destroy] do 
       member do 
         patch :close_client_haircut
       end

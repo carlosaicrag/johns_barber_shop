@@ -5,7 +5,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import HeaderContainer from './header/header_container';
 import SignUpFormContainer from './auth/signup_form_container';
 import LogInFormContainer from './auth/login_form_container';
-import ForgotPasswordFormContainer from './auth/forgot_password_form_container';
+// import ForgotPasswordFormContainer from './auth/forgot_password_form_container';
 import BarberQueueContainer from "../components/barber_profile/barber_container";
 import BarberIndexContainer from "./queue/barber_index_container";
 import ChooseHaircut from "./choose_haircut/choose_haircut_container";

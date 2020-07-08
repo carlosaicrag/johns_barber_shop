@@ -21,8 +21,11 @@ class Api::ClientHaircutsController < ApplicationController
         end
     end
 
-    def update 
-    
+    def destroy 
+        @client_haircut = ClientHaircut.find(params[:id])
+        @client_haircut.destroy
+        @barbers = Barber.where(working: true)
+        render "api/barbers/index" 
     end
 
     def close_client_haircut
