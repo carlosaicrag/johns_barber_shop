@@ -19,8 +19,8 @@ export class SessionForm extends React.Component {
     this.renderErrors = this.renderErrors.bind(this);
     this.renderSignupConfirmation = this.renderSignupConfirmation.bind(this);
     this.handleSubmitWithDefaultUsername = this.handleSubmitWithDefaultUsername.bind(this);
-    this.renderFnameField= this.renderFnameField.bind(this);
-    this.renderLnameField= this.renderLnameField.bind(this);
+    this.renderFnameField = this.renderFnameField.bind(this);
+    this.renderLnameField = this.renderLnameField.bind(this);
     this.handleCheck = this.handleCheck.bind(this)
     this.handleBarberDemoLogin = this.handleBarberDemoLogin.bind(this)
     this.handleClientDemoLogin = this.handleClientDemoLogin.bind(this)
@@ -34,19 +34,22 @@ export class SessionForm extends React.Component {
   }
 
   handleSubmit(e) {
-    e ? e.preventDefault(): null;
+    e.preventDefault();
     // Set the username to first part of email if there is no username
-      if(this.state.barber === "true"){
-        const barber = Object.assign({}, this.state);
-        this.props.processBarberForm(barber)
-        .then((res) => 
-        {
-        this.props.history.push(`/queue`);
-      })
-      }else{
-        const client = Object.assign({}, this.state);
-        this.props.processClientForm(client).then(() => this.props.history.push("/"));
-      }
+    if (this.state.barber === "true") {
+      //debugger
+      let that = this
+      const barber = Object.assign({}, this.state);
+      this.props.processBarberForm(barber)
+        .then((res) => {
+          // debugger
+          console.log(this.props)
+          this.props.history.push(`/queue`);
+        })
+    } else {
+      const client = Object.assign({}, this.state);
+      this.props.processClientForm(client).then(() => this.props.history.push("/"));
+    }
     // }
   }
 
@@ -104,12 +107,12 @@ export class SessionForm extends React.Component {
     return null
   }
 
-  renderFnameField(){
-    if(this.props.location.pathname === "/signup"){
-      return(
+  renderFnameField() {
+    if (this.props.location.pathname === "/signup") {
+      return (
         <label className="session__input-container">
           First Name
-                <br />
+          <br />
           <input type="text"
             value={this.state.fname}
             onChange={this.update('fname')}
@@ -117,17 +120,17 @@ export class SessionForm extends React.Component {
           />
         </label>
       )
-    }else{
+    } else {
       return []
     }
   }
 
-  renderLnameField(){
-    if (this.props.location.pathname === "/signup"){
-      return(
+  renderLnameField() {
+    if (this.props.location.pathname === "/signup") {
+      return (
         <label className="session__input-container">
           Last Name
-                <br />
+          <br />
           <input type="text"
             value={this.state.lname}
             onChange={this.update('lname')}
@@ -135,66 +138,68 @@ export class SessionForm extends React.Component {
           />
         </label>
       )
-    }else{
+    } else {
       return []
     }
   }
 
-  handleCheck(e){
-    if (e.currentTarget.value === "false"){
+  handleCheck(e) {
+    if (e.currentTarget.value === "false") {
       e.value = "true"
-      this.setState({barber: "true"})
-    }else{
+      this.setState({ barber: "true" })
+    } else {
       e.value = "false"
-      this.setState({barber: "false"})
+      this.setState({ barber: "false" })
     }
   }
 
-  renderAreYouBarber(){
-      return (
-        <label> Are you a Barber?
-          <input type="checkbox" name="" id="is-barber" value={this.state.barber} onChange={this.handleCheck}/>
-        </label>
-      )
+  renderAreYouBarber() {
+    return (
+      <label> Are you a Barber?
+        <input type="checkbox" name="" id="is-barber" value={this.state.barber} onChange={this.handleCheck} />
+      </label>
+    )
   }
 
-  handleBarberDemoLogin(e){
+  handleBarberDemoLogin(e) {
     e.stopPropagation()
-    this.setState({email: "carlosaicrag@gmail.com", password: "starwars", barber:"true", barber_shop_password: "a"}, (e) => this.handleSubmit())
+    e.persist()
+    this.setState({ email: "carlosaicrag@gmail.com", password: "starwars", barber: "true", barber_shop_password: "a" }, () => this.handleSubmit(e))
   }
 
-  handleClientDemoLogin(e){
+  handleClientDemoLogin(e) {
     e.stopPropagation()
-    this.setState({ email: "carlosaicrag@gmail.com", password: "password", barber: "false"}, (e) => this.handleSubmit())
+    e.persist()
+    this.setState({ email: "carlosaicrag@gmail.com", password: "password", barber: "false" }, () => this.handleSubmit(e))
   }
 
-  renderBarberDemoLogin(){
+  renderBarberDemoLogin() {
     if (this.props.location.pathname === "/login") {
-      return(
-      <div className="session__btn--submit" onClick={this.handleBarberDemoLogin}>
-        <input type="submit" value="Barber Demo Login" />
-      </div>
+      return (
+        <div className="session__btn--submit" onClick={this.handleBarberDemoLogin}>
+          <input type="submit" value="Barber Demo Login" />
+        </div>
       )
-    }else{
+    } else {
       return null
     }
   }
 
-  renderClientDemoLogin(){
-    if(this.props.location.pathname === "/login"){
-      return(
-      <div className="session__btn--submit" onClick={this.handleClientDemoLogin}>
-        <input type="submit" value="Client Demo Login" />
-      </div>
+  renderClientDemoLogin() {
+    if (this.props.location.pathname === "/login") {
+      return (
+        <div className="session__btn--submit" onClick={this.handleClientDemoLogin}>
+          <input type="submit" value="Client Demo Login" />
+        </div>
       )
-    }else {
+    } else {
       return null
     }
   }
 
-  renderBarberPassword(){
-    if(this.state.barber === "true"){
-      return(
+  renderBarberPassword() {
+    if (this.state.barber === "true") {
+      return (
         <label className="session__input-container">
           Barber Shop Password
           <br />
@@ -208,7 +213,7 @@ export class SessionForm extends React.Component {
     }
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     this.props.clearErrors()
   }
 
@@ -218,23 +223,23 @@ export class SessionForm extends React.Component {
         <div className="session__form-container-opacity">
           <div className="session__form-box">
             <form>
-              
+
               <div className="session-text">
                 Welcome to John's Barber Shop!
               </div>
 
               <br />
 
-              <div className="session-text"> 
+              <div className="session-text">
                 Please {this.props.formType} to continue
               </div>
 
-              <br/>
+              <br />
 
               {this.renderErrors()}
               {this.renderSignupConfirmation()}
 
-              <br/>
+              <br />
 
               {this.renderFnameField()}
               {this.renderLnameField()}
@@ -261,16 +266,16 @@ export class SessionForm extends React.Component {
                 </label>
 
                 {this.renderAreYouBarber()}
-                <br/>
+                <br />
                 {this.renderBarberPassword()}
-                <br/>
+                <br />
 
                 {/* <Link
                   to="/forgot-password"
                   className="session__link">
                   forgot password?
                 </Link> */}
-                <br/>
+                <br />
 
                 <div className="session__btn--submit" onClick={this.handleSubmit}>
                   <input type="submit" value={this.props.formType} />
@@ -284,7 +289,7 @@ export class SessionForm extends React.Component {
             </form>
             <br />
 
-            
+
             <div>
               {this.props.navLink}
             </div>

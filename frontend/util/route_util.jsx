@@ -11,7 +11,7 @@ const Auth = ({ component: Component, path, loggedIn, exact, clientLoggedIn }) =
       !loggedIn && !clientLoggedIn ? (
         <Component {...props} />
       ) : (
-        <Redirect to="/" />
+        null
       )
     )} />
   )
@@ -23,7 +23,7 @@ const Protected = ({ component: Component, path, loggedIn, exact }) => (
     loggedIn ? (
       <Component {...props} />
     ) : (
-      <Redirect to="/unauthorized" />
+        null
     )
   )} />
 );
@@ -31,13 +31,13 @@ const Protected = ({ component: Component, path, loggedIn, exact }) => (
 const ProtectedNewHaircut = ({ component: Component, loggedIn, path, inQueue, exact, alreadyInQueue, reminderModal}) => {
   if (!loggedIn) {
     return(
-      <Redirect to="/"/>
+      <Redirect to="/unauthorized"/>
     )
   }
 
   if (alreadyInQueue){
     return(
-      <Redirect to="/" />
+      null
       )
   }else{
     return(

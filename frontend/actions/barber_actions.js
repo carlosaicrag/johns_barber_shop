@@ -6,28 +6,31 @@ const receiveBarber = barber => {
     return {
         type: RECEIVE_BARBER,
         barber
-            }
+    }
 }
 
 export const receiveClientsQueue = payload => {
     return {
-    type: RECEIVE_QUEUE,
-    clientHaircut: payload.clientHaircut,
-    barber: payload.barber
+        type: RECEIVE_QUEUE,
+        clientHaircut: payload.clientHaircut,
+        barber: payload.barber
     }
 }
 
 export const fetchBarber = barberId => dispatch => (
     APIUtil.fetchBarber(barberId)
-    .then(barber => dispatch(receiveBarber(barber)))
+        .then(barber => dispatch(receiveBarber(barber)))
 )
 
 export const fetchQueue = () => dispatch => (
     APIUtil.fetchQueue()
-    .then((payload) => dispatch(receiveClientsQueue(payload)))
+        .then((payload) => {
+            //debugger
+            dispatch(receiveClientsQueue(payload))
+        })
 )
 
 export const updateBarberWorkingStatus = (barber) => dispatch => (
     APIUtil.updateBarberWorkingStatus(barber)
-    .then((barber) => dispatch(receiveClientsQueue(barber)))
+        .then((barber) => dispatch(receiveClientsQueue(barber)))
 )
