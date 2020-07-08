@@ -158,12 +158,14 @@ export class SessionForm extends React.Component {
       )
   }
 
-  handleBarberDemoLogin(){
-    this.setState({email: "carlosaicrag@gmail.com", password: "starwars", barber:"true", barber_shop_password: "a"}, () => this.handleSubmit())
+  handleBarberDemoLogin(e){
+    e.stopPropagation()
+    this.setState({email: "carlosaicrag@gmail.com", password: "starwars", barber:"true", barber_shop_password: "a"}, (e) => this.handleSubmit())
   }
 
-  handleClientDemoLogin(){
-    this.setState({ email: "carlosaicrag@gmail.com", password: "password", barber: "false"}, () => this.handleSubmit())
+  handleClientDemoLogin(e){
+    e.stopPropagation()
+    this.setState({ email: "carlosaicrag@gmail.com", password: "password", barber: "false"}, (e) => this.handleSubmit())
   }
 
   renderBarberDemoLogin(){
@@ -215,7 +217,7 @@ export class SessionForm extends React.Component {
       <div className="session__form-container">
         <div className="session__form-container-opacity">
           <div className="session__form-box">
-            <form onSubmit={this.handleSubmit}>
+            <form>
               
               <div className="session-text">
                 Welcome to John's Barber Shop!
