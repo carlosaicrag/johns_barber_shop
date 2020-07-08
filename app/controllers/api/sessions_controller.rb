@@ -26,10 +26,10 @@ class Api::SessionsController < ApplicationController
   end
 
   def destroy
-    if current_barber
+    if signed_in?
       sign_out
       render json: {}
-    elsif current_client_user
+    elsif client_signed_in?
       client_sign_out
       render json: {}
     else

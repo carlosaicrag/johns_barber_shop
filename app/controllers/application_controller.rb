@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   
   private
   def current_barber
-    @current_barber ||= Barber.find_by_session_token(session[:session_token])
+    @current_barber ||= Barber.find_by_session_token(session[:barber_session_token])
   end
 
   def signed_in?
@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     barber.reset_token!
     barber.clock_in
     barber.save!
-    session[:session_token] = barber.session_token
+    session[:barber_session_token] = barber.session_token
     @current_barber = barber
   end
 
@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
     current_barber.reset_token!
     current_barber.clock_out
     current_barber.save!
-    session[:session_token] = nil
+    session[:barber_session_token] = nil
   end
 
   def require_signed_in!
@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_client_user
-    @current_client_user ||= Client.find_by(session_token: session[:session_token])
+    @current_client_user ||= Client.find_by(session_token: session[:client_session_token])
   end
 
   def client_signed_in?
@@ -41,13 +41,15 @@ class ApplicationController < ActionController::Base
 
   def client_sign_in(client)
     client.reset_token!
-    session[:session_token] = client.session_token
+    client.save!
+    session[:client_session_token] = client.session_token
     @current_client_user = client
   end
 
   def client_sign_out
     current_client_user.reset_token!
-    session[:session_token] = nil
+    current_client_user.save!
+    session[:client_session_token] = nil
   end
 
   def require_signed_in!

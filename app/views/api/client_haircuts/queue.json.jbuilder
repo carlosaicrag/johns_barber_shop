@@ -1,4 +1,4 @@
-barber_queue = ClientHaircut.queue(current_barber.id)
+barber_queue = ClientHaircut.queue(@current_barber.id)
 if barber_queue.length == 0
   duck = {"min"=>0,"sec"=>0}
   json.clientHaircut do 
