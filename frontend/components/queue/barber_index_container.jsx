@@ -5,7 +5,6 @@ import { cancelClientHaircut } from "../../actions/client_haircut_actions"
 import { openModal, reminderModal } from "../../actions/modal_actions"
 
 const msp = function (store, ownProps) {
-  //debugger
   let barbers = ""
   let alreadyInQueue = false
   let clientHaircutId = ""

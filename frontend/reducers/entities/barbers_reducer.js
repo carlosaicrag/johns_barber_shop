@@ -9,7 +9,6 @@ const barbersReducer = (oldState = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_CURRENT_BARBER:
-      //debugger
       nextState = Object.assign({}, oldState, {
         [action.currentBarber.id]: action.currentBarber
       });

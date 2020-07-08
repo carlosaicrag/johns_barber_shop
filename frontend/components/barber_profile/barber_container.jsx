@@ -5,7 +5,6 @@ import { updateBarberWorkingStatus } from './../../actions/barber_actions';
 import { closeClientHaircut } from './../../actions/client_haircut_actions';
 
 const msp = function (state, ownProps) {
-  //debugger
   let timeElapsed = {}
 
   if (state.entities.queue.timeElapsed) {

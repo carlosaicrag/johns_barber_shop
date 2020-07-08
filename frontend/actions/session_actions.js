@@ -9,7 +9,6 @@ export const LOGOUT_CLIENT = "LOGOUT_CLIENT"
 import * as APIUtil from '../util/session_api_util';
 
 export const receiveCurrentBarber = (currentBarber) => {
-  //debugger
   return {
     type: RECEIVE_CURRENT_BARBER,
     currentBarber
@@ -71,7 +70,6 @@ export const signup = barber => dispatch => (
 
 export const login = barber => dispatch => (
   APIUtil.login(barber).then(barber => {
-    //debugger
     dispatch(receiveCurrentBarber(barber))
   }, err => {
     dispatch(receiveErrors(err.responseJSON))

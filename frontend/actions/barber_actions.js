@@ -25,7 +25,6 @@ export const fetchBarber = barberId => dispatch => (
 export const fetchQueue = () => dispatch => (
     APIUtil.fetchQueue()
         .then((payload) => {
-            //debugger
             dispatch(receiveClientsQueue(payload))
         })
 )
