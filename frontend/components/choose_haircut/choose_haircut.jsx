@@ -65,7 +65,7 @@ class ChooseHaircut extends React.Component{
                 if (this.state.barber_id === barber.id) barberChosen = "barber-chosen";
                 return (
                     <div className={`w3-card ${barberChosen}`} key={barber.id} onClick={this.handleBarberHaircut("barber_id", barber.id)}>
-                        <img className="w3-image" src={barber.gravitar} alt="{barber}"/>
+                        <img className="w3-image" src={barber.barberGravitar} alt="{barber}"/>
                         <div>{barber.fname}</div>
                     </div>
                 )

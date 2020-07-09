@@ -45,6 +45,15 @@ class Client < ApplicationRecord
     client
   end
 
+
+  def retrieve_clients_client_haircuts
+    ClientHaircut.where(client_id: self.id).where.not(closed_at: nil)
+  end
+
+  def gravitar 
+    "https://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(self.email)}"
+  end
+
   def downcase_fields
     self.email.downcase!
   end

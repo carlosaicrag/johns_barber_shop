@@ -39,6 +39,12 @@ class ClientHaircut < ApplicationRecord
     end
   end
 
+  def time_taken
+    hours_to_mins = (self.closed_at.hour - self.started_haircut_time.hour)*60
+    mins = (self.closed_at.min-self.started_haircut_time.min).abs
+    hours_to_mins + mins
+  end
+
   def haircut_time 
     hour_to_mins_created_at = self.created_at.hour * 60
     total_minutes_created_at = hour_to_mins_created_at + self.created_at.min

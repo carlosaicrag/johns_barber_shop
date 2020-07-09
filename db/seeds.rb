@@ -61,6 +61,10 @@ client_haircut_user3 = ClientHaircut.create!(client_id: client3.id, haircut_id: 
 sleep 1.5
 client_haircut_user4 = ClientHaircut.create!(client_id: client4.id, haircut_id: haircut1.id, barber_id: barber2.id) 
 sleep 1.5
-client_haircut_user4 = ClientHaircut.create!(client_id: client5.id, haircut_id: haircut2.id, barber_id: barber3.id) 
-
+client_haircut_user5 = ClientHaircut.create!(client_id: client5.id, haircut_id: haircut2.id, barber_id: barber3.id) 
+sleep 1.5
+client_haircut_user6 = ClientHaircut.create!(client_id: client5.id, haircut_id: haircut2.id,barber_id: barber3.id, closed_at: DateTime.now, started_haircut_time: DateTime.now)
+client_haircut_user7 = ClientHaircut.create!(client_id: client5.id, haircut_id: haircut2.id,barber_id: barber3.id, closed_at: DateTime.now, started_haircut_time: DateTime.now)
+client_haircut_user8 = ClientHaircut.create!(client_id: client5.id, haircut_id: haircut2.id,barber_id: barber3.id, closed_at: DateTime.now, started_haircut_time: DateTime.now)
+client_haircut_user9 = ClientHaircut.create!(client_id: client5.id, haircut_id: haircut2.id,barber_id: barber3.id, closed_at: DateTime.now, started_haircut_time: DateTime.now)
 

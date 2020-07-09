@@ -1,5 +1,3 @@
-
-
 json.haircuts do 
     @haircuts.each do |haircut|
         json.set! haircut.id do 
@@ -12,7 +10,7 @@ json.barbers do
     @barbers.each do |barber|
         json.set! barber.id do 
             json.extract! barber, :id, :image_url, :fname, :lname
-            json.gravitar barber.gravitar
+            json.barberGravitar barber.gravitar
         end
     end
 end

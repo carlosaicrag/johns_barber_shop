@@ -2,7 +2,7 @@ json.barbers do
     @barbers.each do |barber|
         json.set! barber.id do 
             json.partial! "api/barbers/barber", barber:barber
-            json.gravitar barber.gravitar
+            json.barberGravitar barber.gravitar
             json.queueTime barber.wait_time
             if barber.current_client_cutting_hair_starting_time
                 json.currentClientStarttime do

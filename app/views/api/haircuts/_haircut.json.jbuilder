@@ -1,0 +1,1 @@
+json.extract! haircut, :id, :haircut_name, :path
