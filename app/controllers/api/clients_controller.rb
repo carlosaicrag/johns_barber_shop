@@ -13,6 +13,7 @@ class Api::ClientsController < ApplicationController
 
   def show
     @client = Client.find(params[:id])
+    render "api/clients/client_profile"
   end
 
   def client_params

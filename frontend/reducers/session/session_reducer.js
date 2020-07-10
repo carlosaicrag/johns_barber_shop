@@ -14,7 +14,7 @@ const sessionReducer = (state = _nullUser, action) => {
     case RECEIVE_CURRENT_BARBER:
       return { id: action.currentBarber.id, clientId: null };
     case RECEIVE_CLIENT:
-      return { clientId: action.currentClient.id, id: null }
+      return {clientId: action.currentClient.id, id: null}
     case LOGOUT_CLIENT:
       return _nullUser
     case LOGOUT_CURRENT_BARBER:

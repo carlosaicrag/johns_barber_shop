@@ -11,6 +11,7 @@ import BarberIndexContainer from "./queue/barber_index_container";
 import ChooseHaircut from "./choose_haircut/choose_haircut_container";
 import Error from "./error_pages/error";
 import Unauthorized from "./error_pages/unauthorized";
+import ClientProfileContainer from "./client_profile/client_profile_container"
 
 
 export const App = () => (
@@ -23,6 +24,7 @@ export const App = () => (
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
       <ProtectedRoute exact path="/queue" component={BarberQueueContainer} />
+      <ProtectedRoute exact path="/clients/:id" component={ClientProfileContainer}></ProtectedRoute>
       {/* <AuthRoute exact path="/forgot-password" component={ForgotPasswordFormContainer} /> */}
       <Route exact path="/" component={BarberIndexContainer} />
       <ProtectedNewHaircutRoute exact path="/chooseHaircut" component={ChooseHaircut}/>

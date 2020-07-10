@@ -1,3 +1,5 @@
 json.barbers do 
-  json.partial! 'api/barbers/barber', barber: @barber
+  json.set! @barber.id do
+    json.partial! 'api/barbers/barber', barber: @barber
+  end
 end

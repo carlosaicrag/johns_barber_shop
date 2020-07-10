@@ -3,10 +3,12 @@ import barbers from './barbers_reducer';
 import haircuts from './haircuts_reducer'
 import queue from './queue_reducer';
 import clientHaircuts from "./client_haircuts_reducer"
+import clients from "./clients_reducer"
 
 export const entitiesReducer = combineReducers({
   barbers,
   queue,
   haircuts,
   clientHaircuts,
+  clients
 })

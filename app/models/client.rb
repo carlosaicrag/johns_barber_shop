@@ -38,6 +38,7 @@ class Client < ApplicationRecord
     source: :barber 
 
   after_initialize :ensure_session_token
+  MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
   def self.find_by_credentials(email, password)
     client = Client.find_by(email: email.downcase)
@@ -45,9 +46,21 @@ class Client < ApplicationRecord
     client
   end
 
+  def date_started
+    starting_date = {}
+    starting_date["month"] = MONTHS[self.created_at.month-1]
+    starting_date["day"] = self.created_at.day
+    starting_date["year"] = self.created_at.year
+
+    starting_date
+  end
 
   def retrieve_clients_client_haircuts
     ClientHaircut.where(client_id: self.id).where.not(closed_at: nil)
+  end
+
+  def number_of_haircuts
+    self.retrieve_clients_client_haircuts.length
   end
 
   def gravitar 

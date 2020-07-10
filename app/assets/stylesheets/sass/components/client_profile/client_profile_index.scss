@@ -1,0 +1,45 @@
+$card-width: 100%;
+$card-height: 200px;
+
+.profile-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .client-profile-info{
+    width: $card-width;
+    height: $card-height;
+    // background-color:green;
+    border: thin;
+    border-style: solid;
+    border-color: black;
+    padding: 10px;
+    // display: flex;
+    .client-profile-picture-name-joined{
+      height: 100%; 
+      // background: yellow;
+      .client-profile-picture{
+        // background: blue;
+        border-radius: 100%;
+        width: 20%;
+        height: 40%;
+        margin-bottom: 20px;
+      }
+      .client-profile-name-container{
+        // background-color: pink;
+        height: 30px;
+      }
+
+      .client-profile-joined-container{
+        // background-color: violet;
+        height: 30px;
+      }
+    }
+  }
+
+  .client-profile-barber-info-container{
+    width: $card-width;
+    height: $card-height;
+    // background-color: red;
+  }
+}

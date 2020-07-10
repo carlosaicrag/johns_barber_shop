@@ -1,6 +1,6 @@
 import { RECEIVE_CLIENT_HAIRCUT } from "../../actions/client_haircut_actions"
+import {RECEIVE_PROFILE_CLIENT} from "../../actions/client_actions"
 import { RECEIVE_BARBERS } from "../../actions/splash_actions"
-import {RECEIVE_QUEUE} from "../../actions/barber_actions"
 
 const clientHaircutsReducer = function (oldState = {}, action) {
     Object.freeze(oldState)
@@ -11,6 +11,12 @@ const clientHaircutsReducer = function (oldState = {}, action) {
         case RECEIVE_BARBERS:
             if (!action.clientHaircuts) return {}
             return action.clientHaircuts
+        case RECEIVE_PROFILE_CLIENT:
+            if (!action.clientHaircuts) {
+                return oldState
+            } else {
+                return action.clientHaircuts
+            }
         default:
             return oldState
     }

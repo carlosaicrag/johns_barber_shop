@@ -35,6 +35,7 @@ const navModal = function(props){
     } else { 
         let logout;
         let queue = "";
+        let profile = "";
 
         if(props.session){
             logout = <div>
@@ -43,11 +44,14 @@ const navModal = function(props){
           queue = <div className="modal-nav-option">
             <Link to="/queue">Queue</Link>
           </div>
-        } else {
+        }else if (props.clientSession){
+            profile = <div className="modal-nav-option">
+                <Link to={`/clients/${props.clientSession}`}>Profile</Link>
+            </div>
             logout = <div>
                 <a onClick={handleClientLogOut}>Log Out</a>
             </div>
-        }
+        } 
 
         return (
             <div className="modal-nav-container">
@@ -59,6 +63,7 @@ const navModal = function(props){
                     <Link to="/login">Testimonials</Link>
                 </div>
                 {queue}
+                {profile}
             </div>
         )
     }

@@ -8,10 +8,10 @@ export const CLEAR_ERRORS = "CLEAR_ERRORS"
 export const LOGOUT_CLIENT = "LOGOUT_CLIENT"
 import * as APIUtil from '../util/session_api_util';
 
-export const receiveCurrentBarber = (currentBarber) => {
+export const receiveCurrentBarber = (payload) => {
   return {
     type: RECEIVE_CURRENT_BARBER,
-    currentBarber
+    currentBarber: Object.values(payload.barbers)[0]
   }
 };
 
@@ -69,18 +69,18 @@ export const signup = barber => dispatch => (
 );
 
 export const login = barber => dispatch => (
-  APIUtil.login(barber).then(barber => {
-    dispatch(receiveCurrentBarber(barber))
+  APIUtil.login(barber).then(payload => {
+    dispatch(receiveCurrentBarber(payload))
   }, err => {
     dispatch(receiveErrors(err.responseJSON))
   })
 );
 
-export const clientLogin = barber => dispatch => {
+export const clientLogin = client => dispatch => {
   return (
-    APIUtil.clientLogin(barber).then(barber => (
-      dispatch(receiveCurrentClient(barber))
-    ), err => {
+    APIUtil.clientLogin(client).then(payloadClient => (
+      dispatch(receiveCurrentClient(payloadClient))
+      ), err => {
       dispatch(receiveErrors(err.responseJSON))
     })
   )
