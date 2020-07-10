@@ -1,0 +1,75 @@
+$card-width: 100%;
+$card-height: 200px;
+.client-profile-barber-info-container{
+  width: 100%;
+  .client-profile-barber-barbershop-info-container{
+    width: $card-width;
+    height: $card-height;
+    padding: 10px;
+    padding-top: 30px;
+    padding-right: 50px;
+    display: flex;
+    border-bottom: thin solid;
+    display: flex;
+    justify-content: space-between;
+  
+    .client-profile-barber-barbershop-name-working-date-timetaken{
+      display: flex;
+      flex-direction: column;
+      .client-profile-barber-barbershop-name-working-container{
+        display: flex;
+        height: 30%;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        .client-profile-barber{
+          border-radius: 100%;
+          width: 40px;
+          height: 40px;
+          margin-right: 10px;
+        }
+        .client-profile-barber-barbershop-name-working{
+          display: flex;
+          flex-direction: column;
+          height: 50%;
+          justify-content: space-between;
+          align-items: center;
+          .client-profile-barber-name{
+    
+          }
+          .client-profile-barber-working{
+    
+          }
+        }
+      }
+  
+      .client-profile-timetaken-date{
+        display: flex;
+        flex-direction: column;
+        font-size: 80%;
+        .client-profile-timetaken{
+  
+        }
+        .client-profile-date{
+  
+        }
+      }
+    }
+  
+  
+      .client-profile-haircut-haircutname{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        height: 80%;
+        .client-profile-haircut{
+          width: auto;
+          height: 80%;
+        }
+  
+        .client-profile-haircutname{
+          
+        }
+      }
+  }
+}

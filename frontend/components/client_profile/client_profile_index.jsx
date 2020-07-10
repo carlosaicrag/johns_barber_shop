@@ -1,4 +1,6 @@
 import React from "react"
+import ClientProfileHeader from "./client_profile_header"
+import ClientProfileHaircutIndex from "./client_profile_haircut_index"
 
 class ClientProfileIndex extends React.Component{
   constructor(props){
@@ -19,31 +21,12 @@ class ClientProfileIndex extends React.Component{
     }
     return(
       <div className="profile-container">
-        <div className="client-profile-info">
-          <div className="client-profile-picture-name-joined">
-            <img className="client-profile-picture" src={this.props.client.clientGravitar} alt=""/>
-            <div className="client-profile-name-container">
-              <div className="client-profile-name">
-                {this.props.client.fname}
-              </div>
-            </div>
-            <div className="client-profile-joined-container">
-              <div className="client-profile-joined">
-                joined: {this.props.client.dateStarted.month} {this.props.client.dateStarted.day}, {this.props.client.dateStarted.year}
-              </div>
-            </div>
-
-            <div className="client-profile-haircut-count-container">
-              <div className="client-profile-haircut-count"> 
-                number of haircuts: {this.props.client.clientHaircutCount}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="client-profile-barber-info-container">
-
-        </div>
+        <ClientProfileHeader 
+        client={this.props.client}
+        />
+        <ClientProfileHaircutIndex 
+          clientHaircuts={this.props.clientHaircuts}
+        />
       </div>
     )
   }

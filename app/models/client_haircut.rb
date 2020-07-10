@@ -25,6 +25,7 @@ class ClientHaircut < ApplicationRecord
     foreign_key: :barber_id,
     class_name: :Barber
 
+  MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
   def release_client
     self.closed_at = DateTime.now
     self.save!
@@ -37,6 +38,14 @@ class ClientHaircut < ApplicationRecord
       barber.closed_at = Time.now
       barber.save
     end
+  end
+
+  def date
+    date = {}
+    date["month"] = MONTHS[self.created_at.month+1]
+    date["day"] = self.created_at.day
+    date["year"] = self.created_at.year
+    date
   end
 
   def time_taken

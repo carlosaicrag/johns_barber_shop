@@ -5,41 +5,28 @@ $card-height: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  .client-profile-info{
+  
+  .client-profile-info-picture-name-joined{
     width: $card-width;
     height: $card-height;
     // background-color:green;
-    border: thin;
-    border-style: solid;
-    border-color: black;
     padding: 10px;
+    height: 100%;
+    border-bottom: 1px solid;
+    border-top: thin solid;
     // display: flex;
-    .client-profile-picture-name-joined{
-      height: 100%; 
-      // background: yellow;
-      .client-profile-picture{
-        // background: blue;
-        border-radius: 100%;
-        width: 20%;
-        height: 40%;
-        margin-bottom: 20px;
-      }
-      .client-profile-name-container{
-        // background-color: pink;
-        height: 30px;
-      }
-
-      .client-profile-joined-container{
-        // background-color: violet;
-        height: 30px;
-      }
+    .client-profile-picture{
+      border-radius: 100%;
+      width: 20%;
+      height: 40%;
+      margin-bottom: 20px;
     }
-  }
+    .client-profile-name-container{
+      height: 30px;
+    }
 
-  .client-profile-barber-info-container{
-    width: $card-width;
-    height: $card-height;
-    // background-color: red;
+    .client-profile-joined-container{
+      height: 30px;
+    }
   }
 }

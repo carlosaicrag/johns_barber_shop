@@ -12,7 +12,8 @@ json.clientHaircuts do
     json.set! client_haircut.id do
       json.partial! "api/barbers/barber", barber: client_haircut.barber
       json.partial! "api/haircuts/haircut", haircut: client_haircut.haircut
-      client_haircut.time_taken
+      json.timeTaken client_haircut.time_taken
+      json.date client_haircut.date
     end
   end
 end
