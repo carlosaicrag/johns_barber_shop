@@ -46,6 +46,27 @@ class Client < ApplicationRecord
     client
   end
 
+  def in_queue?
+    ClientHaircut.where(closed_at: nil).each do |client_haircut|
+        if client_haircut.client_id == self.id
+          return true 
+        end
+    end
+    false
+  end
+
+  def barber_waiting_in_queue_for 
+    ClientHaircut.where(closed_at: nil).each do |client_haircut|
+        if client_haircut.client_id == self.id
+          return Barber.where(barber_id: client_haircut.barber_id)
+        end
+    end
+  end
+
+  def wait_time
+    
+  end
+
   def date_started
     starting_date = {}
     starting_date["month"] = MONTHS[self.created_at.month-1]

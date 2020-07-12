@@ -30,3 +30,14 @@ json.clientHaircuts do
         end
     end
 end
+
+json.clients do 
+    if @current_client_user
+        if @current_client_user.in_queue?
+            json.set! @current_client_user.id do 
+                json.partial! "api/clients/client", client: @current_client_user
+                json.waitTime @current_client_user.wait_time
+            end
+        end
+    end
+end
