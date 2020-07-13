@@ -3,7 +3,7 @@ import BarberIndexItem from "./barber_index_item";
 import TimeTable from "./time_table";
 
 const BarbersAndServices = function ({nextPrevBarber,state,barbers,client,remindToLogin,alreadyInQueue, barberSession, handleCancelFailSafe, 
-  cancelFailSafe,handleCancelClientHaircut, barberCancelingFrom}){
+  cancelFailSafe,handleCancelClientHaircut, barberCancelingFrom, clientObject}){
   let barberIcons = Object.values(barbers).map((barber, idx) => {
     return (
       <BarberIndexItem
@@ -22,10 +22,11 @@ const BarbersAndServices = function ({nextPrevBarber,state,barbers,client,remind
       />
     )
   })
-
+  let timeLeft = clientObject ? <div> {clientObject.waitTime} </div> : null
   return (
     <div className="queue-mobile-container" onClick={() => cancelFailSafe ? handleCancelFailSafe(): ""}>
       {barberIcons[state.barber]}
+      {timeLeft}
       <TimeTable
       state={state}
       barbers={barbers}

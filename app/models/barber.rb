@@ -67,7 +67,7 @@ class Barber < ApplicationRecord
   end
 
   def clients_in_queue
-    clients = ClientHaircut.where(closed_at: nil, barber_id: self.id)
+    clients = ClientHaircut.where(closed_at: nil, barber_id: self.id).order('created_at ASC')
     clients
   end
 
@@ -88,8 +88,6 @@ class Barber < ApplicationRecord
     .where(barber_id: self.id)
     .where(haircut_id: haircut_ids)
     .pluck(:avg_time).sum
-
-    # ClientHaircutTime.where(client_id: client_ids).where(barber_id: self.id).where(haircut_id: haircut_ids).pluck(:avg_time).sum
   end
 
   def current_client #current client that the barber is cutting hair for

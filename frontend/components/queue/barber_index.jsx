@@ -103,6 +103,7 @@ class BarberIndex extends React.Component{
           barbers={this.props.barbers}
           state={this.state}
           client={this.props.client}
+          clientObject={this.props.clientObject}
           remindToLogin = {this.remindToLogin}
           nextPrevBarber={this.nextPrevBarber}
           alreadyInQueue={this.props.alreadyInQueue}
