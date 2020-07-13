@@ -12,7 +12,7 @@ ClientHaircutTime.destroy_all
 ClientHaircut.destroy_all
 
 barber1 = Barber.create(email:"carlosaicrag@gmail.com", password:"starwars", fname:"Carlos", lname:"Garcia", image_url:"./dame_dolla.jpg")
-barber2 = Barber.create(email:"james@gmail.com",password:"starwars",fname:"James", lname:"Harden", image_url:"./james_harden.jpg", working: true)
+barber2 = Barber.create(email:"james@gmail.com",password:"starwars",fname:"James", lname:"Harden", image_url:"./james_harden.jpg", working: true, cutting_hair: true)
 barber3 = Barber.create(email:"kyrie@gmail.com", password:"starwars", fname:"Kyrie", lname:"Irving", image_url:"./kyrie_irving.jpg", working: true)
 barber4 = Barber.create(email:"lebron@gmail.com", password:"starwars", fname:"Lebron", lname:"James", image_url:"./lbj.jpg", working: true)
 barber5 = Barber.create(email:"steph@gmail.com", password:"starwars", fname:"Steph", lname:"Curry", image_url:"./steph_curry_barber.jpg", working: true)
@@ -57,7 +57,7 @@ client_haircut_user1 = ClientHaircut.create!(client_id: client6.id, haircut_id: 
 sleep 1.5
 client_haircut_user2 = ClientHaircut.create!(client_id: client2.id, haircut_id: haircut3.id, barber_id: barber1.id)
 sleep 1.5
-client_haircut_user3 = ClientHaircut.create!(client_id: client3.id, haircut_id: haircut1.id, barber_id: barber2.id)
+client_haircut_user3 = ClientHaircut.create!(client_id: client3.id, haircut_id: haircut1.id, barber_id: barber2.id, started_haircut_time: DateTime.now)
 sleep 1.5
 client_haircut_user4 = ClientHaircut.create!(client_id: client4.id, haircut_id: haircut1.id, barber_id: barber2.id) 
 sleep 1.5

@@ -49,6 +49,18 @@ class Barber < ApplicationRecord
     return nil unless barber && barber.valid_password?(password)
     barber
   end
+  
+  def active_queue_time
+    time_passed_hours = ((current_client_cutting_hair_starting_time.hour-DateTime.now.hour)*60).abs
+    time_passed_mins = (current_client_cutting_hair_starting_time.min - DateTime.now.min).abs
+    time_passed = (time_passed_hours+time_passed_mins)
+
+    if time_passed > current_client_cutting_hair_avg_time
+      return (self.wait_time - current_client_cutting_hair_avg_time).abs
+    else
+      return self.wait_time - time_passed
+    end
+  end
 
   def gravitar 
     "https://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(self.email)}"
