@@ -8,8 +8,9 @@ json.barbers do
                 json.avgTime barber.current_client_cutting_hair_avg_time
             else
                 json.queueTime barber.wait_time
-                json.avg_time 0
+                json.avgTime 0
             end
+            json.totalWaitTime barber.wait_time
         end
     end
 end

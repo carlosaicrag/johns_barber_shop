@@ -12,14 +12,6 @@ class BarberIndex extends React.Component{
     this.handleCancelClientHaircut = this.handleCancelClientHaircut.bind(this)
   }
 
-  secToMin(sec){
-    return sec/60
-  }
-
-  hourToMin(hour){
-    return hour * 60
-  }
-
   handleCancelClientHaircut(barberCancelingFrom){
     let that = this
     this.props.cancelClientHaircut(this.props.clientHaircutId)
@@ -30,24 +22,6 @@ class BarberIndex extends React.Component{
 
   handleCancelFailSafe(){
     this.setState({cancelFailSafe: !this.state.cancelFailSafe})
-  }
-
-  initialWaitForBarber(queueTime,startTimeHour,startTimeMin,startTimeSec,avgTime){
-    let date = new Date()
-    let pageVisitTime = this.hourToMin(date.getHours()) + this.secToMin(date.getSeconds()) + date.getMinutes()
-    let haircutStartTime = this.hourToMin(startTimeHour) + this.secToMin(startTimeSec) + startTimeMin
-
-    if(haircutStartTime == 0){
-      return queueTime
-    }else{
-      let time = Math.abs(Math.floor(queueTime - (pageVisitTime - haircutStartTime)))
-
-      if ((pageVisitTime - haircutStartTime) >= avgTime){
-        return queueTime - avgTime
-      }else{
-        return time
-      }
-    }
   }
 
   clearIntervals(){
@@ -69,21 +43,15 @@ class BarberIndex extends React.Component{
 
       barberIds.forEach((barberId) => {
         let barber = barbers[barberId]
-        let currentClientStarttime = barber.currentClientStarttime
-
-        this.state[barberId] = this.initialWaitForBarber(barber.queueTime, 
-        currentClientStarttime.hour,
-        currentClientStarttime.minute,
-        currentClientStarttime.second,
-        currentClientStarttime.avgTime)
-
-        let queueTimeMinusAvgTimeOfCurrentClient = barber.queueTime - currentClientStarttime.avgTime
-
-        this.setState({ [barberId]: this.state[barberId] })
+        let timeLimit = barber.totalWaitTime - barber.avgTime
+        this.state[barberId] = barber.queueTime
+        this.setState({ [barberId]: barber.queueTime })
 
         let interval = setInterval(() => {
-          if (this.state[barberId] != 0 && this.state[barberId] > queueTimeMinusAvgTimeOfCurrentClient){
+          if (this.state[barberId] != 0 && this.state[barberId] > timeLimit){
             this.setState({ [barberId]: this.state[barberId] - 1 })
+          }else{
+            clearInterval(interval)
           }
         }, 60000)
 
