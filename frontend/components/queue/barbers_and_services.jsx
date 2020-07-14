@@ -13,6 +13,7 @@ const BarbersAndServices = function ({nextPrevBarber,state,barbers,client,remind
         remindToLogin={remindToLogin}
         nextPrevBarber={nextPrevBarber}
         waitTime={state[barber.id]}
+        clientWaitTime={state.clientWaitTime}
         alreadyInQueue={alreadyInQueue}
         barberSession={barberSession}
         handleCancelFailSafe={handleCancelFailSafe}
@@ -22,7 +23,10 @@ const BarbersAndServices = function ({nextPrevBarber,state,barbers,client,remind
       />
     )
   })
-  let timeLeft = clientObject ? <div> {clientObject.waitTime} </div> : null
+  let timeLeft = null
+  if (clientObject){
+    timeLeft = <div> your wait time: {state.clientWaitTime} </div>
+  }
   return (
     <div className="queue-mobile-container" onClick={() => cancelFailSafe ? handleCancelFailSafe(): ""}>
       {barberIcons[state.barber]}

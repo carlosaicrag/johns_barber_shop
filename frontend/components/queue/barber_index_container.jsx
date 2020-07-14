@@ -22,7 +22,7 @@ const msp = function (store, ownProps) {
       barberCancelingFrom = store.entities.barbers[clientHaircut.barber_id]
     }
   })
-
+  
   return ({
     modal: store.ui.modal,
     client: store.session.clientId,
