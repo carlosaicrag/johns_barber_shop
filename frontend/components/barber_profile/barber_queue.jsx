@@ -82,7 +82,10 @@ class BarberQueue extends React.Component{
   render(){
     const barberName = this.props.barberName
     const splittedBarberName = (("Chez ").split("").concat(barberName.split("")));
-
+    // if(!this.props.clientHaircutId){
+    //   return null
+    // }
+    // this.cuttingHair()
     return(
       <div>
         <div className="chez-barber-name">
