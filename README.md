@@ -29,7 +29,7 @@ Home page where users see how long it will take to get a haircut for each barber
 
 # Workflow
 1. git pull master 
-2. git checkout -b `<name of branch>`
+2. git checkout -b `<github issue number>-<name of branch>`
 3. work on feature 
 4. once you are done 
     * checkout the master branch
@@ -44,7 +44,7 @@ Home page where users see how long it will take to get a haircut for each barber
     ![pull_request1]( ./images/pull_request1.png )
     ![pull_request2]( ./images/pull_request2.png )
     ![pull_request3]( ./images/pull_request3.png )
-    * what we're doing here is requesting to pull in our branch into the master branch.  The base in third picture will always be master, and what we're comparing is the branch we're requesting to be pulled in
+    * what we're doing here is requesting to pull in our branch into the staging branch.  The base in third picture will always be staging, and what we're comparing is the branch we're requesting to be pulled in.  Once we make sure that the feature is working in staging then we go ahead and merge to master in another pull request. 
 # How To Use
 * git pull the repository 
 * bundle install
@@ -52,7 +52,7 @@ Home page where users see how long it will take to get a haircut for each barber
 * rails db:setup
 * rails db:migrate
 * rails db:seed 
-* rails s on a new tap 
-* npm start on another new tab
+* rails s on a new terminal tab
+* npm start on another new terminal tab
 
-* let's make a cool app
+* let's make a cool app!
