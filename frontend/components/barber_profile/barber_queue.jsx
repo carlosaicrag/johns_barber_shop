@@ -82,10 +82,7 @@ class BarberQueue extends React.Component{
   render(){
     const barberName = this.props.barberName
     const splittedBarberName = (("Chez ").split("").concat(barberName.split("")));
-    // if(!this.props.clientHaircutId){
-    //   return null
-    // }
-    // this.cuttingHair()
+
     return(
       <div>
         <div className="chez-barber-name">
@@ -101,13 +98,10 @@ class BarberQueue extends React.Component{
           </div>
         </div>
         <div className="barber-chair">
-          {/* <img src="/barber-chair.png" alt="barber-chair" className="barber-image" height={window.screen.height * 0.35} /> */}
           <img src={window.chair} alt="barber-chair" className="barber-image" height={window.screen.height * 0.35} />
         </div>
 
         <div className="in-progress-two">
-            {/* <img className="in-progress-two-left" src={window.stopWatch} alt="" height="40"/> */}
-            {/* <div className="in-progress-two-right">{this.state.minutes}:{this.state.seconds}</div> */}
         </div>
         <div className="info-list">
           <div className="number-of-people-waiting">
