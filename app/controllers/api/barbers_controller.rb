@@ -1,6 +1,7 @@
 class Api::BarbersController < ApplicationController
   def index
     @barbers = Barber.where(working: true)
+    @current_client_user = current_client_user
   end
 
   def create

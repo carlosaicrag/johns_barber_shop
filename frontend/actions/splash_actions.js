@@ -5,10 +5,12 @@ export const RECEIVE_BARBERS = "RECEIVE_BARBERS"
 export const receiveBarbers = function(payload){
     const barbers = payload.barbers
     const clientHaircuts = payload.clientHaircuts
+    const clients = payload.clients
     return({
         type: RECEIVE_BARBERS,
         barbers: barbers,
-        clientHaircuts: clientHaircuts   
+        clientHaircuts: clientHaircuts,  
+        clients
     })
 }
 
@@ -17,7 +19,7 @@ export const getBarbers = () => (dispatch) => {
         retrieveBarbers().then((payload) => {
             dispatch(receiveBarbers(payload))
             if (!payload.barbers) return {}
-            return payload.barbers
+            return payload
         })
     )
 }

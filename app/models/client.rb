@@ -46,6 +46,56 @@ class Client < ApplicationRecord
     client
   end
 
+  def in_queue?
+    ClientHaircut.where(closed_at: nil).each do |client_haircut|
+        if client_haircut.client_id == self.id
+          return true 
+        end
+    end
+    false
+  end
+
+  def barber_waiting_in_queue_for 
+    ClientHaircut.where(closed_at: nil).each do |client_haircut|
+        if client_haircut.client_id == self.id
+          return Barber.where(barber_id: client_haircut.barber_id)
+        end
+    end
+  end
+
+  def current_barber
+    client_haircut = ClientHaircut.where(closed_at: nil, client_id: self.id)
+    return Barber.find_by(id: client_haircut[0].barber_id)
+  end
+
+  def self.average_haircut_time_with_barber(client_id,haircut_id,barber_id)
+    client_haircut_time = ClientHaircutTime.where(haircut_id: haircut_id, barber_id: barber_id, client_id: client_id).pluck(:avg_time)
+    client_haircut_time ? client_haircut_time[0] : 45
+  end
+
+  def wait_time
+    current_barber = self.current_barber
+    clients = current_barber.clients_in_queue
+    time_to_wait = 0
+
+    clients.each do |client_haircut|
+      if client_haircut.client_id == self.id
+        return time_to_wait
+      else
+        time_to_wait += Client.average_haircut_time_with_barber(
+            client_haircut.client_id,
+            client_haircut.haircut_id,
+            client_haircut.barber_id)
+
+        if current_barber.cutting_hair
+          if current_barber.current_client[0].client_id == client_haircut.client_id
+            time_to_wait -= (current_barber.active_queue_time - current_barber.wait_time).abs
+          end
+        end
+      end
+    end
+  end
+
   def date_started
     starting_date = {}
     starting_date["month"] = MONTHS[self.created_at.month-1]
