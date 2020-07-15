@@ -28,23 +28,24 @@ Home page where users see how long it will take to get a haircut for each barber
 </li>
 
 # Workflow
-1. git pull master 
-2. git checkout -b `<github issue number>-<name of branch>`
+1. git pull staging 
+2. git checkout -b `<github issue number>-<name of branch>` (you are branching off of staging)
 3. work on feature 
 4. once you are done 
-    * checkout the master branch
-    * git pull on the master branch
+    * checkout the staging branch
+    * git pull on staging branch
     * checkout YOUR feature branch
-    * git merge master 
-    * fix merge conflicts 
+    * git rebase staging
+    * fix merge conflicts if they exist
     * git push
+    * if you have any issues please let someone know
     * do the command that the terminal says to do
     * your branch should now be in the remote repository
 5. create a pull request on github 
     ![pull_request1]( ./images/pull_request1.png )
     ![pull_request2]( ./images/pull_request2.png )
     ![pull_request3]( ./images/pull_request3.png )
-    * what we're doing here is requesting to pull in our branch into the staging branch.  The base in third picture will always be staging, and what we're comparing is the branch we're requesting to be pulled in.  Once we make sure that the feature is working in staging then we go ahead and merge to master in another pull request. 
+    * what we're doing here is requesting to pull in our branch into the staging branch.  The base in the third picture will always be staging, and what we're comparing is the branch we're requesting to be pulled in.  Once we make sure that the feature is working in the staging branch then we go ahead and merge to master in another pull request. 
 # How To Use
 * git pull the repository 
 * bundle install
