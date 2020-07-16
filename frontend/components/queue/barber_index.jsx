@@ -39,7 +39,12 @@ class BarberIndex extends React.Component{
     this.props.getBarbers().then((payload)=>{
       let barberIds = Object.keys(payload.barbers)
       this.chairCount = Object.keys(payload.barbers).length
-      this.state["clientWaitTime"] = payload.clients[this.props.client].waitTime 
+      if (this.props.client){
+        let client = payload.clients[this.props.client]
+        if (client){
+          this.state["clientWaitTime"] = payload.clients[this.props.client].waitTime 
+        }
+      }
       let clientInterval = setInterval(() =>{
         this.setState({clientWaitTime: this.state.clientWaitTime - 1})
       },60000)
