@@ -5,23 +5,16 @@ class Api::SessionsController < ApplicationController
       params[:barber][:email],
       params[:barber][:password]
     )
-    if Barber.valid_barber_shop_password?(params[:barber][:barber_shop_password])
-      if @barber
-        #this is used for email confirmation but I have no idea how it works so ima go ahead and just comment it out
-        # if @barber.email_confirmed
-        #   sign_in(@barber)
-        #   render 'api/barbers/show'
-        # else
-        #   render json: ['Please confirm your email before signing in'], status: 422  
-        # end
 
+    if @barber
+      if Barber.valid_barber_shop_password?(params[:barber][:barber_shop_password])
         sign_in(@barber)
         render 'api/barbers/show'
       else
-        render json: ['Invalid credentials'], status: 422
+        render json: ["Incorrect Barber Shop Password"], status: 422
       end
     else
-      render json: ["Incorrect Barber Shop Password"], status: 422
+      render json: ['Invalid credentials'], status: 422
     end
   end
 
