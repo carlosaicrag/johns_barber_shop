@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class HaircutsControllerTest < ActionDispatch::IntegrationTest
+class Api::HaircutsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

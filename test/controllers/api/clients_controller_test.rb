@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ClientSessionsControllerTest < ActionDispatch::IntegrationTest
+class Api::ClientsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
