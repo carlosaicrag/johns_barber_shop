@@ -18,7 +18,7 @@ class Api::ClientSessionsController < ApplicationController
             client_sign_out
             render json: {}
         else
-            render json: ['Nobody singed in'], status: 404
+            render json: ['Nobody signed in'], status: 404
         end
     end
 end

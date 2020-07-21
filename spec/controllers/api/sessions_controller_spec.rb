@@ -6,8 +6,13 @@ RSpec.describe Api::SessionsController, type: :controller do
     context "with valid barber credentials" do 
       it "renders a 200 level response" do 
         post :create, params: {barber: {email: "bananaCakes@gmail.com", password: "starwars", barber_shop_password: "a" }}, format: :json
-        debugger
         expect(response.status).to eq(200)
+      end
+
+      it "successfully logs in a barber" do 
+        post :create, params: {barber: {email: "bananaCakes@gmail.com", password: "starwars", barber_shop_password: "a" }}, format: :json
+        barber_success_login = Barber.find_by(fname: "Joe")
+        expect(session[:barber_session_token]).to eq(barber_success_login.session_token)
       end
     end
     
