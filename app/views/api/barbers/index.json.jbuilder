@@ -32,4 +32,5 @@ json.clients do
             end
         end
     end
+    json.duck "duck"
 end

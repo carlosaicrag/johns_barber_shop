@@ -19,6 +19,7 @@ export const getBarbers = () => (dispatch) => {
         retrieveBarbers().then((payload) => {
             dispatch(receiveBarbers(payload))
             if (!payload.barbers) return {}
+            console.log(payload)
             return payload
         })
     )
