@@ -1,7 +1,11 @@
 class Api::ClientHaircutsController < ApplicationController
     def queue
         @current_barber = current_barber
-        render :queue
+        if @current_barber
+            render :queue
+        else
+            render json: ["No Barber is signed in"], status: 404
+        end
     end
 
     def create

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resource :session, only: [:create, :destroy]
     resources :haircuts, only: [:index]
-    get 'queue' => "client_haircuts#ß"
+    get 'queue' => "client_haircuts#queue"
     resources :barbers, only: [:index, :create, :show, :update] do
       member do
         get :confirm_email
