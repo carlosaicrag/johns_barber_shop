@@ -26,6 +26,7 @@ class ClientHaircut < ApplicationRecord
     class_name: :Barber
 
   MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
   def release_client
     self.closed_at = DateTime.now
     self.save!
@@ -55,12 +56,11 @@ class ClientHaircut < ApplicationRecord
   end
 
   def haircut_time 
-    hour_to_mins_created_at = self.created_at.hour * 60
-    total_minutes_created_at = hour_to_mins_created_at + self.created_at.min
+    hour_to_mins_created_at = self.started_haircut_time.hour * 60
+    total_minutes_created_at = hour_to_mins_created_at + self.started_haircut_time.min
 
     hour_to_mins_closed_at = self.closed_at.hour * 60
     total_minutes_started_at = hour_to_mins_closed_at + self.closed_at.min
-
     (total_minutes_created_at - total_minutes_started_at).abs
   end
   
