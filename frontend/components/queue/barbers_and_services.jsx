@@ -27,9 +27,13 @@ const BarbersAndServices = function ({nextPrevBarber,state,barbers,client,remind
   if (clientObject){
     timeLeft = <div> your wait time: {state.clientWaitTime} </div>
   }
+  let closedMessage;
+  if(barberIcons.length() === 0 ){
+    closedMessage = <div>Sorry we are closed</div>
+  }
   return (
     <div className="queue-mobile-container" onClick={() => cancelFailSafe ? handleCancelFailSafe(): ""}>
-      {barberIcons[state.barber]}
+      {barberIcons.length() === 0 ? closedMessage : barberIcons[state.barber]}
       {timeLeft}
       <TimeTable
       state={state}

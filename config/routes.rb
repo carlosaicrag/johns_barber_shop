@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  namespace :api, default: { format: :json } do
+  namespace :api, defaults: { format: :json } do
+    resource :session, only: [:create, :destroy]
     resources :haircuts, only: [:index]
     get 'queue' => "client_haircuts#queue"
     resources :barbers, only: [:index, :create, :show, :update] do
@@ -20,7 +21,6 @@ Rails.application.routes.draw do
     post 'passwords/forgot', to: 'passwords#forgot'
     post 'passwords/:token/reset', to: 'passwords#reset'
     
-    resource :session, only: [:create, :destroy]
     resource :client_session, only: [:create, :destroy]
   end
   
