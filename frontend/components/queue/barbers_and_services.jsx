@@ -1,9 +1,21 @@
-import React from "react"
+import React from "react";
 import BarberIndexItem from "./barber_index_item";
 import TimeTable from "./time_table";
 
-const BarbersAndServices = function ({nextPrevBarber,state,barbers,client,remindToLogin,alreadyInQueue, barberSession, handleCancelFailSafe, 
-  cancelFailSafe,handleCancelClientHaircut, barberCancelingFrom, clientObject}){
+const BarbersAndServices = function ({
+  nextPrevBarber,
+  state,
+  barbers,
+  client,
+  remindToLogin,
+  alreadyInQueue,
+  barberSession,
+  handleCancelFailSafe,
+  cancelFailSafe,
+  handleCancelClientHaircut,
+  barberCancelingFrom,
+  clientObject,
+}) {
   let barberIcons = Object.values(barbers).map((barber, idx) => {
     return (
       <BarberIndexItem
@@ -21,26 +33,32 @@ const BarbersAndServices = function ({nextPrevBarber,state,barbers,client,remind
         handleCancelClientHaircut={handleCancelClientHaircut}
         barberCancelingFrom={barberCancelingFrom}
       />
-    )
-  })
-  let timeLeft = null
-  if (clientObject){
-    timeLeft = <div> your wait time: {state.clientWaitTime} </div>
+    );
+  });
+  let timeLeft = null;
+  if (clientObject) {
+    timeLeft = (
+      <div className="wait-time">
+        {" "}
+        <div>
+          Your Wait Time: {state.clientWaitTime} mins
+        </div>
+      </div>
+    );
   }
   let closedMessage;
-  if(barberIcons.length === 0 ){
-    closedMessage = <div>Sorry we are closed</div>
+  if (barberIcons.length === 0) {
+    closedMessage = <div>Sorry we are closed</div>;
   }
   return (
-    <div className="queue-mobile-container" onClick={() => cancelFailSafe ? handleCancelFailSafe(): ""}>
+    <div
+      className="queue-mobile-container"
+      onClick={() => (cancelFailSafe ? handleCancelFailSafe() : "")}
+    >
       {barberIcons.length === 0 ? closedMessage : barberIcons[state.barber]}
-      {timeLeft}
-      <TimeTable
-      state={state}
-      barbers={barbers}
-      />
+      <TimeTable state={state} barbers={barbers} timeLeft={timeLeft}/>
 
-      <div className="services-container">
+      {/* <div className="services-container">
         <div className="chair-nextarrow-waittime-newhaircut-opacity">
           <div className="services-title">Services</div>
           <div className="services-cell-container">
@@ -50,7 +68,7 @@ const BarbersAndServices = function ({nextPrevBarber,state,barbers,client,remind
               <div>service1 $10</div>
               <div>service1 $10</div>
             </div>
-              
+
             <div>
               <div>service1 $10</div>
               <div>service1 $10</div>
@@ -59,9 +77,9 @@ const BarbersAndServices = function ({nextPrevBarber,state,barbers,client,remind
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
-  )
-}
+  );
+};
 
 export default BarbersAndServices;

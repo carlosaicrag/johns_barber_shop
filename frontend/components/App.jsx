@@ -15,7 +15,7 @@ import ClientProfileContainer from "./client_profile/client_profile_container"
 import Footer from "./footer/footer.jsx"
 
 export const App = () => (
-  <div>
+  <div className="app">
     <Modal />
     
     <HeaderContainer />

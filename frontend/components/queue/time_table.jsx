@@ -1,6 +1,6 @@
 import React from "react"
 
-const TimeTable = function({state,barbers}){
+const TimeTable = function({state,barbers,timeLeft}){
   const rows = Object.values(barbers);
   let nameRow = {}
   
@@ -23,6 +23,7 @@ const TimeTable = function({state,barbers}){
   let makeTable = () => {
     return (
       <div className="table">
+        {timeLeft}
         <div className="wait-times">Wait Times</div>
         <div className="table-row">
           {Object.values(nameRow).map((value, idx) => {

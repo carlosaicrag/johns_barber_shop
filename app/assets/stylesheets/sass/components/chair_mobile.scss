@@ -3,7 +3,6 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 500px;
     background-image: url("/empty_seat.jpg");
     background-size: 355px;
     background-position: 30px 460px;
@@ -48,10 +47,8 @@
 }
 
 .queue-mobile-container{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-rows: 70% 30%;
 }
 
 .chair-container-barber-name{

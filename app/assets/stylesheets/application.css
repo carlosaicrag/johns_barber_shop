@@ -22,14 +22,27 @@ body {
   height: 100%;
 }
 
+body main {
+  height: 100%;
+}
+
+body main .app {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 10% 80% 10%;
+}
+
 .footer{
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
   padding: 1rem;
   background-color: rgb(235, 195, 64);
-  position: fixed;
+  /* position: fixed; */
   bottom: 0;
   left: 0;
   width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .list-unstyled{
