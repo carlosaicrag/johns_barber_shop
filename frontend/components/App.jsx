@@ -12,7 +12,7 @@ import ChooseHaircut from "./choose_haircut/choose_haircut_container";
 import Error from "./error_pages/error";
 import Unauthorized from "./error_pages/unauthorized";
 import ClientProfileContainer from "./client_profile/client_profile_container"
-
+import Footer from "./footer/footer.jsx"
 
 export const App = () => (
   <div>
@@ -32,5 +32,7 @@ export const App = () => (
       <Route path="/unauthorized" component={Unauthorized} />
       <Redirect to="/error"></Redirect>
     </Switch>
+
+    <Footer />
   </div>
 );
