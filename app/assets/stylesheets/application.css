@@ -29,12 +29,11 @@ body main {
 body main .app {
   height: 100%;
   display: grid;
-  grid-template-rows: 10% 80% 10%;
+  grid-template-rows: 10% 1fr 10%;
 }
 
 .footer{
   /* margin-top: 1rem; */
-  padding: 1rem;
   background-color: rgb(235, 195, 64);
   /* position: fixed; */
   bottom: 0;

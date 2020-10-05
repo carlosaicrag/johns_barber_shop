@@ -70,3 +70,9 @@
     flex-direction: column;
     align-items: center;
 }
+
+@media screen and (max-height: 700px){
+    .chair-nextarrow-waittime-newhaircut{
+        font-size: 35px;
+    }
+}
