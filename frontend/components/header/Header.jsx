@@ -97,9 +97,9 @@ class Header extends React.Component{
       <div>
         <div>barber signup</div>
       </div>
-      <div>
+      {/* <div>
         <div>testimonials</div>
-      </div>
+      </div> */}
     </div>
 
     let dropDown = <div className="drop-down-container" onClick={this.handleModal}>
