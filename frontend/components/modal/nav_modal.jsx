@@ -27,9 +27,9 @@ const navModal = function(props){
                 <div>
                     <Link to="/signup">Signup</Link>
                 </div>
-                <div>
+                {/* <div>
                     <Link to="/login">Testimonials</Link>
-                </div>
+                </div> */}
             </div>
         )   
     } else { 
@@ -59,9 +59,9 @@ const navModal = function(props){
                     <Link to="/login">About</Link>
                 </div>
                 {logout}
-                <div>
+                {/* <div>
                     <Link to="/login">Testimonials</Link>
-                </div>
+                </div> */}
                 {queue}
                 {profile}
             </div>
