@@ -1,6 +1,7 @@
 # Johns Barber Shop 
+[Johns Barber Shop](http://johns-barber-shop.herokuapp.com/#/)
 
-* Welcome to Johns Barber Shop repository.  This is non profit project that will help my barber back home in LA with his barbershop business.
+* Welcome to Johns Barber Shop repository.
 
 # Project Description
 
@@ -21,7 +22,7 @@ Barber User Auth
 Page where users are able to pick their type of haircut and the barber they want to give them a haircut.
 </li>
 <li>
-Page where barbers are able to see who is in their queue and are also able to take people off of their queue once they are done with a haircut.
+Page where barbers are able to see how many people are in their queue and are also able to take people off of their queue once they are done with a haircut.
 </li> 
 <li>
 Home page where users see how long it will take to get a haircut for each barber.
