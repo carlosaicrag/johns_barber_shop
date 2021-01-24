@@ -43,11 +43,16 @@ class BarberIndex extends React.Component {
         let client = payload.clients[this.props.client]
         if (client) {
           this.state["clientWaitTime"] = payload.clients[this.props.client].waitTime
+          let clientInterval = setInterval(() => {
+              if (this.state["clientWaitTime"] > 0 && this.props.barberCancelingFrom.cutting_hair){
+                this.setState({ clientWaitTime: this.state.clientWaitTime - 1 })
+              }else{
+                clearInterval(clientInterval)
+              }
+            }, 60000)
+
         }
       }
-      let clientInterval = setInterval(() => {
-        this.setState({ clientWaitTime: this.state.clientWaitTime - 1 })
-      }, 60000)
       barberIds.forEach((barberId) => {
         let barber = payload.barbers[barberId]
         let timeLimit = barber.totalWaitTime - barber.avgTime
