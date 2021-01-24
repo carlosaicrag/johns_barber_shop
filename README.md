@@ -13,48 +13,47 @@ Let’s think of a scenario. Someone comes into the shop and wants a haircut.  F
 There will be two sides to this app, the barber side and the user client side. The barber gets to see who is in their queue.  Barbers will also be able to remove clients once they are done giving them a hair cut.  Users will see approximately how long it will take each barber to be done with their haircut. 
 </p>
 
-# MVP List
-<ol>  
-<li>
-Barber User Auth
-</li> 
-<li>
-Page where users are able to pick their type of haircut and the barber they want to give them a haircut.
-</li>
-<li>
-Page where barbers are able to see how many people are in their queue and are also able to take people off of their queue once they are done with a haircut.
-</li> 
-<li>
-Home page where users see how long it will take to get a haircut for each barber.
-</li>
+![main_page](./images/jbs_main_page.png)
 
-# Workflow
-1. git pull staging 
-2. git checkout -b `<github issue number>-<name of branch>` (you are branching off of staging)
-3. work on feature 
-4. once you are done 
-    * checkout the staging branch
-    * git pull on staging branch
-    * checkout YOUR feature branch
-    * git rebase staging
-    * fix merge conflicts if they exist
-    * git push
-    * if you have any issues please let someone know
-    * do the command that the terminal says to do
-    * your branch should now be in the remote repository
-5. create a pull request on github 
-    ![pull_request1]( ./images/pull_request1.png )
-    ![pull_request2]( ./images/pull_request2.png )
-    ![pull_request3]( ./images/pull_request3.png )
-    * what we're doing here is requesting to pull in our branch into the staging branch.  The base in the third picture will always be staging, and what we're comparing is the branch we're requesting to be pulled in.  Once we make sure that the feature is working in the staging branch then we go ahead and merge to master in another pull request. 
-# How To Use
-* git pull the repository 
-* bundle install
-* npm install
-* rails db:setup
-* rails db:migrate
-* rails db:seed 
-* rails s on a new terminal tab
-* npm start on another new terminal tab
+![client_profile](./images/jbs_profile.png)
 
-* let's make a cool app!
+![barber_queue](./images/barber_queue.png)
+
+<p>
+Below we a part of the algorithm that allows users to see how long until they are up for a haircut.  This happens once a client finds a hairstyle and barber to cut their hair.  The information reaces this controller action where it then creates a new ClientHaircut object.  The controller action also looks for the combination of information in another table called the client_haircut_times through the line `ClientHaircutTime.avg_time`.  If it finds a row in the table then it returns it, but if it doesnt, then it creates a new row and saves it to the table.  This newly created row has a default avg_time of 45 minutes.  The 45 minutes is important because it will allow other clients to see an updated queue. This is how other clients see how long it will be until they are up for a haircut. 
+</p>
+
+``` ruby
+def create
+  @client_haircut = ClientHaircut.new(client_haircut_params)
+  @client_haircut.client_id = current_client_user.id
+  haircut_id = params[:client_haircut][:haircut_id]
+  barber_id = params[:client_haircut][:barber_id]
+  @client_haircut_avg_time = ClientHaircutTime.avg_time(current_client_user.id,haircut_id,barber_id,client_haircut_params)
+
+  @client_haircut_avg_time.client_id = current_client_user.id
+  if ClientHaircut.client_already_in_a_queue?(current_client_user)
+      render json: ["You are already in a barbers queue"], status: 402
+  elsif @client_haircut.save and @client_haircut_avg_time.save
+      render :show
+  else
+      render json: @client_haircut.errors.full_messages, status: 402
+  end
+end
+```
+
+<p>
+After the client has finished with their haircut then we are taken to the controller action seen below.  This controller action is responsible for closing the client_haircut and updating the avg time it takes to do the haircut that the client got. If it took a total time of 20 minutes or more, then we will update the table, but if it did not then we will keep the previous avg time it took to get a haircut. 
+
+</p>
+
+```ruby 
+def close_client_haircut
+  @client_haircut = ClientHaircut.find_by(id: params[:id])
+  @client_haircut.release_client
+  ClientHaircutTime.update_avg(@client_haircut)
+  Barber.change_working_status(current_barber)
+  @client_haircuts = ClientHaircut.where(barber_id: current_barber.id).where(closed_at: [nil]).order('created_at ASC')
+  render :queue
+end
+```
