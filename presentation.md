@@ -2,6 +2,14 @@
 
 ### Johns Barber Shop
 ---
+### Agenda
+* Show images of website 
+* demo out project
+* Highlights of Project 
+  * Backend
+  * Frontend
+* Conclusion
+---
 ### Main page
 
 ![queue_page](./images/jbs_main_page.png)
@@ -18,9 +26,19 @@
 ![jbs_profile](./images/jbs_profile.png)
 
 ---
+### Picking a Haircut
+![pick_haircut](./images/pick_haircut.png)
+
+---
 ### Barbers Queue
 
 ![barber_queue](./images/barber_queue.png)
+
+---
+### Demo
+---
+### Backend
+
 ---
 ### Barbers Table
 
@@ -40,16 +58,20 @@
 ---
 ### Haircuts Table
 
-| id      | password_digest | session_token | email  | fname  | lname  |
-|---------|-----------------|---------------|--------|--------|--------|
-| integer | string          | string        | string | string | string |
+| id      | haircut_name | path   |
+|---------|--------------|--------|
+| integer | string       | string |
+|         |              |        |
+|         |              |        |
 
 ---
 ### ClientHaircuts Table 
 
-| id      | password_digest | session_token | email  | fname  | lname  |
-|---------|-----------------|---------------|--------|--------|--------|
-| integer | string          | string        | string | string | string |
+| id      | client_id | haircut_id | barber_id | closed_at | started_haircut_time |
+|---------|-----------|------------|-----------|-----------|----------------------|
+| integer | integer   | integer    | integer   | datetime  | datetime             |
+|         |           |            |           |           |                      |
+|         |           |            |           |           |                      |
 
 
 ---
@@ -241,5 +263,33 @@ end
 
 ### Main page
 
+```javascript 
+function componentDidMount() {
+  //
+  //
+  //
+  barberIds.forEach((barberId) => {
+        let barber = payload.barbers[barberId]
+        let timeLimit = barber.totalWaitTime - barber.avgTime
+        this.state[barberId] = barber.queueTime
+        this.setState({ [barberId]: barber.queueTime })
+
+        let interval = setInterval(() => {
+          if (this.state[barberId] != 0 && this.state[barberId] > timeLimit) {
+            this.setState({ [barberId]: this.state[barberId] - 1 })
+          } else {
+            clearInterval(interval)
+          }
+        }, 60000)
+
+        this.barberIntervals.push(interval)
+      })
+    })
+}
+
+```
+---
+### Visual of Logic
+![compdidMount](./images/componentDidMount.png)
 
 ---
