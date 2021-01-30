@@ -4,15 +4,17 @@
 ---
 ### Agenda
 * Show images of website 
-* demo out project
+* Demo out project
 * Highlights of Project 
   * Backend
   * Frontend
-* Conclusion
+* What I have learned
+* The FUTURE
+
 ---
 ### Main page
 
-![queue_page](./images/jbs_main_page.png)
+[queue_page]()
 
 ---
 ### Login Page
@@ -176,38 +178,31 @@ end
 
 ### Sample State 
 
-# Sample State
 ``` java
 {
   entities:{
     barbers:{
       6: {
+        id: 6,
         fname: "Damian",
         lname: "Lillard",
-        currentClientStarttime: 
-          avg_time: 0,
-          hour: 0,
-          minute: 0,
-          second: 0
-        },
+        avgTime: 0,
         cutting_hair: true,
-        gravitar: "fjdksa;fjdska"
+        barberGravitar: "fjdksa;fjdska"
         queueTime: 70
-        working: true
+        working: true,
+        totalWaitTime: 45
       },
       7: {
+        id: 7,
         fname: "James",
         lname: "Harden",
-        currentClientStarttime: {
-          avg_time: 0,
-          hour: 0,
-          minute: 0,
-          second: 0
-        },
+        avgTime: 0,
         cutting_hair: false,
-        gravitar: "fjdksa;fjdsfdaska"
+        barberGravitar: "fjdksa;fjdsfdaska"
         queueTime: 90
-        working: true
+        working: true,
+        totalWaitTime: 135
       },
     },
     queue:{ // information about queue for barber 
@@ -284,7 +279,7 @@ function componentDidMount() {
 
         this.barberIntervals.push(interval)
       })
-    })
+  })
 }
 
 ```
@@ -292,4 +287,22 @@ function componentDidMount() {
 ### Visual of Logic
 ![compdidMount](./images/componentDidMount.png)
 
+---
+### What I have learned
+
+* Started with mobile first
+  * did not consider mobile at the start and had to redo all of the frontend once I decided I wanted to make it mobile
+* Plan out my api endpoints better in
+  * make it easier on myself to send and rerceive information
+* plan out the naming of components better 
+  * caused a bit of confusion at times
+* Sending organized payloads to make frontend display easier 
+
+---
+### Looking to the future 
+
+* Planning on introducing the project to my barber to help him run his business
+* Scaling project to allow different barbershops to sign up and have their business run on the site
+---
+### Thank You 
 ---
