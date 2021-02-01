@@ -51,6 +51,7 @@ class Barber < ApplicationRecord
   end
   
   def active_queue_time
+    #this is the active queue time of a barbers queue
     time_passed_hours = ((current_client_cutting_hair_starting_time.hour-DateTime.now.hour)*60).abs
     time_passed_mins = (current_client_cutting_hair_starting_time.min - DateTime.now.min).abs
     time_passed = (time_passed_hours+time_passed_mins)

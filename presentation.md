@@ -3,6 +3,8 @@
 ### Johns Barber Shop
 ---
 ### Agenda
+* Technologies
+* Background
 * Show images of website 
 * Demo out project
 * Highlights of Project 
@@ -11,30 +13,38 @@
 * What I have learned
 * The FUTURE
 
----
-### Main page
+--- 
 
-[queue_page]()
+### Technologies 
+* React 
+* Redux 
+* Rails 
+
+---
+
+### Main page and Background
+
+![queue_page](https://raw.githubusercontent.com/carlosaicrag/johns_barber_shop/master/images/jbs_main_page.png)
 
 ---
 ### Login Page
 
-![login_page](./images/login_page.png)
+![login_page](https://raw.githubusercontent.com/carlosaicrag/johns_barber_shop/master/images/login_page.png)
 
 ---
 
 ### Clients Profile Page 
 
-![jbs_profile](./images/jbs_profile.png)
+![jbs_profile](https://raw.githubusercontent.com/carlosaicrag/johns_barber_shop/master/images/jbs_profile.png)
 
 ---
 ### Picking a Haircut
-![pick_haircut](./images/pick_haircut.png)
+![pick_haircut](https://raw.githubusercontent.com/carlosaicrag/johns_barber_shop/master/images/pick_haircut.png)
 
 ---
 ### Barbers Queue
 
-![barber_queue](./images/barber_queue.png)
+![barber_queue](https://raw.githubusercontent.com/carlosaicrag/johns_barber_shop/master/images/barber_queue.png)
 
 ---
 ### Demo
@@ -63,8 +73,7 @@
 | id      | haircut_name | path   |
 |---------|--------------|--------|
 | integer | string       | string |
-|         |              |        |
-|         |              |        |
+
 
 ---
 ### ClientHaircuts Table 
@@ -72,8 +81,6 @@
 | id      | client_id | haircut_id | barber_id | closed_at | started_haircut_time |
 |---------|-----------|------------|-----------|-----------|----------------------|
 | integer | integer   | integer    | integer   | datetime  | datetime             |
-|         |           |            |           |           |                      |
-|         |           |            |           |           |                      |
 
 
 ---
@@ -114,13 +121,9 @@ json.barbers do
     end
 end
 
-json.clientHaircuts do
-    ClientHaircut.where(closed_at: nil).each do |client_haircut|
-        json.set! client_haircut.id do 
-            json.extract! client_haircut, :id, :barber_id, :client_id, :haircut_id
-        end
-    end
-end
+###
+###
+###
 
 json.clients do 
     if @current_client_user
@@ -136,8 +139,11 @@ end
 ```
 
 ---
+### Current Client WaitTime Diagram
+* a diagram will go here 
+---
 
-### creating a new Clienthaircuts Row 
+### Creating a New Clienthaircut Row 
 
 ``` ruby
 def create
@@ -158,8 +164,9 @@ def create
 end
 ```
 
+---
 
-### closing a clienthaircut
+### Closing a Clienthaircut
 * on the barbers queue page we will be closing the current haircut that the barber is on and then returning a new queue with clients placed in the correct order. 
 ``` ruby 
 def close_client_haircut
@@ -205,7 +212,7 @@ end
         totalWaitTime: 135
       },
     },
-    queue:{ // information about queue for barber 
+    queue:{ 
       id: 6,
       clientFirstName: "Bob",
       clientHaircut: "Afro-Fade",
@@ -260,6 +267,19 @@ end
 
 ```javascript 
 function componentDidMount() {
+//
+//
+//
+  if (client) {
+    this.state["clientWaitTime"] = payload.clients[this.props.client].waitTime
+    let clientInterval = setInterval(() => {
+        if (this.state["clientWaitTime"] > 0 && this.props.barberCancelingFrom.cutting_hair){
+          this.setState({ clientWaitTime: this.state.clientWaitTime - 1 })
+        }else{
+          clearInterval(clientInterval)
+        }
+      }, 60000)
+  }
   //
   //
   //
@@ -284,18 +304,26 @@ function componentDidMount() {
 
 ```
 ---
-### Visual of Logic
-![compdidMount](./images/componentDidMount.png)
+### Visual of Logic Barber's Queue
+![compdidMount](https://raw.githubusercontent.com/carlosaicrag/johns_barber_shop/master/images/componentDidMount.png)
 
+---
+### Visual of Logic Current Client WaitTime 1
+![current_client1]()
+---
+
+### Visual of Logic Current Client WaitTime 2
+![current_client2]()
 ---
 ### What I have learned
 
-* Started with mobile first
-  * did not consider mobile at the start and had to redo all of the frontend once I decided I wanted to make it mobile
-* Plan out my api endpoints better in
-  * make it easier on myself to send and rerceive information
-* plan out the naming of components better 
-  * caused a bit of confusion at times
+* Shortening of variable names
+* Star with mobile first
+  * Did not consider mobile at the start and had to redo all of the frontend once I decided I wanted to make it mobile
+* Plan out my api endpoints better
+  * Make it easier on myself to send and rerceive information
+* Plan out the naming of components better 
+  * Caused a bit of confusion at times
 * Sending organized payloads to make frontend display easier 
 
 ---
@@ -303,6 +331,9 @@ function componentDidMount() {
 
 * Planning on introducing the project to my barber to help him run his business
 * Scaling project to allow different barbershops to sign up and have their business run on the site
+* Looking forward continue learning with this project 
 ---
 ### Thank You 
+
+![funny_gif](https://media0.giphy.com/media/3oKIPf3C7HqqYBVcCk/giphy.gif)
 ---

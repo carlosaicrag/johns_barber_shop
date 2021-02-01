@@ -75,20 +75,26 @@ class Client < ApplicationRecord
 
   def wait_time
     current_barber = self.current_barber
-    clients = current_barber.clients_in_queue
+    clients = current_barber.clients_in_queue # returning clients in asceding order (queue)
     time_to_wait = 0
 
     clients.each do |client_haircut|
       if client_haircut.client_id == self.id
-        return time_to_wait
+        return time_to_wait # if we have hit our client then return the time_to_wait
       else
+        # continously add to time_to_wait 
         time_to_wait += Client.average_haircut_time_with_barber(
             client_haircut.client_id,
             client_haircut.haircut_id,
             client_haircut.barber_id)
 
+        # if the barber is cutting someones hair then we want to subtract the amount of time they have spent on the current client
         if current_barber.cutting_hair
+          #if the current client we're at matches the id of the client the barber is currently cutting hair for
+          # go ahead and subtract the amount of time that has passed
           if current_barber.current_client[0].client_id == client_haircut.client_id
+            #current_barber_active_queue_time is total time minus time spent on the current client
+            # current_barber.wait_time is total wait time
             time_to_wait -= (current_barber.active_queue_time - current_barber.wait_time).abs
           end
         end
