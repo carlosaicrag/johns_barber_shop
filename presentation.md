@@ -1,24 +1,29 @@
 ### Johns Barber Shop
+
 ---
+
 ### Agenda
-* Technologies
-* Background
-* Show Images of Website 
-* Demo out project
-* Highlights of Project 
-  * Backend
-  * Frontend
-* What I have learned
-* The FUTURE
+
+- Technologies
+- Background
+- Show Images of Website
+- Demo out project
+- Highlights of Project
+  - Backend
+  - Frontend
+- What I have learned
+- The FUTURE
 
 ---
 
-### Technologies 
-* React 
-* Redux 
-* Rails
-* HTML
-* CSS 
+### Technologies
+
+- React
+- Redux
+- Rails
+- HTML
+- CSS
+- AJAX
 
 ---
 
@@ -27,72 +32,82 @@
 ![queue_page](https://raw.githubusercontent.com/carlosaicrag/johns_barber_shop/master/images/jbs_main_page.png)
 
 ---
+
 ### Login Page
 
 ![login_page](https://raw.githubusercontent.com/carlosaicrag/johns_barber_shop/master/images/login_page.png)
 
 ---
 
-### Clients Profile Page 
+### Clients Profile Page
 
 ![jbs_profile](https://raw.githubusercontent.com/carlosaicrag/johns_barber_shop/master/images/jbs_profile.png)
 
 ---
+
 ### Picking a Haircut
+
 ![pick_haircut](https://raw.githubusercontent.com/carlosaicrag/johns_barber_shop/master/images/pick_haircut.png)
 
 ---
+
 ### Barbers Queue
 
 ![barber_queue](https://raw.githubusercontent.com/carlosaicrag/johns_barber_shop/master/images/barber_queue.png)
 
 ---
+
 ### Demo
+
 ---
+
 ### Backend
 
 ---
+
 ### Barbers Table
 
 | id      | password_digest | session_token | email  | fname  | lname  | working | cutting_hair |
-|---------|-----------------|---------------|--------|--------|--------|---------|--------------|
+| ------- | --------------- | ------------- | ------ | ------ | ------ | ------- | ------------ |
 | integer | string          | string        | string | string | string | boolean | boolean      |
 
-
 ---
+
 ### Clients Table
 
 | id      | password_digest | session_token | email  | fname  | lname  |
-|---------|-----------------|---------------|--------|--------|--------|
+| ------- | --------------- | ------------- | ------ | ------ | ------ |
 | integer | string          | string        | string | string | string |
 
-
 ---
+
 ### Haircuts Table
 
 | id      | haircut_name | path   |
-|---------|--------------|--------|
+| ------- | ------------ | ------ |
 | integer | string       | string |
 
-
 ---
-### ClientHaircuts Table 
+
+### ClientHaircuts Table
 
 | id      | client_id | haircut_id | barber_id | closed_at | started_haircut_time |
-|---------|-----------|------------|-----------|-----------|----------------------|
+| ------- | --------- | ---------- | --------- | --------- | -------------------- |
 | integer | integer   | integer    | integer   | datetime  | datetime             |
 
-
 ---
+
 ### ClientsHaircutsTimes table
 
 | id      | client_id | haircut_id | barber_id | avg_time            |
-|---------|-----------|------------|-----------|---------------------|
+| ------- | --------- | ---------- | --------- | ------------------- |
 | integer | integer   | integer    | integer   | integer default: 45 |
 
 ---
+
 ### Rendering the Main Page Controller
-```ruby 
+
+```ruby
 
 def index
     @barbers = Barber.where(working: true)
@@ -100,13 +115,15 @@ def index
 end
 
 ```
+
 ---
+
 ### Rendering the Main Page api payload
 
-```ruby 
-json.barbers do 
+```ruby
+json.barbers do
     @barbers.each do |barber|
-        json.set! barber.id do 
+        json.set! barber.id do
             json.partial! "api/barbers/barber", barber:barber
             json.barberGravitar barber.gravitar
             if barber.cutting_hair
@@ -125,10 +142,10 @@ end
 ###
 ###
 
-json.clients do 
+json.clients do
     if @current_client_user
         if @current_client_user.in_queue?
-            json.set! @current_client_user.id do 
+            json.set! @current_client_user.id do
                 json.partial! "api/clients/client", client: @current_client_user
                 json.waitTime @current_client_user.wait_time
             end
@@ -139,22 +156,26 @@ end
 ```
 
 ---
+
 ### Visual of Logic Barber's Queue
+
 ![compdidMount](https://raw.githubusercontent.com/carlosaicrag/johns_barber_shop/master/images/componentDidMount.png)
 
 ---
-### Visual of Logic Current Client WaitTime 1
-![current_client1](https://raw.githubusercontent.com/carlosaicrag/johns_barber_shop/master/images/current_client_waitTime.png)
----
 
+### Visual of Logic Current Client WaitTime 1
+
+![current_client1](https://raw.githubusercontent.com/carlosaicrag/johns_barber_shop/master/images/current_client_waitTime.png)
+
+---
 ### Visual of Logic Current Client WaitTime 2
+
 ![current_client2](https://raw.githubusercontent.com/carlosaicrag/johns_barber_shop/master/images/current_client_waittime1.png)
 
 ---
+### Creating a New Clienthaircut Row
 
-### Creating a New Clienthaircut Row 
-
-``` ruby
+```ruby
 def create
   @client_haircut = ClientHaircut.new(client_haircut_params)
   @client_haircut.client_id = current_client_user.id
@@ -177,7 +198,7 @@ end
 
 ### Closing a Clienthaircut
 
-``` ruby 
+```ruby
 def close_client_haircut
   @client_haircut = ClientHaircut.find_by(id: params[:id])
   @client_haircut.release_client
@@ -189,92 +210,13 @@ end
 ```
 
 ---
-### Frontend 
+
+### Frontend
+
 ---
-
-### Sample State 
-
-``` java
-{
-  entities:{
-    barbers:{
-      6: {
-        id: 6,
-        fname: "Damian",
-        lname: "Lillard",
-        avgTime: 0,
-        cutting_hair: true,
-        barberGravitar: "fjdksa;fjdska"
-        queueTime: 70
-        working: true,
-        totalWaitTime: 45
-      },
-      7: {
-        id: 7,
-        fname: "James",
-        lname: "Harden",
-        avgTime: 0,
-        cutting_hair: false,
-        barberGravitar: "fjdksa;fjdsfdaska"
-        queueTime: 90
-        working: true,
-        totalWaitTime: 135
-      },
-    },
-    queue:{ 
-      id: 6,
-      clientFirstName: "Bob",
-      clientHaircut: "Afro-Fade",
-      clientLastName: "Pancake",
-      queueLenght: 2,
-    },
-    haircuts:{
-      22: {
-        id: 22,
-        haircut_name: "Afro_Fade",
-        path: "./Afro-Fade-Haircut.jpg"
-      },
-      23: {
-        id: 23,
-        haircut_name: "Bald_Fade",
-        path: "./Bald-Fade-Haircut.jpg"
-      }
-    }
-  },
-    clientHaircuts:{
-      7: {
-        id: 7,
-        barber_id: 6,
-        client_id: 8,
-        haircut_id: 24
-      },
-      8: {
-        id: 8,
-        barber_id: 7,
-        client_id: 9,
-        haircut_id: 22
-      },
-    }
-  },
-  ui: {
-    modal: {
-      type: "OPEN_NAV_MODAL"
-    }
-  },
-  errors: {
-    session: ["Invalid Credentials"]
-  },
-  session: {
-    id: null,
-    clientId: 12
-  }
-}
-```
----
-
 ### Main page
 
-```javascript 
+```javascript
 function componentDidMount() {
 //
 //
@@ -299,7 +241,7 @@ function componentDidMount() {
         this.setState({ [barberId]: barber.queueTime })
 
         let interval = setInterval(() => {
-          if (this.state[barberId] != 0 &&  ) {
+          if (this.state[barberId] != 0 &&  this.state[barberId] > timeLimit) {
             this.setState({ [barberId]: this.state[barberId] - 1 })
           } else {
             clearInterval(interval)
@@ -312,39 +254,45 @@ function componentDidMount() {
 }
 
 ```
----
-### Visual of Logic Current Client WaitTime 1
-![current_client1](https://raw.githubusercontent.com/carlosaicrag/johns_barber_shop/master/images/current_client_waitTime.png)
+
 ---
 
+### Visual of Logic Current Client WaitTime 1
+
+## ![current_client1](https://raw.githubusercontent.com/carlosaicrag/johns_barber_shop/master/images/current_client_waitTime.png)
+
 ### Visual of Logic Current Client WaitTime 2
+
 ![current_client2](https://raw.githubusercontent.com/carlosaicrag/johns_barber_shop/master/images/current_client_waittime1.png)
 
 ---
 
 ### Visual of Logic Barber's Queue
+
 ![compdidMount](https://raw.githubusercontent.com/carlosaicrag/johns_barber_shop/master/images/componentDidMount.png)
 
 ---
+
 ### What I have learned
 
-* Shortening of variable names
-* Start with mobile first
-  * Did not consider mobile at the start and had to redo all of the frontend once I decided I wanted to make it mobile
-* Plan out my api endpoints better
-  * Make it easier on myself to send and receive information
-* Plan out the naming of components better 
-  * Caused a bit of confusion at times
-* Sending organized payloads to make frontend display easier 
+- Start with mobile first
+  - Did not consider mobile at the start and had to redo all of the frontend once I decided I wanted to make it mobile
+- Plan out my api endpoints better
+  - Make it easier on myself to send and receive information
+- Plan out the naming of components better
+  - Caused a bit of confusion at times
+- Sending organized payloads to make frontend display easier
 
 ---
-### Looking to the future 
 
-* Planning on introducing the project to my barber to help him run his business
-* Scaling project to allow different barbershops to sign up and have their business run on the site
-* Looking forward continue learning with this project 
----
-### Thank You 
+### Looking to the future
 
-![funny_gif](https://media0.giphy.com/media/3oKIPf3C7HqqYBVcCk/giphy.gif)
+- Planning on introducing the project to my barber to help him run his business
+- Scaling project to allow different barbershops to sign up and have their business run on the site
+- Looking forward continue learning with this project
+
 ---
+
+### Thank You
+
+## ![funny_gif](https://media0.giphy.com/media/3oKIPf3C7HqqYBVcCk/giphy.gif)
