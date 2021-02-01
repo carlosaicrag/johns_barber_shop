@@ -1,11 +1,9 @@
-# W4D2
-
 ### Johns Barber Shop
 ---
 ### Agenda
 * Technologies
 * Background
-* Show images of website 
+* Show Images of Website 
 * Demo out project
 * Highlights of Project 
   * Backend
@@ -13,7 +11,7 @@
 * What I have learned
 * The FUTURE
 
---- 
+---
 
 ### Technologies 
 * React 
@@ -139,8 +137,17 @@ end
 ```
 
 ---
-### Current Client WaitTime Diagram
-* a diagram will go here 
+### Visual of Logic Barber's Queue
+![compdidMount](https://raw.githubusercontent.com/carlosaicrag/johns_barber_shop/master/images/componentDidMount.png)
+
+---
+### Visual of Logic Current Client WaitTime 1
+![current_client1](https://raw.githubusercontent.com/carlosaicrag/johns_barber_shop/master/images/current_client_waitTime.png)
+---
+
+### Visual of Logic Current Client WaitTime 2
+![current_client2](https://raw.githubusercontent.com/carlosaicrag/johns_barber_shop/master/images/current_client_waittime1.png)
+
 ---
 
 ### Creating a New Clienthaircut Row 
@@ -309,19 +316,20 @@ function componentDidMount() {
 
 ---
 ### Visual of Logic Current Client WaitTime 1
-![current_client1]()
+![current_client1](https://raw.githubusercontent.com/carlosaicrag/johns_barber_shop/master/images/current_client_waitTime.png)
 ---
 
 ### Visual of Logic Current Client WaitTime 2
-![current_client2]()
+![current_client2](https://raw.githubusercontent.com/carlosaicrag/johns_barber_shop/master/images/current_client_waittime1.png)
+
 ---
 ### What I have learned
 
 * Shortening of variable names
-* Star with mobile first
+* Start with mobile first
   * Did not consider mobile at the start and had to redo all of the frontend once I decided I wanted to make it mobile
 * Plan out my api endpoints better
-  * Make it easier on myself to send and rerceive information
+  * Make it easier on myself to send and receive information
 * Plan out the naming of components better 
   * Caused a bit of confusion at times
 * Sending organized payloads to make frontend display easier 
