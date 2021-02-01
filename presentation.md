@@ -16,7 +16,9 @@
 ### Technologies 
 * React 
 * Redux 
-* Rails 
+* Rails
+* HTML
+* CSS 
 
 ---
 
@@ -174,7 +176,7 @@ end
 ---
 
 ### Closing a Clienthaircut
-* on the barbers queue page we will be closing the current haircut that the barber is on and then returning a new queue with clients placed in the correct order. 
+
 ``` ruby 
 def close_client_haircut
   @client_haircut = ClientHaircut.find_by(id: params[:id])
@@ -297,7 +299,7 @@ function componentDidMount() {
         this.setState({ [barberId]: barber.queueTime })
 
         let interval = setInterval(() => {
-          if (this.state[barberId] != 0 && this.state[barberId] > timeLimit) {
+          if (this.state[barberId] != 0 &&  ) {
             this.setState({ [barberId]: this.state[barberId] - 1 })
           } else {
             clearInterval(interval)
@@ -311,16 +313,17 @@ function componentDidMount() {
 
 ```
 ---
-### Visual of Logic Barber's Queue
-![compdidMount](https://raw.githubusercontent.com/carlosaicrag/johns_barber_shop/master/images/componentDidMount.png)
-
----
 ### Visual of Logic Current Client WaitTime 1
 ![current_client1](https://raw.githubusercontent.com/carlosaicrag/johns_barber_shop/master/images/current_client_waitTime.png)
 ---
 
 ### Visual of Logic Current Client WaitTime 2
 ![current_client2](https://raw.githubusercontent.com/carlosaicrag/johns_barber_shop/master/images/current_client_waittime1.png)
+
+---
+
+### Visual of Logic Barber's Queue
+![compdidMount](https://raw.githubusercontent.com/carlosaicrag/johns_barber_shop/master/images/componentDidMount.png)
 
 ---
 ### What I have learned
