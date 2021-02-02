@@ -8,9 +8,7 @@
 - Background
 - Show Images of Website
 - Demo out project
-- Highlights of Project
-  - Backend
-  - Frontend
+- Highlights 
 - What I have learned
 - The FUTURE
 
@@ -104,8 +102,11 @@
 | integer | integer   | integer    | integer   | integer default: 45 |
 
 ---
+![request_response_cycle_rails](https://miro.medium.com/max/1200/1*lFMcocBQ4zF-Q-_SvM8c7Q.jpeg)
 
-### Rendering the Main Page Controller
+---
+
+### Rendering the Main Page Barbers Controller
 
 ```ruby
 
@@ -151,8 +152,51 @@ json.clients do
             end
         end
     end
-    json.duck "duck"
+
 end
+```
+
+---
+
+### Main page
+
+```javascript
+function componentDidMount() {
+//
+//
+//
+  if (client) {
+    this.state["clientWaitTime"] = payload.clients[this.props.client].waitTime
+    let clientInterval = setInterval(() => {
+        if (this.state["clientWaitTime"] > 0 && this.props.barberCancelingFrom.cutting_hair){
+          this.setState({ clientWaitTime: this.state.clientWaitTime - 1 })
+        }else{
+          clearInterval(clientInterval)
+        }
+      }, 60000)
+  }
+  //
+  //
+  //
+  barberIds.forEach((barberId) => {
+        let barber = payload.barbers[barberId]
+        let timeLimit = barber.totalWaitTime - barber.avgTime
+        this.state[barberId] = barber.queueTime
+        this.setState({ [barberId]: barber.queueTime })
+
+        let interval = setInterval(() => {
+          if (this.state[barberId] != 0 &&  this.state[barberId] > timeLimit) {
+            this.setState({ [barberId]: this.state[barberId] - 1 })
+          } else {
+            clearInterval(interval)
+          }
+        }, 60000)
+
+        this.barberIntervals.push(interval)
+      })
+  })
+}
+
 ```
 
 ---
@@ -208,69 +252,6 @@ def close_client_haircut
   render :queue
 end
 ```
-
----
-
-### Frontend
-
----
-### Main page
-
-```javascript
-function componentDidMount() {
-//
-//
-//
-  if (client) {
-    this.state["clientWaitTime"] = payload.clients[this.props.client].waitTime
-    let clientInterval = setInterval(() => {
-        if (this.state["clientWaitTime"] > 0 && this.props.barberCancelingFrom.cutting_hair){
-          this.setState({ clientWaitTime: this.state.clientWaitTime - 1 })
-        }else{
-          clearInterval(clientInterval)
-        }
-      }, 60000)
-  }
-  //
-  //
-  //
-  barberIds.forEach((barberId) => {
-        let barber = payload.barbers[barberId]
-        let timeLimit = barber.totalWaitTime - barber.avgTime
-        this.state[barberId] = barber.queueTime
-        this.setState({ [barberId]: barber.queueTime })
-
-        let interval = setInterval(() => {
-          if (this.state[barberId] != 0 &&  this.state[barberId] > timeLimit) {
-            this.setState({ [barberId]: this.state[barberId] - 1 })
-          } else {
-            clearInterval(interval)
-          }
-        }, 60000)
-
-        this.barberIntervals.push(interval)
-      })
-  })
-}
-
-```
-
----
-
-### Visual of Logic Current Client WaitTime 1
-
-## ![current_client1](https://raw.githubusercontent.com/carlosaicrag/johns_barber_shop/master/images/current_client_waitTime.png)
-
-### Visual of Logic Current Client WaitTime 2
-
-![current_client2](https://raw.githubusercontent.com/carlosaicrag/johns_barber_shop/master/images/current_client_waittime1.png)
-
----
-
-### Visual of Logic Barber's Queue
-
-![compdidMount](https://raw.githubusercontent.com/carlosaicrag/johns_barber_shop/master/images/componentDidMount.png)
-
 ---
 
 ### What I have learned
@@ -288,8 +269,9 @@ function componentDidMount() {
 ### Looking to the future
 
 - Planning on introducing the project to my barber to help him run his business
+- Implementing a feature where parents can add their children to the queue without having to create a profile for the children
 - Scaling project to allow different barbershops to sign up and have their business run on the site
-- Looking forward continue learning with this project
+- Implementing websockets 
 
 ---
 
